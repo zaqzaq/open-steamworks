@@ -182,6 +182,7 @@
 #include "ISteamRemoteStorage010.h"
 #include "ISteamRemoteStorage011.h"
 #include "ISteamRemoteStorage012.h"
+#include "ISteamRemoteStorage013.h"
 
 // content server
 #include "ISteamContentServer001.h"
