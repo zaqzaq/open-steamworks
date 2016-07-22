@@ -43,7 +43,7 @@ public:
 	
 	virtual SteamAPICall_t FileWriteAsync( const char *, void *, uint32 ) = 0;
 	virtual SteamAPICall_t FileReadAsync( const char *, uint32, uint32 ) = 0;
-	virtual SteamAPICall_t FileReadAsyncComplete( uint64, void*, uint32 ) = 0;
+	virtual bool FileReadAsyncComplete( uint64, void*, uint32 ) = 0;
 	
 	virtual bool	FileForget( const char *pchFile ) = 0;
 	virtual bool	FileDelete( const char *pchFile ) = 0;
