@@ -115,6 +115,9 @@
     <Filter Include="Steamclient Headers\Steam Interfaces\ISteamUGC">
       <UniqueIdentifier>{b0823f4c-f269-4ab4-96bd-d1406f29efea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Steamclient Headers\Steam Interfaces\ISteamInventory">
+      <UniqueIdentifier>{5406b85a-2cdf-474f-9a7e-e5aaef60afcd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\Resources\Libs\Win32\Steam.lib">
@@ -832,16 +835,62 @@
     <ClInclude Include="ISteamUGC002.h">
       <Filter>Steamclient Headers\Steam Interfaces\ISteamUGC</Filter>
     </ClInclude>
-    <ClInclude Include="ISteamUGC003.h" />
-    <ClInclude Include="ISteamFriends015.h" />
-    <ClInclude Include="ISteamClient017.h" />
-    <ClInclude Include="ISteamClient013.h" />
-    <ClInclude Include="ISteamClient014.h" />
-    <ClInclude Include="ISteamClient015.h" />
-    <ClInclude Include="ISteamClient016.h" />
-    <ClInclude Include="ISteamInventory001.h" />
-    <ClInclude Include="IClientInventory.h" />
-    <ClInclude Include="InventoryCommon.h" />
-    <ClInclude Include="ISteamScreenshots002.h" />
+    <ClInclude Include="ISteamClient017.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamClient</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteamClient013.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamClient</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteamClient014.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamClient</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteamClient015.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamClient</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteamClient016.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamClient</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteamFriends015.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamFriends</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteamScreenshots002.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamScreenshots</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteamUGC003.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamUGC</Filter>
+    </ClInclude>
+    <ClInclude Include="IClientInventory.h">
+      <Filter>Steamclient Headers\Client Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteamInventory001.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamInventory</Filter>
+    </ClInclude>
+    <ClInclude Include="InventoryCommon.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamInventory</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteamApps007.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamApps</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteamApps008.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamApps</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteamUtils008.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteamUser018.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamUser</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteamUser019.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamUser</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteamScreenshots003.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamScreenshots</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteamController003.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamController</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteamController004.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamController</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

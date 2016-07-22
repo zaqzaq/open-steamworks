@@ -58,7 +58,7 @@ public:
 
 	virtual bool IsScreenshotsHooked() = 0;
 
-	virtual ScreenshotHandle AddVRScreenshotToLibrary(EVRScreenshotType, char const*, char const*) = 0;
+	virtual ScreenshotHandle AddVRScreenshotToLibrary( EVRScreenshotType, const char *, const char * ) = 0;
 };
 
 

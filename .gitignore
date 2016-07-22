@@ -1,5 +1,10 @@
+.vs/
+*.VC.db
+*.VC.VC.opendb
+*.log
 Backup
 *.sdf
 *.opensdf
+*.opendb
 UpgradeLog.*
 _UpgradeReport_Files
