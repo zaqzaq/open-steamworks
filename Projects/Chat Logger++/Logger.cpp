@@ -22,7 +22,6 @@ CLogger::CLogger() : wxThread(wxTHREAD_DETACHED), m_steamLoader(CSteamAPILoader:
 
 	m_pGetChatRoomEntry = NULL;
 	m_pGetChatRoomName = NULL;
-	m_pGetPlayerNickname = NULL;
 
 	wxRegConfig config(_T("Chat Logger++"), _T("OSW"));
 	config.Read(_T("LogDirectory"), &m_logDirectory, wxGetCwd());
@@ -101,11 +100,12 @@ void CLogger::SetTimeFormat(const wxString& format)
 	m_timeFormat = format;
 }
 
+
 void* CLogger::FindSteamFunction(const char* cszName)
 {
 	static CSigScanner sigScanner(GetModuleHandleA("steamclient.dll"));
 
-	for(unsigned char* pMatch = NULL; pMatch = (unsigned char*)sigScanner.FindSignature("\x68\x00\x00\x00\x00\x51\x8d\x55\xd0\x52\x50\xe8\x00\x00\x00\x00\x8d\x48\x04\xe8\x00\x00\x00\x00\x8b\xf0\x8b\xce\xe8\x00\x00\x00\x00\x00\x00\x00\x00", "x????xxx?xxx????xxxx????xxxxx????????", false, pMatch); )
+	for(unsigned char* pMatch = NULL; pMatch = (unsigned char*)sigScanner.FindSignature("\x68\x00\x00\x00\x00\xFF\x77\x04\x8D\x45\xD0\x50\xFF\x77\x0C\xE8\x00\x00\x00\x00\x8D\x48\x04\xE8\x00\x00\x00\x00\x8B\xF8\x8B\xCF\xE8\x00\x00\x00\x00", "x????xxxxxxxxxxx????xxxx????xxxxx????", false, pMatch); )
 	{
 		const char* cszFunctionName = *(const char**)(pMatch + 1);
 		if(strcmp(cszFunctionName, cszName) == 0)
@@ -114,8 +114,19 @@ void* CLogger::FindSteamFunction(const char* cszName)
 		}
 	}
 
+	// alt pattern for SendSerializedFunction call... yes, way slower this way 
+	for(unsigned char* pMatch = NULL; pMatch = (unsigned char*)sigScanner.FindSignature("\x68\x00\x00\x00\x00\xFF\x76\x04\x50\xFF\x76\x0C\xE8\x00\x00\x00\x00\x8D\x48\x04\xE8\x00\x00\x00\x00\x8B\xF0\x8B\xCE\xE8\x00\x00\x00\x00\x8D\x45\xFC", "x????xxxxxxxx????xxxx????xxxxx????xxx", false, pMatch); )
+	{
+		const char* cszFunctionName = *(const char**)(pMatch + 1);
+		if (strcmp(cszFunctionName, cszName) == 0)
+		{
+			return sigScanner.FindSignature("\x55\x8B\xEC\x83\xEC", "xxxxx", true, pMatch);
+		}
+	}
+
 	return NULL;
 }
+
 
 bool CLogger::InitSteam()
 {
@@ -144,11 +155,11 @@ bool CLogger::InitSteam()
 	if(!m_hUser)
 		return false;
 
-	m_pSteamFriends = (ISteamFriends013*)m_pSteamClient->GetISteamFriends(m_hUser, m_hPipe, STEAMFRIENDS_INTERFACE_VERSION_013);
+	m_pSteamFriends = (ISteamFriends015*)m_pSteamClient->GetISteamFriends(m_hUser, m_hPipe, STEAMFRIENDS_INTERFACE_VERSION_015);
 	if(!m_pSteamFriends)
 		return false;
 
-	m_pSteamUser = (ISteamUser016*)m_pSteamClient->GetISteamUser(m_hUser, m_hPipe, STEAMUSER_INTERFACE_VERSION_016);
+	m_pSteamUser = (ISteamUser019*)m_pSteamClient->GetISteamUser(m_hUser, m_hPipe, STEAMUSER_INTERFACE_VERSION_019);
 	if(!m_pSteamUser)
 		return false;
 
@@ -160,16 +171,16 @@ bool CLogger::InitSteam()
 		IClientEngine* pClientEngine = (IClientEngine*)steam3Factory(CLIENTENGINE_INTERFACE_VERSION, NULL);
 		if(!pClientEngine)
 		{
-			wxGetApp().SetTrayIcon(CApp::k_EIconWarning, _("Group chat logging and Nickname support are disabled"));
-			wxGetApp().Warning(_("Unable to get IClientEngine interface,\nGroup chat logging and Nickname support are disabled."));
+			wxGetApp().SetTrayIcon(CApp::k_EIconWarning, _("Group chat logging is disabled"));
+			wxGetApp().Warning(_("Unable to get IClientEngine interface,\nGroup chat logging is disabled."));
 			return true;
 		}
 
 		m_pClientFriends = pClientEngine->GetIClientFriends(m_hUser, m_hPipe, CLIENTFRIENDS_INTERFACE_VERSION);
 		if(!m_pClientFriends)
 		{
-			wxGetApp().SetTrayIcon(CApp::k_EIconWarning, _("Group chat logging and Nickname support are disabled"));
-			wxGetApp().Warning(_("Unable to get IClientFriends interface,\nGroup chat logging and Nickname support are disabled."));
+			wxGetApp().SetTrayIcon(CApp::k_EIconWarning, _("Group chat logging is disabled"));
+			wxGetApp().Warning(_("Unable to get IClientFriends interface,\nGroup chat logging is disabled."));
 			return true;
 		}
 
@@ -185,13 +196,6 @@ bool CLogger::InitSteam()
 		{
 			wxGetApp().SetTrayIcon(CApp::k_EIconWarning, _("{Name} variable is disabled"));
 			wxGetApp().Warning(_("Unable to find GetChatRoomName,\nThe {Name} variable won't work for chat rooms."));
-		}
-		
-		m_pGetPlayerNickname = (const char *(__thiscall *)(IClientFriends *, CSteamID)) FindSteamFunction("GetPlayerNickname");
-		if(!m_pGetPlayerNickname)
-		{
-			wxGetApp().SetTrayIcon(CApp::k_EIconWarning, _("Nickname support is disabled"));
-			wxGetApp().Warning(_("Unable to find GetPlayerNickname,\nNickname support is disabled."));
 		}
 	}
 
@@ -221,7 +225,6 @@ void CLogger::CleanupSteam()
 
 	m_pGetChatRoomEntry = NULL;
 	m_pGetChatRoomName = NULL;
-	m_pGetPlayerNickname = NULL;
 }
 
 void CLogger::UseClientInterfaces(bool bUse)
@@ -303,7 +306,6 @@ void CLogger::OnIPCFailure(IPCFailure_t* pIPCFailure)
 
 	m_pGetChatRoomEntry = NULL;
 	m_pGetChatRoomName = NULL;
-	m_pGetPlayerNickname = NULL;
 
 	CloseLogs();
 
@@ -481,8 +483,7 @@ void CLogger::FormatFilename(wxString& string, CSteamID steamID)
 	{
 		const char* cszNickname = NULL;
 
-		if(m_pClientFriends && m_pGetPlayerNickname)
-			cszNickname = m_pGetPlayerNickname(m_pClientFriends, steamID);
+		cszNickname = m_pSteamFriends->GetPlayerNickname(steamID);
 
 		if(cszNickname)
 		{
@@ -528,8 +529,7 @@ void CLogger::FormatMessage(wxString& string, CSteamID steamID, const char* cszM
 	wxString name = wxString(m_pSteamFriends->GetFriendPersonaName(steamID), wxConvUTF8);
 	const char* cszNickname = NULL;
 
-	if(m_pClientFriends && m_pGetPlayerNickname)
-		cszNickname = m_pGetPlayerNickname(m_pClientFriends, steamID);
+	cszNickname = m_pSteamFriends->GetPlayerNickname(steamID);
 
 	if(cszNickname)
 	{
