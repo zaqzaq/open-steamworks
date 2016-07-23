@@ -23,4 +23,8 @@ namespace Steam4NET
 		k_ESteamControllerPad_Right = 1,
 	};
 	
+	public enum EControllerActionOrigin : int
+	{
+	};
+	
 }

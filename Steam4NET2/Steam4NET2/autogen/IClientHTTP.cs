@@ -27,7 +27,15 @@ namespace Steam4NET
 		public IntPtr ReleaseHTTPRequest15;
 		public IntPtr GetHTTPDownloadProgressPct16;
 		public IntPtr SetHTTPRequestRawPostBody17;
-		private IntPtr DTorIClientHTTP18;
+		public IntPtr CreateCookieContainer18;
+		public IntPtr ReleaseCookieContainer19;
+		public IntPtr SetCookie20;
+		public IntPtr SetHTTPRequestCookieContainer21;
+		public IntPtr SetHTTPRequestUserAgentInfo22;
+		public IntPtr SetHTTPRequestRequiresVerifiedCertificate23;
+		public IntPtr SetHTTPRequestAbsoluteTimeoutMS24;
+		public IntPtr GetHTTPRequestWasTimedOut25;
+		private IntPtr DTorIClientHTTP26;
 	};
 	
 	[InteropHelp.InterfaceVersion("CLIENTHTTP_INTERFACE_VERSION001")]
@@ -156,6 +164,61 @@ namespace Steam4NET
 		public bool SetHTTPRequestRawPostBody( UInt32 hRequest, string pchContentType, Byte[] pubBody ) 
 		{
 			return this.GetFunction<NativeSetHTTPRequestRawPostBodyUSBU>( this.Functions.SetHTTPRequestRawPostBody17 )( this.ObjectAddress, hRequest, pchContentType, pubBody, (UInt32) pubBody.Length ); 
+		}
+		
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate UInt32 NativeCreateCookieContainerB( IntPtr thisptr, [MarshalAs(UnmanagedType.I1)] bool arg0 );
+		public UInt32 CreateCookieContainer( bool arg0 ) 
+		{
+			return this.GetFunction<NativeCreateCookieContainerB>( this.Functions.CreateCookieContainer18 )( this.ObjectAddress, arg0 ); 
+		}
+		
+		[return: MarshalAs(UnmanagedType.I1)]
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate bool NativeReleaseCookieContainerU( IntPtr thisptr, UInt32 arg0 );
+		public bool ReleaseCookieContainer( UInt32 arg0 ) 
+		{
+			return this.GetFunction<NativeReleaseCookieContainerU>( this.Functions.ReleaseCookieContainer19 )( this.ObjectAddress, arg0 ); 
+		}
+		
+		[return: MarshalAs(UnmanagedType.I1)]
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate bool NativeSetCookieUSSS( IntPtr thisptr, UInt32 arg0, string arg1, string arg2, string arg3 );
+		public bool SetCookie( UInt32 arg0, string arg1, string arg2, string arg3 ) 
+		{
+			return this.GetFunction<NativeSetCookieUSSS>( this.Functions.SetCookie20 )( this.ObjectAddress, arg0, arg1, arg2, arg3 ); 
+		}
+		
+		[return: MarshalAs(UnmanagedType.I1)]
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate bool NativeSetHTTPRequestCookieContainerUU( IntPtr thisptr, UInt32 hRequest, UInt32 arg1 );
+		public bool SetHTTPRequestCookieContainer( UInt32 hRequest, UInt32 arg1 ) 
+		{
+			return this.GetFunction<NativeSetHTTPRequestCookieContainerUU>( this.Functions.SetHTTPRequestCookieContainer21 )( this.ObjectAddress, hRequest, arg1 ); 
+		}
+		
+		[return: MarshalAs(UnmanagedType.I1)]
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate bool NativeSetHTTPRequestUserAgentInfoUS( IntPtr thisptr, UInt32 hRequest, string arg1 );
+		public bool SetHTTPRequestUserAgentInfo( UInt32 hRequest, string arg1 ) 
+		{
+			return this.GetFunction<NativeSetHTTPRequestUserAgentInfoUS>( this.Functions.SetHTTPRequestUserAgentInfo22 )( this.ObjectAddress, hRequest, arg1 ); 
+		}
+		
+		[return: MarshalAs(UnmanagedType.I1)]
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate bool NativeSetHTTPRequestRequiresVerifiedCertificateUB( IntPtr thisptr, UInt32 hRequest, [MarshalAs(UnmanagedType.I1)] bool arg1 );
+		public bool SetHTTPRequestRequiresVerifiedCertificate( UInt32 hRequest, bool arg1 ) 
+		{
+			return this.GetFunction<NativeSetHTTPRequestRequiresVerifiedCertificateUB>( this.Functions.SetHTTPRequestRequiresVerifiedCertificate23 )( this.ObjectAddress, hRequest, arg1 ); 
+		}
+		
+		[return: MarshalAs(UnmanagedType.I1)]
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate bool NativeSetHTTPRequestAbsoluteTimeoutMSUU( IntPtr thisptr, UInt32 hRequest, UInt32 arg1 );
+		public bool SetHTTPRequestAbsoluteTimeoutMS( UInt32 hRequest, UInt32 arg1 ) 
+		{
+			return this.GetFunction<NativeSetHTTPRequestAbsoluteTimeoutMSUU>( this.Functions.SetHTTPRequestAbsoluteTimeoutMS24 )( this.ObjectAddress, hRequest, arg1 ); 
+		}
+		
+		[return: MarshalAs(UnmanagedType.I1)]
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate bool NativeGetHTTPRequestWasTimedOutUB( IntPtr thisptr, UInt32 hRequest, ref bool arg1 );
+		public bool GetHTTPRequestWasTimedOut( UInt32 hRequest, ref bool arg1 ) 
+		{
+			return this.GetFunction<NativeGetHTTPRequestWasTimedOutUB>( this.Functions.GetHTTPRequestWasTimedOut25 )( this.ObjectAddress, hRequest, ref arg1 ); 
 		}
 		
 	};

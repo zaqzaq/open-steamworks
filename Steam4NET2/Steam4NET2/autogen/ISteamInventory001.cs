@@ -34,6 +34,7 @@ namespace Steam4NET
 		private IntPtr DTorISteamInventory00122;
 	};
 	
+	[InteropHelp.InterfaceVersion("STEAMINVENTORY_INTERFACE_V001")]
 	public class ISteamInventory001 : InteropHelp.NativeWrapper<ISteamInventory001VTable>
 	{
 		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate EResult NativeGetResultStatusI( IntPtr thisptr, Int32 resultHandle );

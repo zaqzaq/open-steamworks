@@ -6,6 +6,16 @@ using System.Runtime.InteropServices;
 namespace Steam4NET
 {
 
+	public enum EVRScreenshotType : int
+	{
+		VRScreenshotType_None = 0,
+		VRScreenshotType_Mono = 1,
+		VRScreenshotType_Stereo = 2,
+		VRScreenshotType_Cubemap = 3,
+		VRScreenshotType_MonoPanorama = 4,
+		VRScreenshotType_StereoPanorama = 5,
+	};
+	
 	[StructLayout(LayoutKind.Sequential,Pack=8)]
 	[InteropHelp.CallbackIdentity(2301)]
 	public struct ScreenshotReady_t

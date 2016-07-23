@@ -320,6 +320,24 @@ namespace Steam4NET
 	};
 	
 	[StructLayout(LayoutKind.Sequential,Pack=8)]
+	[InteropHelp.CallbackIdentity(164)]
+	public struct GameWebCallback_t
+	{
+		public const int k_iCallback = 164;
+		[MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
+		public string m_szURL;
+	};
+	
+	[StructLayout(LayoutKind.Sequential,Pack=8)]
+	[InteropHelp.CallbackIdentity(165)]
+	public struct StoreAuthURLResponse_t
+	{
+		public const int k_iCallback = 165;
+		[MarshalAs(UnmanagedType.ByValTStr, SizeConst = 512)]
+		public string m_szURL;
+	};
+	
+	[StructLayout(LayoutKind.Sequential,Pack=8)]
 	[InteropHelp.CallbackIdentity(901)]
 	public struct SystemIM_t
 	{

@@ -154,10 +154,10 @@ namespace Steam4NET
 			return this.GetFunction<NativeIndicateAchievementProgressSUU>( this.Functions.IndicateAchievementProgress13 )( this.ObjectAddress, pchName, nCurProgress, nMaxProgress ); 
 		}
 		
-		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate UInt32 NativeGetNumAchievementsC( IntPtr thisptr, UInt64 nGameID );
-		public UInt32 GetNumAchievements( CGameID nGameID ) 
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate UInt32 NativeGetNumAchievements( IntPtr thisptr );
+		public UInt32 GetNumAchievements(  ) 
 		{
-			return this.GetFunction<NativeGetNumAchievementsC>( this.Functions.GetNumAchievements14 )( this.ObjectAddress, nGameID.ConvertToUint64() ); 
+			return this.GetFunction<NativeGetNumAchievements>( this.Functions.GetNumAchievements14 )( this.ObjectAddress ); 
 		}
 		
 		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate IntPtr NativeGetAchievementNameU( IntPtr thisptr, UInt32 iAchievement );

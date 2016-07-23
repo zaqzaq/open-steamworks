@@ -19,24 +19,37 @@ namespace Steam4NET
 		public IntPtr GetShortcutUserTagCountByIndex7;
 		public IntPtr GetShortcutUserTagByIndex8;
 		public IntPtr BIsShortcutRemoteByIndex9;
-		public IntPtr GetShortcutAppNameByAppID10;
-		public IntPtr GetShortcutExeByAppID11;
-		public IntPtr GetShortcutStartDirByAppID12;
-		public IntPtr GetShortcutIconByAppID13;
-		public IntPtr GetShortcutUserTagCountByAppID14;
-		public IntPtr GetShortcutUserTagByAppID15;
-		public IntPtr BIsShortcutRemoteByAppID16;
-		public IntPtr AddShortcut17;
-		public IntPtr SetShortcutFromFullpath18;
-		public IntPtr SetShortcutAppName19;
-		public IntPtr SetShortcutExe20;
-		public IntPtr SetShortcutStartDir21;
-		public IntPtr SetShortcutIcon22;
-		public IntPtr ClearShortcutUserTags23;
-		public IntPtr AddShortcutUserTag24;
-		public IntPtr RemoveShortcut25;
-		public IntPtr LaunchShortcut26;
-		private IntPtr DTorIClientShortcuts27;
+		public IntPtr BIsTemporaryShortcutByIndex10;
+		public IntPtr BIsOpenVRShortcutByIndex11;
+		public IntPtr GetShortcutAppNameByAppID12;
+		public IntPtr GetShortcutExeByAppID13;
+		public IntPtr GetShortcutStartDirByAppID14;
+		public IntPtr GetShortcutIconByAppID15;
+		public IntPtr GetShortcutPathByAppID16;
+		public IntPtr GetShortcutUserTagCountByAppID17;
+		public IntPtr GetShortcutUserTagByAppID18;
+		public IntPtr BIsShortcutRemoteByAppID19;
+		public IntPtr BIsShortcutHiddenByAppID20;
+		public IntPtr BIsTemporaryShortcutByAppID21;
+		public IntPtr BIsOpenVRShortcutByAppID22;
+		public IntPtr BAllowDesktopConfigByAppID23;
+		public IntPtr AddShortcut24;
+		public IntPtr AddTemporaryShortcut25;
+		public IntPtr AddOpenVRShortcut26;
+		public IntPtr SetShortcutFromFullpath27;
+		public IntPtr SetShortcutAppName28;
+		public IntPtr SetShortcutExe29;
+		public IntPtr SetShortcutStartDir30;
+		public IntPtr SetShortcutIcon31;
+		public IntPtr ClearShortcutUserTags32;
+		public IntPtr AddShortcutUserTag33;
+		public IntPtr SetShortcutHidden34;
+		public IntPtr SetAllowDesktopConfig35;
+		public IntPtr SetOpenVRShortcut36;
+		public IntPtr RemoveShortcut37;
+		public IntPtr RemoveAllTemporaryShortcuts38;
+		public IntPtr LaunchShortcut39;
+		private IntPtr DTorIClientShortcuts40;
 	};
 	
 	[InteropHelp.InterfaceVersion("CLIENTSHORTCUTS_INTERFACE_VERSION001")]
@@ -103,108 +116,192 @@ namespace Steam4NET
 			return this.GetFunction<NativeBIsShortcutRemoteByIndexU>( this.Functions.BIsShortcutRemoteByIndex9 )( this.ObjectAddress, uIndex ); 
 		}
 		
+		[return: MarshalAs(UnmanagedType.I1)]
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate bool NativeBIsTemporaryShortcutByIndexU( IntPtr thisptr, UInt32 uIndex );
+		public bool BIsTemporaryShortcutByIndex( UInt32 uIndex ) 
+		{
+			return this.GetFunction<NativeBIsTemporaryShortcutByIndexU>( this.Functions.BIsTemporaryShortcutByIndex10 )( this.ObjectAddress, uIndex ); 
+		}
+		
+		[return: MarshalAs(UnmanagedType.I1)]
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate bool NativeBIsOpenVRShortcutByIndexU( IntPtr thisptr, UInt32 uIndex );
+		public bool BIsOpenVRShortcutByIndex( UInt32 uIndex ) 
+		{
+			return this.GetFunction<NativeBIsOpenVRShortcutByIndexU>( this.Functions.BIsOpenVRShortcutByIndex11 )( this.ObjectAddress, uIndex ); 
+		}
+		
 		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate IntPtr NativeGetShortcutAppNameByAppIDU( IntPtr thisptr, UInt32 unAppID );
 		public string GetShortcutAppNameByAppID( UInt32 unAppID ) 
 		{
-			return InteropHelp.DecodeANSIReturn( Marshal.PtrToStringAnsi( this.GetFunction<NativeGetShortcutAppNameByAppIDU>( this.Functions.GetShortcutAppNameByAppID10 )( this.ObjectAddress, unAppID ) ) ); 
+			return InteropHelp.DecodeANSIReturn( Marshal.PtrToStringAnsi( this.GetFunction<NativeGetShortcutAppNameByAppIDU>( this.Functions.GetShortcutAppNameByAppID12 )( this.ObjectAddress, unAppID ) ) ); 
 		}
 		
 		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate IntPtr NativeGetShortcutExeByAppIDU( IntPtr thisptr, UInt32 unAppID );
 		public string GetShortcutExeByAppID( UInt32 unAppID ) 
 		{
-			return InteropHelp.DecodeANSIReturn( Marshal.PtrToStringAnsi( this.GetFunction<NativeGetShortcutExeByAppIDU>( this.Functions.GetShortcutExeByAppID11 )( this.ObjectAddress, unAppID ) ) ); 
+			return InteropHelp.DecodeANSIReturn( Marshal.PtrToStringAnsi( this.GetFunction<NativeGetShortcutExeByAppIDU>( this.Functions.GetShortcutExeByAppID13 )( this.ObjectAddress, unAppID ) ) ); 
 		}
 		
 		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate IntPtr NativeGetShortcutStartDirByAppIDU( IntPtr thisptr, UInt32 unAppID );
 		public string GetShortcutStartDirByAppID( UInt32 unAppID ) 
 		{
-			return InteropHelp.DecodeANSIReturn( Marshal.PtrToStringAnsi( this.GetFunction<NativeGetShortcutStartDirByAppIDU>( this.Functions.GetShortcutStartDirByAppID12 )( this.ObjectAddress, unAppID ) ) ); 
+			return InteropHelp.DecodeANSIReturn( Marshal.PtrToStringAnsi( this.GetFunction<NativeGetShortcutStartDirByAppIDU>( this.Functions.GetShortcutStartDirByAppID14 )( this.ObjectAddress, unAppID ) ) ); 
 		}
 		
 		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate IntPtr NativeGetShortcutIconByAppIDU( IntPtr thisptr, UInt32 unAppID );
 		public string GetShortcutIconByAppID( UInt32 unAppID ) 
 		{
-			return InteropHelp.DecodeANSIReturn( Marshal.PtrToStringAnsi( this.GetFunction<NativeGetShortcutIconByAppIDU>( this.Functions.GetShortcutIconByAppID13 )( this.ObjectAddress, unAppID ) ) ); 
+			return InteropHelp.DecodeANSIReturn( Marshal.PtrToStringAnsi( this.GetFunction<NativeGetShortcutIconByAppIDU>( this.Functions.GetShortcutIconByAppID15 )( this.ObjectAddress, unAppID ) ) ); 
+		}
+		
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate IntPtr NativeGetShortcutPathByAppIDU( IntPtr thisptr, UInt32 unAppID );
+		public string GetShortcutPathByAppID( UInt32 unAppID ) 
+		{
+			return InteropHelp.DecodeANSIReturn( Marshal.PtrToStringAnsi( this.GetFunction<NativeGetShortcutPathByAppIDU>( this.Functions.GetShortcutPathByAppID16 )( this.ObjectAddress, unAppID ) ) ); 
 		}
 		
 		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate UInt32 NativeGetShortcutUserTagCountByAppIDU( IntPtr thisptr, UInt32 unAppID );
 		public UInt32 GetShortcutUserTagCountByAppID( UInt32 unAppID ) 
 		{
-			return this.GetFunction<NativeGetShortcutUserTagCountByAppIDU>( this.Functions.GetShortcutUserTagCountByAppID14 )( this.ObjectAddress, unAppID ); 
+			return this.GetFunction<NativeGetShortcutUserTagCountByAppIDU>( this.Functions.GetShortcutUserTagCountByAppID17 )( this.ObjectAddress, unAppID ); 
 		}
 		
 		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate IntPtr NativeGetShortcutUserTagByAppIDUU( IntPtr thisptr, UInt32 unAppID, UInt32 arg1 );
 		public string GetShortcutUserTagByAppID( UInt32 unAppID, UInt32 arg1 ) 
 		{
-			return InteropHelp.DecodeANSIReturn( Marshal.PtrToStringAnsi( this.GetFunction<NativeGetShortcutUserTagByAppIDUU>( this.Functions.GetShortcutUserTagByAppID15 )( this.ObjectAddress, unAppID, arg1 ) ) ); 
+			return InteropHelp.DecodeANSIReturn( Marshal.PtrToStringAnsi( this.GetFunction<NativeGetShortcutUserTagByAppIDUU>( this.Functions.GetShortcutUserTagByAppID18 )( this.ObjectAddress, unAppID, arg1 ) ) ); 
 		}
 		
 		[return: MarshalAs(UnmanagedType.I1)]
 		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate bool NativeBIsShortcutRemoteByAppIDU( IntPtr thisptr, UInt32 unAppID );
 		public bool BIsShortcutRemoteByAppID( UInt32 unAppID ) 
 		{
-			return this.GetFunction<NativeBIsShortcutRemoteByAppIDU>( this.Functions.BIsShortcutRemoteByAppID16 )( this.ObjectAddress, unAppID ); 
+			return this.GetFunction<NativeBIsShortcutRemoteByAppIDU>( this.Functions.BIsShortcutRemoteByAppID19 )( this.ObjectAddress, unAppID ); 
+		}
+		
+		[return: MarshalAs(UnmanagedType.I1)]
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate bool NativeBIsShortcutHiddenByAppIDU( IntPtr thisptr, UInt32 unAppID );
+		public bool BIsShortcutHiddenByAppID( UInt32 unAppID ) 
+		{
+			return this.GetFunction<NativeBIsShortcutHiddenByAppIDU>( this.Functions.BIsShortcutHiddenByAppID20 )( this.ObjectAddress, unAppID ); 
+		}
+		
+		[return: MarshalAs(UnmanagedType.I1)]
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate bool NativeBIsTemporaryShortcutByAppIDU( IntPtr thisptr, UInt32 unAppID );
+		public bool BIsTemporaryShortcutByAppID( UInt32 unAppID ) 
+		{
+			return this.GetFunction<NativeBIsTemporaryShortcutByAppIDU>( this.Functions.BIsTemporaryShortcutByAppID21 )( this.ObjectAddress, unAppID ); 
+		}
+		
+		[return: MarshalAs(UnmanagedType.I1)]
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate bool NativeBIsOpenVRShortcutByAppIDU( IntPtr thisptr, UInt32 unAppID );
+		public bool BIsOpenVRShortcutByAppID( UInt32 unAppID ) 
+		{
+			return this.GetFunction<NativeBIsOpenVRShortcutByAppIDU>( this.Functions.BIsOpenVRShortcutByAppID22 )( this.ObjectAddress, unAppID ); 
+		}
+		
+		[return: MarshalAs(UnmanagedType.I1)]
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate bool NativeBAllowDesktopConfigByAppIDU( IntPtr thisptr, UInt32 unAppID );
+		public bool BAllowDesktopConfigByAppID( UInt32 unAppID ) 
+		{
+			return this.GetFunction<NativeBAllowDesktopConfigByAppIDU>( this.Functions.BAllowDesktopConfigByAppID23 )( this.ObjectAddress, unAppID ); 
 		}
 		
 		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate UInt32 NativeAddShortcutSSS( IntPtr thisptr, string arg0, string arg1, string arg2 );
 		public UInt32 AddShortcut( string arg0, string arg1, string arg2 ) 
 		{
-			return this.GetFunction<NativeAddShortcutSSS>( this.Functions.AddShortcut17 )( this.ObjectAddress, arg0, arg1, arg2 ); 
+			return this.GetFunction<NativeAddShortcutSSS>( this.Functions.AddShortcut24 )( this.ObjectAddress, arg0, arg1, arg2 ); 
+		}
+		
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate UInt32 NativeAddTemporaryShortcutSSS( IntPtr thisptr, string arg0, string arg1, string arg2 );
+		public UInt32 AddTemporaryShortcut( string arg0, string arg1, string arg2 ) 
+		{
+			return this.GetFunction<NativeAddTemporaryShortcutSSS>( this.Functions.AddTemporaryShortcut25 )( this.ObjectAddress, arg0, arg1, arg2 ); 
+		}
+		
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate UInt32 NativeAddOpenVRShortcutSSS( IntPtr thisptr, string arg0, string arg1, string arg2 );
+		public UInt32 AddOpenVRShortcut( string arg0, string arg1, string arg2 ) 
+		{
+			return this.GetFunction<NativeAddOpenVRShortcutSSS>( this.Functions.AddOpenVRShortcut26 )( this.ObjectAddress, arg0, arg1, arg2 ); 
 		}
 		
 		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate void NativeSetShortcutFromFullpathUS( IntPtr thisptr, UInt32 arg0, string arg1 );
 		public void SetShortcutFromFullpath( UInt32 arg0, string arg1 ) 
 		{
-			this.GetFunction<NativeSetShortcutFromFullpathUS>( this.Functions.SetShortcutFromFullpath18 )( this.ObjectAddress, arg0, arg1 ); 
+			this.GetFunction<NativeSetShortcutFromFullpathUS>( this.Functions.SetShortcutFromFullpath27 )( this.ObjectAddress, arg0, arg1 ); 
 		}
 		
 		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate void NativeSetShortcutAppNameUS( IntPtr thisptr, UInt32 arg0, string arg1 );
 		public void SetShortcutAppName( UInt32 arg0, string arg1 ) 
 		{
-			this.GetFunction<NativeSetShortcutAppNameUS>( this.Functions.SetShortcutAppName19 )( this.ObjectAddress, arg0, arg1 ); 
+			this.GetFunction<NativeSetShortcutAppNameUS>( this.Functions.SetShortcutAppName28 )( this.ObjectAddress, arg0, arg1 ); 
 		}
 		
 		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate void NativeSetShortcutExeUS( IntPtr thisptr, UInt32 arg0, string arg1 );
 		public void SetShortcutExe( UInt32 arg0, string arg1 ) 
 		{
-			this.GetFunction<NativeSetShortcutExeUS>( this.Functions.SetShortcutExe20 )( this.ObjectAddress, arg0, arg1 ); 
+			this.GetFunction<NativeSetShortcutExeUS>( this.Functions.SetShortcutExe29 )( this.ObjectAddress, arg0, arg1 ); 
 		}
 		
 		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate void NativeSetShortcutStartDirUS( IntPtr thisptr, UInt32 arg0, string arg1 );
 		public void SetShortcutStartDir( UInt32 arg0, string arg1 ) 
 		{
-			this.GetFunction<NativeSetShortcutStartDirUS>( this.Functions.SetShortcutStartDir21 )( this.ObjectAddress, arg0, arg1 ); 
+			this.GetFunction<NativeSetShortcutStartDirUS>( this.Functions.SetShortcutStartDir30 )( this.ObjectAddress, arg0, arg1 ); 
 		}
 		
 		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate void NativeSetShortcutIconUS( IntPtr thisptr, UInt32 arg0, string arg1 );
 		public void SetShortcutIcon( UInt32 arg0, string arg1 ) 
 		{
-			this.GetFunction<NativeSetShortcutIconUS>( this.Functions.SetShortcutIcon22 )( this.ObjectAddress, arg0, arg1 ); 
+			this.GetFunction<NativeSetShortcutIconUS>( this.Functions.SetShortcutIcon31 )( this.ObjectAddress, arg0, arg1 ); 
 		}
 		
 		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate void NativeClearShortcutUserTagsU( IntPtr thisptr, UInt32 arg0 );
 		public void ClearShortcutUserTags( UInt32 arg0 ) 
 		{
-			this.GetFunction<NativeClearShortcutUserTagsU>( this.Functions.ClearShortcutUserTags23 )( this.ObjectAddress, arg0 ); 
+			this.GetFunction<NativeClearShortcutUserTagsU>( this.Functions.ClearShortcutUserTags32 )( this.ObjectAddress, arg0 ); 
 		}
 		
 		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate void NativeAddShortcutUserTagUS( IntPtr thisptr, UInt32 arg0, string arg1 );
 		public void AddShortcutUserTag( UInt32 arg0, string arg1 ) 
 		{
-			this.GetFunction<NativeAddShortcutUserTagUS>( this.Functions.AddShortcutUserTag24 )( this.ObjectAddress, arg0, arg1 ); 
+			this.GetFunction<NativeAddShortcutUserTagUS>( this.Functions.AddShortcutUserTag33 )( this.ObjectAddress, arg0, arg1 ); 
+		}
+		
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate void NativeSetShortcutHiddenUB( IntPtr thisptr, UInt32 arg0, [MarshalAs(UnmanagedType.I1)] bool arg1 );
+		public void SetShortcutHidden( UInt32 arg0, bool arg1 ) 
+		{
+			this.GetFunction<NativeSetShortcutHiddenUB>( this.Functions.SetShortcutHidden34 )( this.ObjectAddress, arg0, arg1 ); 
+		}
+		
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate void NativeSetAllowDesktopConfigUB( IntPtr thisptr, UInt32 arg0, [MarshalAs(UnmanagedType.I1)] bool arg1 );
+		public void SetAllowDesktopConfig( UInt32 arg0, bool arg1 ) 
+		{
+			this.GetFunction<NativeSetAllowDesktopConfigUB>( this.Functions.SetAllowDesktopConfig35 )( this.ObjectAddress, arg0, arg1 ); 
+		}
+		
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate void NativeSetOpenVRShortcutUB( IntPtr thisptr, UInt32 arg0, [MarshalAs(UnmanagedType.I1)] bool arg1 );
+		public void SetOpenVRShortcut( UInt32 arg0, bool arg1 ) 
+		{
+			this.GetFunction<NativeSetOpenVRShortcutUB>( this.Functions.SetOpenVRShortcut36 )( this.ObjectAddress, arg0, arg1 ); 
 		}
 		
 		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate void NativeRemoveShortcutU( IntPtr thisptr, UInt32 arg0 );
 		public void RemoveShortcut( UInt32 arg0 ) 
 		{
-			this.GetFunction<NativeRemoveShortcutU>( this.Functions.RemoveShortcut25 )( this.ObjectAddress, arg0 ); 
+			this.GetFunction<NativeRemoveShortcutU>( this.Functions.RemoveShortcut37 )( this.ObjectAddress, arg0 ); 
+		}
+		
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate void NativeRemoveAllTemporaryShortcuts( IntPtr thisptr );
+		public void RemoveAllTemporaryShortcuts(  ) 
+		{
+			this.GetFunction<NativeRemoveAllTemporaryShortcuts>( this.Functions.RemoveAllTemporaryShortcuts38 )( this.ObjectAddress ); 
 		}
 		
 		[return: MarshalAs(UnmanagedType.I1)]
 		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate bool NativeLaunchShortcutU( IntPtr thisptr, UInt32 arg0 );
 		public bool LaunchShortcut( UInt32 arg0 ) 
 		{
-			return this.GetFunction<NativeLaunchShortcutU>( this.Functions.LaunchShortcut26 )( this.ObjectAddress, arg0 ); 
+			return this.GetFunction<NativeLaunchShortcutU>( this.Functions.LaunchShortcut39 )( this.ObjectAddress, arg0 ); 
 		}
 		
 	};
