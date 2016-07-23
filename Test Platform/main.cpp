@@ -67,6 +67,16 @@ int main()
 		szPassword[strlen(szPassword) - 1] = 0;
 	}
 
+	/*
+
+	Original client login sequence looks like this:  
+
+	pClientUser->SetLoginInformation(szUsername, szPassword, false);
+	CSteamID userID = pClientUser->GetSteamID();
+	pClientUser->LogOn(false, userID);
+	
+	*/
+
 	pClientUser->LogOnWithPassword(false, szUsername, szPassword);
 
 	CallbackMsg_t callBack;
@@ -105,13 +115,43 @@ int main()
 			case SteamServerConnectFailure_t::k_iCallback:
 				{
 					SteamServerConnectFailure_t *pConnectFailureInfo = (SteamServerConnectFailure_t *)callBack.m_pubParam;
-					fprintf(stderr, "Logon failed with eResult %u !\n", pConnectFailureInfo->m_eResult);
 
-					pClientEngine->ReleaseUser(hPipe, hUser);
-					pClientEngine->BReleaseSteamPipe(hPipe);
-					pClientEngine->BShutdownIfAllPipesClosed();
+					if(pConnectFailureInfo->m_eResult == k_EResultAccountLogonDenied)
+					{
+						printf("Steam guard code required: ");
+						char szAuthCode[8] = "";
 
-					return 1;
+						if(fgets(szAuthCode, sizeof(szAuthCode), stdin))
+						{
+							szAuthCode[strlen(szAuthCode) - 1] = 0;
+						}
+
+						pClientUser->Set2ndFactorAuthCode(szAuthCode, true);
+						pClientUser->LogOnWithPassword(false, szUsername, szPassword);
+					}
+					else if (pConnectFailureInfo->m_eResult == k_EResultAccountLoginDeniedNeedTwoFactor)
+					{
+						printf("Steam 2FA code required: ");
+						char sz2FACode[8] = "";
+
+						if (fgets(sz2FACode, sizeof(sz2FACode), stdin))
+						{
+							sz2FACode[strlen(sz2FACode) - 1] = 0;
+						}
+
+						pClientUser->SetTwoFactorCode(sz2FACode);
+						pClientUser->LogOnWithPassword(false, szUsername, szPassword);
+					}
+					else
+					{
+						fprintf(stderr, "Logon failed with eResult %u !\n", pConnectFailureInfo->m_eResult);
+
+						pClientEngine->ReleaseUser(hPipe, hUser);
+						pClientEngine->BReleaseSteamPipe(hPipe);
+						pClientEngine->BShutdownIfAllPipesClosed();
+
+						return 1;
+					}
 				}
 
 			case FriendChatMsg_t::k_iCallback:

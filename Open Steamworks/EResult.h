@@ -108,6 +108,22 @@ typedef enum EResult
 	k_EResultRestrictedDevice = 82,							//
 	k_EResultRegionLocked = 83,								//
 	k_EResultRateLimitExceeded = 84,						//
+	k_EResultAccountLoginDeniedNeedTwoFactor = 85,			// Need two-factor code to login
+	k_EResultItemDeleted = 86,								// The thing we're trying to access has been deleted
+	k_EResultAccountLoginDeniedThrottle = 87,				// login attempt failed, try to throttle response to possible attacker
+	k_EResultTwoFactorCodeMismatch = 88,					// two factor code mismatch
+	k_EResultTwoFactorActivationCodeMismatch = 89,			// activation code for two-factor didn't match
+	k_EResultAccountAssociatedToMultiplePartners = 90,		// account has been associated with multiple partners
+	k_EResultNotModified = 91,								// data not modified
+	k_EResultNoMobileDevice = 92,							// the account does not have a mobile device associated with it
+	k_EResultTimeNotSynced = 93,							// the time presented is out of range or tolerance
+	k_EResultSmsCodeFailed = 94,							// SMS code failure (no match, none pending, etc.)
+	k_EResultAccountLimitExceeded = 95,						// Too many accounts access this resource
+	k_EResultAccountActivityLimitExceeded = 96,				// Too many changes to this account
+	k_EResultPhoneActivityLimitExceeded = 97,				// Too many changes to this phone
+	k_EResultRefundToWallet = 98,							// Cannot refund to payment method, must use wallet
+	k_EResultEmailSendFailure = 99,							// Cannot send an email
+	k_EResultNotSettled = 100,								// Can't perform operation till payment has settled
 } EResult;
 
 #endif // ERESULT_H
