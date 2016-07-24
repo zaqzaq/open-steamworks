@@ -101,7 +101,7 @@ public:
 	virtual bool GetGuestPassToRedeemSenderName( uint32 nPassIndex, char* pchSenderName, int32 cSenderNameSize ) = 0;
 	virtual int32 GetNumAppsInGuestPassesToRedeem() = 0;
 	virtual unknown_ret GetAppsInGuestPassesToRedeem(uint32*, uint32) = 0;
-	virtual SteamAPICall_t RequestStoreAuthURL(char const*) = 0;
+	virtual SteamAPICall_t RequestStoreAuthURL(const char *) = 0;
 	virtual bool SetLanguage( const char *pchLanguage ) = 0;
 	virtual void TrackAppUsageEvent( CGameID gameID, int32 eAppUsageEvent, const char *pchExtraInfo = "" ) = 0;
 	virtual int32 RaiseConnectionPriority( EConnectionPriority eConnectionPriority ) = 0;
@@ -111,7 +111,7 @@ public:
 	virtual bool GetCurrentWebAuthToken( char *pchBuffer, int32 cubBuffer, char *pchBuffer2, int32 cubBuffer2 ) = 0;
 	virtual SteamAPICall_t RequestWebAuthToken() = 0;
 	virtual void SetLoginInformation( const char *pchAccountName, const char *pchPassword, bool bRememberPassword ) = 0;
-	virtual void SetTwoFactorCode(char const*) = 0;
+	virtual void SetTwoFactorCode(const char *) = 0;
 	virtual void ClearAllLoginInformation() = 0;
 	virtual bool GetLanguage( char* pchLanguage, int32 cbLanguage ) = 0;
 	virtual bool BIsCyberCafe() = 0;
@@ -120,7 +120,7 @@ public:
 	virtual bool BIsAlienwareDemoAccount() = 0;
 	virtual void CreateAccount( const char *pchAccountName, const char *pchNewPassword, const char *pchNewEmail, int32 iQuestion, const char *pchNewQuestion, const char *pchNewAnswer ) = 0;
 	virtual SteamAPICall_t ResetPassword( const char *pchAccountName, const char *pchOldPassword, const char *pchNewPassword, const char *pchValidationCode, const char *pchAnswer ) = 0;
-	virtual unknown_ret ValidatePasswordResetCodeAndSendSms(char const*, char const*) = 0;
+	virtual unknown_ret ValidatePasswordResetCodeAndSendSms(const char *, const char *) = 0;
 	virtual void TrackNatTraversalStat( const CNatTraversalStat *pNatStat ) = 0;
 	virtual void TrackSteamUsageEvent( ESteamUsageEvent eSteamUsageEvent, const uint8 *pubKV, uint32 cubKV ) = 0;
 	virtual void TrackSteamGUIUsage( const char * ) = 0;
@@ -151,11 +151,11 @@ public:
 	virtual void GetSteamGuardDetails() = 0;
 	virtual unknown_ret GetTwoFactorDetails() = 0;
 	virtual bool BHasTwoFactor() = 0;
-	virtual void RecoverAuthenticator(char const*, char const*, char const*, char const*, char const*) = 0;
+	virtual void RecoverAuthenticator( const char *, const char *, const char *, const char *, const char *) = 0;
 	virtual void ChangePassword( const char *pchOldPassword, const char *pchNewPassword ) = 0;
 	virtual bool GetEmail( char* pchEmail, int32 cchEmail, bool* pbValidated ) = 0;
 	virtual void RequestForgottenPasswordEmail( const char *pchAccountName, const char *pchTriedPassword ) = 0;
-	virtual unknown_ret RequestAccountResetDetails(char const*, char const*) = 0;
+	virtual unknown_ret RequestAccountResetDetails( const char *, const char * ) = 0;
 	virtual void FindAccountsByEmailAddress( const char *pchEmailAddress ) = 0;
 	virtual void FindAccountsByCdKey( const char *pchCdKey ) = 0;
 	virtual void GetNumAccountsWithEmailAddress( const char * pchEmailAddress ) = 0;
@@ -192,10 +192,10 @@ public:
 	STEAMWORKS_STRUCT_RETURN_1(CGameID, GetRunningGameID, int32, iGame) /*virtual CGameID GetRunningGameID( int32 iGame ) = 0;*/
 	virtual int32 GetRunningGamePID(int32) = 0;
 	virtual uint32 GetAccountSecurityPolicyFlags() = 0;
-	virtual void RequestPasswordChangeEmail(char const*, int32) = 0;
+	virtual void RequestPasswordChangeEmail(const char *, int32) = 0;
 	virtual void ChangePasswordWithCode( const char *pchOldPassword, const char *pchCode, const char *pchNewPassword ) = 0;
-	virtual void RequestEmailChange(char const*, char const*) = 0;
-	virtual void ChangeEmailWithCode(char const*, char const*, char const*, char const*, char const*) = 0;
+	virtual void RequestEmailChange( const char *, const char * ) = 0;
+	virtual void ChangeEmailWithCode( const char *, const char *, const char *, const char *, const char * ) = 0;
 	virtual void SetClientStat( EClientStat eStat, int64 llValue, AppId_t nAppID, DepotId_t nDepotID, CellID_t nCellID ) = 0;
 	virtual void VerifyPassword( const char *pchPassword ) = 0;
 	virtual bool BSupportUser() = 0;

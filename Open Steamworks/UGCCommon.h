@@ -136,6 +136,16 @@ enum EItemUpdateStatus
 	k_EItemUpdateStatusCommittingChanges = 5  // The item update is committing all changes
 };
 
+enum EItemPreviewType
+{
+    //smth
+};
+
+enum EItemStatistic
+{
+    //smth
+};
+
 //-----------------------------------------------------------------------------
 // Purpose: Callback for querying UGC
 //-----------------------------------------------------------------------------

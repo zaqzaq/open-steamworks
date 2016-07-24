@@ -226,6 +226,7 @@
 #include "ISteamUGC001.h"
 #include "ISteamUGC002.h"
 #include "ISteamUGC003.h"
+#include "ISteamUGC008.h"
 
 #ifndef NO_ICLIENT
 // client interfaces
