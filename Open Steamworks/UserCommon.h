@@ -902,12 +902,24 @@ struct TestAvailablePasswordResponse_t
 	// TODO : Reverse this callback
 };
 
-// 65 ??
+struct VanityURLChangedNotification_t
+{
+	enum { k_iCallback = k_iClientUserCallbacks + 65 };
+
+	// TODO : Reverse this callback
+};
 
 struct GetSteamGuardDetailsResponse_t
 {
 	enum { k_iCallback = k_iClientUserCallbacks + 66 };
 	
+	// TODO : Reverse this callback
+};
+
+struct AppLastPlayedTimeChanged_t
+{
+	enum { k_iCallback = k_iClientUserCallbacks + 70 };
+
 	// TODO : Reverse this callback
 };
 
