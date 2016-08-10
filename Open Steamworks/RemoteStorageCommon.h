@@ -289,7 +289,7 @@ public:
 		m_bUpdateVisibility = true;
 	}
 
-	const ERemoteStoragePublishedFileVisibility GetVisibility() { return m_eVisibility; }
+	ERemoteStoragePublishedFileVisibility GetVisibility() { return m_eVisibility; }
 	bool BUpdateVisibility() { return m_bUpdateVisibility; }
 
 	void SetTags( SteamParamStringArray_t *pTags )
