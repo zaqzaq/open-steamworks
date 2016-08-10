@@ -906,7 +906,7 @@ struct VanityURLChangedNotification_t
 {
 	enum { k_iCallback = k_iClientUserCallbacks + 65 };
 
-	// TODO : Reverse this callback
+    char m_szVanityURL[256];
 };
 
 struct GetSteamGuardDetailsResponse_t
