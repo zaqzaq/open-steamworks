@@ -24,10 +24,14 @@
 
 #ifdef _WIN32
 	#include "Win32Library.h"
-
-	static const int k_iPathMaxSize = MAX_PATH;
-	static const char* k_cszSteam2LibraryName = "steam.dll";
-	static const char* k_cszSteam3LibraryName = "steamclient.dll";
+	#ifdef _WIN64
+		static const int k_iPathMaxSize = MAX_PATH;
+		static const char* k_cszSteam3LibraryName = "steamclient64.dll";
+	#else
+		static const int k_iPathMaxSize = MAX_PATH;
+		static const char* k_cszSteam3LibraryName = "steam.dll";
+		static const char* k_cszSteam3LibraryName = "steamclient.dll";
+	#endif
 #elif defined(__APPLE_CC__)
 	#include "POSIXLibrary.h"
 	#include <CoreServices/CoreServices.h>
