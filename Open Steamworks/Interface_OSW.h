@@ -29,7 +29,6 @@
 		static const char* k_cszSteam3LibraryName = "steamclient64.dll";
 	#else
 		static const int k_iPathMaxSize = MAX_PATH;
-		static const char* k_cszSteam3LibraryName = "steam.dll";
 		static const char* k_cszSteam3LibraryName = "steamclient.dll";
 	#endif
 #elif defined(__APPLE_CC__)
@@ -38,7 +37,6 @@
 	#include <sys/param.h>
 
 	static const int k_iPathMaxSize = MAXPATHLEN;
-	static const char* k_cszSteam2LibraryName = "libsteam.dylib";
 	static const char* k_cszSteam3LibraryName = "steamclient.dylib";
 #elif defined(__linux__)
 	#include "POSIXLibrary.h"
@@ -46,7 +44,6 @@
 	#include <limits.h>
 
 	static const int k_iPathMaxSize = PATH_MAX;
-	static const char* k_cszSteam2LibraryName = "libsteam.so";
 	static const char* k_cszSteam3LibraryName = "steamclient.so";
 #else
 	#error Unsupported platform
@@ -66,7 +63,6 @@ public:
 	{
 		m_eSearchOrder = eSearchOrder;
 		m_pSteamclient = NULL;
-		m_pSteam = NULL;
 
 		TryGetSteamDir();
 		TryLoadLibraries();
@@ -76,8 +72,6 @@ public:
 	{
 		if(m_pSteamclient)
 			delete m_pSteamclient;
-		if(m_pSteam)
-			delete m_pSteam;
 	}
 
 	CreateInterfaceFn GetSteam3Factory()
@@ -85,11 +79,6 @@ public:
 		return (CreateInterfaceFn)m_pSteamclient->GetSymbol("CreateInterface");
 	}
 
-	FactoryFn STEAMWORKS_DEPRECATE("This function is provided for backwards compatibility only. Steam2 is deprecated. Please use Steam3 instead") GetSteam2Factory()
-	{
-		return (FactoryFn)m_pSteam->GetSymbol("_f");
-	}
-	
 	const char* GetSteamDir()
 	{
 		return m_szSteamPath;
@@ -99,34 +88,10 @@ public:
 	{
 		return m_pSteamclient;
 	}
-	const DynamicLibrary *GetSteamModule()
-	{
-		return m_pSteam;
-	}
 
 	CreateInterfaceFn STEAMWORKS_DEPRECATE("This function is provided for backward compatiblity. Please use GetSteam3Factory instead") Load()
 	{
 		return GetSteam3Factory();
-	}
-
-	FactoryFn STEAMWORKS_DEPRECATE("This function is provided for backward compatiblity. Please use GetSteam2Factory instead") LoadFactory()
-	{
-#ifdef _MSC_VER
-	#pragma warning(push)
-	#pragma warning(disable: 4996)
-#elif defined(__GNUC__)
-	#pragma GCC diagnostic push
-	#pragma GCC diagnostic ignored "-Wdeprecated"
-	#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-		return GetSteam2Factory();
-
-#ifdef _MSC_VER
-	#pragma warning(pop)
-#elif defined(__GNUC__)
-	#pragma GCC diagnostic pop
-#endif
 	}
 
 private:
@@ -142,7 +107,11 @@ private:
 		HKEY hRegKey;
 
 		bool bFallback = true;
+	#ifdef _WIN64
+		if (RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\Wow6432Node\\Valve\\Steam", 0, KEY_QUERY_VALUE, &hRegKey) == ERROR_SUCCESS)
+	#else
 		if (RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\Valve\\Steam", 0, KEY_QUERY_VALUE, &hRegKey) == ERROR_SUCCESS)
+	#endif
 		{
 			DWORD dwLength = sizeof(m_szSteamPath) - 1;
 			if(RegQueryValueExA(hRegKey, "InstallPath", NULL, NULL, (BYTE*)m_szSteamPath, &dwLength) == ERROR_SUCCESS)
@@ -200,15 +169,11 @@ private:
 		if(m_eSearchOrder == k_ESearchOrderLocalFirst)
 		{
 			m_pSteamclient = new DynamicLibrary(k_cszSteam3LibraryName);
-			m_pSteam = new DynamicLibrary(k_cszSteam2LibraryName);
 
-			if(!m_pSteamclient->IsLoaded() || !m_pSteam->IsLoaded())
+			if(!m_pSteamclient->IsLoaded())
 			{
 				delete m_pSteamclient;
 				m_pSteamclient = NULL;
-
-				delete m_pSteam;
-				m_pSteam = NULL;
 			}
 			else
 				return;
@@ -225,16 +190,12 @@ private:
 
 		snprintf(szLibraryPath, sizeof(szLibraryPath) - 1, "%s/%s", m_szSteamPath, k_cszSteam3LibraryName);
 		m_pSteamclient = new DynamicLibrary(szLibraryPath);
-		
-		snprintf(szLibraryPath, sizeof(szLibraryPath) - 1, "%s/%s", m_szSteamPath, k_cszSteam2LibraryName);
-		m_pSteam = new DynamicLibrary(szLibraryPath);
 	}
 
 	
 	char m_szSteamPath[k_iPathMaxSize];
 
 	DynamicLibrary* m_pSteamclient;
-	DynamicLibrary* m_pSteam;
 
 	ESearchOrder m_eSearchOrder;
 };

@@ -3,7 +3,14 @@
 #include "Steamworks.h"
 #include <time.h>
 
-#pragma comment( lib, "../Resources/Libs/Win32/steamclient.lib" )
+#ifdef _WIN32
+	#ifndef _WIN64
+		#pragma comment( lib, "../Resources/Libs/Win32/steamclient.lib" )
+	#else
+		#pragma comment( lib, "../Resources/Libs/Win64/steamclient64.lib" )
+	#endif
+#endif
+
 
 CSteamAPILoader loader;
 
