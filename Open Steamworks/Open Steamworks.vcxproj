@@ -78,6 +78,7 @@
   <ItemGroup>
     <Library Include="..\Resources\Libs\Win32\Steam.lib" />
     <Library Include="..\Resources\Libs\Win32\steamclient.lib" />
+    <Library Include="..\Resources\Libs\Win64\steamclient64.lib" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IClientInventory.h" />

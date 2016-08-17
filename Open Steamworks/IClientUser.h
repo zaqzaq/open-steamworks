@@ -75,8 +75,6 @@ public:
 	STEAMWORKS_STRUCT_RETURN_0(CSteamID, GetSteamID) /*virtual CSteamID GetSteamID() = 0;*/
 	STEAMWORKS_STRUCT_RETURN_0(CSteamID, GetConsoleSteamID) /*virtual CSteamID GetConsoleSteamID() = 0;*/
 	virtual bool IsVACBanned( AppId_t nGameID ) = 0;
-	virtual bool RequireShowVACBannedMessage( AppId_t nAppID ) = 0;
-	virtual void AcknowledgeVACBanning( AppId_t nAppID ) = 0;
 	virtual bool SetEmail( const char *pchEmail ) = 0;
 	virtual bool SetConfigString( ERegistrySubTree eRegistrySubTree, const char *pchKey, const char *pchValue ) = 0;
 	virtual bool GetConfigString( ERegistrySubTree eRegistrySubTree, const char *pchKey, char *pchValue, int32 cbValue ) = 0;

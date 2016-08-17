@@ -126,6 +126,9 @@
     <Library Include="..\Resources\Libs\Win32\steamclient.lib">
       <Filter>Link Libraries</Filter>
     </Library>
+    <Library Include="..\Resources\Libs\Win64\steamclient64.lib">
+      <Filter>Link Libraries</Filter>
+    </Library>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Steamclient.h">
