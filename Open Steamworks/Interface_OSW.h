@@ -127,22 +127,27 @@ private:
 			strcpy(m_szSteamPath, ".");
 		}
 #elif defined(__APPLE_CC__)
-		CFURLRef url;
-		OSStatus err = LSFindApplicationForInfo(kLSUnknownCreator, CFSTR("com.valvesoftware.steam"), NULL, NULL, &url);
-		
 		bool bFallback = true;
 
-		if(err == noErr)
+		char* szHome = getenv("HOME");
+		if (szHome == NULL)
 		{
-			if(CFURLGetFileSystemRepresentation(url, true, (UInt8*)m_szSteamPath, sizeof(m_szSteamPath)))
+			szHome = getpwuid(getuid())->pw_dir;
+		}
+
+		strncat(m_szSteamPath, szHome, sizeof(m_szSteamPath));
+		strncat(m_szSteamPath, "/Library/Application Support/Steam/Steam.AppBundle/Steam/Contents/MacOS/", sizeof(m_szSteamPath));
+
+		struct stat info;
+		if (stat(m_szSteamPath, &info) == 0)
+		{
+			if (S_ISDIR(info.st_mode))
 			{
-				strncat(m_szSteamPath, "/Contents/MacOS/", sizeof(m_szSteamPath));
 				bFallback = false;
 			}
 		}
-		CFRelease(url);
 
-		if(bFallback)
+		if (bFallback)
 		{
 			strcpy(m_szSteamPath, ".");
 		}
