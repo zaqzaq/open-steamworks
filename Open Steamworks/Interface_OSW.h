@@ -33,8 +33,10 @@
 	#endif
 #elif defined(__APPLE_CC__)
 	#include "POSIXLibrary.h"
-	#include <CoreServices/CoreServices.h>
 	#include <sys/param.h>
+    #include <sys/types.h>
+    #include <pwd.h>
+    #include <sys/stat.h>
 
 	static const int k_iPathMaxSize = MAXPATHLEN;
 	static const char* k_cszSteam3LibraryName = "steamclient.dylib";
