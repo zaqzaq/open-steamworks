@@ -48,13 +48,11 @@ Steam_BGetCallback:
 .Steam_BGetCallback_loader:
 	saveReg
 	mov		rsi, 1
-	lea		rax, [rel szModulePath]
-	mov		rdi, rax
+	lea		rdi, [rel szModulePath]
 	call	dlopen
 	lea		rcx, [rel phModule]
 	mov		[rcx], rax
-	lea		rcx, [rel szSteam_BGetCallback]
-	mov		rsi, rcx
+	lea		rsi, [rel szSteam_BGetCallback]
 	mov		rdi, rax
 	call	dlsym
 	lea		rcx, [rel pSteam_BGetCallback]
@@ -72,13 +70,11 @@ Steam_FreeLastCallback:
 .Steam_FreeLastCallback_loader:
 	saveReg
 	mov		rsi, 1
-	lea		rax, [rel szModulePath]
-	mov		rdi, rax
+	lea		rdi, [rel szModulePath]
 	call	dlopen
 	lea		rcx, [rel phModule]
 	mov		[rcx], rax
-	lea		rcx, [rel szSteam_FreeLastCallback]
-	mov		rsi, rcx
+	lea		rsi, [rel szSteam_FreeLastCallback]
 	mov		rdi, rax
 	call	dlsym
 	lea		rcx, [rel pSteam_FreeLastCallback]
@@ -96,13 +92,11 @@ Steam_GetAPICallResult:
 .Steam_GetAPICallResult_loader:
 	saveReg
 	mov		rsi, 1
-	lea		rax, [rel szModulePath]
-	mov		rdi, rax
+	lea		rdi, [rel szModulePath]
 	call	dlopen
 	lea		rcx, [rel phModule]
 	mov		[rcx], rax
-	lea		rcx, [rel szSteam_GetAPICallResult]
-	mov		rsi, rcx
+	lea		rsi, [rel szSteam_GetAPICallResult]
 	mov		rdi, rax
 	call	dlsym
 	lea		rcx, [rel pSteam_GetAPICallResult]
