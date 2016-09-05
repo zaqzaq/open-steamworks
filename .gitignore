@@ -22,3 +22,4 @@ bld/
 [Ll]og/
 UpgradeLog.*
 _UpgradeReport_Files
+.DS_Store
