@@ -741,7 +741,11 @@ struct WebAuthRequestCallback_t
 	enum { k_iCallback = k_iClientUserCallbacks + 42 };
 	
 	bool m_bSuccessful;
-	char m_rgchToken[512];
+    
+    // contains 2 web session tokens associated with current session
+    // first one is for regular http second for secured
+    // ( should be used as steamLogin and steamLoginSecure cookies )
+	char m_rgchTokens[1024];
 };
 
 struct MicroTxnAuthRequestCallback_t
@@ -906,7 +910,7 @@ struct VanityURLChangedNotification_t
 {
 	enum { k_iCallback = k_iClientUserCallbacks + 65 };
 
-    char m_szVanityURL[256];
+	char m_szVanityURL[256];
 };
 
 struct GetSteamGuardDetailsResponse_t
