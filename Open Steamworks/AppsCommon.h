@@ -355,6 +355,16 @@ struct RequestAppProofOfPurchaseKeyResponse_t
 	char m_rgchKey[ k_cubAppProofOfPurchaseKeyMax ];	
 };
 
+struct AppInfoUpdateProgress_t
+{
+	enum { k_iCallback = k_iSteamAppsCallbacks + 17 };
+
+	uint32 m_cAppsRequested;
+	uint32 m_cAppsUpdated;
+	uint32 m_cPackagesRequested;
+	uint32 m_cPackagesUpdated;
+};
+
 struct AppUpdateStopped_t
 {
 	enum { k_iCallback = k_iSteamAppsCallbacks + 18 };
