@@ -201,7 +201,9 @@ enum EAppReleaseState
 
 enum EAppAutoUpdateBehavior
 {
-	// TODO: Reverse this enum
+	k_EAppAutoUpdateBehaviorDefault = 0,
+	k_EAppAutoUpdateBehaviorDisabled,
+	k_EAppAutoUpdateBehaviorHighPriority,
 };
 
 enum EAppAllowDownloadsWhileRunningBehavior
@@ -350,6 +352,14 @@ struct RequestAppProofOfPurchaseKeyResponse_t
 	EResult m_eResult;
 	AppId_t m_nAppID;
 	char m_rgchKey[ k_cubAppProofOfPurchaseKeyMax ];	
+};
+
+struct AppAutoUpdateBehaviorChanged_t
+{
+	enum { k_iCallback = k_iSteamAppsCallbacks + 16 };
+
+	AppId_t m_nAppID;
+	EAppAutoUpdateBehavior m_eNewBehavior;
 };
 
 struct AppInfoUpdateProgress_t
