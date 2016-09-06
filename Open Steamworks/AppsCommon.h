@@ -229,14 +229,11 @@ const int k_cubAppProofOfPurchaseKeyMax = 64;			// max bytes of a legacy cd key 
 //-----------------------------------------------------------------------------
 // Purpose: called when new information about an app has arrived
 //-----------------------------------------------------------------------------
-struct AppDataChanged_t
+struct AppInfoChanged_t
 {
 	enum { k_iCallback = k_iSteamAppsCallbacks + 1 };
 
 	AppId_t m_nAppID;
-
-	bool m_bBySteamUI;
-	bool m_bCDDBUpdate;
 };
 
 struct RequestAppCallbacksComplete_t
@@ -250,7 +247,7 @@ struct AppInfoUpdateComplete_t
 
 	EResult m_EResult;
 	uint32 m_cAppsUpdated;
-	bool m_bSteam2CDDBChanged;
+	uint32 m_cPackagesUpdated;
 };
 
 struct AppEventTriggered_t
