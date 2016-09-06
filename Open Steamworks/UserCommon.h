@@ -924,7 +924,8 @@ struct AppLastPlayedTimeChanged_t
 {
 	enum { k_iCallback = k_iClientUserCallbacks + 70 };
 
-	// TODO : Reverse this callback
+	AppId_t m_unAppID;
+	RTime32 m_rtimeLastPlayed;
 };
 
 #pragma pack( pop )
