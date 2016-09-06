@@ -315,12 +315,13 @@ struct DownloadScheduleChanged_t
 	unsigned int m_rgunAppSchedule[32];
 };
 
-struct DlcInstallRequest_t
+struct AppUpdateStateChange_t
 {
 	enum { k_iCallback = k_iSteamAppsCallbacks + 10 };
 
 	AppId_t m_nAppID;
-	bool m_bInstall;
+	uint32 m_eOldState;
+	uint32 m_eNewState;
 };
 
 struct AppLaunchTenFootOverlay_t
@@ -359,8 +360,7 @@ struct AppUpdateStopped_t
 	enum { k_iCallback = k_iSteamAppsCallbacks + 18 };
 
 	AppId_t m_nAppID;
-
-	// todo: reverse me
+	AppUpdateInfo_s m_UpdateState
 };
 
 #pragma pack( pop )
