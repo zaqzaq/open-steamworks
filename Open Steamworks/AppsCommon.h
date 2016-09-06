@@ -353,6 +353,16 @@ struct RequestAppProofOfPurchaseKeyResponse_t
 	AppId_t m_nAppID;
 	char m_rgchKey[ k_cubAppProofOfPurchaseKeyMax ];	
 };
+
+struct AppUpdateStopped_t
+{
+	enum { k_iCallback = k_iSteamAppsCallbacks + 18 };
+
+	AppId_t m_nAppID;
+
+	// todo: reverse me
+};
+
 #pragma pack( pop )
 
 #endif // APPSCOMMON_H
