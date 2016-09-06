@@ -360,7 +360,14 @@ struct AppUpdateStopped_t
 	enum { k_iCallback = k_iSteamAppsCallbacks + 18 };
 
 	AppId_t m_nAppID;
-	AppUpdateInfo_s m_UpdateState
+	AppUpdateInfo_s m_UpdateState;
+};
+
+struct AppConfigChanged_t
+{
+	enum { k_iCallback = k_iSteamAppsCallbacks + 19 };
+
+	AppId_t m_nAppID;
 };
 
 #pragma pack( pop )
