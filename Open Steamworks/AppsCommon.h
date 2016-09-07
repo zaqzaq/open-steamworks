@@ -104,8 +104,8 @@ struct AppUpdateInfo_s
 
 struct DownloadStats_s
 {
-	uint32 m_uUnk; // EAppDownloadQueuePlacement?
-	uint32 m_uBandwidthUsage;
+	uint32 m_unCurrentConnections;
+	uint32 m_unBandwidthUsage;
 	uint64 m_unTotalBytesDownload;
 };
 
