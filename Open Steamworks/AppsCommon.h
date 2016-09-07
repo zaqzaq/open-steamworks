@@ -104,11 +104,9 @@ struct AppUpdateInfo_s
 
 struct DownloadStats_s
 {
-	uint32 m_uIsDownloadEnabled;
-	uint32 m_unCurrentConnections;
-	uint32 m_unCurrentBytesPerSec;
+	uint32 m_uUnk; // EAppDownloadQueuePlacement?
+	uint32 m_uBandwidthUsage;
 	uint64 m_unTotalBytesDownload;
-	CellID_t m_unCurrentCell;
 };
 
 enum EAppDownloadPriority
@@ -213,7 +211,13 @@ enum EAppAllowDownloadsWhileRunningBehavior
 
 enum EAppDownloadQueuePlacement
 {
-	// TODO: Reverse this enum
+	k_EAppDownloadQueuePlacementNone = 0,
+	k_EAppDownloadQueuePlacementFirst,
+	k_EAppDownloadQueuePlacementUserInitiated,
+	k_EAppDownloadQueuePlacementUp,
+	k_EAppDownloadQueuePlacementDown,
+	k_EAppDownloadQueuePlacementLast,
+	k_EAppDownloadQueuePlacementPaused,
 };
 
 struct SHADigestWrapper_t
