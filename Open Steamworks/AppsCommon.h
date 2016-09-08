@@ -94,11 +94,12 @@ enum EAppInfoSection
 struct AppUpdateInfo_s
 {
 	RTime32 m_timeUpdateStart;
+	uint32 m_uUnk1; // Update state?
 	uint64 m_unBytesToDownload;
 	uint64 m_unBytesDownloaded;
 	uint64 m_unBytesToProcess;
 	uint64 m_unBytesProcessed;
-	uint32 m_uUnk;
+	uint32 m_unEstimatedSecondsRemaining;
 };
 #pragma pack( pop )
 
