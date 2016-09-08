@@ -99,7 +99,7 @@ struct AppUpdateInfo_s
 	uint64 m_unBytesDownloaded;
 	uint64 m_unBytesToProcess;
 	uint64 m_unBytesProcessed;
-	uint32 m_unEstimatedSecondsRemaining;
+	int32 m_unEstimatedSecondsRemaining;
 };
 #pragma pack( pop )
 
