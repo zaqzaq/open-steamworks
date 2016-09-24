@@ -132,6 +132,10 @@ public:
 	virtual bool BInitWorkshopForGameServer(DepotId_t, const char*) = 0;
 	
 	virtual void SuspendDownloads(bool) = 0;
+	
+	virtual unknown_ret StartPlaytimeTracking(uint64* ullUnk, uint32 uUnk) = 0;
+	virtual unknown_ret StopPlaytimeTracking(uint64* ullUnk, uint32 uUnk) = 0;
+	virtual unknown_ret StopPlaytimeTrackingForAllItems() = 0;
 };
 
 #endif // ISTEAMUGC008_H
