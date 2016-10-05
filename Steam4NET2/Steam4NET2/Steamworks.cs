@@ -28,10 +28,10 @@ namespace Steam4NET
             internal const UInt32 LOAD_WITH_ALTERED_SEARCH_PATH = 8;
 
 
-            [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+            [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
             internal delegate IntPtr _f(string version);
 
-            [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+            [UnmanagedFunctionPointer(CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
             internal delegate IntPtr CreateInterface(string version, IntPtr returnCode);
 
             [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
