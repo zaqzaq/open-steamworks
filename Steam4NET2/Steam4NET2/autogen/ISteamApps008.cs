@@ -34,7 +34,8 @@ namespace Steam4NET
 		public IntPtr GetDlcDownloadProgress22;
 		public IntPtr GetAppBuildId23;
 		public IntPtr RequestAllProofOfPurchaseKeys24;
-		private IntPtr DTorISteamApps00825;
+		public IntPtr GetFileDetails25;
+		private IntPtr DTorISteamApps00826;
 	};
 	
 	[InteropHelp.InterfaceVersion("STEAMAPPS_INTERFACE_VERSION008")]
@@ -200,6 +201,12 @@ namespace Steam4NET
 		public void RequestAllProofOfPurchaseKeys(  ) 
 		{
 			this.GetFunction<NativeRequestAllProofOfPurchaseKeys>( this.Functions.RequestAllProofOfPurchaseKeys24 )( this.ObjectAddress ); 
+		}
+		
+		[UnmanagedFunctionPointer(CallingConvention.ThisCall)] private delegate Int32 NativeGetFileDetailsS( IntPtr thisptr, string pchUnk );
+		public Int32 GetFileDetails( string pchUnk ) 
+		{
+			return this.GetFunction<NativeGetFileDetailsS>( this.Functions.GetFileDetails25 )( this.ObjectAddress, pchUnk ); 
 		}
 		
 	};

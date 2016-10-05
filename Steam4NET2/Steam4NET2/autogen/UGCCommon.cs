@@ -112,6 +112,14 @@ namespace Steam4NET
 		k_EItemUpdateStatusCommittingChanges = 5,
 	};
 	
+	public enum EItemPreviewType : int
+	{
+	};
+	
+	public enum EItemStatistic : int
+	{
+	};
+	
 	[StructLayout(LayoutKind.Sequential,Pack=8)]
 	[InteropHelp.CallbackIdentity(3401)]
 	public struct SteamUGCQueryCompleted_t
@@ -163,6 +171,53 @@ namespace Steam4NET
 		public const int k_iCallback = 3405;
 		public UInt32 m_unAppID;
 		public UInt64 m_nPublishedFileId;
+	};
+	
+	[StructLayout(LayoutKind.Sequential,Pack=8)]
+	[InteropHelp.CallbackIdentity(3406)]
+	public struct DownloadItemResult_t
+	{
+		public const int k_iCallback = 3406;
+		public UInt32 m_unAppID;
+		public UInt64 m_nPublishedFileId;
+		public EResult m_eResult;
+	};
+	
+	[StructLayout(LayoutKind.Sequential,Pack=8)]
+	[InteropHelp.CallbackIdentity(3407)]
+	public struct UserFavoriteItemsListChanged_t
+	{
+		public const int k_iCallback = 3407;
+		public UInt64 m_nPublishedFileId;
+		public EResult m_eResult;
+		[MarshalAs(UnmanagedType.I1)]
+		public bool m_bWasAddRequest;
+	};
+	
+	[StructLayout(LayoutKind.Sequential,Pack=8)]
+	[InteropHelp.CallbackIdentity(3408)]
+	public struct SetUserItemVoteResult_t
+	{
+		public const int k_iCallback = 3408;
+		public UInt64 m_nPublishedFileId;
+		public EResult m_eResult;
+		[MarshalAs(UnmanagedType.I1)]
+		public bool m_bVoteUp;
+	};
+	
+	[StructLayout(LayoutKind.Sequential,Pack=8)]
+	[InteropHelp.CallbackIdentity(3409)]
+	public struct GetUserItemVoteResult_t
+	{
+		public const int k_iCallback = 3409;
+		public UInt64 m_nPublishedFileId;
+		public EResult m_eResult;
+		[MarshalAs(UnmanagedType.I1)]
+		public bool m_bVotedUp;
+		[MarshalAs(UnmanagedType.I1)]
+		public bool m_bVotedDown;
+		[MarshalAs(UnmanagedType.I1)]
+		public bool m_bVoteSkipped;
 	};
 	
 }

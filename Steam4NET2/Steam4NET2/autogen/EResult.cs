@@ -91,6 +91,22 @@ namespace Steam4NET
 		k_EResultRestrictedDevice = 82,
 		k_EResultRegionLocked = 83,
 		k_EResultRateLimitExceeded = 84,
+		k_EResultAccountLoginDeniedNeedTwoFactor = 85,
+		k_EResultItemDeleted = 86,
+		k_EResultAccountLoginDeniedThrottle = 87,
+		k_EResultTwoFactorCodeMismatch = 88,
+		k_EResultTwoFactorActivationCodeMismatch = 89,
+		k_EResultAccountAssociatedToMultiplePartners = 90,
+		k_EResultNotModified = 91,
+		k_EResultNoMobileDevice = 92,
+		k_EResultTimeNotSynced = 93,
+		k_EResultSmsCodeFailed = 94,
+		k_EResultAccountLimitExceeded = 95,
+		k_EResultAccountActivityLimitExceeded = 96,
+		k_EResultPhoneActivityLimitExceeded = 97,
+		k_EResultRefundToWallet = 98,
+		k_EResultEmailSendFailure = 99,
+		k_EResultNotSettled = 100,
 	};
 	
 }

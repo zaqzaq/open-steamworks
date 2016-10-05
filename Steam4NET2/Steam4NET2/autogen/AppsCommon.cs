@@ -62,21 +62,22 @@ namespace Steam4NET
 	public struct AppUpdateInfo_s
 	{
 		public UInt32 m_timeUpdateStart;
+		public UInt32 m_uUnk1;
 		public UInt64 m_unBytesToDownload;
 		public UInt64 m_unBytesDownloaded;
 		public UInt64 m_unBytesToProcess;
 		public UInt64 m_unBytesProcessed;
-		public UInt32 m_uUnk;
+		public Int32 m_unEstimatedSecondsRemaining;
+		[MarshalAs(UnmanagedType.ByValTStr, SizeConst = 12)]
+		public string m_cUnk;
 	};
 	
 	[StructLayout(LayoutKind.Sequential,Pack=8)]
 	public struct DownloadStats_s
 	{
-		public UInt32 m_uIsDownloadEnabled;
 		public UInt32 m_unCurrentConnections;
-		public UInt32 m_unCurrentBytesPerSec;
+		public UInt32 m_unBandwidthUsage;
 		public UInt64 m_unTotalBytesDownload;
-		public UInt32 m_unCurrentCell;
 	};
 	
 	public enum EAppDownloadPriority : int
@@ -166,6 +167,9 @@ namespace Steam4NET
 	
 	public enum EAppAutoUpdateBehavior : int
 	{
+		k_EAppAutoUpdateBehaviorDefault = 0,
+		k_EAppAutoUpdateBehaviorDisabled = 1,
+		k_EAppAutoUpdateBehaviorHighPriority = 2,
 	};
 	
 	public enum EAppAllowDownloadsWhileRunningBehavior : int
@@ -174,6 +178,13 @@ namespace Steam4NET
 	
 	public enum EAppDownloadQueuePlacement : int
 	{
+		k_EAppDownloadQueuePlacementNone = 0,
+		k_EAppDownloadQueuePlacementFirst = 1,
+		k_EAppDownloadQueuePlacementUserInitiated = 2,
+		k_EAppDownloadQueuePlacementUp = 3,
+		k_EAppDownloadQueuePlacementDown = 4,
+		k_EAppDownloadQueuePlacementLast = 5,
+		k_EAppDownloadQueuePlacementPaused = 6,
 	};
 	
 	[StructLayout(LayoutKind.Sequential,Pack=8)]
@@ -188,14 +199,10 @@ namespace Steam4NET
 	
 	[StructLayout(LayoutKind.Sequential,Pack=8)]
 	[InteropHelp.CallbackIdentity(1001)]
-	public struct AppDataChanged_t
+	public struct AppInfoChanged_t
 	{
 		public const int k_iCallback = 1001;
 		public UInt32 m_nAppID;
-		[MarshalAs(UnmanagedType.I1)]
-		public bool m_bBySteamUI;
-		[MarshalAs(UnmanagedType.I1)]
-		public bool m_bCDDBUpdate;
 	};
 	
 	[StructLayout(LayoutKind.Sequential,Pack=8)]
@@ -212,8 +219,7 @@ namespace Steam4NET
 		public const int k_iCallback = 1003;
 		public EResult m_EResult;
 		public UInt32 m_cAppsUpdated;
-		[MarshalAs(UnmanagedType.I1)]
-		public bool m_bSteam2CDDBChanged;
+		public UInt32 m_cPackagesUpdated;
 	};
 	
 	[StructLayout(LayoutKind.Sequential,Pack=8)]
@@ -282,12 +288,12 @@ namespace Steam4NET
 	
 	[StructLayout(LayoutKind.Sequential,Pack=8)]
 	[InteropHelp.CallbackIdentity(1010)]
-	public struct DlcInstallRequest_t
+	public struct AppUpdateStateChange_t
 	{
 		public const int k_iCallback = 1010;
 		public UInt32 m_nAppID;
-		[MarshalAs(UnmanagedType.I1)]
-		public bool m_bInstall;
+		public UInt32 m_eOldState;
+		public UInt32 m_eNewState;
 	};
 	
 	[StructLayout(LayoutKind.Sequential,Pack=8)]
@@ -323,6 +329,43 @@ namespace Steam4NET
 		public UInt32 m_nAppID;
 		[MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
 		public string m_rgchKey;
+	};
+	
+	[StructLayout(LayoutKind.Sequential,Pack=8)]
+	[InteropHelp.CallbackIdentity(1016)]
+	public struct AppAutoUpdateBehaviorChanged_t
+	{
+		public const int k_iCallback = 1016;
+		public UInt32 m_nAppID;
+		public EAppAutoUpdateBehavior m_eNewBehavior;
+	};
+	
+	[StructLayout(LayoutKind.Sequential,Pack=8)]
+	[InteropHelp.CallbackIdentity(1017)]
+	public struct AppInfoUpdateProgress_t
+	{
+		public const int k_iCallback = 1017;
+		public UInt32 m_cAppsRequested;
+		public UInt32 m_cAppsUpdated;
+		public UInt32 m_cPackagesRequested;
+		public UInt32 m_cPackagesUpdated;
+	};
+	
+	[StructLayout(LayoutKind.Sequential,Pack=8)]
+	[InteropHelp.CallbackIdentity(1018)]
+	public struct AppUpdateStopped_t
+	{
+		public const int k_iCallback = 1018;
+		public UInt32 m_nAppID;
+		public AppUpdateInfo_s m_UpdateState;
+	};
+	
+	[StructLayout(LayoutKind.Sequential,Pack=8)]
+	[InteropHelp.CallbackIdentity(1019)]
+	public struct AppConfigChanged_t
+	{
+		public const int k_iCallback = 1019;
+		public UInt32 m_nAppID;
 	};
 	
 }
