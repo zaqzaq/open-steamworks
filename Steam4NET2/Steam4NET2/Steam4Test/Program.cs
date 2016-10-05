@@ -15,86 +15,15 @@ namespace Steam4Test
         {
             Environment.SetEnvironmentVariable("SteamAppId", "480");
 
-            Console.Write("Loading Steam2 and Steam3... ");
+            Console.Write("Loading Steam3... ");
 
-            if (Steamworks.Load(true))
+            if (Steamworks.LoadSteamClient())
             {
                 Console.WriteLine("Ok");
             }
             else
             {
                 Console.WriteLine("Failed");
-                return -1;
-            }
-
-            Console.WriteLine("\nSteam2 tests:");
-
-            ISteam006 steam006 = Steamworks.CreateSteamInterface<ISteam006>();
-            if (steam006 == null)
-            {
-                Console.WriteLine("steam006 is null !");
-                return -1;
-            }
-
-            TSteamError steamError = new TSteamError();
-
-            Console.Write("GetVersion: ");
-            StringBuilder version = new StringBuilder();
-            if(steam006.GetVersion(version) != 0)
-            {
-                Console.WriteLine("Ok (" + version.ToString() + ")");
-            }
-            else
-            {
-                Console.WriteLine("Failed");
-                return -1;
-            }
-
-            steam006.ClearError(ref steamError);
-
-            Console.Write("Startup: ");
-            if(steam006.Startup(0, ref steamError) != 0)
-            {
-                Console.WriteLine("Ok");
-            }
-            else
-            {
-                Console.WriteLine("Failed (" + steamError.szDesc + ")");
-                return -1;
-            }
-
-            Console.Write("OpenTmpFile: ");
-            uint hFile = 0;
-            if((hFile = steam006.OpenTmpFile(ref steamError)) != 0)
-            {
-                Console.WriteLine("Ok");
-            }
-            else
-            {
-                Console.WriteLine("Failed (" + steamError.szDesc + ")");
-                return -1;
-            }
-
-            Console.Write("WriteFile: ");
-            byte[] fileContent = System.Text.UTF8Encoding.UTF8.GetBytes("test");
-            if(steam006.WriteFile(fileContent, (uint)fileContent.Length, hFile, ref steamError) == fileContent.Length)
-            {
-                Console.WriteLine("Ok");
-            }
-            else
-            {
-                Console.WriteLine("Failed (" + steamError.szDesc + ")");
-                return -1;
-            }
-
-            Console.Write("CloseFile: ");
-            if(steam006.CloseFile(hFile, ref steamError) == 0)
-            {
-                Console.WriteLine("Ok");
-            }
-            else
-            {
-                Console.WriteLine("Failed (" + steamError.szDesc + ")");
                 return -1;
             }
 
@@ -128,13 +57,13 @@ namespace Steam4Test
                 return -1;
             }
 
-            ISteamUser016 steamuser = steamclient.GetISteamUser<ISteamUser016>(user, pipe);
+            ISteamUser017 steamuser = steamclient.GetISteamUser<ISteamUser017>(user, pipe);
             if (steamuser == null)
             {
                 Console.WriteLine("steamuser is null !");
                 return -1;
             }
-            ISteamUtils005 steamutils = steamclient.GetISteamUtils<ISteamUtils005>(pipe);
+            ISteamUtils007 steamutils = steamclient.GetISteamUtils<ISteamUtils007>(pipe);
             if (steamutils == null)
             {
                 Console.WriteLine("steamutils is null !");
