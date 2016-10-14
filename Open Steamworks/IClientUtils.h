@@ -110,6 +110,8 @@ public:
 	virtual bool IsSteamRunningInVR() = 0;
 	virtual bool BIsRunningOnAlienwareAlpha() = 0;
 	virtual void StartVRDashboard() = 0;
+	virtual unknown_ret GenerateSupportSystemReport() = 0;
+	virtual bool GetSupportSystemReport(char* cUnk, uint32 uUnk) = 0;
 };
 
 #endif // ICLIENTUTILS_H
