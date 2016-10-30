@@ -21,15 +21,6 @@
 #endif
 
 #include "SteamTypes.h"
-
-#ifndef NO_STEAM
-	// steam.dll
-	#include "SteamAPI.h"
-#endif
-
-#ifndef NO_STEAMCLIENT
-	// steamclient.dll / steam_api.dll
-	#include "SteamclientAPI.h"
-#endif
+#include "SteamclientAPI.h"
 
 #endif // STEAMWORKS_H
