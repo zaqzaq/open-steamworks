@@ -24,26 +24,29 @@
 
 #ifdef _WIN32
 	#include "Win32Library.h"
+	static const int k_iPathMaxSize = MAX_PATH;
+
 	#ifdef _WIN64
-		static const int k_iPathMaxSize = MAX_PATH;
 		static const char* k_cszSteam3LibraryName = "steamclient64.dll";
 	#else
-		static const int k_iPathMaxSize = MAX_PATH;
 		static const char* k_cszSteam3LibraryName = "steamclient.dll";
 	#endif
 #elif defined(__APPLE_CC__)
 	#include "POSIXLibrary.h"
 	#include <sys/param.h>
-    #include <sys/types.h>
-    #include <pwd.h>
-    #include <sys/stat.h>
+	#include <sys/types.h>
+	#include <sys/stat.h>
+	#include <pwd.h>
 
 	static const int k_iPathMaxSize = MAXPATHLEN;
 	static const char* k_cszSteam3LibraryName = "steamclient.dylib";
 #elif defined(__linux__)
 	#include "POSIXLibrary.h"
-	#include <libgen.h>
 	#include <limits.h>
+	#include <sys/param.h>
+	#include <sys/types.h>
+	#include <sys/stat.h>
+	#include <pwd.h>
 
 	static const int k_iPathMaxSize = PATH_MAX;
 	static const char* k_cszSteam3LibraryName = "steamclient.so";
@@ -99,8 +102,8 @@ public:
 private:
 
 #ifdef _MSC_VER
-	#pragma warning(push) 
-	#pragma warning(disable: 4996) 
+	#pragma warning(push)
+	#pragma warning(disable: 4996)
 #endif
 
 	void TryGetSteamDir()
@@ -154,20 +157,31 @@ private:
 			strcpy(m_szSteamPath, ".");
 		}
 #elif defined(__linux__)
-		// We don't know where to find Steam on this platform, so we're going
-		// to say it lives in the same directory as our executable
-		if(readlink("/proc/self/exe", m_szSteamPath, sizeof(m_szSteamPath)) != -1)
-		{
-			char *pchSlash = strrchr(m_szSteamPath, '/');
+		bool bFallback = true;
 
-			if(pchSlash)
+		char* szHome = getpwuid(getuid())->pw_dir;
+
+		strncat(m_szSteamPath, szHome, sizeof(m_szSteamPath));
+
+	#ifdef __LP64__
+		strncat(m_szSteamPath, "/.steam/sdk64/", sizeof(m_szSteamPath));
+	#else
+		strncat(m_szSteamPath, "/.steam/sdk32/", sizeof(m_szSteamPath));
+	#endif
+
+		struct stat info;
+		if (stat(m_szSteamPath, &info) == 0)
+		{
+			if (S_ISDIR(info.st_mode))
 			{
-				*pchSlash = '\0';
-				return;
+				bFallback = false;
 			}
 		}
 
-		strcpy(m_szSteamPath, ".");
+		if (bFallback)
+		{
+			strcpy(m_szSteamPath, ".");
+		}
 #endif
 	}
 
@@ -208,7 +222,7 @@ private:
 };
 
 #ifdef _MSC_VER
-	#pragma warning(pop) 
+	#pragma warning(pop)
 #endif
 
 #endif // INTERFACEOSW_H
