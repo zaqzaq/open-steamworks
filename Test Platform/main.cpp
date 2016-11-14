@@ -1,7 +1,6 @@
 #define STEAMWORKS_CLIENT_INTERFACES
 
-#include "ClientLoader.h"
-#include "Steamworks.h"
+#include "SteamworksUgly.h"
 #include <time.h>
 
 #ifdef _WIN32
