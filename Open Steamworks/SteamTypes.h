@@ -69,6 +69,8 @@
 
 	#if defined( STEAM_API_EXPORTS )
 		#define S_API extern "C" __declspec( dllexport ) 
+	#elif defined( STEAM_API_NODLL )
+		#define S_API extern "C"
 	#else
 		#define S_API extern "C" __declspec( dllimport ) 
 	#endif // STEAM_API_EXPORTS
@@ -327,18 +329,18 @@ enum EUniverse
 #endif // NO_STEAM
 
 
-typedef void* (*CreateInterfaceFn)( const char *pName, int *pReturnCode );
-typedef void* (*FactoryFn)( const char *pName );
-typedef void* (*InstantiateInterfaceFn)( void );
+typedef void* (STEAM_CALL *CreateInterfaceFn)( const char *pName, int *pReturnCode );
+typedef void* (STEAM_CALL *FactoryFn)( const char *pName );
+typedef void* (STEAM_CALL *InstantiateInterfaceFn)( void );
 
 typedef void  (*SteamAPIWarningMessageHook_t)(int hpipe, const char *message);
 typedef void (*KeyValueIteratorCallback_t)(const char* key, const char* value, void* kv);
 
 typedef void (*SteamNotificationCallback_t)(ESteamNotify eEvent, unsigned int nData);
 
-typedef bool (*SteamBGetCallbackFn)( int hpipe, void *pCallbackMsg );
-typedef void (*SteamFreeLastCallbackFn)( int hpipe );
-typedef bool (*SteamGetAPICallResultFn)( int hpipe, uint64 hSteamAPICall, void* pCallback, int cubCallback, int iCallbackExpected, bool* pbFailed );
+typedef bool (STEAM_CALL *SteamBGetCallbackFn)( int hpipe, void *pCallbackMsg );
+typedef void (STEAM_CALL *SteamFreeLastCallbackFn)( int hpipe );
+typedef bool (STEAM_CALL *SteamGetAPICallResultFn)( int hpipe, uint64 hSteamAPICall, void* pCallback, int cubCallback, int iCallbackExpected, bool* pbFailed );
 
 //-----------------------------------------------------------------------------
 // Purpose: Passed as argument to SteamAPI_UseBreakpadCrashHandler to enable optional callback

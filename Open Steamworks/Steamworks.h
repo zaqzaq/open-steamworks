@@ -21,6 +21,7 @@
 #endif
 
 #include "SteamTypes.h"
+
 #include "SteamclientAPI.h"
 
 #endif // STEAMWORKS_H

@@ -76,11 +76,6 @@
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Library Include="..\Resources\Libs\Win32\Steam.lib" />
-    <Library Include="..\Resources\Libs\Win32\steamclient.lib" />
-    <Library Include="..\Resources\Libs\Win64\steamclient64.lib" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="IClientInventory.h" />
     <ClInclude Include="IClientShortcuts.h" />
     <ClInclude Include="IClientProductBuilder.h" />
@@ -292,49 +287,6 @@
     <ClInclude Include="UnifiedMessagesCommon.h" />
     <ClInclude Include="ISteamStreamLauncher001.h" />
     <ClInclude Include="StreamLauncherCommon.h" />
-    <ClInclude Include="Steam.h" />
-    <ClInclude Include="SteamAPI.h" />
-    <ClInclude Include="SteamSalt.h" />
-    <ClInclude Include="TSteamApp.h" />
-    <ClInclude Include="TSteamAppDependencyInfo.h" />
-    <ClInclude Include="TSteamAppLaunchOption.h" />
-    <ClInclude Include="TSteamAppStats.h" />
-    <ClInclude Include="TSteamAppVersion.h" />
-    <ClInclude Include="TSteamDiscountQualifier.h" />
-    <ClInclude Include="TSteamElemInfo.h" />
-    <ClInclude Include="TSteamError.h" />
-    <ClInclude Include="TSteamExternalBillingInfo.h" />
-    <ClInclude Include="TSteamGlobalUserID.h" />
-    <ClInclude Include="TSteamOfflineStatus.h" />
-    <ClInclude Include="TSteamPaymentCardInfo.h" />
-    <ClInclude Include="TSteamPaymentCardReceiptInfo.h" />
-    <ClInclude Include="TSteamPrepurchaseInfo.h" />
-    <ClInclude Include="TSteamPrepurchaseReceiptInfo.h" />
-    <ClInclude Include="TSteamProgress.h" />
-    <ClInclude Include="TSteamSplitLocalUserID.h" />
-    <ClInclude Include="TSteamSubscription.h" />
-    <ClInclude Include="TSteamSubscriptionBillingInfo.h" />
-    <ClInclude Include="TSteamSubscriptionDiscount.h" />
-    <ClInclude Include="TSteamSubscriptionReceipt.h" />
-    <ClInclude Include="TSteamSubscriptionStats.h" />
-    <ClInclude Include="TSteamUpdateStats.h" />
-    <ClInclude Include="ESteamAppUpdateStatsQueryType.h" />
-    <ClInclude Include="ESteamBufferMethod.h" />
-    <ClInclude Include="ESteamError.h" />
-    <ClInclude Include="ESteamFindFilter.h" />
-    <ClInclude Include="ESteamNotify.h" />
-    <ClInclude Include="ESteamPaymentCardType.h" />
-    <ClInclude Include="ESteamSeekMethod.h" />
-    <ClInclude Include="ESteamServerType.h" />
-    <ClInclude Include="ESteamSubscriptionBillingInfoType.h" />
-    <ClInclude Include="ESteamSubscriptionStatus.h" />
-    <ClInclude Include="ISteam003.h" />
-    <ClInclude Include="ISteam004.h" />
-    <ClInclude Include="ISteam005.h" />
-    <ClInclude Include="ISteam006.h" />
-    <ClInclude Include="Interface_OSW.h" />
-    <ClInclude Include="POSIXLibrary.h" />
-    <ClInclude Include="Win32Library.h" />
     <ClInclude Include="SteamTypes.h" />
     <ClInclude Include="Steamworks.h" />
   </ItemGroup>

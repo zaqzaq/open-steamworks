@@ -14,23 +14,16 @@
 //
 //=============================================================================
 
-
 #ifndef STEAMCLIENTAPI_H
 #define STEAMCLIENTAPI_H
 #ifdef _WIN32
 #pragma once
 #endif
 
-
 // includes
 #include "SteamTypes.h"
 
 // extern function declarations
 #include "Steamclient.h"
-
-// inline interface utils
-#include "Interface_OSW.h"
-
-
 
 #endif // STEAMCLIENTAPI_H

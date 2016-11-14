@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Link Libraries">
-      <UniqueIdentifier>{a754190b-8d78-409e-967d-d2b8ba21ac30}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Steamclient Headers">
       <UniqueIdentifier>{2197791a-f31d-4839-b542-c69ea840fd47}</UniqueIdentifier>
     </Filter>
@@ -91,21 +88,6 @@
     <Filter Include="Steamclient Headers\Steam Interfaces\ISteamStreamLauncher">
       <UniqueIdentifier>{e9fbcdcf-c299-4f7a-af0e-9c462bb48bd0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Steam Headers">
-      <UniqueIdentifier>{a900e63b-2dbc-48f7-b8c8-b521b7c5b7a1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Steam Headers\Common Types">
-      <UniqueIdentifier>{023b4c29-ef65-4290-9ac2-ff3d6e6bc944}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Steam Headers\Common Types\Enums">
-      <UniqueIdentifier>{03cd41fd-15ee-4f77-a4ed-5ccfb1de5b12}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Steam Headers\Interfaces">
-      <UniqueIdentifier>{7d846d87-62ad-4818-82fc-94f09f64114a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Loader">
-      <UniqueIdentifier>{33070d94-f89d-4b18-9388-818428c000c2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Steamclient Headers\Steam Interfaces\ISteamAppList">
       <UniqueIdentifier>{45c09560-b869-4b74-bd41-2661075ba811}</UniqueIdentifier>
     </Filter>
@@ -118,17 +100,6 @@
     <Filter Include="Steamclient Headers\Steam Interfaces\ISteamInventory">
       <UniqueIdentifier>{5406b85a-2cdf-474f-9a7e-e5aaef60afcd}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="..\Resources\Libs\Win32\Steam.lib">
-      <Filter>Link Libraries</Filter>
-    </Library>
-    <Library Include="..\Resources\Libs\Win32\steamclient.lib">
-      <Filter>Link Libraries</Filter>
-    </Library>
-    <Library Include="..\Resources\Libs\Win64\steamclient64.lib">
-      <Filter>Link Libraries</Filter>
-    </Library>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Steamclient.h">
@@ -664,135 +635,6 @@
     </ClInclude>
     <ClInclude Include="StreamLauncherCommon.h">
       <Filter>Steamclient Headers\Steam Interfaces\ISteamStreamLauncher</Filter>
-    </ClInclude>
-    <ClInclude Include="Steam.h">
-      <Filter>Steam Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="SteamAPI.h">
-      <Filter>Steam Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="SteamSalt.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamApp.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamAppDependencyInfo.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamAppLaunchOption.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamAppStats.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamAppVersion.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamDiscountQualifier.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamElemInfo.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamError.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamExternalBillingInfo.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamGlobalUserID.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamOfflineStatus.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamPaymentCardInfo.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamPaymentCardReceiptInfo.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamPrepurchaseInfo.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamPrepurchaseReceiptInfo.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamProgress.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamSplitLocalUserID.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamSubscription.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamSubscriptionBillingInfo.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamSubscriptionDiscount.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamSubscriptionReceipt.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamSubscriptionStats.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="TSteamUpdateStats.h">
-      <Filter>Steam Headers\Common Types</Filter>
-    </ClInclude>
-    <ClInclude Include="ESteamAppUpdateStatsQueryType.h">
-      <Filter>Steam Headers\Common Types\Enums</Filter>
-    </ClInclude>
-    <ClInclude Include="ESteamBufferMethod.h">
-      <Filter>Steam Headers\Common Types\Enums</Filter>
-    </ClInclude>
-    <ClInclude Include="ESteamError.h">
-      <Filter>Steam Headers\Common Types\Enums</Filter>
-    </ClInclude>
-    <ClInclude Include="ESteamFindFilter.h">
-      <Filter>Steam Headers\Common Types\Enums</Filter>
-    </ClInclude>
-    <ClInclude Include="ESteamNotify.h">
-      <Filter>Steam Headers\Common Types\Enums</Filter>
-    </ClInclude>
-    <ClInclude Include="ESteamPaymentCardType.h">
-      <Filter>Steam Headers\Common Types\Enums</Filter>
-    </ClInclude>
-    <ClInclude Include="ESteamSeekMethod.h">
-      <Filter>Steam Headers\Common Types\Enums</Filter>
-    </ClInclude>
-    <ClInclude Include="ESteamServerType.h">
-      <Filter>Steam Headers\Common Types\Enums</Filter>
-    </ClInclude>
-    <ClInclude Include="ESteamSubscriptionBillingInfoType.h">
-      <Filter>Steam Headers\Common Types\Enums</Filter>
-    </ClInclude>
-    <ClInclude Include="ESteamSubscriptionStatus.h">
-      <Filter>Steam Headers\Common Types\Enums</Filter>
-    </ClInclude>
-    <ClInclude Include="ISteam003.h">
-      <Filter>Steam Headers\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="ISteam004.h">
-      <Filter>Steam Headers\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="ISteam005.h">
-      <Filter>Steam Headers\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="ISteam006.h">
-      <Filter>Steam Headers\Interfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="Interface_OSW.h">
-      <Filter>Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="POSIXLibrary.h">
-      <Filter>Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="Win32Library.h">
-      <Filter>Loader</Filter>
     </ClInclude>
     <ClInclude Include="SteamTypes.h" />
     <ClInclude Include="Steamworks.h" />

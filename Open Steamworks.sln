@@ -4,8 +4,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Open Steamworks", "Open Steamworks\Open Steamworks.vcxproj", "{A0C16874-A8AD-48C4-AE6E-DECF5C70D7FB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3172E704-BC75-4BDB-8B86-D1CE4FBC549E} = {3172E704-BC75-4BDB-8B86-D1CE4FBC549E}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test Platform", "Test Platform\Test Platform.vcxproj", "{4FF0B36E-A56E-4908-A533-4BAD845512D8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3172E704-BC75-4BDB-8B86-D1CE4FBC549E} = {3172E704-BC75-4BDB-8B86-D1CE4FBC549E}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "oswloader", "OSWLoader\src\oswloader.vcxproj", "{3172E704-BC75-4BDB-8B86-D1CE4FBC549E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +55,20 @@ Global
 		{4FF0B36E-A56E-4908-A533-4BAD845512D8}.Release|Win32.Build.0 = Release|Win32
 		{4FF0B36E-A56E-4908-A533-4BAD845512D8}.Release|x64.ActiveCfg = Release|x64
 		{4FF0B36E-A56E-4908-A533-4BAD845512D8}.Release|x64.Build.0 = Release|x64
+		{3172E704-BC75-4BDB-8B86-D1CE4FBC549E}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{3172E704-BC75-4BDB-8B86-D1CE4FBC549E}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{3172E704-BC75-4BDB-8B86-D1CE4FBC549E}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{3172E704-BC75-4BDB-8B86-D1CE4FBC549E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3172E704-BC75-4BDB-8B86-D1CE4FBC549E}.Debug|Win32.Build.0 = Debug|Win32
+		{3172E704-BC75-4BDB-8B86-D1CE4FBC549E}.Debug|x64.ActiveCfg = Debug|x64
+		{3172E704-BC75-4BDB-8B86-D1CE4FBC549E}.Debug|x64.Build.0 = Debug|x64
+		{3172E704-BC75-4BDB-8B86-D1CE4FBC549E}.Release|Any CPU.ActiveCfg = Release|Win32
+		{3172E704-BC75-4BDB-8B86-D1CE4FBC549E}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{3172E704-BC75-4BDB-8B86-D1CE4FBC549E}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{3172E704-BC75-4BDB-8B86-D1CE4FBC549E}.Release|Win32.ActiveCfg = Release|Win32
+		{3172E704-BC75-4BDB-8B86-D1CE4FBC549E}.Release|Win32.Build.0 = Release|Win32
+		{3172E704-BC75-4BDB-8B86-D1CE4FBC549E}.Release|x64.ActiveCfg = Release|x64
+		{3172E704-BC75-4BDB-8B86-D1CE4FBC549E}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

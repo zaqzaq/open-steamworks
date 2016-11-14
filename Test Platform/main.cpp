@@ -1,30 +1,26 @@
 #define STEAMWORKS_CLIENT_INTERFACES
 
+#include "ClientLoader.h"
 #include "Steamworks.h"
 #include <time.h>
 
 #ifdef _WIN32
 	#ifndef _WIN64
-		#pragma comment( lib, "../Resources/Libs/Win32/steamclient.lib" )
+		#pragma comment( lib, "../OSWLoader/lib/Win32/oswloader.lib" )
 	#else
-		#pragma comment( lib, "../Resources/Libs/Win64/steamclient64.lib" )
+		#pragma comment( lib, "../OSWLoader/lib/Win64/oswloader.lib" )
 	#endif
 #endif
 
-
-CSteamAPILoader loader;
-
 int main()
 {
-	CreateInterfaceFn factory = loader.GetSteam3Factory();
-
-	if ( !factory )
+	if ( !ClientAPI_LoadLibrary())
 	{
 		fprintf(stderr, "Unable to load steamclient factory.\n");
 		return 1;
 	}
 
-	IClientEngine *pClientEngine = (IClientEngine *)factory( CLIENTENGINE_INTERFACE_VERSION, NULL );
+	IClientEngine *pClientEngine = (IClientEngine *)ClientAPI_CreateInterface( CLIENTENGINE_INTERFACE_VERSION, NULL );
 	if ( !pClientEngine )
 	{
 		fprintf(stderr, "Unable to get the client engine.\n");
