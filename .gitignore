@@ -12,7 +12,6 @@ Backup
 *.sln.docstates
 *.pdb
 *.lib
-*.a
 ssfn*
 [Dd]ebug/
 [Dd]ebugPublic/
