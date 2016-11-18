@@ -365,7 +365,7 @@ S_API void SteamAPI_UseBreakpadCrashHandler( char const *pchVersion, char const 
 S_API void SteamAPI_SetBreakpadAppID( uint32 unAppID );
 
 // interface pointers, configured by SteamAPI_Init()
-S_API_UNSAFE ISteamClient009* STEAM_CALL SteamClient();
+S_API_UNSAFE ISteamClient017* STEAM_CALL SteamClient();
 
 // VERSION_SAFE_STEAM_API_INTERFACES is usually not necessary, but it provides safety against releasing
 // new steam_api.dll's without recompiling/rereleasing modules that use it.
@@ -381,15 +381,15 @@ S_API bool STEAM_CALL SteamAPI_InitSafe();
 #else
 S_API bool STEAM_CALL SteamAPI_Init();
 
-S_API_UNSAFE ISteamUser013* STEAM_CALL SteamUser();
-S_API_UNSAFE ISteamFriends005* STEAM_CALL SteamFriends();
-S_API_UNSAFE ISteamUtils005* STEAM_CALL SteamUtils();
-S_API_UNSAFE ISteamMatchmaking008* STEAM_CALL SteamMatchmaking();
-S_API_UNSAFE ISteamUserStats007* STEAM_CALL SteamUserStats();
-S_API_UNSAFE ISteamApps003* STEAM_CALL SteamApps();
-S_API_UNSAFE ISteamNetworking003* STEAM_CALL SteamNetworking();
+S_API_UNSAFE ISteamUser019* STEAM_CALL SteamUser();
+S_API_UNSAFE ISteamFriends015* STEAM_CALL SteamFriends();
+S_API_UNSAFE ISteamUtils008* STEAM_CALL SteamUtils();
+S_API_UNSAFE ISteamMatchmaking009* STEAM_CALL SteamMatchmaking();
+S_API_UNSAFE ISteamUserStats011* STEAM_CALL SteamUserStats();
+S_API_UNSAFE ISteamApps008* STEAM_CALL SteamApps();
+S_API_UNSAFE ISteamNetworking005* STEAM_CALL SteamNetworking();
 S_API_UNSAFE ISteamMatchmakingServers002* STEAM_CALL SteamMatchmakingServers();
-S_API_UNSAFE ISteamRemoteStorage002* STEAM_CALL SteamRemoteStorage();
+S_API_UNSAFE ISteamRemoteStorage013* STEAM_CALL SteamRemoteStorage();
 #endif // VERSION_SAFE_STEAM_API_INTERFACES
 
 // sets whether or not Steam_RunCallbacks() should do a try {} catch (...) {} around calls to issuing callbacks
