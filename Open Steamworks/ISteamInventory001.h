@@ -254,6 +254,10 @@ public:
 	// property names. 
 	virtual bool GetItemDefinitionProperty(SteamItemDef_t iDefinition, const char *pchPropertyName,
 		char *pchValueBuffer, uint32 *punValueBufferSize) = 0;
+    
+    virtual unknown_ret RequestEligiblePromoItemDefinitionsIDs(CSteamID) = 0;
+    
+    virtual unknown_ret GetEligiblePromoItemDefinitionIDs(CSteamID, int*, unsigned int*) = 0;
 
 };
 

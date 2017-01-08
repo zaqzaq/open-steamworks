@@ -124,6 +124,12 @@ typedef enum EResult
 	k_EResultRefundToWallet = 98,							// Cannot refund to payment method, must use wallet
 	k_EResultEmailSendFailure = 99,							// Cannot send an email
 	k_EResultNotSettled = 100,								// Can't perform operation till payment has settled
+	k_EResultNeedsCaptcha = 101,							//
+	k_EResultGameserverLoginTokenDenied = 102,			  	//
+	k_EResultGameserverLoginTokenOwnerDenied = 103,		 	//
+	k_EResultInvalidItemType = 104,						 	//
+	k_EResultIPAddressBanned = 105,						 	//
+	k_EResultGameserverLoginTokenExpired = 106,			 	//
 } EResult;
 
 #endif // ERESULT_H

@@ -278,8 +278,6 @@ public:
 	virtual void TradeResponse( uint32 unTradeRequestID, bool bAccept ) = 0;
 	virtual void CancelTradeRequest( CSteamID steamIDPartner ) = 0;
 	virtual bool HideFriend( CSteamID steamIDFriend, bool bHide ) = 0;
-	virtual const char * GetFriendFacebookName( CSteamID steamIDFriend ) = 0;
-	virtual uint64 GetFriendFacebookID( CSteamID steamIDFriend ) = 0;
 	virtual SteamAPICall_t GetFollowerCount( CSteamID steamID ) = 0;
 	virtual SteamAPICall_t IsFollowing( CSteamID steamID ) = 0;
 	virtual SteamAPICall_t EnumerateFollowingList( uint32 uStartIndex ) = 0;

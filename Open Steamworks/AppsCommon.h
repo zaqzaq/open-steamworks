@@ -159,6 +159,12 @@ enum EAppUpdateError
 	k_EAppUpdateErrorSharedLibraryLocked = 34,
 	k_EAppUpdateErrorPurchasePending = 35,
 	k_EAppUpdateErrorOtherSessionPlaying = 36,
+	k_EAppUpdateErrorCorruptDisk = 37,
+	k_EAppUpdateErrorMissingFilePermissions = 38,
+	k_EAppUpdateErrorFileLocked = 39,
+	k_EAppUpdateErrorContentUnavailable = 40,
+	k_EAppUpdateErrorA64bitOperatingSystemIsRequiredToLaunch = 41,
+	k_EAppUpdateErrorFolderNotWritable = 42,
 };
 
 //-----------------------------------------------------------------------------
