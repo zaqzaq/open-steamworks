@@ -87,7 +87,8 @@ enum EAppInfoSection
 	k_EAppInfoSectionItems,
 	k_EAppInfoSectionPolicies,
 	k_EAppInfoSectionSysreqs,
-	k_EAppInfoSectionCommunity
+	k_EAppInfoSectionCommunity,
+	k_EAppInfoSectionStore
 };
 
 #pragma pack( push, 1 )
