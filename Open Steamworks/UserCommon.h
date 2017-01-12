@@ -101,7 +101,11 @@ typedef enum ELogonState
 
 typedef enum ELauncherType
 {
-	// TODO: Reverse this enum
+	k_ELauncherTypeDefault = 0,
+	k_ELauncherTypePw_dota2 = 1,
+	k_ELauncherTypeNexon_dota2 = 2,
+	k_ELauncherTypeSteamcmd = 3,
+	k_ELauncherTypePw_csgo = 4,
 } ELauncherType;
 
 //-----------------------------------------------------------------------------
@@ -400,8 +404,8 @@ struct GetAuthSessionTicketResponse_t
 //-----------------------------------------------------------------------------
 struct GameWebCallback_t
 {
-    enum { k_iCallback = k_iSteamUserCallbacks + 64 };
-    char m_szURL[256];
+	enum { k_iCallback = k_iSteamUserCallbacks + 64 };
+	char m_szURL[256];
 };
 
 //-----------------------------------------------------------------------------
@@ -409,8 +413,8 @@ struct GameWebCallback_t
 //-----------------------------------------------------------------------------
 struct StoreAuthURLResponse_t
 {
-    enum { k_iCallback = k_iSteamUserCallbacks + 65 };
-    char m_szURL[512];
+	enum { k_iCallback = k_iSteamUserCallbacks + 65 };
+	char m_szURL[512];
 };
 
 
@@ -741,10 +745,10 @@ struct WebAuthRequestCallback_t
 	enum { k_iCallback = k_iClientUserCallbacks + 42 };
 	
 	bool m_bSuccessful;
-    
-    // contains 2 web session tokens associated with current session
-    // first one is for regular http second for secured
-    // ( should be used as steamLogin and steamLoginSecure cookies )
+	
+	// contains 2 web session tokens associated with current session
+	// first one is for regular http second for secured
+	// ( should be used as steamLogin and steamLoginSecure cookies )
 	char m_rgchTokens[1024];
 };
 

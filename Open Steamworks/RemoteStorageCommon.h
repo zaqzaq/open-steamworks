@@ -73,6 +73,7 @@ enum ERemoteStorageFileRoot
 	k_ERemoteStorageFileRootMacCaches,
 	k_ERemoteStorageFileRootLinuxHome,
 	k_ERemoteStorageFileRootLinuxXdgDataHome,
+	k_ERemoteStorageFileRootLinuxXdgConfigHome,
 	k_ERemoteStorageFileRootMax
 };
 
@@ -340,7 +341,7 @@ private:
 
 //-----------------------------------------------------------------------------
 // Purpose: sent when the local file cache is fully synced with the server for an app
-//          That means that an application can be started and has all latest files
+//	      That means that an application can be started and has all latest files
 //-----------------------------------------------------------------------------
 struct RemoteStorageAppSyncedClient_t
 {

@@ -40,29 +40,35 @@
 
 enum EAppState
 {
-	k_EAppStateInvalid			= 0,
-	k_EAppStateUninstalled		= 1,
-	k_EAppStateUpdateRequired	= 2,
-	k_EAppStateFullyInstalled	= 4,
-	k_EAppStateDataEncrypted	= 8,
-	k_EAppStateSharedOnly		= 64,
-	k_EAppStateDataLocked		= 16,
-	k_EAppStateFilesMissing		= 32,
-	k_EAppStateFilesCorrupt		= 128,
-	k_EAppStateAppRunning		= 8192,
-	k_EAppStateBackupRunning	= 4096,
-	k_EAppStateUpdateRunning	= 256,
-	k_EAppStateUpdateStopping	= 8388608,
-	k_EAppStateUpdatePaused		= 512,
-	k_EAppStateUpdateStarted	= 1024,
-	k_EAppStateReconfiguring	= 65536,
-	k_EAppStateAddingFiles		= 262144,
-	k_EAppStateDownloading		= 1048576,
-	k_EAppStateStaging			= 2097152,
-	k_EAppStateCommitting		= 4194304,
-	k_EAppStateUninstalling		= 2048,
-	k_EAppStatePreallocating	= 524288,
-	k_EAppStateValidating		= 131072,
+	k_EAppStateInvalid = 0,
+	k_EAppStateUninstalled = 1,
+	k_EAppStateUpdateRequired = 2,
+	k_EAppStateFullyInstalled = 4,
+	k_EAppStateUpdateOptional = 16,
+	k_EAppStateFilesMissing = 32,
+	k_EAppStateSharedOnly = 64,
+	k_EAppStateFilesCorrupt = 128,
+	k_EAppStateUpdateRunning = 256,
+	k_EAppStateUpdatePaused = 512,
+	k_EAppStateUpdateStarted = 1024,
+	k_EAppStateUninstalling = 2048,
+	k_EAppStateBackupRunning = 4096,
+	k_EAppStateAppRunning = 8192,
+	k_EAppStateComponentInUse = 16384,
+};
+
+enum EAppUpdateState
+{
+	k_EAppUpdateStateNone = 0,
+	k_EAppUpdateStateRunning = 1,
+	k_EAppUpdateStateReconfiguring = 2,
+	k_EAppUpdateStateValidating = 4,
+	k_EAppUpdateStateAddingFiles = 8,
+	k_EAppUpdateStatePreallocating = 16,
+	k_EAppUpdateStateDownloading = 32,
+	k_EAppUpdateStateStaging = 64,
+	k_EAppUpdateStateCommitting = 128,
+	k_EAppUpdateStateStopping = 256,
 };
 
 enum EAppEvent
@@ -190,11 +196,14 @@ enum EAppOwnershipFlags
 	k_EAppOwnershipFlagsInvalidPlatform =	1 << 4,
 	k_EAppOwnershipFlagsSharedLicense =		1 << 5,
 	k_EAppOwnershipFlagsFreeWeekend =		1 << 6,
-	k_EAppOwnershipFlagsLockedLicense =		1 << 7,
-	k_EAppOwnershipFlagsPending	=			1 << 8,
-	k_EAppOwnershipFlagsExpired	=			1 << 9,
-	k_EAppOwnershipFlagsPermanent	=		1 << 10,
-	k_EAppOwnershipFlagsRecurring	=		1 << 11,
+	k_EAppOwnershipFlagsRetail =			1 << 7,
+	k_EAppOwnershipFlagsLockedLicense =		1 << 8,
+	k_EAppOwnershipFlagsPending	=			1 << 9,
+	k_EAppOwnershipFlagsExpired	=			1 << 10,
+	k_EAppOwnershipFlagsPermanent =		 	1 << 11,
+	k_EAppOwnershipFlagsRecurring =		 	1 << 12,
+	k_EAppOwnershipFlagsCanceled =		  	1 << 13,
+	k_EAppOwnershipFlagsAutoGrant =		 	1 << 14,
 };
 
 enum EAppReleaseState
