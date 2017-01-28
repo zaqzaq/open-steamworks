@@ -135,6 +135,7 @@ enum EControllerSourceMode
 	k_EControllerSourceModeMouse_joystick,
 	k_EControllerSourceModeMouse_region,
 	k_EControllerSourceModeRadial_menu,
+	k_EControllerSourceModeSingle_button,
 	k_EControllerSourceModeSwitches,
 };
 

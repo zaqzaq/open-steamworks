@@ -79,6 +79,10 @@ public:
 	virtual bool BuildInstaller( const char *cszProjectFile, const char *cszBackupPath, const char *, const char * ) = 0;
 	virtual bool CancelBackup() = 0;
 	virtual EAppUpdateError RestoreApp( AppId_t unAppID, int32 iBaseFolder, char const *cszBackupPath ) = 0;
+	virtual unknown_ret CanMoveApp( AppId_t unAppID ) = 0;
+	virtual unknown_ret MoveApp( AppId_t unAppID, int32 unk ) = 0;
+	virtual unknown_ret GetMoveAppProgress( AppId_t unAppID, uint64* unk_1, uint64* unk_2, uint32* unk_3) = 0;
+	virtual unknown_ret CancelMoveApp( AppId_t unAppID ) = 0;
 	virtual bool BNeedsFile( AppId_t unAppID, char const *cszFilePath, uint64 ullFileSize, uint32 uUnk ) = 0;
 	virtual bool BAddFileOnDisk( AppId_t unAppID, char const *cszFilePath, uint64 ullFileSize, uint32 uUnk, SHADigestWrapper_t ubSha1 ) = 0;
 	virtual uint32 FinishAddingFiles( AppId_t unAppID ) = 0;

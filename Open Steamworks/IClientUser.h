@@ -74,6 +74,7 @@ public:
 	virtual bool BTryingToLogin() = 0;
 	STEAMWORKS_STRUCT_RETURN_0(CSteamID, GetSteamID) /*virtual CSteamID GetSteamID() = 0;*/
 	STEAMWORKS_STRUCT_RETURN_0(CSteamID, GetConsoleSteamID) /*virtual CSteamID GetConsoleSteamID() = 0;*/
+	virtual unknown_ret GetClientInstanceID() = 0;
 	virtual bool IsVACBanned( AppId_t nGameID ) = 0;
 	virtual bool SetEmail( const char *pchEmail ) = 0;
 	virtual bool SetConfigString( ERegistrySubTree eRegistrySubTree, const char *pchKey, const char *pchValue ) = 0;
@@ -159,7 +160,7 @@ public:
 	virtual void GetNumAccountsWithEmailAddress( const char * pchEmailAddress ) = 0;
 	virtual void IsAccountNameInUse( const char * pchAccountName ) = 0;
 	virtual void Test_FakeConnectionTimeout() = 0;
-	virtual bool RunInstallScript( AppId_t *pAppIDs, int32 cAppIDs, const char *pchInstallPath, const char *pchLanguage, bool bUninstall ) = 0;
+	virtual bool RunInstallScript( AppId_t pAppIDs, const char *pchUnk, bool bUninstall ) = 0;
 	virtual AppId_t IsInstallScriptRunning() = 0;
 	virtual bool GetInstallScriptState( char* pchDescription, uint32 cchDescription, uint32* punNumSteps, uint32* punCurrStep ) = 0;
 	virtual bool SpawnProcess( const char *lpApplicationName, const char *lpCommandLine, uint32 dwCreationFlags, const char *lpCurrentDirectory, CGameID gameID, AppId_t nAppID, const char *pchGameName, uint32 uUnk ) = 0;
