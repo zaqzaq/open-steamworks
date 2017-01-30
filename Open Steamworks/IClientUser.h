@@ -74,7 +74,7 @@ public:
 	virtual bool BTryingToLogin() = 0;
 	STEAMWORKS_STRUCT_RETURN_0(CSteamID, GetSteamID) /*virtual CSteamID GetSteamID() = 0;*/
 	STEAMWORKS_STRUCT_RETURN_0(CSteamID, GetConsoleSteamID) /*virtual CSteamID GetConsoleSteamID() = 0;*/
-	virtual unknown_ret GetClientInstanceID() = 0;
+	virtual uint32 GetClientInstanceID() = 0;
 	virtual bool IsVACBanned( AppId_t nGameID ) = 0;
 	virtual bool SetEmail( const char *pchEmail ) = 0;
 	virtual bool SetConfigString( ERegistrySubTree eRegistrySubTree, const char *pchKey, const char *pchValue ) = 0;
