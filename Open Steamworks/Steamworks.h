@@ -20,6 +20,9 @@
 #pragma once
 #endif
 
+// ugly steamclient library loader 
+#include "ClientLoader.h"
+
 #include "SteamTypes.h"
 
 #include "SteamclientAPI.h"
