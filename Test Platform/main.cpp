@@ -5,21 +5,21 @@
 
 #ifdef _WIN32
 	#ifndef _WIN64
-		#pragma comment( lib, "../OSWLoader/lib/Win32/oswloader.lib" )
+		#pragma comment( lib, "../OpenSteamAPI/lib/Win32/OpenSteamAPI.lib" )
 	#else
-		#pragma comment( lib, "../OSWLoader/lib/Win64/oswloader.lib" )
+		#pragma comment( lib, "../OpenSteamAPI/lib/Win64/OpenSteamAPI64.lib" )
 	#endif
 #endif
 
 int main()
 {
-	if ( !ClientAPI_LoadLibrary())
+	if ( !OpenAPI_LoadLibrary())
 	{
 		fprintf(stderr, "Unable to load steamclient factory.\n");
 		return 1;
 	}
 
-	IClientEngine *pClientEngine = (IClientEngine *)ClientAPI_CreateInterface( CLIENTENGINE_INTERFACE_VERSION, NULL );
+	IClientEngine *pClientEngine = (IClientEngine *)OpenAPI_CreateInterface( CLIENTENGINE_INTERFACE_VERSION, NULL );
 	if ( !pClientEngine )
 	{
 		fprintf(stderr, "Unable to get the client engine.\n");
@@ -68,16 +68,6 @@ int main()
 	{
 		szPassword[strlen(szPassword) - 1] = 0;
 	}
-
-	/*
-
-	Original client login sequence looks like this:  
-
-	pClientUser->SetLoginInformation(szUsername, szPassword, false);
-	CSteamID userID = pClientUser->GetSteamID();
-	pClientUser->LogOn(false, userID);
-	
-	*/
 
 	pClientUser->LogOnWithPassword(false, szUsername, szPassword);
 

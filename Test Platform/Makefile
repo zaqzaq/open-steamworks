@@ -4,10 +4,10 @@ SUFFIX = Unknown
 CPPFLAGS = -m32 -I"../Open Steamworks"
 
 ifeq ($(UNAME), Linux)
-	LDFLAGS = -m32 -Wl,--no-as-needed -ldl ../OSWLoader/Linux32/oswloader.a
+	LDFLAGS = -m32 -Wl,--no-as-needed -ldl ../OpenSteamAPI/lib/Linux32/OpenSteamAPI.a
 	SUFFIX = Linux32
 else ifeq ($(UNAME), Darwin)
-	LDFLAGS = -m32 -framework Foundation ../OSWLoader/OSX32/oswloader.a
+	LDFLAGS = -m32 -framework Foundation ../OpenSteamAPI/lib/OSX32/OpenSteamAPI.a
 	SUFFIX = OSX32
 else
 	UNAMEO := $(shell uname -o)
