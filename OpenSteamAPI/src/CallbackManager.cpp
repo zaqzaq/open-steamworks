@@ -35,7 +35,7 @@ S_API void SteamAPI_UnregisterCallback(class CCallbackBase *pCallback)
 	{
 		if (it->second == pCallback)
 		{
-			g_ManagedCallbacks.erase(it++);
+			it = g_ManagedCallbacks.erase(it);
 		}
 		else
 		{
