@@ -10,6 +10,9 @@ Backup
 *.user
 *.userosscache
 *.sln.docstates
+*.pdb
+*.lib
+ssfn*
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
