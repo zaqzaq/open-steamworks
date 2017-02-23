@@ -17,6 +17,9 @@
 #include <map>
 #include "Steamworks.h"
 
+extern HSteamPipe g_hPipe;
+extern HSteamUser g_hUser;
+
 // whole thing looks more like an ugly stub atm
 // if you know a better way to do it please let me know...
 
@@ -64,4 +67,9 @@ S_API void Steam_RunCallbacks(HSteamPipe hSteamPipe, bool bGameServerCallbacks)
 		}
 		Steam_FreeLastCallback(hSteamPipe);
 	}
+}
+
+S_API void SteamAPI_RunCallbacks()
+{
+	Steam_RunCallbacks(g_hPipe, false);
 }

@@ -23,26 +23,41 @@ public:
 
 	bool Init();
 
-	ISteamUser013*         SteamUser()                         { return m_pSteamUser; }
-	ISteamFriends005*      SteamFriends()                      { return m_pSteamFriends; }
-	ISteamUtils005*        SteamUtils()                        { return m_pSteamUtils; }
+	ISteamUser019*         SteamUser()                         { return m_pSteamUser; }
+	ISteamFriends015*      SteamFriends()                      { return m_pSteamFriends; }
+	ISteamUtils008*        SteamUtils()                        { return m_pSteamUtils; }
 	ISteamMatchmaking008*  SteamMatchmaking()                  { return m_pSteamMatchmaking; }
 	ISteamUserStats007*    SteamUserStats()                    { return m_pSteamUserStats; }
-	ISteamApps003*         SteamApps()                         { return m_pSteamApps; }
+	ISteamApps008*         SteamApps()                         { return m_pSteamApps; }
 	ISteamMatchmakingServers002*   SteamMatchmakingServers()   { return m_pSteamMatchmakingServers; }
 	ISteamNetworking003*   SteamNetworking()                   { return m_pSteamNetworking; }
-	ISteamRemoteStorage002* SteamRemoteStorage()               { return m_pSteamRemoteStorage; }
+	ISteamRemoteStorage012* SteamRemoteStorage()               { return m_pSteamRemoteStorage; }
+	ISteamScreenshots003*  SteamScreenshots()                  { return m_pSteamScreenshots; }
+	ISteamHTTP002*         SteamHTTP()                         { return m_pSteamHTTP; }
+	ISteamUnifiedMessages001* SteamUnifiedMessages()           { return m_pSteamUnifiedMessages; }
+	ISteamController004*   SteamController()                   { return m_pSteamController; }
+	ISteamUGC008*          SteamUGC()                          { return m_pSteamUGC; }
+	ISteamAppList001*      SteamAppList()                      { return m_pSteamAppList; }
+	ISteamMusic001*        SteamMusic()                        { return m_pSteamMusic; }
+
 
 private:
-	ISteamUser013      *m_pSteamUser;
-	ISteamFriends005   *m_pSteamFriends;
-	ISteamUtils005     *m_pSteamUtils;
+	ISteamUser019          *m_pSteamUser;
+	ISteamFriends015       *m_pSteamFriends;
+	ISteamUtils008         *m_pSteamUtils;
 	ISteamMatchmaking008   *m_pSteamMatchmaking;
 	ISteamUserStats007     *m_pSteamUserStats;
-	ISteamApps003          *m_pSteamApps;
+	ISteamApps008          *m_pSteamApps;
 	ISteamMatchmakingServers002    *m_pSteamMatchmakingServers;
 	ISteamNetworking003    *m_pSteamNetworking;
-	ISteamRemoteStorage002 *m_pSteamRemoteStorage;
+	ISteamRemoteStorage012 *m_pSteamRemoteStorage;
+	ISteamScreenshots003   *m_pSteamScreenshots;
+	ISteamHTTP002          *m_pSteamHTTP;
+	ISteamUnifiedMessages001  *m_pSteamUnifiedMessages;
+	ISteamController004	   *m_pSteamController;
+	ISteamUGC008           *m_pSteamUGC;
+	ISteamAppList001       *m_pSteamAppList;
+	ISteamMusic001         *m_pSteamMusic;
 };
 
 inline CSteamAPIContext::CSteamAPIContext()
@@ -61,6 +76,13 @@ inline void CSteamAPIContext::Clear()
 	m_pSteamMatchmakingServers = NULL;
 	m_pSteamNetworking = NULL;
 	m_pSteamRemoteStorage = NULL;
+	m_pSteamScreenshots = NULL;
+	m_pSteamHTTP = NULL;
+	m_pSteamUnifiedMessages = NULL;
+	m_pSteamController = NULL;
+	m_pSteamUGC = NULL;
+	m_pSteamAppList = NULL;
+	m_pSteamMusic = NULL;
 }
 
 // This function must be inlined so the module using steam_api.dll gets the version names they want.
@@ -72,15 +94,15 @@ inline bool CSteamAPIContext::Init()
 	HSteamUser hSteamUser = SteamAPI_GetHSteamUser();
 	HSteamPipe hSteamPipe = SteamAPI_GetHSteamPipe();
 
-	m_pSteamUser = (ISteamUser013 *)SteamClient()->GetISteamUser( hSteamUser, hSteamPipe, STEAMUSER_INTERFACE_VERSION_013 );
+	m_pSteamUser = (ISteamUser019 *)SteamClient()->GetISteamUser( hSteamUser, hSteamPipe, STEAMUSER_INTERFACE_VERSION_019 );
 	if ( !m_pSteamUser )
 		return false;
 
-	m_pSteamFriends = (ISteamFriends005 *)SteamClient()->GetISteamFriends( hSteamUser, hSteamPipe, STEAMFRIENDS_INTERFACE_VERSION_005 );
+	m_pSteamFriends = (ISteamFriends015 *)SteamClient()->GetISteamFriends( hSteamUser, hSteamPipe, STEAMFRIENDS_INTERFACE_VERSION_015 );
 	if ( !m_pSteamFriends )
 		return false;
 
-	m_pSteamUtils = (ISteamUtils005 *)SteamClient()->GetISteamUtils( hSteamPipe, STEAMUTILS_INTERFACE_VERSION_005 );
+	m_pSteamUtils = (ISteamUtils008 *)SteamClient()->GetISteamUtils( hSteamPipe, STEAMUTILS_INTERFACE_VERSION_008 );
 	if ( !m_pSteamUtils )
 		return false;
 
@@ -96,7 +118,7 @@ inline bool CSteamAPIContext::Init()
 	if ( !m_pSteamUserStats )
 		return false;
 
-	m_pSteamApps = (ISteamApps003 *)SteamClient()->GetISteamApps( hSteamUser, hSteamPipe, STEAMAPPS_INTERFACE_VERSION_003 );
+	m_pSteamApps = (ISteamApps008 *)SteamClient()->GetISteamApps( hSteamUser, hSteamPipe, STEAMAPPS_INTERFACE_VERSION_003 );
 	if ( !m_pSteamApps )
 		return false;
 
@@ -104,8 +126,36 @@ inline bool CSteamAPIContext::Init()
 	if ( !m_pSteamNetworking )
 		return false;
 
-	m_pSteamRemoteStorage = (ISteamRemoteStorage002 *)SteamClient()->GetISteamRemoteStorage( hSteamUser, hSteamPipe, STEAMREMOTESTORAGE_INTERFACE_VERSION_002 );
+	m_pSteamRemoteStorage = (ISteamRemoteStorage012 *)SteamClient()->GetISteamRemoteStorage( hSteamUser, hSteamPipe, STEAMREMOTESTORAGE_INTERFACE_VERSION_012 );
 	if ( !m_pSteamRemoteStorage )
+		return false;
+
+	m_pSteamScreenshots = (ISteamScreenshots003 *)SteamClient()->GetISteamScreenshots(hSteamUser, hSteamPipe, STEAMSCREENSHOTS_INTERFACE_VERSION_003);
+	if ( !m_pSteamScreenshots )
+		return false;
+
+	m_pSteamHTTP = (ISteamHTTP002 *)SteamClient()->GetISteamHTTP(hSteamUser, hSteamPipe, STEAMHTTP_INTERFACE_VERSION_002);
+	if ( !m_pSteamHTTP )
+		return false;
+
+	m_pSteamUnifiedMessages = (ISteamUnifiedMessages001 *)SteamClient()->GetISteamUnifiedMessages(hSteamUser, hSteamPipe, STEAMUNIFIEDMESSAGES_INTERFACE_VERSION_001);
+	if ( !m_pSteamUnifiedMessages )
+		return false;
+	
+	m_pSteamController = (ISteamController004 *)SteamClient()->GetISteamController(hSteamUser, hSteamPipe, STEAMCONTROLLER_INTERFACE_VERSION_004);
+	if ( !m_pSteamController )
+		return false;
+	
+	m_pSteamUGC = (ISteamUGC008 *)SteamClient()->GetISteamUGC(hSteamUser, hSteamPipe, STEAMUGC_INTERFACE_VERSION_008);
+	if ( !m_pSteamUGC )
+		return false;
+
+	m_pSteamAppList = (ISteamAppList001 *)SteamClient()->GetISteamAppList(hSteamUser, hSteamPipe, STEAMAPPLIST_INTERFACE_VERSION_001);
+	if ( !m_pSteamAppList )
+		return false;
+
+	m_pSteamMusic = (ISteamMusic001 *)SteamClient()->GetISteamMusic(hSteamUser, hSteamPipe, STEAMMUSIC_INTERFACE_VERSION_001);
+	if ( !m_pSteamMusic )
 		return false;
 
 	return true;

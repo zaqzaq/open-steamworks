@@ -14,7 +14,7 @@
 //
 //=============================================================================
 
-#include "ClientLoader.h"
+#include "Steamworks.h"
 #include "Interface_OSW.h"
 
 static CSteamAPILoader ClientLoader;
@@ -22,6 +22,11 @@ static CreateInterfaceFn pClientCreateInterface = NULL;
 static SteamBGetCallbackFn pSteamBGetCallback = NULL;
 static SteamFreeLastCallbackFn pSteamFreeLastCallback = NULL;
 static SteamGetAPICallResultFn pSteamGetAPICallResult = NULL;
+
+HSteamPipe g_hPipe = -1;
+HSteamUser g_hUser = 0;
+
+ISteamClient017* g_pSteamClient = NULL;
 
 S_API bool STEAM_CALL OpenAPI_LoadLibrary()
 {
@@ -68,3 +73,48 @@ S_API bool STEAM_CALL Steam_GetAPICallResult(HSteamPipe hSteamPipe, SteamAPICall
 {
 	return pSteamGetAPICallResult(hSteamPipe, hSteamAPICall, pCallback, cubCallback, iCallbackExpected, pbFailed);
 }
+
+S_API bool STEAM_CALL SteamAPI_Init()
+{
+	if (!OpenAPI_LoadLibrary())
+	{
+		return false;
+	}
+
+	g_pSteamClient = (ISteamClient017*)OpenAPI_CreateInterface(STEAMCLIENT_INTERFACE_VERSION_017, NULL);
+	if (!g_pSteamClient)
+	{
+		return false;
+	}
+
+	g_hPipe = g_pSteamClient->CreateSteamPipe();
+	if (!g_hPipe || g_hPipe == -1)
+	{
+		return false;
+	}
+
+	g_hUser = g_pSteamClient->ConnectToGlobalUser(g_hPipe);
+	if (!g_hUser)
+	{
+		return false;
+	}
+
+	return true;
+}
+
+S_API HSteamPipe STEAM_CALL SteamAPI_GetHSteamPipe()
+{
+	return g_hPipe;
+}
+
+S_API HSteamUser STEAM_CALL SteamAPI_GetHSteamUser()
+{
+	return g_hUser;
+}
+
+S_API_UNSAFE ISteamClient017* STEAM_CALL SteamClient()
+{
+	return g_pSteamClient;
+}
+
+

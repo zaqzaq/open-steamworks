@@ -26,6 +26,11 @@
   <ItemGroup>
     <None Include="OSXPathHelper.mm" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Interface_OSW.h" />
+    <ClInclude Include="OSXPathHelper.h" />
+    <ClInclude Include="POSIXLibrary.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{3172E704-BC75-4BDB-8B86-D1CE4FBC549E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>

@@ -5,6 +5,9 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{fe48bdba-9328-416d-b440-22f4b9b25ea6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Interface_OSW.cpp">
@@ -21,5 +24,16 @@
     <None Include="OSXPathHelper.mm">
       <Filter>Source Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Interface_OSW.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="OSXPathHelper.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="POSIXLibrary.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
