@@ -106,6 +106,7 @@ typedef enum ELauncherType
 	k_ELauncherTypeNexon_dota2 = 2,
 	k_ELauncherTypeSteamcmd = 3,
 	k_ELauncherTypePw_csgo = 4,
+	k_ELauncherTypeClientui = 5,
 } ELauncherType;
 
 //-----------------------------------------------------------------------------

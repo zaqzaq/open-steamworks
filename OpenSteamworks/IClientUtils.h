@@ -115,6 +115,8 @@ public:
 	virtual unknown_ret GenerateSupportSystemReport() = 0;
 	virtual unknown_ret GetSupportSystemReport(char*, uint32 unk, uint8* unk_2, uint32 unk_3) = 0;
 	virtual unknown_ret GetAppIdForPid(uint32 unk) = 0;
+	virtual unknown_ret SetClientUIProcess() = 0;
+	virtual bool BIsClientUIInForeground() = 0;
 };
 
 #endif // ICLIENTUTILS_H

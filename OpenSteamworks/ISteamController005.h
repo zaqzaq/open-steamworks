@@ -23,7 +23,7 @@
 #include "SteamTypes.h"
 #include "ControllerCommon.h"
 
-abstract_class ISteamController004
+abstract_class ISteamController005
 {
 public:
 	//
@@ -42,13 +42,17 @@ public:
 	virtual bool ShowBindingPanel( uint64 ) = 0;
 	virtual unknown_ret GetActionSetHandle( const char* ) = 0;
 	virtual void ActivateActionSet( uint64, uint64 ) = 0;
+	
 	virtual unknown_ret GetCurrentActionSet( uint64 ) = 0;
+	
 	virtual unknown_ret GetDigitalActionHandle( const char* ) = 0;
 	virtual unknown_ret GetDigitalActionData( uint64, uint64 ) = 0;
 	virtual unknown_ret GetDigitalActionOrigins( uint64, uint64, uint64, EControllerActionOrigin* ) = 0;
+	
 	virtual unknown_ret GetAnalogActionHandle( const char* ) = 0;
 	virtual unknown_ret GetAnalogActionData( uint64, uint64 ) = 0;
 	virtual unknown_ret GetAnalogActionOrigins( uint64, uint64, uint64, EControllerActionOrigin* ) = 0;
+	
 	virtual unknown_ret StopAnalogActionMomentum( uint64, uint64 ) = 0;
 
 	// Trigger a haptic pulse on the controller
@@ -60,12 +64,15 @@ public:
 
 	virtual int32 GetGamepadIndexForController( uint64 ) = 0;
 	virtual unknown_ret GetControllerForGamepadIndex( int32 ) = 0;
+	
 	virtual unknown_ret GetMotionData( uint64 ) = 0;
+	
 	virtual unknown_ret ShowDigitalActionOrigins( uint64, uint64, float, float, float ) = 0;
 	virtual unknown_ret ShowAnalogActionOrigins( uint64, uint64, float, float, float ) = 0;
 	
 	virtual unknown_ret GetStringForActionOrigin( EControllerActionOrigin ) = 0;
 	virtual unknown_ret GetGlyphForActionOrigin( EControllerActionOrigin ) = 0;
+	
 	virtual unknown_ret GetControllerTypeForHandle( uint64 ) = 0;
 };
 

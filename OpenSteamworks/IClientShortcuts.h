@@ -44,6 +44,7 @@ public:
 	virtual const char * GetShortcutStartDirByAppID( AppId_t unAppID ) = 0;
 	virtual const char * GetShortcutIconByAppID( AppId_t unAppID ) = 0;
 	virtual const char * GetShortcutPathByAppID( AppId_t unAppID ) = 0;
+	virtual const char * GetShortcutCommandLine( AppId_t unAppID ) = 0;
 	virtual uint32 GetShortcutUserTagCountByAppID( AppId_t unAppID ) = 0;
 	virtual const char * GetShortcutUserTagByAppID( AppId_t unAppID, uint32 ) = 0;
 	virtual bool BIsShortcutRemoteByAppID( AppId_t unAppID ) = 0;
@@ -51,6 +52,7 @@ public:
 	virtual bool BIsTemporaryShortcutByAppID( AppId_t unAppID ) = 0;
 	virtual bool BIsOpenVRShortcutByAppID( AppId_t unAppID ) = 0;
 	virtual bool BAllowDesktopConfigByAppID( AppId_t unAppID ) = 0;
+	virtual uint32 GetShortcutLastPlayedTime( AppId_t unAppID ) = 0;
 	virtual uint32 AddShortcut( const char *, const char *, const char * ) = 0;
 	virtual uint32 AddTemporaryShortcut( const char *, const char *, const char * ) = 0;
 	virtual uint32 AddOpenVRShortcut( const char *, const char *, const char * ) = 0;
@@ -59,6 +61,7 @@ public:
 	virtual void SetShortcutExe( uint32, const char * ) = 0;
 	virtual void SetShortcutStartDir( uint32, const char * ) = 0;
 	virtual void SetShortcutIcon( uint32, const char * ) = 0;
+	virtual void SetShortcutCommandLine( uint32, const char * ) = 0;
 	virtual void ClearShortcutUserTags( uint32 ) = 0;
 	virtual void AddShortcutUserTag( uint32, const char * ) = 0;
 	virtual void SetShortcutHidden( uint32, bool ) = 0;

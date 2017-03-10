@@ -30,7 +30,7 @@ abstract_class UNSAFE_INTERFACE IClientAppManager
 public:
 	virtual EAppUpdateError InstallApp( AppId_t unAppID, int32 iBaseFolder, bool bLegacy ) = 0;
 	virtual EAppUpdateError UninstallApp( AppId_t unAppID, bool bComplete ) = 0;
-	virtual EAppUpdateError LaunchApp( AppId_t unAppID, uint32 uLaunchOption, const char *pszUserArgs, const char *unk ) = 0;
+	virtual EAppUpdateError LaunchApp( CGameID gameID, uint32 uLaunchOption, const char *pszUserArgs ) = 0;
 	virtual bool ShutdownApp( AppId_t unAppID, bool bForce ) = 0;
 	virtual EAppState GetAppInstallState( AppId_t unAppID ) = 0;
 	virtual uint32 GetAppBuildID( AppId_t unAppID ) = 0;
@@ -59,7 +59,7 @@ public:
 	virtual bool CheckBetaPassword( AppId_t unAppID, char const*) = 0;
 	virtual bool BRequestBetaPasswords( AppId_t unAppID ) = 0;
 	virtual bool BHasCachedBetaPassword( AppId_t unAppID, const char *cszBetaKey ) = 0;
-	virtual bool SetDownloadingEnabled( bool bState ) = 0;
+	virtual bool SetDownloadingEnabled( bool ) = 0;
 	virtual bool BIsDownloadingEnabled() = 0;
 	virtual bool GetDownloadStats( DownloadStats_s *pDownloadStats ) = 0;
 	virtual AppId_t GetDownloadingAppID() = 0;

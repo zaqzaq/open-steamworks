@@ -130,6 +130,8 @@ typedef enum EResult
 	k_EResultInvalidItemType = 104,						 	//
 	k_EResultIPAddressBanned = 105,						 	//
 	k_EResultGameserverLoginTokenExpired = 106,			 	//
+	k_EResultInsufficientFunds = 107,						//
+	k_EResultTooManyPending = 108,							//
 } EResult;
 
 #endif // ERESULT_H

@@ -16,14 +16,17 @@
 
 #ifndef CONTROLLERCOMMON_H
 #define CONTROLLERCOMMON_H
+
 #ifdef _WIN32
 #pragma once
 #endif
 
 #define CLIENTSTEAMCONTROLLER_INTERFACE_VERSION "CLIENTSTEAMCONTROLLER_INTERFACE_VERSION_000"
 
+#define STEAMCONTROLLER_INTERFACE_VERSION_001 "SteamController001"
 #define STEAMCONTROLLER_INTERFACE_VERSION_003 "SteamController003"
 #define STEAMCONTROLLER_INTERFACE_VERSION_004 "SteamController004"
+#define STEAMCONTROLLER_INTERFACE_VERSION_005 "SteamController005"
 
 #define STEAM_RIGHT_TRIGGER_MASK			0x0000000000000001l
 #define STEAM_LEFT_TRIGGER_MASK				0x0000000000000002l
@@ -201,6 +204,8 @@ enum EControllerModeInput
 	k_EControllerModeInputRight_bumper,
 	k_EControllerModeInputButton_back_left,
 	k_EControllerModeInputButton_back_right,
+	k_EControllerModeInputButton_back_left_upper,
+	k_EControllerModeInputButton_back_right_upper,
 	k_EControllerModeInputButton_lpad,
 	k_EControllerModeInputButton_rpad,
 	k_EControllerModeInputButton_ltrigger,
@@ -276,6 +281,7 @@ enum EControllerSetting
 	k_EControllerSettingGyro_axis,
 	k_EControllerSettingGyro_button,
 	k_EControllerSettingGyro_neutral,
+	k_EControllerSettingGyro_lock_extents,
 	k_EControllerSettingGyro_pointer_mode,
 	k_EControllerSettingGyro_button_invert,
 	k_EControllerSettingVirtual_mode,
@@ -320,6 +326,22 @@ enum EControllerSetting
 	k_EControllerSettingInterruptable,
 	k_EControllerSettingSoft_press_sytle,
 	k_EControllerSettingActivator_output_axis,
+};
+
+enum EControllerConfigFeature
+{
+	k_EControllerConfigFeatureFeature_none = 0,
+	k_EControllerConfigFeatureFeature_gamepad,
+	k_EControllerConfigFeatureFeature_keboard,
+	k_EControllerConfigFeatureFeature_mouse,
+	k_EControllerConfigFeatureFeature_mouseregion,
+	k_EControllerConfigFeatureFeature_gyro,
+	k_EControllerConfigFeatureFeature_radialmenu,
+	k_EControllerConfigFeatureFeature_modeshift = 8,
+	k_EControllerConfigFeatureFeature_actionset,
+	k_EControllerConfigFeatureFeature_activator,
+	k_EControllerConfigFeatureFeature_LEDColors,
+	k_EControllerConfigFeatureController_native,
 };
 
 #endif

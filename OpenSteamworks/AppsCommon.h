@@ -163,7 +163,7 @@ enum EAppUpdateError
 	k_EAppUpdateErrorMissingExecutable,
 	k_EAppUpdateErrorInvalidPlatform,
 	k_EAppUpdateErrorInvalidFileSystem,
-	k_EAppUpdateErrorDownloadCorrupt,
+	k_EAppUpdateErrorCorruptUpdateFiles,
 	k_EAppUpdateErrorDownloadDisabled,
 	k_EAppUpdateErrorSharedLibraryLocked,
 	k_EAppUpdateErrorPurchasePending,
@@ -174,7 +174,7 @@ enum EAppUpdateError
 	k_EAppUpdateErrorFileLocked,
 	k_EAppUpdateErrorContentUnavailable,
 	k_EAppUpdateErrorRequires64bitOperatingSystem,
-	k_EAppUpdateErrorFolderNotWritable,
+	k_EAppUpdateErrorMissingUpdateFiles,
 	k_EAppUpdateErrorNotEnoughDiskQuota,
 };
 
