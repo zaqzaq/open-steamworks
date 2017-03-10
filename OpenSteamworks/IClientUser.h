@@ -81,7 +81,7 @@ public:
 	virtual bool GetConfigString( ERegistrySubTree eRegistrySubTree, const char *pchKey, char *pchValue, int32 cbValue ) = 0;
 	virtual bool SetConfigInt( ERegistrySubTree eRegistrySubTree, const char *pchKey, int32 iValue ) = 0;
 	virtual bool GetConfigInt( ERegistrySubTree eRegistrySubTree, const char *pchKey, int32 *pValue ) = 0;
-	virtual unknown_ret DeleteConfigKey( ERegistrySubTree eRegistrySubTree, const char *pchKey ) = 0;
+	virtual bool DeleteConfigKey( ERegistrySubTree eRegistrySubTree, const char *pchKey ) = 0;
 	virtual bool GetConfigStoreKeyName( ERegistrySubTree eRegistrySubTree, const char *pchKey, char *pchStoreName, int32 cbStoreName ) = 0;
 	virtual int32 InitiateGameConnection( void *pOutputBlob, int32 cbBlobMax, CSteamID steamIDGS, CGameID gameID, uint32 unIPServer, uint16 usPortServer, bool bSecure ) = 0;
 	virtual int32 InitiateGameConnectionOld( void *pOutputBlob, int32 cbBlobMax, CSteamID steamIDGS, CGameID gameID, uint32 unIPServer, uint16 usPortServer, bool bSecure, void *pvSteam2GetEncryptionKey, int32 cbSteam2GetEncryptionKey ) = 0;
@@ -120,7 +120,7 @@ public:
 	virtual bool BIsAlienwareDemoAccount() = 0;
 	virtual void CreateAccount( const char *pchAccountName, const char *pchNewPassword, const char *pchNewEmail, int32 iQuestion, const char *pchNewQuestion, const char *pchNewAnswer ) = 0;
 	virtual SteamAPICall_t ResetPassword( const char *pchAccountName, const char *pchOldPassword, const char *pchNewPassword, const char *pchValidationCode, const char *pchAnswer ) = 0;
-	virtual unknown_ret ValidatePasswordResetCodeAndSendSms(const char *, const char *) = 0;
+	virtual EResult ValidatePasswordResetCodeAndSendSms(const char *, const char *) = 0;
 	virtual void TrackNatTraversalStat( const CNatTraversalStat *pNatStat ) = 0;
 	virtual void TrackSteamUsageEvent( ESteamUsageEvent eSteamUsageEvent, const uint8 *pubKV, uint32 cubKV ) = 0;
 	virtual void TrackSteamGUIUsage( const char * ) = 0;
@@ -139,7 +139,7 @@ public:
 	virtual bool GetAccountName( char* pchAccountName, uint32 cb ) = 0;
 	virtual bool GetAccountName( CSteamID userID, char * pchAccountName, uint32 cb ) = 0;
 	virtual bool IsPasswordRemembered() = 0;
-	virtual unknown_ret CheckoutSiteLicenseSeat( uint32 uUnk ) = 0;
+	virtual void CheckoutSiteLicenseSeat( uint32 uUnk ) = 0;
 	virtual bool RequiresLegacyCDKey( AppId_t nAppID, bool * pbUnk ) = 0;
 	virtual bool GetLegacyCDKey( AppId_t nAppID, char* pchKeyData, int32 cbKeyData ) = 0;
 	virtual bool SetLegacyCDKey( AppId_t nAppID, const char* pchKeyData ) = 0;
@@ -217,7 +217,7 @@ public:
 	virtual bool BMicroTxnRefundable( GID_t gidTransID ) = 0;
 	virtual bool BGetAppMinutesPlayed( AppId_t nAppId, int32 *pnForever, int32 *pnLastTwoWeeks ) = 0;
 	virtual uint32 GetAppLastPlayedTime( AppId_t nAppId ) = 0;
-	virtual unknown_ret GetAppUpdateDisabledSecondsRemaining(uint32) = 0;
+	virtual uint32 GetAppUpdateDisabledSecondsRemaining(uint32) = 0;
 	virtual bool BGetGuideURL( AppId_t uAppID, char *pchURL, uint32 cchURL ) = 0;
 	virtual bool BPromptToVerifyEmail() = 0;
 	virtual bool BPromptToChangePassword() = 0;
