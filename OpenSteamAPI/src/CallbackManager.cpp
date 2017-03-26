@@ -49,10 +49,14 @@ S_API void SteamAPI_UnregisterCallback(class CCallbackBase *pCallback)
 
 S_API void Steam_RunCallbacks(HSteamPipe hSteamPipe, bool bGameServerCallbacks)
 {
-	if (!hSteamPipe)
+	static bool Running = false;
+
+	if (!hSteamPipe || Running)
 	{
 		return;
 	}
+
+	Running = true;
 
 	CallbackMsg_t msg;
 	while (Steam_BGetCallback(hSteamPipe, &msg))
@@ -67,6 +71,8 @@ S_API void Steam_RunCallbacks(HSteamPipe hSteamPipe, bool bGameServerCallbacks)
 		}
 		Steam_FreeLastCallback(hSteamPipe);
 	}
+
+	Running = false;
 }
 
 S_API void SteamAPI_RunCallbacks()
