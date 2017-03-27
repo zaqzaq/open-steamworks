@@ -18,12 +18,11 @@
 #include "Steamworks.h"
 
 extern HSteamPipe g_hPipe;
-extern HSteamUser g_hUser;
 
 // whole thing looks more like an ugly stub atm
 // if you know a better way to do it please let me know...
 
-std::multimap<int, CCallbackBase*> g_ManagedCallbacks;
+static std::multimap<int, CCallbackBase*> g_ManagedCallbacks;
 
 S_API void SteamAPI_RegisterCallback(class CCallbackBase *pCallback, int iCallback)
 {
