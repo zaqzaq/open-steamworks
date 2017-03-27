@@ -26,7 +26,7 @@ static SteamGetAPICallResultFn pSteamGetAPICallResult = NULL;
 HSteamPipe g_hPipe = -1;
 HSteamUser g_hUser = 0;
 
-ISteamClient017* g_pSteamClient = NULL;
+static ISteamClient017* g_pSteamClient = NULL;
 
 S_API bool STEAM_CALL OpenAPI_LoadLibrary()
 {
