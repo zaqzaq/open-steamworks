@@ -38,29 +38,34 @@ public:
 	// normally never need to call directly.
 	virtual void RunFrame() = 0;
 
-	virtual int32 GetConnectedControllers( uint64* ) = 0;
-	virtual bool ShowBindingPanel( uint64 ) = 0;
-	virtual unknown_ret GetActionSetHandle( const char* ) = 0;
-	virtual void ActivateActionSet( uint64, uint64 ) = 0;
-	virtual unknown_ret GetCurrentActionSet( uint64 ) = 0;
-	virtual unknown_ret GetDigitalActionHandle( const char* ) = 0;
-	virtual unknown_ret GetDigitalActionData( uint64, uint64 ) = 0;
-	virtual unknown_ret GetDigitalActionOrigins( uint64, uint64, uint64, EControllerActionOrigin* ) = 0;
-	virtual unknown_ret GetAnalogActionHandle( const char* ) = 0;
-	virtual unknown_ret GetAnalogActionData( uint64, uint64 ) = 0;
-	virtual unknown_ret GetAnalogActionOrigins( uint64, uint64, uint64, EControllerActionOrigin* ) = 0;
-	virtual unknown_ret StopAnalogActionMomentum( uint64, uint64 ) = 0;
+	virtual int32 GetConnectedControllers(ControllerHandle_t* hControllers) = 0;
+	virtual bool ShowBindingPanel(ControllerHandle_t hController) = 0;
+
+	virtual ControllerActionSetHandle_t GetActionSetHandle(const char* actionSetName) = 0;
+	virtual void ActivateActionSet(ControllerHandle_t hController, ControllerActionSetHandle_t hAction) = 0;
+	virtual ControllerActionSetHandle_t GetCurrentActionSet(ControllerHandle_t hController) = 0;
+
+	virtual ControllerDigitalActionHandle_t GetDigitalActionHandle(const char* actionName) = 0;
+	STEAMWORKS_STRUCT_RETURN_2(ControllerDigitalActionData_t, GetDigitalActionData, ControllerHandle_t, controllerHandle, ControllerDigitalActionHandle_t, actionHandle);	// virtual ControllerDigitalActionData_t GetDigitalActionData( ControllerHandle_t, ControllerDigitalActionHandle_t ) = 0;
+	virtual int32 GetDigitalActionOrigins(ControllerHandle_t hController, ControllerActionSetHandle_t hActionSet, ControllerDigitalActionHandle_t hAction, EControllerActionOrigin* eOrigin) = 0;
+
+	virtual ControllerAnalogActionHandle_t GetAnalogActionHandle(const char* actionName) = 0;
+	STEAMWORKS_STRUCT_RETURN_2(ControllerAnalogActionData_t, GetAnalogActionData, ControllerHandle_t, controllerHandle, ControllerAnalogActionHandle_t, actionHandle);	//virtual ControllerAnalogActionData_t GetAnalogActionData( ControllerHandle_t, ControllerAnalogActionHandle_t ) = 0;
+	virtual int32 GetAnalogActionOrigins(ControllerHandle_t hController, ControllerActionSetHandle_t hActionSet, ControllerAnalogActionHandle_t hAction, EControllerActionOrigin* eOrigin) = 0;
+
+	virtual void StopAnalogActionMomentum(ControllerHandle_t hController, ControllerAnalogActionHandle_t hAction) = 0;
 
 	// Trigger a haptic pulse on the controller
-	virtual void TriggerHapticPulse( uint64, ESteamControllerPad eTargetPad, unsigned short usDurationMicroSec ) = 0;
-	virtual void TriggerRepeatedHapticPulse( uint64, ESteamControllerPad, unsigned short, unsigned short, unsigned short, unsigned int ) = 0;
+	virtual void TriggerHapticPulse(ControllerHandle_t hController, ESteamControllerPad eTargetPad, uint16 usDurationMicroSec) = 0;
+	virtual void TriggerRepeatedHapticPulse(ControllerHandle_t hController, ESteamControllerPad, uint16 durationMs, uint16 offMs, uint16 repeat, uint32 flags) = 0;
 
-	virtual int32 GetGamepadIndexForController( uint64 ) = 0;
-	virtual unknown_ret GetControllerForGamepadIndex( int32 ) = 0;
-	virtual unknown_ret GetMotionData(  uint64  ) = 0;
-	virtual unknown_ret ShowDigitalActionOrigins(  uint64 ,  uint64 , float, float, float) = 0;
-	virtual unknown_ret ShowAnalogActionOrigins(  uint64 ,  uint64 , float, float, float) = 0;
+	virtual int32 GetGamepadIndexForController(ControllerHandle_t hController) = 0;
+	virtual ControllerHandle_t GetControllerForGamepadIndex(int32 idx) = 0;
 
+	STEAMWORKS_STRUCT_RETURN_1(ControllerMotionData_t, GetMotionData, ControllerHandle_t, controllerHandle);	//virtual ControllerMotionData_t GetMotionData( ControllerHandle_t ) = 0;
+
+	virtual bool ShowDigitalActionOrigins(ControllerHandle_t hController, ControllerDigitalActionHandle_t hAction, float scale, float XPos, float YPos) = 0;
+	virtual bool ShowAnalogActionOrigins(ControllerHandle_t hController, ControllerAnalogActionHandle_t hAction, float scale, float XPos, float YPos) = 0;
 };
 
 #endif

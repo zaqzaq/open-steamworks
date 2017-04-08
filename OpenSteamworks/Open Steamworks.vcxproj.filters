@@ -737,7 +737,6 @@
     <ClInclude Include="ISteamController004.h">
       <Filter>Steamclient Headers\Steam Interfaces\ISteamController</Filter>
     </ClInclude>
-    <ClInclude Include="SteamworksUgly.h" />
     <ClInclude Include="ISteamController005.h">
       <Filter>Steamclient Headers\Steam Interfaces\ISteamController</Filter>
     </ClInclude>

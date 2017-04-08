@@ -257,7 +257,6 @@
     <ClInclude Include="ISteamUser015.h" />
     <ClInclude Include="ISteamUser016.h" />
     <ClInclude Include="ISteamUser017.h" />
-    <ClInclude Include="SteamworksUgly.h" />
     <ClInclude Include="UGCCommon.h" />
     <ClInclude Include="UserCommon.h" />
     <ClInclude Include="ISteamUserStats001.h" />
