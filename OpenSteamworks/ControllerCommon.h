@@ -572,6 +572,8 @@ struct ControllerMotionData_t
 	float m_fRotVelZ;
 };
 
+#pragma pack( push, 8 )
+
 struct ControllerConnected_t
 {
 	enum { k_iCallback = k_iClientControllerCallbacks + 1 };
@@ -593,4 +595,125 @@ struct LoadControllerConfigResult_t
 	// TODO : Reverse this callback
 };
 
-#endif
+struct SetControllerOverrideMode_t
+{
+	enum { k_iCallback = k_iClientControllerCallbacks + 10 };
+
+	// TODO : Reverse this callback
+};
+
+struct ControllerWirelessPresence_t
+{
+	enum { k_iCallback = k_iClientControllerCallbacks + 12 };
+
+	// TODO : Reverse this callback
+};
+
+struct ControllerPaired_t
+{
+	enum { k_iCallback = k_iClientControllerCallbacks + 14 };
+
+	// TODO : Reverse this callback
+};
+
+struct ControllerTouchMenuCreate_t
+{
+	enum { k_iCallback = k_iClientControllerCallbacks + 15 };
+
+	// TODO : Reverse this callback
+};
+
+struct ControllerTouchMenuDestroy_t
+{
+	enum { k_iCallback = k_iClientControllerCallbacks + 16 };
+
+	// TODO : Reverse this callback
+};
+
+struct ControllerPacketLossUI_t
+{
+	enum { k_iCallback = k_iClientControllerCallbacks + 17 };
+
+	// TODO : Reverse this callback
+};
+
+struct ControllerShowBindingPanel_t
+{
+	enum { k_iCallback = k_iClientControllerCallbacks + 18 };
+
+	// TODO : Reverse this callback
+};
+
+struct ControllerActionBlockOutdated_t
+{
+	enum { k_iCallback = k_iClientControllerCallbacks + 19 };
+
+	// TODO : Reverse this callback
+};
+
+struct ControllerConfigLoadError_t
+{
+	enum { k_iCallback = k_iClientControllerCallbacks + 20 };
+
+	// TODO : Reverse this callback
+};
+
+struct ControllerDisplayKeyboard_t
+{
+	enum { k_iCallback = k_iClientControllerCallbacks + 22 };
+
+	// TODO : Reverse this callback
+};
+
+struct ReceivedControllerConfigSets_t
+{
+	enum { k_iCallback = k_iClientControllerCallbacks + 23 };
+
+	// TODO : Reverse this callback
+};
+
+struct ReceivedControllerPersonalization_t
+{
+	enum { k_iCallback = k_iClientControllerCallbacks + 24 };
+
+	// TODO : Reverse this callback
+};
+
+struct ControllerAccountsUpdated_t
+{
+	enum { k_iCallback = k_iClientControllerCallbacks + 25 };
+
+	// TODO : Reverse this callback
+};
+
+struct ControllerDongleUpdateStatus_t
+{
+	enum { k_iCallback = k_iClientControllerCallbacks + 26 };
+
+	// TODO : Reverse this callback
+};
+
+struct ReceivedControllerPersonalizationCfg_t
+{
+	enum { k_iCallback = k_iClientControllerCallbacks + 27 };
+
+	// TODO : Reverse this callback
+};
+
+struct ControllerActionSetChanged_t
+{
+	enum { k_iCallback = k_iClientControllerCallbacks + 28 };
+
+	// TODO : Reverse this callback
+};
+
+struct ControllerActionTriggered_t
+{
+	enum { k_iCallback = k_iClientControllerCallbacks + 29 };
+
+	// TODO : Reverse this callback
+};
+
+#pragma pack( pop )
+
+#endif // CONTROLLERCOMMON_H
