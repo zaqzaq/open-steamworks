@@ -740,5 +740,8 @@
     <ClInclude Include="ISteamController005.h">
       <Filter>Steamclient Headers\Steam Interfaces\ISteamController</Filter>
     </ClInclude>
+    <ClInclude Include="ISteamInventory002.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamInventory</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
