@@ -14,27 +14,20 @@
 //
 //=============================================================================
 
-#ifndef ISTEAMAPPLIST001_H
-#define ISTEAMAPPLIST001_H
+#ifndef ISTEAMVIDEO001_H
+#define ISTEAMVIDEO001_H
 #ifdef _WIN32
 #pragma once
 #endif
 
 #include "SteamTypes.h"
-#include "AppsCommon.h"
 
-//-----------------------------------------------------------------------------
-// Purpose: interface to app data
-//-----------------------------------------------------------------------------
-abstract_class ISteamAppList001
+abstract_class ISteamVideo001
 {
 public:
-	virtual uint32 GetNumInstalledApps() = 0;
-	virtual uint32 GetInstalledApps( AppId_t * apps, uint32 appsMax ) = 0;
-	virtual int32 GetAppName( AppId_t appId, char * pchAppNameOut, int32 nameMax ) = 0;
-	virtual int32 GetAppInstallDir( AppId_t appId, char * pchAppPathOut, int32 pathMax ) = 0;
-	virtual int32 GetAppBuildId( AppId_t appId ) = 0;
+	virtual void GetVideoURL(AppId_t appId) = 0;
+	virtual bool IsBroadcasting(int32* pnNumViewers) = 0;
 };
 
 
-#endif // ISTEAMAPPS001_H
+#endif // ISTEAMVIDEO001_H

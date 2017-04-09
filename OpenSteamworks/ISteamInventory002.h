@@ -14,8 +14,8 @@
 //
 //=============================================================================
 
-#ifndef ISTEAMINVENTORY001_H
-#define ISTEAMINVENTORY001_H
+#ifndef ISTEAMINVENTORY002_H
+#define ISTEAMINVENTORY002_H
 #ifdef _WIN32
 #pragma once
 #endif
@@ -23,9 +23,9 @@
 #include "SteamTypes.h"
 #include "InventoryCommon.h"
 
-abstract_class ISteamInventory001
+abstract_class ISteamInventory002
 {
-public:										
+public:
 	// INVENTORY ASYNC RESULT MANAGEMENT
 	//
 	// Asynchronous inventory queries always output a result handle which can be used with
@@ -48,6 +48,8 @@ public:
 	virtual bool GetResultItems(SteamInventoryResult_t resultHandle,
 		SteamItemDetails_t *pOutItemsArray,
 		uint32 *punOutItemsArraySize) = 0;
+
+	virtual unknown_ret GetResultItemProperty(int, unsigned int, char const*, char*, unsigned int*) = 0;
 
 	// Returns the server time at which the result was generated. Compare against
 	// the value of IClientUtils::GetServerRealTime() to determine age.
@@ -254,11 +256,11 @@ public:
 	// property names. 
 	virtual bool GetItemDefinitionProperty(SteamItemDef_t iDefinition, const char *pchPropertyName,
 		char *pchValueBuffer, uint32 *punValueBufferSize) = 0;
-    
-    virtual SteamAPICall_t RequestEligiblePromoItemDefinitionsIDs(CSteamID) = 0;
-    
-    virtual bool GetEligiblePromoItemDefinitionIDs(CSteamID, SteamItemDef_t*, uint32*) = 0;
+
+	virtual SteamAPICall_t RequestEligiblePromoItemDefinitionsIDs(CSteamID) = 0;
+
+	virtual bool GetEligiblePromoItemDefinitionIDs(CSteamID, SteamItemDef_t*, uint32*) = 0;
 
 };
 
-#endif // ISTEAMINVENTORY001_H
+#endif // ISTEAMINVENTORY002_H

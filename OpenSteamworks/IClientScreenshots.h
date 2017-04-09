@@ -50,6 +50,7 @@ public:
 
 	virtual int32 GetLocalScreenshotCount( CGameID gameID ) = 0;
 	virtual bool GetLocalScreenshot( CGameID gameID, int32 iScreenshotIndex, ScreenshotHandle* phScreenshot, int32 *piWidth, int32 *piHeight, uint32 *puTimestamp, EUCMFilePrivacyState *pePrivacy, uint64* pullFileID, char *pchCaption, uint32 cubCaption, bool *pbSpoiler ) = 0;
+	virtual bool GetLocalScreenshotByHandle(CGameID gameID, ScreenshotHandle hScreenshot, int32 *piWidth, int32 *piHeight, uint32 *puTimestamp, EUCMFilePrivacyState *pePrivacy, uint64 *pullFileID, char *pchCaption, uint32 cubCaption, bool *pbSpoiler) = 0;
 	virtual bool SetLocalScreenshotCaption( CGameID gameID, ScreenshotHandle hScreenshot, const char *cszCaption ) = 0;
 	virtual bool SetLocalScreenshotPrivacy( CGameID gameID, ScreenshotHandle hScreenshot, EUCMFilePrivacyState ePrivacy ) = 0;
 	virtual bool SetLocalScreenshotSpoiler( CGameID, ScreenshotHandle hScreenshot, bool bSpoiler ) = 0;
@@ -67,6 +68,9 @@ public:
 	
 	virtual uint32 GetTaggedPublishedFileCount( CGameID gameID, ScreenshotHandle hScreenshot ) = 0;
 	virtual PublishedFileId_t GetTaggedPublishedFile( CGameID gameID, ScreenshotHandle hScreenshot, int32 iPublishedFileIndex ) = 0;
+
+	virtual unknown_ret GetScreenshotVRType(CGameID gameID, uint32 uUnk) = 0;
+	virtual bool BGetUserScreenshotDirectory(char* pchBuf, uint32 cubBuf) = 0;
 };
 
 #endif // ICLIENTSCREENSHOTS_H

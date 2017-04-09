@@ -542,6 +542,16 @@ typedef int32 HSteamUser;
 // reference to a steam call, to filter results by
 typedef int32 HSteamCall;
 
+// unified message handle
+typedef uint64 ClientUnifiedMessageHandle_t;
+
+// controller handles
+typedef uint64 ControllerHandle_t;
+typedef uint64 ControllerActionSetHandle_t;
+typedef uint64 ControllerDigitalActionHandle_t;
+typedef uint64 ControllerAnalogActionHandle_t;
+
+
 //-----------------------------------------------------------------------------
 // Typedef for handle type you will receive when requesting server list.
 //-----------------------------------------------------------------------------
@@ -721,6 +731,7 @@ enum ECallbackType
 	k_iSteamHTMLSurfaceCallbacks = 4500,
 	k_iClientVideoCallbacks = 4600,
 	k_iClientInventoryCallbacks = 4700,
+	k_iClientBluetoothManagerCallbacks = 4800,
 };
 
 
