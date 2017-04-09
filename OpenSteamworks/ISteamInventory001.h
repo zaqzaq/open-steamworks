@@ -41,25 +41,25 @@ public:
 	//  k_EResultServiceUnavailable - ERROR: service temporarily down, you may retry later
 	//  k_EResultLimitExceeded - ERROR: operation would exceed per-user inventory limits
 	//  k_EResultFail - ERROR: unknown / generic error
-		virtual EResult GetResultStatus(SteamInventoryResult_t resultHandle) = 0;
+	virtual EResult GetResultStatus(SteamInventoryResult_t resultHandle) = 0;
 
 	// Copies the contents of a result set into a flat array. The specific
 	// contents of the result set depend on which query which was used.
-		virtual bool GetResultItems(SteamInventoryResult_t resultHandle,
+	virtual bool GetResultItems(SteamInventoryResult_t resultHandle,
 		SteamItemDetails_t *pOutItemsArray,
 		uint32 *punOutItemsArraySize) = 0;
 
 	// Returns the server time at which the result was generated. Compare against
 	// the value of IClientUtils::GetServerRealTime() to determine age.
-		virtual uint32 GetResultTimestamp(SteamInventoryResult_t resultHandle) = 0;
+	virtual uint32 GetResultTimestamp(SteamInventoryResult_t resultHandle) = 0;
 
 	// Returns true if the result belongs to the target steam ID, false if the
 	// result does not. This is important when using DeserializeResult, to verify
 	// that a remote player is not pretending to have a different user's inventory.
-		virtual bool CheckResultSteamID(SteamInventoryResult_t resultHandle, CSteamID steamIDExpected) = 0;
+	virtual bool CheckResultSteamID(SteamInventoryResult_t resultHandle, CSteamID steamIDExpected) = 0;
 
 	// Destroys a result handle and frees all associated memory.
-		virtual void DestroyResult(SteamInventoryResult_t resultHandle) = 0;
+	virtual void DestroyResult(SteamInventoryResult_t resultHandle) = 0;
 
 
 	// INVENTORY ASYNC QUERY
@@ -72,7 +72,7 @@ public:
 	// cached results if called too frequently. It is suggested that you call
 	// this function only when you are about to display the user's full inventory,
 	// or if you expect that the inventory may have changed.
-		virtual bool GetAllItems(SteamInventoryResult_t *pResultHandle) = 0;
+	virtual bool GetAllItems(SteamInventoryResult_t *pResultHandle) = 0;
 
 
 	// Captures the state of a subset of the current user's Steam inventory,
@@ -82,7 +82,7 @@ public:
 	// For example, you could call GetItemsByID with the IDs of the user's
 	// currently equipped cosmetic items and serialize this to a buffer, and
 	// then transmit this buffer to other players upon joining a game.
-		virtual bool GetItemsByID(SteamInventoryResult_t *pResultHandle, const SteamItemInstanceID_t *pInstanceIDs, uint32 unCountInstanceIDs) = 0;
+	virtual bool GetItemsByID(SteamInventoryResult_t *pResultHandle, const SteamItemInstanceID_t *pInstanceIDs, uint32 unCountInstanceIDs) = 0;
 
 
 	// RESULT SERIALIZATION AND AUTHENTICATION
@@ -137,7 +137,7 @@ public:
 	// and grants the items (one time only).  On success, the result set will include items which
 	// were granted, if any. If no items were granted because the user isn't eligible for any
 	// promotions, this is still considered a success.
-		virtual bool GrantPromoItems(SteamInventoryResult_t *pResultHandle) = 0;
+	virtual bool GrantPromoItems(SteamInventoryResult_t *pResultHandle) = 0;
 
 	// AddPromoItem() / AddPromoItems() are restricted versions of GrantPromoItems(). Instead of
 	// scanning for all eligible promotional items, the check is restricted to a single item
@@ -153,7 +153,7 @@ public:
 	// of each item to destroy. ConsumeItem can be restricted to certain item definitions or
 	// fully blocked via the Steamworks website to minimize support/abuse issues such as the
 	// clasic "my brother borrowed my laptop and deleted all of my rare items".
-		virtual bool ConsumeItem(SteamInventoryResult_t *pResultHandle, SteamItemInstanceID_t itemConsume, uint32 unQuantity) = 0;
+	virtual bool ConsumeItem(SteamInventoryResult_t *pResultHandle, SteamItemInstanceID_t itemConsume, uint32 unQuantity) = 0;
 
 	// ExchangeItems() is an atomic combination of GenerateItems and DestroyItems. It can be
 	// used to implement crafting recipes or transmutations, or items which unpack themselves
@@ -192,7 +192,7 @@ public:
 	// Playtime credit accumulation can be capped on a daily or weekly basis through your
 	// Steamworks configuration.
 	//
-		virtual void SendItemDropHeartbeat() = 0;
+	virtual void SendItemDropHeartbeat() = 0;
 
 	// Playtime credit must be consumed and turned into item drops by your game. Only item
 	// definitions which are marked as "playtime item generators" can be spawned. The call
@@ -202,7 +202,7 @@ public:
 	// hack their clients could modify the value of "dropListDefinition", so do not use it
 	// to directly control rarity. It is primarily useful during testing and development,
 	// where you may wish to perform experiments with different types of drops.
-		virtual bool TriggerItemDrop(SteamInventoryResult_t *pResultHandle, SteamItemDef_t dropListDefinition) = 0;
+	virtual bool TriggerItemDrop(SteamInventoryResult_t *pResultHandle, SteamItemDef_t dropListDefinition) = 0;
 
 
 	// IN-GAME TRADING
@@ -235,7 +235,7 @@ public:
 	// Every time new item definitions are available (eg, from the dynamic addition of new
 	// item types while players are still in-game), a SteamInventoryDefinitionUpdate_t
 	// callback will be fired.
-		virtual bool LoadItemDefinitions() = 0;
+	virtual bool LoadItemDefinitions() = 0;
 
 	// GetItemDefinitionIDs returns the set of all defined item definition IDs (which are
 	// defined via Steamworks configuration, and not necessarily contiguous integers).

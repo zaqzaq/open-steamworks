@@ -29,11 +29,11 @@
 abstract_class ISteamAppList001
 {
 public:
-	virtual unknown_ret GetNumInstalledApps() = 0;
-	virtual unknown_ret GetInstalledApps( uint32 * puUnk, uint32 uUnk ) = 0;
-	virtual unknown_ret GetAppName( uint32 uUnk, char * pUnk, int32 iUnk ) = 0;
-	virtual unknown_ret GetAppInstallDir( uint32 uUnk, char * pUnk, int32 iUnk ) = 0;
-	virtual unknown_ret GetAppBuildId( uint32 uUnk ) = 0;
+	virtual uint32 GetNumInstalledApps() = 0;
+	virtual uint32 GetInstalledApps( AppId_t * apps, uint32 appsMax ) = 0;
+	virtual int32 GetAppName( AppId_t appId, char * pchAppNameOut, int32 nameMax ) = 0;
+	virtual int32 GetAppInstallDir( AppId_t appId, char * pchAppPathOut, int32 pathMax ) = 0;
+	virtual int32 GetAppBuildId( AppId_t appId ) = 0;
 };
 
 

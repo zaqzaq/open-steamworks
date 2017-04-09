@@ -26,11 +26,11 @@
 abstract_class ISteamUnifiedMessages001
 {
 public:
-	virtual uint64 SendMethod( const char *, const void *, uint32, uint64 ) = 0;
-	virtual bool GetMethodResponseInfo( uint64, uint32 *, EResult * ) = 0;
-	virtual bool GetMethodResponseData( uint64, void *, uint32, bool ) = 0;
-	virtual bool ReleaseMethod( uint64 ) = 0;
-	virtual bool SendNotification( const char *, const void *, uint32 ) = 0;
+	virtual ClientUnifiedMessageHandle_t SendMethod( const char * pchServiceMethod, const void * pRequest, uint32 nBuf, uint64 ctx ) = 0;
+	virtual bool GetMethodResponseInfo( ClientUnifiedMessageHandle_t hUmsg, uint32 *pnResponse, EResult *eResult ) = 0;
+	virtual bool GetMethodResponseData( ClientUnifiedMessageHandle_t hUmsg, void *pResponseBuf, uint32 bufSize, bool autoRelease) = 0;
+	virtual bool ReleaseMethod( ClientUnifiedMessageHandle_t hUmsg ) = 0;
+	virtual bool SendNotification( const char * pchNotification, const void * buf, uint32 bufSize ) = 0;
 };
 
 

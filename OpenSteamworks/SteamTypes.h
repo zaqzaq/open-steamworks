@@ -542,6 +542,9 @@ typedef int32 HSteamUser;
 // reference to a steam call, to filter results by
 typedef int32 HSteamCall;
 
+// unified message handle
+typedef uint64 ClientUnifiedMessageHandle_t;
+
 // controller handles
 typedef uint64 ControllerHandle_t;
 typedef uint64 ControllerActionSetHandle_t;
