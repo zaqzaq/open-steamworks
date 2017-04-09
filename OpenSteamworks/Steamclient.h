@@ -229,6 +229,9 @@
 #include "ISteamUGC003.h"
 #include "ISteamUGC008.h"
 
+// video
+#include "ISteamVideo001.h"
+
 #ifndef NO_ICLIENT
 // client interfaces
 #include "IClientEngine.h"
