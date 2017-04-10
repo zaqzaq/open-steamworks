@@ -35,29 +35,31 @@ public:
 	ISteamScreenshots003*  SteamScreenshots()                  { return m_pSteamScreenshots; }
 	ISteamHTTP002*         SteamHTTP()                         { return m_pSteamHTTP; }
 	ISteamUnifiedMessages001* SteamUnifiedMessages()           { return m_pSteamUnifiedMessages; }
-	ISteamController004*   SteamController()                   { return m_pSteamController; }
+	ISteamController005*   SteamController()                   { return m_pSteamController; }
 	ISteamUGC008*          SteamUGC()                          { return m_pSteamUGC; }
 	ISteamAppList001*      SteamAppList()                      { return m_pSteamAppList; }
 	ISteamMusic001*        SteamMusic()                        { return m_pSteamMusic; }
+	ISteamVideo001*        SteamVideo()                        { return m_pSteamVideo; }
 
 
 private:
-	ISteamUser019          *m_pSteamUser;
-	ISteamFriends015       *m_pSteamFriends;
-	ISteamUtils008         *m_pSteamUtils;
-	ISteamMatchmaking008   *m_pSteamMatchmaking;
-	ISteamUserStats007     *m_pSteamUserStats;
-	ISteamApps008          *m_pSteamApps;
+	ISteamUser019                  *m_pSteamUser;
+	ISteamFriends015               *m_pSteamFriends;
+	ISteamUtils008                 *m_pSteamUtils;
+	ISteamMatchmaking008           *m_pSteamMatchmaking;
+	ISteamUserStats007             *m_pSteamUserStats;
+	ISteamApps008                  *m_pSteamApps;
 	ISteamMatchmakingServers002    *m_pSteamMatchmakingServers;
-	ISteamNetworking003    *m_pSteamNetworking;
-	ISteamRemoteStorage012 *m_pSteamRemoteStorage;
-	ISteamScreenshots003   *m_pSteamScreenshots;
-	ISteamHTTP002          *m_pSteamHTTP;
-	ISteamUnifiedMessages001  *m_pSteamUnifiedMessages;
-	ISteamController004	   *m_pSteamController;
-	ISteamUGC008           *m_pSteamUGC;
-	ISteamAppList001       *m_pSteamAppList;
-	ISteamMusic001         *m_pSteamMusic;
+	ISteamNetworking003            *m_pSteamNetworking;
+	ISteamRemoteStorage012         *m_pSteamRemoteStorage;
+	ISteamScreenshots003           *m_pSteamScreenshots;
+	ISteamHTTP002                  *m_pSteamHTTP;
+	ISteamUnifiedMessages001       *m_pSteamUnifiedMessages;
+	ISteamController005	           *m_pSteamController;
+	ISteamUGC008                   *m_pSteamUGC;
+	ISteamAppList001               *m_pSteamAppList;
+	ISteamMusic001                 *m_pSteamMusic;
+	ISteamVideo001                 *m_pSteamVideo;
 };
 
 inline CSteamAPIContext::CSteamAPIContext()
@@ -83,6 +85,7 @@ inline void CSteamAPIContext::Clear()
 	m_pSteamUGC = NULL;
 	m_pSteamAppList = NULL;
 	m_pSteamMusic = NULL;
+	m_pSteamVideo = NULL;
 }
 
 // This function must be inlined so the module using steam_api.dll gets the version names they want.
@@ -142,7 +145,7 @@ inline bool CSteamAPIContext::Init()
 	if ( !m_pSteamUnifiedMessages )
 		return false;
 	
-	m_pSteamController = (ISteamController004 *)SteamClient()->GetISteamController(hSteamUser, hSteamPipe, STEAMCONTROLLER_INTERFACE_VERSION_004);
+	m_pSteamController = (ISteamController005 *)SteamClient()->GetISteamController(hSteamUser, hSteamPipe, STEAMCONTROLLER_INTERFACE_VERSION_004);
 	if ( !m_pSteamController )
 		return false;
 	
@@ -156,6 +159,10 @@ inline bool CSteamAPIContext::Init()
 
 	m_pSteamMusic = (ISteamMusic001 *)SteamClient()->GetISteamMusic(hSteamUser, hSteamPipe, STEAMMUSIC_INTERFACE_VERSION_001);
 	if ( !m_pSteamMusic )
+		return false;
+
+	m_pSteamVideo = (ISteamVideo001 *)SteamClient()->GetISteamVideo(hSteamUser, hSteamPipe, STEAMVIDEO_INTERFACE_VERSION_001);
+	if (!m_pSteamMusic)
 		return false;
 
 	return true;

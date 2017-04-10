@@ -749,5 +749,8 @@
     <ClInclude Include="ISteamVideo001.h">
       <Filter>Steamclient Headers\Steam Interfaces\ISteamVideo</Filter>
     </ClInclude>
+    <ClInclude Include="VideoCommon.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamVideo</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

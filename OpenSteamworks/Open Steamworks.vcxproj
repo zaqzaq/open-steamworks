@@ -301,6 +301,7 @@
     <ClInclude Include="StreamLauncherCommon.h" />
     <ClInclude Include="SteamTypes.h" />
     <ClInclude Include="Steamworks.h" />
+    <ClInclude Include="VideoCommon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
