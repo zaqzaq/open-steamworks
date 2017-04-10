@@ -14,21 +14,15 @@
 //
 //=============================================================================
 
-#ifndef ISTEAMVIDEO001_H
-#define ISTEAMVIDEO001_H
+#ifndef VIDEOCOMMON_H
+#define VIDEOCOMMON_H
 #ifdef _WIN32
 #pragma once
 #endif
 
-#include "SteamTypes.h"
-#include "VideoCommon.h"
+#define CLIENTVIDEO_INTERFACE_VERSION "CLIENTVIDEO_INTERFACE_VERSION001"
 
-abstract_class ISteamVideo001
-{
-public:
-	virtual void GetVideoURL(AppId_t appId) = 0;
-	virtual bool IsBroadcasting(int32* pnNumViewers) = 0;
-};
+#define STEAMVIDEO_INTERFACE_VERSION_001 "STEAMVIDEO_INTERFACE_V001"
 
+#endif // VIDEOCOMMON_H
 
-#endif // ISTEAMVIDEO001_H
