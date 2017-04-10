@@ -535,6 +535,8 @@ const SteamAPICall_t k_uAPICallInvalid = 0x0;
 
 typedef uint32 AccountID_t;
 
+typedef uint16 FriendsGroupID_t;
+
 // handle to a communication pipe to the Steam client
 typedef int32 HSteamPipe;
 // handle to single instance of a steam user
