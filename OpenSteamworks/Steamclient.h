@@ -229,6 +229,11 @@
 #include "ISteamUGC003.h"
 #include "ISteamUGC008.h"
 
+// html surface
+#include "ISteamHTMLSurface001.h"
+#include "ISteamHTMLSurface002.h"
+#include "ISteamHTMLSurface003.h"
+
 // video
 #include "ISteamVideo001.h"
 

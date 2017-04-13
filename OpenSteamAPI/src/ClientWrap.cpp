@@ -23,10 +23,12 @@ static SteamBGetCallbackFn pSteamBGetCallback = NULL;
 static SteamFreeLastCallbackFn pSteamFreeLastCallback = NULL;
 static SteamGetAPICallResultFn pSteamGetAPICallResult = NULL;
 
-HSteamPipe g_hPipe = -1;
-HSteamUser g_hUser = 0;
+HSteamPipe __g_hPipe = NULL;
+HSteamUser __g_hUser = NULL;
 
-static ISteamClient017* g_pSteamClient = NULL;
+ISteamClient017 *__g_pSteamClient = NULL;
+ISteamUtils008 *__g_pSteamUtils = NULL;
+ISteamController005 *__g_p_SteamController = NULL;
 
 S_API bool STEAM_CALL OpenAPI_LoadLibrary()
 {
@@ -81,20 +83,32 @@ S_API bool STEAM_CALL SteamAPI_Init()
 		return false;
 	}
 
-	g_pSteamClient = (ISteamClient017*)OpenAPI_CreateInterface(STEAMCLIENT_INTERFACE_VERSION_017, NULL);
-	if (!g_pSteamClient)
+	__g_pSteamClient = (ISteamClient017*)OpenAPI_CreateInterface(STEAMCLIENT_INTERFACE_VERSION_017, NULL);
+	if (!__g_pSteamClient)
 	{
 		return false;
 	}
 
-	g_hPipe = g_pSteamClient->CreateSteamPipe();
-	if (!g_hPipe || g_hPipe == -1)
+	__g_hPipe = __g_pSteamClient->CreateSteamPipe();
+	if (!__g_hPipe)
 	{
 		return false;
 	}
 
-	g_hUser = g_pSteamClient->ConnectToGlobalUser(g_hPipe);
-	if (!g_hUser)
+	__g_hUser = __g_pSteamClient->ConnectToGlobalUser(__g_hPipe);
+	if (!__g_hUser)
+	{
+		return false;
+	}
+
+	__g_pSteamUtils = (ISteamUtils008*)__g_pSteamClient->GetISteamUtils(__g_hPipe, STEAMUTILS_INTERFACE_VERSION_008);
+	if (!__g_pSteamUtils)
+	{
+		return false;
+	}
+
+	__g_p_SteamController = (ISteamController005*)__g_pSteamClient->GetISteamController(__g_hUser, __g_hPipe, STEAMCONTROLLER_INTERFACE_VERSION_005);
+	if (!__g_p_SteamController)
 	{
 		return false;
 	}
@@ -104,17 +118,17 @@ S_API bool STEAM_CALL SteamAPI_Init()
 
 S_API HSteamPipe STEAM_CALL SteamAPI_GetHSteamPipe()
 {
-	return g_hPipe;
+	return __g_hPipe;
 }
 
 S_API HSteamUser STEAM_CALL SteamAPI_GetHSteamUser()
 {
-	return g_hUser;
+	return __g_hUser;
 }
 
 S_API_UNSAFE ISteamClient017* STEAM_CALL SteamClient()
 {
-	return g_pSteamClient;
+	return __g_pSteamClient;
 }
 
 

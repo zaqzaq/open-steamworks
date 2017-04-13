@@ -103,6 +103,9 @@
     <Filter Include="Steamclient Headers\Steam Interfaces\ISteamVideo">
       <UniqueIdentifier>{2456a9df-274b-4d2e-be29-7280d419c2a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Steamclient Headers\Steam Interfaces\ISteamHTMLSurface">
+      <UniqueIdentifier>{be96160f-b282-4090-9614-8d6b501f553e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Steamclient.h">
@@ -751,6 +754,21 @@
     </ClInclude>
     <ClInclude Include="VideoCommon.h">
       <Filter>Steamclient Headers\Steam Interfaces\ISteamVideo</Filter>
+    </ClInclude>
+    <ClInclude Include="HTMLSurfaceCommon.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamHTMLSurface</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteamHTMLSurface001.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamHTMLSurface</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteamUGC008.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamUGC</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteamHTMLSurface002.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamHTMLSurface</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteamHTMLSurface003.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamHTMLSurface</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

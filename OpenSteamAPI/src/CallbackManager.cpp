@@ -17,7 +17,11 @@
 #include <map>
 #include "Steamworks.h"
 
-extern HSteamPipe g_hPipe;
+extern HSteamPipe __g_hPipe;
+
+extern ISteamClient017 *__g_pSteamClient;
+extern ISteamUtils008 *__g_pSteamUtils;
+extern ISteamController005 *__g_p_SteamController;
 
 // whole thing looks more like an ugly stub atm
 // if you know a better way to do it please let me know...
@@ -50,12 +54,22 @@ S_API void Steam_RunCallbacks(HSteamPipe hSteamPipe, bool bGameServerCallbacks)
 {
 	static bool Running = false;
 
-	if (!hSteamPipe || Running)
+	if (Running || !hSteamPipe)
 	{
 		return;
 	}
 
 	Running = true;
+
+	if (__g_pSteamUtils)
+	{
+		__g_pSteamUtils->RunFrame();
+	}
+
+	if (__g_p_SteamController)
+	{
+		__g_p_SteamController->RunFrame();
+	}
 
 	CallbackMsg_t msg;
 	while (Steam_BGetCallback(hSteamPipe, &msg))
@@ -76,5 +90,5 @@ S_API void Steam_RunCallbacks(HSteamPipe hSteamPipe, bool bGameServerCallbacks)
 
 S_API void SteamAPI_RunCallbacks()
 {
-	Steam_RunCallbacks(g_hPipe, false);
+	Steam_RunCallbacks(__g_hPipe, false);
 }

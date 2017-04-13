@@ -23,23 +23,23 @@ public:
 
 	bool Init();
 
-	ISteamUser019*         SteamUser()                         { return m_pSteamUser; }
-	ISteamFriends015*      SteamFriends()                      { return m_pSteamFriends; }
-	ISteamUtils008*        SteamUtils()                        { return m_pSteamUtils; }
-	ISteamMatchmaking008*  SteamMatchmaking()                  { return m_pSteamMatchmaking; }
-	ISteamUserStats007*    SteamUserStats()                    { return m_pSteamUserStats; }
-	ISteamApps008*         SteamApps()                         { return m_pSteamApps; }
-	ISteamMatchmakingServers002*   SteamMatchmakingServers()   { return m_pSteamMatchmakingServers; }
-	ISteamNetworking003*   SteamNetworking()                   { return m_pSteamNetworking; }
-	ISteamRemoteStorage012* SteamRemoteStorage()               { return m_pSteamRemoteStorage; }
-	ISteamScreenshots003*  SteamScreenshots()                  { return m_pSteamScreenshots; }
-	ISteamHTTP002*         SteamHTTP()                         { return m_pSteamHTTP; }
-	ISteamUnifiedMessages001* SteamUnifiedMessages()           { return m_pSteamUnifiedMessages; }
-	ISteamController005*   SteamController()                   { return m_pSteamController; }
-	ISteamUGC008*          SteamUGC()                          { return m_pSteamUGC; }
-	ISteamAppList001*      SteamAppList()                      { return m_pSteamAppList; }
-	ISteamMusic001*        SteamMusic()                        { return m_pSteamMusic; }
-	ISteamVideo001*        SteamVideo()                        { return m_pSteamVideo; }
+	ISteamUser019*                 SteamUser()                { return m_pSteamUser; }
+	ISteamFriends015*              SteamFriends()             { return m_pSteamFriends; }
+	ISteamUtils008*                SteamUtils()               { return m_pSteamUtils; }
+	ISteamMatchmaking008*          SteamMatchmaking()         { return m_pSteamMatchmaking; }
+	ISteamUserStats007*            SteamUserStats()           { return m_pSteamUserStats; }
+	ISteamApps008*                 SteamApps()                { return m_pSteamApps; }
+	ISteamMatchmakingServers002*   SteamMatchmakingServers()  { return m_pSteamMatchmakingServers; }
+	ISteamNetworking003*           SteamNetworking()          { return m_pSteamNetworking; }
+	ISteamRemoteStorage012*        SteamRemoteStorage()       { return m_pSteamRemoteStorage; }
+	ISteamScreenshots003*          SteamScreenshots()         { return m_pSteamScreenshots; }
+	ISteamHTTP002*                 SteamHTTP()                { return m_pSteamHTTP; }
+	ISteamUnifiedMessages001*      SteamUnifiedMessages()     { return m_pSteamUnifiedMessages; }
+	ISteamController005*           SteamController()          { return m_pSteamController; }
+	ISteamUGC008*                  SteamUGC()                 { return m_pSteamUGC; }
+	ISteamAppList001*              SteamAppList()             { return m_pSteamAppList; }
+	ISteamMusic001*                SteamMusic()               { return m_pSteamMusic; }
+	ISteamVideo001*                SteamVideo()               { return m_pSteamVideo; }
 
 
 private:

@@ -85,6 +85,7 @@
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="HTMLSurfaceCommon.h" />
     <ClInclude Include="IClientInventory.h" />
     <ClInclude Include="IClientShortcuts.h" />
     <ClInclude Include="IClientProductBuilder.h" />
@@ -106,6 +107,9 @@
     <ClInclude Include="ISteamFriends014.h" />
     <ClInclude Include="ISteamFriends015.h" />
     <ClInclude Include="ISteamGameServer012.h" />
+    <ClInclude Include="ISteamHTMLSurface001.h" />
+    <ClInclude Include="ISteamHTMLSurface002.h" />
+    <ClInclude Include="ISteamHTMLSurface003.h" />
     <ClInclude Include="ISteamInventory001.h" />
     <ClInclude Include="ISteamInventory002.h" />
     <ClInclude Include="ISteamMusic001.h" />
@@ -114,6 +118,7 @@
     <ClInclude Include="ISteamUGC001.h" />
     <ClInclude Include="ISteamUGC002.h" />
     <ClInclude Include="ISteamUGC003.h" />
+    <ClInclude Include="ISteamUGC008.h" />
     <ClInclude Include="ISteamUser018.h" />
     <ClInclude Include="ISteamUser019.h" />
     <ClInclude Include="ISteamUtils007.h" />
