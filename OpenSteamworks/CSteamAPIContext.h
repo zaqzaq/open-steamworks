@@ -37,7 +37,7 @@ public:
 	ISteamHTMLSurface003*          SteamHTMLSurface()         { return m_pSteamHTMLSurface;  }
 	ISteamUnifiedMessages001*      SteamUnifiedMessages()     { return m_pSteamUnifiedMessages; }
 	ISteamController005*           SteamController()          { return m_pSteamController; }
-	ISteamUGC008*                  SteamUGC()                 { return m_pSteamUGC; }
+	ISteamUGC009*                  SteamUGC()                 { return m_pSteamUGC; }
 	ISteamAppList001*              SteamAppList()             { return m_pSteamAppList; }
 	ISteamMusic001*                SteamMusic()               { return m_pSteamMusic; }
 	ISteamVideo001*                SteamVideo()               { return m_pSteamVideo; }
@@ -58,7 +58,7 @@ private:
 	ISteamHTMLSurface003           *m_pSteamHTMLSurface;
 	ISteamUnifiedMessages001       *m_pSteamUnifiedMessages;
 	ISteamController005	           *m_pSteamController;
-	ISteamUGC008                   *m_pSteamUGC;
+	ISteamUGC009                   *m_pSteamUGC;
 	ISteamAppList001               *m_pSteamAppList;
 	ISteamMusic001                 *m_pSteamMusic;
 	ISteamVideo001                 *m_pSteamVideo;
@@ -124,7 +124,7 @@ inline bool CSteamAPIContext::Init()
 	if ( !m_pSteamUserStats )
 		return false;
 
-	m_pSteamApps = (ISteamApps008 *)SteamClient()->GetISteamApps( hSteamUser, hSteamPipe, STEAMAPPS_INTERFACE_VERSION_003 );
+	m_pSteamApps = (ISteamApps008 *)SteamClient()->GetISteamApps( hSteamUser, hSteamPipe, STEAMAPPS_INTERFACE_VERSION_008 );
 	if ( !m_pSteamApps )
 		return false;
 
@@ -152,11 +152,11 @@ inline bool CSteamAPIContext::Init()
 	if ( !m_pSteamUnifiedMessages )
 		return false;
 	
-	m_pSteamController = (ISteamController005 *)SteamClient()->GetISteamController(hSteamUser, hSteamPipe, STEAMCONTROLLER_INTERFACE_VERSION_004);
+	m_pSteamController = (ISteamController005 *)SteamClient()->GetISteamController(hSteamUser, hSteamPipe, STEAMCONTROLLER_INTERFACE_VERSION_005);
 	if ( !m_pSteamController )
 		return false;
 	
-	m_pSteamUGC = (ISteamUGC008 *)SteamClient()->GetISteamUGC(hSteamUser, hSteamPipe, STEAMUGC_INTERFACE_VERSION_008);
+	m_pSteamUGC = (ISteamUGC009 *)SteamClient()->GetISteamUGC(hSteamUser, hSteamPipe, STEAMUGC_INTERFACE_VERSION_009);
 	if ( !m_pSteamUGC )
 		return false;
 

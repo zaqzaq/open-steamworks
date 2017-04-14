@@ -228,6 +228,7 @@
 #include "ISteamUGC002.h"
 #include "ISteamUGC003.h"
 #include "ISteamUGC008.h"
+#include "ISteamUGC009.h"
 
 // html surface
 #include "ISteamHTMLSurface001.h"

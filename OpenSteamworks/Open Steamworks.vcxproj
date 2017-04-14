@@ -119,6 +119,7 @@
     <ClInclude Include="ISteamUGC002.h" />
     <ClInclude Include="ISteamUGC003.h" />
     <ClInclude Include="ISteamUGC008.h" />
+    <ClInclude Include="ISteamUGC009.h" />
     <ClInclude Include="ISteamUser018.h" />
     <ClInclude Include="ISteamUser019.h" />
     <ClInclude Include="ISteamUtils007.h" />
