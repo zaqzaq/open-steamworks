@@ -34,6 +34,7 @@ public:
 	ISteamRemoteStorage012*        SteamRemoteStorage()       { return m_pSteamRemoteStorage; }
 	ISteamScreenshots003*          SteamScreenshots()         { return m_pSteamScreenshots; }
 	ISteamHTTP002*                 SteamHTTP()                { return m_pSteamHTTP; }
+	ISteamHTMLSurface003*          SteamHTMLSurface()         { return m_pSteamHTMLSurface;  }
 	ISteamUnifiedMessages001*      SteamUnifiedMessages()     { return m_pSteamUnifiedMessages; }
 	ISteamController005*           SteamController()          { return m_pSteamController; }
 	ISteamUGC008*                  SteamUGC()                 { return m_pSteamUGC; }
@@ -54,6 +55,7 @@ private:
 	ISteamRemoteStorage012         *m_pSteamRemoteStorage;
 	ISteamScreenshots003           *m_pSteamScreenshots;
 	ISteamHTTP002                  *m_pSteamHTTP;
+	ISteamHTMLSurface003           *m_pSteamHTMLSurface;
 	ISteamUnifiedMessages001       *m_pSteamUnifiedMessages;
 	ISteamController005	           *m_pSteamController;
 	ISteamUGC008                   *m_pSteamUGC;
@@ -80,6 +82,7 @@ inline void CSteamAPIContext::Clear()
 	m_pSteamRemoteStorage = NULL;
 	m_pSteamScreenshots = NULL;
 	m_pSteamHTTP = NULL;
+	m_pSteamHTMLSurface = NULL;
 	m_pSteamUnifiedMessages = NULL;
 	m_pSteamController = NULL;
 	m_pSteamUGC = NULL;
@@ -139,6 +142,10 @@ inline bool CSteamAPIContext::Init()
 
 	m_pSteamHTTP = (ISteamHTTP002 *)SteamClient()->GetISteamHTTP(hSteamUser, hSteamPipe, STEAMHTTP_INTERFACE_VERSION_002);
 	if ( !m_pSteamHTTP )
+		return false;
+
+	m_pSteamHTMLSurface = (ISteamHTMLSurface003 *)SteamClient()->GetISteamHTMLSurface(hSteamUser, hSteamPipe, STEAMHTMLSURFACE_INTERFACE_VERSION003);
+	if ( !m_pSteamHTMLSurface )
 		return false;
 
 	m_pSteamUnifiedMessages = (ISteamUnifiedMessages001 *)SteamClient()->GetISteamUnifiedMessages(hSteamUser, hSteamPipe, STEAMUNIFIEDMESSAGES_INTERFACE_VERSION_001);
