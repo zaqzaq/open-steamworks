@@ -188,7 +188,12 @@ struct SteamConfigStoreChanged_t
 	char m_szRootOfChanges[ 255 ];
 };
 
+struct FocusedSteamWindowChanged_t
+{
+	enum { k_iCallback = k_iSteamUtilsCallbacks + 15 };
 
+	CGameID m_gameID;
+};
 
 // k_iClientUtilsCallbacks
 
