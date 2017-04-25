@@ -284,6 +284,7 @@ public:
 	virtual bool BKickOtherPlayingSession() = 0;
 	virtual void PerformAccountRecoveryUpload() = 0;
 	virtual bool BIsAccountLockedDown() = 0;
+	virtual unknown_ret RequestAccountLinkInfo() = 0;
 };
 
 #endif // ICLIENTUSER_H
