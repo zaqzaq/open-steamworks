@@ -196,6 +196,9 @@ enum EAppUpdateError
 	k_EAppUpdateErrorRequires64bitOperatingSystem,
 	k_EAppUpdateErrorMissingUpdateFiles,
 	k_EAppUpdateErrorNotEnoughDiskQuota,
+	k_EAppUpdateErrorSiteLicenseLocked,
+	k_EAppUpdateErrorParentalControlBlocked,
+	k_EAppUpdateErrorCreateProcessFailed,
 };
 
 //-----------------------------------------------------------------------------

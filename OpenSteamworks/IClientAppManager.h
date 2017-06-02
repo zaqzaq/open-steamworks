@@ -55,9 +55,10 @@ public:
 	virtual bool CancelValidation( AppId_t unAppID ) = 0;
 	virtual bool MarkContentCorrupt( AppId_t unAppID, bool bCorrupt ) = 0;
 	virtual uint32 GetInstalledDepots( AppId_t unAppID, AppId_t puDepots[], uint32 cuDepotsMax ) = 0;
-	virtual unknown_ret GetFileDetails( uint32 uUnk, const char *pchUnk) = 0;
+	virtual unknown_ret GetFileDetails(AppId_t unAppID, const char *pchUnk) = 0;
+	virtual unknown_ret VerifySignedFiles(AppId_t unAppID) = 0;
+	virtual unknown_ret GetAvailableBetas(AppId_t unAppID, int32* iunk1, char*, int32 iunk2) = 0;
 	virtual bool CheckBetaPassword( AppId_t unAppID, char const*) = 0;
-	virtual bool BRequestBetaPasswords( AppId_t unAppID ) = 0;
 	virtual bool BHasCachedBetaPassword( AppId_t unAppID, const char *cszBetaKey ) = 0;
 	virtual bool SetDownloadingEnabled( bool ) = 0;
 	virtual bool BIsDownloadingEnabled() = 0;

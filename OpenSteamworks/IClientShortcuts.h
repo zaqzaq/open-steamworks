@@ -64,6 +64,7 @@ public:
 	virtual void SetShortcutCommandLine( uint32, const char * ) = 0;
 	virtual void ClearShortcutUserTags( uint32 ) = 0;
 	virtual void AddShortcutUserTag( uint32, const char * ) = 0;
+	virtual unknown_ret RemoveShortcutUserTag(uint32, const char *) = 0;
 	virtual void SetShortcutHidden( uint32, bool ) = 0;
 	virtual void SetAllowDesktopConfig( uint32, bool ) = 0;
 	virtual void SetOpenVRShortcut( uint32, bool ) = 0;

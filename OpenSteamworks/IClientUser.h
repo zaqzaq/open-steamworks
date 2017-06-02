@@ -63,9 +63,9 @@ abstract_class UNSAFE_INTERFACE IClientUser
 {
 public:
 	virtual HSteamUser GetHSteamUser() = 0;
-	virtual void LogOn( bool bInteractive, CSteamID steamID ) = 0;
-	virtual void LogOnWithPassword( bool bInteractive, const char * pchLogin, const char * pchPassword ) = 0;
-	virtual void LogOnAndCreateNewSteamAccountIfNeeded( bool bInteractive ) = 0;
+	virtual void LogOn( CSteamID steamID ) = 0;
+	virtual void LogOnWithPassword( const char * pchLogin, const char * pchPassword ) = 0;
+	virtual void LogOnAndCreateNewSteamAccountIfNeeded() = 0;
 	virtual EResult LogOnConnectionless() = 0;
 	virtual void LogOff() = 0;
 	virtual bool BLoggedOn() = 0;
@@ -129,10 +129,9 @@ public:
 	virtual bool BIsGameWindowReady( CGameID gameID ) = 0;
 	virtual bool BUpdateAppOwnershipTicket( AppId_t nAppID, bool bOnlyUpdateIfStale, bool bIsDepot ) = 0;
 	virtual bool RequestCustomBinary( const char *pszAbsolutePath, AppId_t nAppID, bool bForceUpdate, bool bAppLaunchRequest ) = 0;
-	virtual EResult GetCustomBinariesState( AppId_t unAppID, uint32 *punProgress ) = 0;
+	virtual EResult GetCustomBinariesState( AppId_t unAppID, int64* iUnk1, int64* iUnk2 ) = 0;
 	virtual EResult RequestCustomBinaries( AppId_t unAppID, bool, bool, uint32 * ) = 0;
 	virtual void SetCellID( CellID_t cellID ) = 0;
-	virtual void SetWinningPingTimeForCellID( uint32 uPing ) = 0;
 	virtual const char *GetUserBaseFolder() = 0;
 	virtual bool GetUserDataFolder( CGameID gameID, char* pchBuffer, int32 cubBuffer ) = 0;
 	virtual bool GetUserConfigFolder( char *pchBuffer, int32 cubBuffer ) = 0;
@@ -140,6 +139,7 @@ public:
 	virtual bool GetAccountName( CSteamID userID, char * pchAccountName, uint32 cb ) = 0;
 	virtual bool IsPasswordRemembered() = 0;
 	virtual void CheckoutSiteLicenseSeat( uint32 uUnk ) = 0;
+	virtual unknown_ret GetAssociatedSiteName() = 0;
 	virtual bool RequiresLegacyCDKey( AppId_t nAppID, bool * pbUnk ) = 0;
 	virtual bool GetLegacyCDKey( AppId_t nAppID, char* pchKeyData, int32 cbKeyData ) = 0;
 	virtual bool SetLegacyCDKey( AppId_t nAppID, const char* pchKeyData ) = 0;
@@ -284,6 +284,9 @@ public:
 	virtual bool BKickOtherPlayingSession() = 0;
 	virtual void PerformAccountRecoveryUpload() = 0;
 	virtual bool BIsAccountLockedDown() = 0;
+	virtual unknown_ret RemoveAppTag(CGameID, const char*) = 0;
+	virtual unknown_ret AddAppTag(CGameID, const char*) = 0;
+	virtual unknown_ret SetAppHidden(CGameID, bool) = 0;
 	virtual unknown_ret RequestAccountLinkInfo() = 0;
 };
 

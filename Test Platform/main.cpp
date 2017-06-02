@@ -69,7 +69,7 @@ int main()
 		szPassword[strlen(szPassword) - 1] = 0;
 	}
 
-	pClientUser->LogOnWithPassword(false, szUsername, szPassword);
+	pClientUser->LogOnWithPassword(szUsername, szPassword);
 
 	CallbackMsg_t callBack;
 	CSteamID adminID;
@@ -119,7 +119,7 @@ int main()
 						}
 
 						pClientUser->Set2ndFactorAuthCode(szAuthCode, true);
-						pClientUser->LogOnWithPassword(false, szUsername, szPassword);
+						pClientUser->LogOnWithPassword(szUsername, szPassword);
 					}
 					else if (pConnectFailureInfo->m_eResult == k_EResultAccountLoginDeniedNeedTwoFactor)
 					{
@@ -132,7 +132,7 @@ int main()
 						}
 
 						pClientUser->SetTwoFactorCode(sz2FACode);
-						pClientUser->LogOnWithPassword(false, szUsername, szPassword);
+						pClientUser->LogOnWithPassword(szUsername, szPassword);
 					}
 					else
 					{

@@ -773,5 +773,8 @@
     <ClInclude Include="ISteamUGC009.h">
       <Filter>Steamclient Headers\Steam Interfaces\ISteamUGC</Filter>
     </ClInclude>
+    <ClInclude Include="ISteamVideo002.h">
+      <Filter>Steamclient Headers\Steam Interfaces\ISteamVideo</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

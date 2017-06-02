@@ -70,6 +70,7 @@ class IClientVideo;
 class IClientControllerSerialized;
 class IClientAppDisableUpdate;
 class IClientBluetoothManager;
+class IClientSharedConnection;
 
 abstract_class UNSAFE_INTERFACE IClientEngine
 {
@@ -137,7 +138,8 @@ public:
 	virtual IClientControllerSerialized *GetIClientControllerSerialized( int32, char const * pchVersion ) = 0;
 	virtual IClientAppDisableUpdate *GetIClientAppDisableUpdate( HSteamUser hSteamUser, HSteamPipe hSteamPipe, char const* pchVersion ) = 0;
 	virtual unknown_ret Set_ClientAPI_CPostAPIResultInProcess( void(*)(uint64 ulUnk, void * pUnk, uint32 uUnk, int32 iUnk) ) = 0;
-	virtual IClientBluetoothManager *GetIClientBluetoothManager( int32, char const * pchVersion ) = 0;
+	virtual IClientBluetoothManager *GetIClientBluetoothManager( HSteamPipe hSteamPipe, char const* pchVersion) = 0;
+	virtual IClientSharedConnection *GetIClientSharedConnection( HSteamUser hSteamUser, HSteamPipe hSteamPipe, char const* pchVersion ) = 0;
 };
 
 #endif // ICLIENTENGINE_H

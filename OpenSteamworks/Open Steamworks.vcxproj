@@ -125,6 +125,7 @@
     <ClInclude Include="ISteamUtils007.h" />
     <ClInclude Include="ISteamUtils008.h" />
     <ClInclude Include="ISteamVideo001.h" />
+    <ClInclude Include="ISteamVideo002.h" />
     <ClInclude Include="MusicCommon.h" />
     <ClInclude Include="Steamclient.h" />
     <ClInclude Include="SteamclientAPI.h" />
