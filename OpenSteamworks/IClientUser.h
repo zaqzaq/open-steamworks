@@ -155,7 +155,7 @@ public:
 	virtual void ChangePassword( const char *pchOldPassword, const char *pchNewPassword ) = 0;
 	virtual bool GetEmail( char* pchEmail, int32 cchEmail, bool* pbValidated ) = 0;
 	virtual void RequestForgottenPasswordEmail( const char *pchAccountName, const char *pchTriedPassword ) = 0;
-	virtual unknown_ret RequestAccountResetDetails( const char *, const char * ) = 0;
+	virtual void RequestAccountResetDetails( const char *, const char * ) = 0;
 	virtual void FindAccountsByEmailAddress( const char *pchEmailAddress ) = 0;
 	virtual void FindAccountsByCdKey( const char *pchCdKey ) = 0;
 	virtual void GetNumAccountsWithEmailAddress( const char * pchEmailAddress ) = 0;
@@ -284,10 +284,10 @@ public:
 	virtual bool BKickOtherPlayingSession() = 0;
 	virtual void PerformAccountRecoveryUpload() = 0;
 	virtual bool BIsAccountLockedDown() = 0;
-	virtual unknown_ret RemoveAppTag(CGameID, const char*) = 0;
-	virtual unknown_ret AddAppTag(CGameID, const char*) = 0;
-	virtual unknown_ret SetAppHidden(CGameID, bool) = 0;
-	virtual unknown_ret RequestAccountLinkInfo() = 0;
+	virtual void RemoveAppTag(CGameID, const char*) = 0;
+	virtual void AddAppTag(CGameID, const char*) = 0;
+	virtual void SetAppHidden(CGameID, bool) = 0;
+	virtual SteamAPICall_t RequestAccountLinkInfo() = 0;
 };
 
 #endif // ICLIENTUSER_H
