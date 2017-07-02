@@ -14,7 +14,7 @@
 //
 //=============================================================================
 
-#include "SteamTypes.h"
+#include "Types/SteamTypes.h"
 #include "Interface_OSW.h"
 
 CSteamAPILoader::CSteamAPILoader(ESearchOrder eSearchOrder)

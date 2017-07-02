@@ -21,7 +21,7 @@
 #endif
 
 // includes
-#include "SteamTypes.h"
+#include "Types/SteamTypes.h"
 
 // extern function declarations
 #include "Steamclient.h"
