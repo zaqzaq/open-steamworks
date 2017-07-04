@@ -163,6 +163,7 @@
     <ClInclude Include="Interfaces\Steam\ISteamMatchmaking\ISteamMatchmaking007.h" />
     <ClInclude Include="Interfaces\Steam\ISteamMatchmaking\ISteamMatchmaking008.h" />
     <ClInclude Include="Interfaces\Steam\ISteamMatchmaking\ISteamMatchmaking009.h" />
+    <ClInclude Include="Interfaces\Steam\ISteamMusicRemote\ISteamMusicRemote001.h" />
     <ClInclude Include="Interfaces\Steam\ISteamMusic\ISteamMusic001.h" />
     <ClInclude Include="Interfaces\Steam\ISteamNetworking\ISteamNetworking001.h" />
     <ClInclude Include="Interfaces\Steam\ISteamNetworking\ISteamNetworking002.h" />

@@ -776,6 +776,9 @@
     <ClInclude Include="Interfaces\Steam\ISteamStreamLauncher\ISteamStreamLauncher001.h">
       <Filter>Interfaces\Steam\ISteamStreamLauncher</Filter>
     </ClInclude>
+    <ClInclude Include="Interfaces\Steam\ISteamMusicRemote\ISteamMusicRemote001.h">
+      <Filter>Interfaces\Steam\ISteamMusicRemote</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Types">
@@ -885,6 +888,9 @@
     </Filter>
     <Filter Include="Interfaces\Steam\ISteamStreamLauncher">
       <UniqueIdentifier>{5950c8e1-07fe-4d31-b73d-63696c84c655}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interfaces\Steam\ISteamMusicRemote">
+      <UniqueIdentifier>{f6447036-3b3e-4004-afcf-fa0306afa71a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -20,6 +20,14 @@
 #pragma once
 #endif
 
+#define k_SteamMusicNameMaxLength	= 255;
+#define k_SteamMusicPNGMaxLength	= 65535;
+
+
+#define STEAMMUSIC_INTERFACE_VERSION_001 "STEAMMUSIC_INTERFACE_VERSION001"
+#define STEAMMUSICREMOTE_INTERFACE_VERSION "STEAMMUSICREMOTE_INTERFACE_VERSION001"
+
+
 enum AudioPlayback_Status
 {
 	AudioPlayback_Undefined = 0,
@@ -27,7 +35,5 @@ enum AudioPlayback_Status
 	AudioPlayback_Paused = 2,
 	AudioPlayback_Idle = 3
 };
-
-#define STEAMMUSIC_INTERFACE_VERSION_001 "STEAMMUSIC_INTERFACE_VERSION001"
 
 #endif // MUSICCOMMON_H

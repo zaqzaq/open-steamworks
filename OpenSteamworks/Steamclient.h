@@ -224,6 +224,10 @@
 // music
 #include "Interfaces/Steam/ISteamMusic/ISteamMusic001.h"
 
+// music remote
+#include "Interfaces/Steam/ISteamMusicRemote/ISteamMusicRemote001.h"
+
+
 // ugc
 #include "Interfaces/Steam/ISteamUGC/ISteamUGC001.h"
 #include "Interfaces/Steam/ISteamUGC/ISteamUGC002.h"
