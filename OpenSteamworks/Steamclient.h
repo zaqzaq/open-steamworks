@@ -406,6 +406,17 @@ S_API_UNSAFE ISteamApps008* STEAM_CALL SteamApps();
 S_API_UNSAFE ISteamNetworking005* STEAM_CALL SteamNetworking();
 S_API_UNSAFE ISteamMatchmakingServers002* STEAM_CALL SteamMatchmakingServers();
 S_API_UNSAFE ISteamRemoteStorage013* STEAM_CALL SteamRemoteStorage();
+S_API_UNSAFE ISteamMusic* STEAM_CALL SteamMusic();
+S_API_UNSAFE ISteamAppList001* STEAM_CALL SteamAppList();
+S_API_UNSAFE ISteamController005* SteamController();
+S_API_UNSAFE ISteamHTMLSurface003* SteamHTMLSurface();
+S_API_UNSAFE ISteamHTTP002* SteamHTTP();
+S_API_UNSAFE ISteamInventory002* SteamInventory();
+S_API_UNSAFE ISteamMusicRemote001* SteamMusicRemote();
+S_API_UNSAFE ISteamScreenshots003* SteamScreenshots();
+S_API_UNSAFE ISteamUGC009* SteamUGC();
+S_API_UNSAFE ISteamUnifiedMessages001* SteamUnifiedMessages();
+S_API_UNSAFE ISteamVideo002* SteamVideo();
 
 #endif // VERSION_SAFE_STEAM_API_INTERFACES
 

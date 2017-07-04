@@ -110,12 +110,12 @@ public:
 	virtual bool IsSteamRunningInVR() = 0;
 	virtual bool BIsRunningOnAlienwareAlpha() = 0;
 	virtual void StartVRDashboard() = 0;
-	virtual unknown_ret IsVRHeadsetStreamingEnabled(uint32 unk) = 0;
-	virtual unknown_ret SetVRHeadsetStreamingEnabled(uint32 unk, bool) = 0;
+	virtual bool IsVRHeadsetStreamingEnabled(uint32 unk) = 0;
+	virtual void SetVRHeadsetStreamingEnabled(uint32 unk, bool) = 0;
 	virtual unknown_ret GenerateSupportSystemReport() = 0;
-	virtual unknown_ret GetSupportSystemReport(char*, uint32 unk, uint8* unk_2, uint32 unk_3) = 0;
-	virtual unknown_ret GetAppIdForPid(uint32 unk) = 0;
-	virtual unknown_ret SetClientUIProcess() = 0;
+	virtual bool GetSupportSystemReport(char*, uint32 unk, uint8* unk_2, uint32 unk_3) = 0;
+	virtual AppId_t GetAppIdForPid(uint32 unk) = 0;
+	virtual void SetClientUIProcess() = 0;
 	virtual bool BIsClientUIInForeground() = 0;
 };
 
