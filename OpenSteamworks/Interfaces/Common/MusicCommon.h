@@ -23,7 +23,6 @@
 #define k_SteamMusicNameMaxLength	= 255;
 #define k_SteamMusicPNGMaxLength	= 65535;
 
-
 #define STEAMMUSIC_INTERFACE_VERSION_001 "STEAMMUSIC_INTERFACE_VERSION001"
 #define STEAMMUSICREMOTE_INTERFACE_VERSION "STEAMMUSICREMOTE_INTERFACE_VERSION001"
 
@@ -35,5 +34,103 @@ enum AudioPlayback_Status
 	AudioPlayback_Paused = 2,
 	AudioPlayback_Idle = 3
 };
+
+#pragma pack( push, 8 )
+
+// music
+
+struct PlaybackStatusHasChanged_t
+{
+	enum { k_iCallback = k_iSteamMusicCallbacks + 1 };
+
+};
+
+struct VolumeHasChanged_t
+{
+	enum { k_iCallback = k_iSteamMusicCallbacks + 2 };
+
+	float m_flNewVolume;
+};
+
+
+// music remote callbacks
+
+struct MusicPlayerRemoteWillActivate_t
+{
+	enum { k_iCallback = k_iSteamMusicRemoteCallbacks + 1 };
+};
+
+struct MusicPlayerRemoteWillDeactivate_t
+{
+	enum { k_iCallback = k_iSteamMusicRemoteCallbacks + 2 };
+};
+
+struct MusicPlayerRemoteToFront_t
+{
+	enum { k_iCallback = k_iSteamMusicRemoteCallbacks + 3 };
+};
+
+struct MusicPlayerWillQuit_t
+{
+	enum { k_iCallback = k_iSteamMusicRemoteCallbacks + 4 };
+};
+
+struct MusicPlayerWantsPlay_t
+{
+	enum { k_iCallback = k_iSteamMusicRemoteCallbacks + 5 };
+};
+
+struct MusicPlayerWantsPause_t
+{
+	enum { k_iCallback = k_iSteamMusicRemoteCallbacks + 6 };
+};
+
+struct MusicPlayerWantsPlayPrevious_t
+{
+	enum { k_iCallback = k_iSteamMusicRemoteCallbacks + 7 };
+};
+
+struct MusicPlayerWantsPlayNext_t
+{
+	enum { k_iCallback = k_iSteamMusicRemoteCallbacks + 8 };
+};
+
+struct MusicPlayerWantsShuffled_t
+{
+	enum { k_iCallback = k_iSteamMusicRemoteCallbacks + 9 };
+
+	bool m_bShuffled;
+};
+
+struct MusicPlayerWantsLooped_t
+{
+	enum { k_iCallback = k_iSteamMusicRemoteCallbacks + 10 };
+
+	bool m_bLooped;
+};
+
+struct MusicPlayerWantsVolume_t
+{
+	enum { k_iCallback = k_iSteamMusicCallbacks + 11 };
+
+	float m_flNewVolume;
+};
+
+struct MusicPlayerSelectsQueueEntry_t
+{
+	enum { k_iCallback = k_iSteamMusicCallbacks + 12 };
+
+	int32 nID;
+};
+
+struct MusicPlayerSelectsPlaylistEntry_t
+{
+	enum { k_iCallback = k_iSteamMusicCallbacks + 13 };
+
+	int32 nID;
+};
+
+
+#pragma pack( pop )
 
 #endif // MUSICCOMMON_H
