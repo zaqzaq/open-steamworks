@@ -21,7 +21,7 @@
 #pragma once
 #endif
 
-#include "SteamTypes.h"
+#include "Types/SteamTypes.h"
 
 #if defined(__GNUC__) && defined(_WIN32)
 	// This ugly hack allows us to provide GCC compatibility on windows without much effort
@@ -31,257 +31,263 @@
 #endif
 
 // client
-#include "ISteamClient006.h"
-#include "ISteamClient007.h"
-#include "ISteamClient008.h"
-#include "ISteamClient009.h"
-#include "ISteamClient010.h"
-#include "ISteamClient011.h"
-#include "ISteamClient012.h"
-#include "ISteamClient013.h"
-#include "ISteamClient014.h"
-#include "ISteamClient015.h"
-#include "ISteamClient016.h"
-#include "ISteamClient017.h"
+#include "Interfaces/Steam/ISteamClient/ISteamClient006.h"
+#include "Interfaces/Steam/ISteamClient/ISteamClient007.h"
+#include "Interfaces/Steam/ISteamClient/ISteamClient008.h"
+#include "Interfaces/Steam/ISteamClient/ISteamClient009.h"
+#include "Interfaces/Steam/ISteamClient/ISteamClient010.h"
+#include "Interfaces/Steam/ISteamClient/ISteamClient011.h"
+#include "Interfaces/Steam/ISteamClient/ISteamClient012.h"
+#include "Interfaces/Steam/ISteamClient/ISteamClient013.h"
+#include "Interfaces/Steam/ISteamClient/ISteamClient014.h"
+#include "Interfaces/Steam/ISteamClient/ISteamClient015.h"
+#include "Interfaces/Steam/ISteamClient/ISteamClient016.h"
+#include "Interfaces/Steam/ISteamClient/ISteamClient017.h"
 
 // friends
-#include "ISteamFriends001.h"
-#include "ISteamFriends002.h"
-#include "ISteamFriends003.h"
-#include "ISteamFriends004.h"
-#include "ISteamFriends005.h"
-#include "ISteamFriends006.h"
-#include "ISteamFriends007.h"
-#include "ISteamFriends008.h"
-#include "ISteamFriends009.h"
-#include "ISteamFriends010.h"
-#include "ISteamFriends011.h"
-#include "ISteamFriends012.h"
-#include "ISteamFriends013.h"
-#include "ISteamFriends014.h"
-#include "ISteamFriends015.h"
+#include "Interfaces/Steam/ISteamFriends/ISteamFriends001.h"
+#include "Interfaces/Steam/ISteamFriends/ISteamFriends002.h"
+#include "Interfaces/Steam/ISteamFriends/ISteamFriends003.h"
+#include "Interfaces/Steam/ISteamFriends/ISteamFriends004.h"
+#include "Interfaces/Steam/ISteamFriends/ISteamFriends005.h"
+#include "Interfaces/Steam/ISteamFriends/ISteamFriends006.h"
+#include "Interfaces/Steam/ISteamFriends/ISteamFriends007.h"
+#include "Interfaces/Steam/ISteamFriends/ISteamFriends008.h"
+#include "Interfaces/Steam/ISteamFriends/ISteamFriends009.h"
+#include "Interfaces/Steam/ISteamFriends/ISteamFriends010.h"
+#include "Interfaces/Steam/ISteamFriends/ISteamFriends011.h"
+#include "Interfaces/Steam/ISteamFriends/ISteamFriends012.h"
+#include "Interfaces/Steam/ISteamFriends/ISteamFriends013.h"
+#include "Interfaces/Steam/ISteamFriends/ISteamFriends014.h"
+#include "Interfaces/Steam/ISteamFriends/ISteamFriends015.h"
 
 // screenshots
-#include "ISteamScreenshots001.h"
-#include "ISteamScreenshots002.h"
-#include "ISteamScreenshots003.h"
+#include "Interfaces/Steam/ISteamScreenshots/ISteamScreenshots001.h"
+#include "Interfaces/Steam/ISteamScreenshots/ISteamScreenshots002.h"
+#include "Interfaces/Steam/ISteamScreenshots/ISteamScreenshots003.h"
 
 // user
-#include "ISteamUser004.h"
-#include "ISteamUser005.h"
-#include "ISteamUser006.h"
-#include "ISteamUser007.h"
-#include "ISteamUser008.h"
-#include "ISteamUser009.h"
-#include "ISteamUser010.h"
-#include "ISteamUser011.h"
-#include "ISteamUser012.h"
-#include "ISteamUser013.h"
-#include "ISteamUser014.h"
-#include "ISteamUser015.h"
-#include "ISteamUser016.h"
-#include "ISteamUser017.h"
-#include "ISteamUser018.h"
-#include "ISteamUser019.h"
-#include "ISteamUser020.h"
+#include "Interfaces/Steam/ISteamUser/ISteamUser004.h"
+#include "Interfaces/Steam/ISteamUser/ISteamUser005.h"
+#include "Interfaces/Steam/ISteamUser/ISteamUser006.h"
+#include "Interfaces/Steam/ISteamUser/ISteamUser007.h"
+#include "Interfaces/Steam/ISteamUser/ISteamUser008.h"
+#include "Interfaces/Steam/ISteamUser/ISteamUser009.h"
+#include "Interfaces/Steam/ISteamUser/ISteamUser010.h"
+#include "Interfaces/Steam/ISteamUser/ISteamUser011.h"
+#include "Interfaces/Steam/ISteamUser/ISteamUser012.h"
+#include "Interfaces/Steam/ISteamUser/ISteamUser013.h"
+#include "Interfaces/Steam/ISteamUser/ISteamUser014.h"
+#include "Interfaces/Steam/ISteamUser/ISteamUser015.h"
+#include "Interfaces/Steam/ISteamUser/ISteamUser016.h"
+#include "Interfaces/Steam/ISteamUser/ISteamUser017.h"
+#include "Interfaces/Steam/ISteamUser/ISteamUser018.h"
+#include "Interfaces/Steam/ISteamUser/ISteamUser019.h"
+#include "Interfaces/Steam/ISteamUser/ISteamUser020.h"
 
 // OAuth
-#include "ISteamOAuth001.h"
+#include "Interfaces/Steam/ISteamOAuth/ISteamOAuth001.h"
 
 // apps
-#include "ISteamApps001.h"
-#include "ISteamApps002.h"
-#include "ISteamApps003.h"
-#include "ISteamApps004.h"
-#include "ISteamApps005.h"
-#include "ISteamApps006.h"
-#include "ISteamApps007.h"
-#include "ISteamApps008.h"
+#include "Interfaces/Steam/ISteamApps/ISteamApps001.h"
+#include "Interfaces/Steam/ISteamApps/ISteamApps002.h"
+#include "Interfaces/Steam/ISteamApps/ISteamApps003.h"
+#include "Interfaces/Steam/ISteamApps/ISteamApps004.h"
+#include "Interfaces/Steam/ISteamApps/ISteamApps005.h"
+#include "Interfaces/Steam/ISteamApps/ISteamApps006.h"
+#include "Interfaces/Steam/ISteamApps/ISteamApps007.h"
+#include "Interfaces/Steam/ISteamApps/ISteamApps008.h"
 
 // app list
-#include "ISteamAppList001.h"
+#include "Interfaces/Steam/ISteamAppList/ISteamAppList001.h"
 
 // user stats
-#include "ISteamUserStats001.h"
-#include "ISteamUserStats002.h"
-#include "ISteamUserStats003.h"
-#include "ISteamUserStats004.h"
-#include "ISteamUserStats005.h"
-#include "ISteamUserStats006.h"
-#include "ISteamUserStats007.h"
-#include "ISteamUserStats008.h"
-#include "ISteamUserStats009.h"
-#include "ISteamUserStats010.h"
-#include "ISteamUserStats011.h"
+#include "Interfaces/Steam/ISteamUserStats/ISteamUserStats001.h"
+#include "Interfaces/Steam/ISteamUserStats/ISteamUserStats002.h"
+#include "Interfaces/Steam/ISteamUserStats/ISteamUserStats003.h"
+#include "Interfaces/Steam/ISteamUserStats/ISteamUserStats004.h"
+#include "Interfaces/Steam/ISteamUserStats/ISteamUserStats005.h"
+#include "Interfaces/Steam/ISteamUserStats/ISteamUserStats006.h"
+#include "Interfaces/Steam/ISteamUserStats/ISteamUserStats007.h"
+#include "Interfaces/Steam/ISteamUserStats/ISteamUserStats008.h"
+#include "Interfaces/Steam/ISteamUserStats/ISteamUserStats009.h"
+#include "Interfaces/Steam/ISteamUserStats/ISteamUserStats010.h"
+#include "Interfaces/Steam/ISteamUserStats/ISteamUserStats011.h"
 
 // utils
-#include "ISteamUtils001.h"
-#include "ISteamUtils002.h"
-#include "ISteamUtils003.h"
-#include "ISteamUtils004.h"
-#include "ISteamUtils005.h"
-#include "ISteamUtils006.h"
-#include "ISteamUtils007.h"
-#include "ISteamUtils008.h"
+#include "Interfaces/Steam/ISteamUtils/ISteamUtils001.h"
+#include "Interfaces/Steam/ISteamUtils/ISteamUtils002.h"
+#include "Interfaces/Steam/ISteamUtils/ISteamUtils003.h"
+#include "Interfaces/Steam/ISteamUtils/ISteamUtils004.h"
+#include "Interfaces/Steam/ISteamUtils/ISteamUtils005.h"
+#include "Interfaces/Steam/ISteamUtils/ISteamUtils006.h"
+#include "Interfaces/Steam/ISteamUtils/ISteamUtils007.h"
+#include "Interfaces/Steam/ISteamUtils/ISteamUtils008.h"
 
 // game server
-#include "ISteamGameServer002.h"
-#include "ISteamGameServer003.h"
-#include "ISteamGameServer004.h"
-#include "ISteamGameServer005.h"
-#include "ISteamGameServer006.h"
-#include "ISteamGameServer007.h"
-#include "ISteamGameServer008.h"
-#include "ISteamGameServer009.h"
-#include "ISteamGameServer010.h"
-#include "ISteamGameServer011.h"
-#include "ISteamGameServer012.h"
+#include "Interfaces/Steam/ISteamGameServer/ISteamGameServer002.h"
+#include "Interfaces/Steam/ISteamGameServer/ISteamGameServer003.h"
+#include "Interfaces/Steam/ISteamGameServer/ISteamGameServer004.h"
+#include "Interfaces/Steam/ISteamGameServer/ISteamGameServer005.h"
+#include "Interfaces/Steam/ISteamGameServer/ISteamGameServer006.h"
+#include "Interfaces/Steam/ISteamGameServer/ISteamGameServer007.h"
+#include "Interfaces/Steam/ISteamGameServer/ISteamGameServer008.h"
+#include "Interfaces/Steam/ISteamGameServer/ISteamGameServer009.h"
+#include "Interfaces/Steam/ISteamGameServer/ISteamGameServer010.h"
+#include "Interfaces/Steam/ISteamGameServer/ISteamGameServer011.h"
+#include "Interfaces/Steam/ISteamGameServer/ISteamGameServer012.h"
 
 // inventory
-#include "ISteamInventory001.h"
+#include "Interfaces/Steam/ISteamInventory/ISteamInventory001.h"
+#include "Interfaces/Steam/ISteamInventory/ISteamInventory002.h"
 
 // master server updater
-#include "ISteamMasterServerUpdater001.h"
+#include "Interfaces/Steam/ISteamMasterServerUpdater/ISteamMasterServerUpdater001.h"
 
 // matchmaking
-#include "ISteamMatchmaking001.h"
-#include "ISteamMatchmaking002.h"
-#include "ISteamMatchmaking003.h"
-#include "ISteamMatchmaking004.h"
-#include "ISteamMatchmaking005.h"
-#include "ISteamMatchmaking006.h"
-#include "ISteamMatchmaking007.h"
-#include "ISteamMatchmaking008.h"
-#include "ISteamMatchmaking009.h"
+#include "Interfaces/Steam/ISteamMatchmaking/ISteamMatchmaking001.h"
+#include "Interfaces/Steam/ISteamMatchmaking/ISteamMatchmaking002.h"
+#include "Interfaces/Steam/ISteamMatchmaking/ISteamMatchmaking003.h"
+#include "Interfaces/Steam/ISteamMatchmaking/ISteamMatchmaking004.h"
+#include "Interfaces/Steam/ISteamMatchmaking/ISteamMatchmaking005.h"
+#include "Interfaces/Steam/ISteamMatchmaking/ISteamMatchmaking006.h"
+#include "Interfaces/Steam/ISteamMatchmaking/ISteamMatchmaking007.h"
+#include "Interfaces/Steam/ISteamMatchmaking/ISteamMatchmaking008.h"
+#include "Interfaces/Steam/ISteamMatchmaking/ISteamMatchmaking009.h"
 
 // matchmaking servers
-#include "ISteamMatchmakingServers001.h"
-#include "ISteamMatchmakingServers002.h"
+#include "Interfaces/Steam/ISteamMatchmakingServers/ISteamMatchmakingServers001.h"
+#include "Interfaces/Steam/ISteamMatchmakingServers/ISteamMatchmakingServers002.h"
 
 // networking
-#include "ISteamNetworking001.h"
-#include "ISteamNetworking002.h"
-#include "ISteamNetworking003.h"
-#include "ISteamNetworking004.h"
-#include "ISteamNetworking005.h"
+#include "Interfaces/Steam/ISteamNetworking/ISteamNetworking001.h"
+#include "Interfaces/Steam/ISteamNetworking/ISteamNetworking002.h"
+#include "Interfaces/Steam/ISteamNetworking/ISteamNetworking003.h"
+#include "Interfaces/Steam/ISteamNetworking/ISteamNetworking004.h"
+#include "Interfaces/Steam/ISteamNetworking/ISteamNetworking005.h"
 
 // billing
-#include "ISteamBilling001.h"
-#include "ISteamBilling002.h"
+#include "Interfaces/Steam/ISteamBilling/ISteamBilling001.h"
+#include "Interfaces/Steam/ISteamBilling/ISteamBilling002.h"
 
 // remote storage
-#include "ISteamRemoteStorage001.h"
-#include "ISteamRemoteStorage002.h"
-#include "ISteamRemoteStorage003.h"
-#include "ISteamRemoteStorage004.h"
-#include "ISteamRemoteStorage005.h"
-#include "ISteamRemoteStorage006.h"
-#include "ISteamRemoteStorage007.h"
-#include "ISteamRemoteStorage008.h"
-#include "ISteamRemoteStorage009.h"
-#include "ISteamRemoteStorage010.h"
-#include "ISteamRemoteStorage011.h"
-#include "ISteamRemoteStorage012.h"
-#include "ISteamRemoteStorage013.h"
+#include "Interfaces/Steam/ISteamRemoteStorage/ISteamRemoteStorage001.h"
+#include "Interfaces/Steam/ISteamRemoteStorage/ISteamRemoteStorage002.h"
+#include "Interfaces/Steam/ISteamRemoteStorage/ISteamRemoteStorage003.h"
+#include "Interfaces/Steam/ISteamRemoteStorage/ISteamRemoteStorage004.h"
+#include "Interfaces/Steam/ISteamRemoteStorage/ISteamRemoteStorage005.h"
+#include "Interfaces/Steam/ISteamRemoteStorage/ISteamRemoteStorage006.h"
+#include "Interfaces/Steam/ISteamRemoteStorage/ISteamRemoteStorage007.h"
+#include "Interfaces/Steam/ISteamRemoteStorage/ISteamRemoteStorage008.h"
+#include "Interfaces/Steam/ISteamRemoteStorage/ISteamRemoteStorage009.h"
+#include "Interfaces/Steam/ISteamRemoteStorage/ISteamRemoteStorage010.h"
+#include "Interfaces/Steam/ISteamRemoteStorage/ISteamRemoteStorage011.h"
+#include "Interfaces/Steam/ISteamRemoteStorage/ISteamRemoteStorage012.h"
+#include "Interfaces/Steam/ISteamRemoteStorage/ISteamRemoteStorage013.h"
 
 // content server
-#include "ISteamContentServer001.h"
-#include "ISteamContentServer002.h"
+#include "Interfaces/Steam/ISteamContentServer/ISteamContentServer001.h"
+#include "Interfaces/Steam/ISteamContentServer/ISteamContentServer002.h"
 
 // steam 2 bridge
-#include "ISteam2Bridge001.h"
-#include "ISteam2Bridge002.h"
+#include "Interfaces/Steam/ISteam2Bridge/ISteam2Bridge001.h"
+#include "Interfaces/Steam/ISteam2Bridge/ISteam2Bridge002.h"
 
 // game coordinator
-#include "ISteamGameCoordinator001.h"
+#include "Interfaces/Steam/ISteamGameCoordinator/ISteamGameCoordinator001.h"
 
 // game server stats
-#include "ISteamGameServerStats001.h"
+#include "Interfaces/Steam/ISteamGameServerStats/ISteamGameServerStats001.h"
 
 // game stats
-#include "ISteamGameStats001.h"
+#include "Interfaces/Steam/ISteamGameStats/ISteamGameStats001.h"
 
 // app ticket
-#include "ISteamAppTicket001.h"
+#include "Interfaces/Steam/ISteamAppTicket/ISteamAppTicket001.h"
 
 // http
-#include "ISteamHTTP001.h"
-#include "ISteamHTTP002.h"
+#include "Interfaces/Steam/ISteamHTTP/ISteamHTTP001.h"
+#include "Interfaces/Steam/ISteamHTTP/ISteamHTTP002.h"
 
 // unified messages
-#include "ISteamUnifiedMessages001.h"
+#include "Interfaces/Steam/ISteamUnifiedMessages/ISteamUnifiedMessages001.h"
 
 // stream launcher
-#include "ISteamStreamLauncher001.h"
+#include "Interfaces/Steam/ISteamStreamLauncher/ISteamStreamLauncher001.h"
 
 // controller
-#include "ISteamController001.h"
-#include "ISteamController003.h"
-#include "ISteamController004.h"
-#include "ISteamController005.h"
+#include "Interfaces/Steam/ISteamController/ISteamController001.h"
+#include "Interfaces/Steam/ISteamController/ISteamController003.h"
+#include "Interfaces/Steam/ISteamController/ISteamController004.h"
+#include "Interfaces/Steam/ISteamController/ISteamController005.h"
 
 // music
-#include "ISteamMusic001.h"
+#include "Interfaces/Steam/ISteamMusic/ISteamMusic001.h"
+
+// music remote
+#include "Interfaces/Steam/ISteamMusicRemote/ISteamMusicRemote001.h"
+
 
 // ugc
-#include "ISteamUGC001.h"
-#include "ISteamUGC002.h"
-#include "ISteamUGC003.h"
-#include "ISteamUGC008.h"
-#include "ISteamUGC009.h"
+#include "Interfaces/Steam/ISteamUGC/ISteamUGC001.h"
+#include "Interfaces/Steam/ISteamUGC/ISteamUGC002.h"
+#include "Interfaces/Steam/ISteamUGC/ISteamUGC003.h"
+#include "Interfaces/Steam/ISteamUGC/ISteamUGC008.h"
+#include "Interfaces/Steam/ISteamUGC/ISteamUGC009.h"
 
 // html surface
-#include "ISteamHTMLSurface001.h"
-#include "ISteamHTMLSurface002.h"
-#include "ISteamHTMLSurface003.h"
+#include "Interfaces/Steam/ISteamHTMLSurface/ISteamHTMLSurface001.h"
+#include "Interfaces/Steam/ISteamHTMLSurface/ISteamHTMLSurface002.h"
+#include "Interfaces/Steam/ISteamHTMLSurface/ISteamHTMLSurface003.h"
 
 // video
-#include "ISteamVideo001.h"
+#include "Interfaces/Steam/ISteamVideo/ISteamVideo001.h"
+#include "Interfaces/Steam/ISteamVideo/ISteamVideo002.h"
 
 #ifndef NO_ICLIENT
 // client interfaces
-#include "IClientEngine.h"
+#include "Interfaces/Client/IClientEngine.h"
 
-#include "IClientAppManager.h"
-#include "IClientApps.h"
-#include "IClientAudio.h"
-#include "IClientBilling.h"
-#include "IClientContentServer.h"
-#include "IClientDepotBuilder.h"
-#include "IClientFriends.h"
-#include "IClientGameCoordinator.h"
-#include "IClientGameServer.h"
-#include "IClientGameServerStats.h"
-#include "IClientGameStats.h"
-#include "IClientInventory.h"
-#include "IClientMasterServerUpdater.h"
-#include "IClientMatchmaking.h"
-#include "IClientMatchmakingServers.h"
-#include "IClientNetworking.h"
-#include "IClientRemoteStorage.h"
-#include "IClientScreenshots.h"
-#include "IClientUser.h"
-#include "IClientUserStats.h"
-#include "IClientUtils.h"
-#include "IClientHTTP.h"
-#include "IClientConfigStore.h"
-#include "IClientUnifiedMessages.h"
-#include "IClientStreamLauncher.h"
-#include "IClientNetworkDeviceManager.h"
-#include "IClientDeviceAuth.h"
-#include "IClientMusic.h"
-#include "IClientProductBuilder.h"
-#include "IClientShortcuts.h"
-#include "IClientStreamClient.h"
-#include "IClientUGC.h"
+#include "Interfaces/Client/IClientAppManager.h"
+#include "Interfaces/Client/IClientApps.h"
+#include "Interfaces/Client/IClientAudio.h"
+#include "Interfaces/Client/IClientBilling.h"
+#include "Interfaces/Client/IClientContentServer.h"
+#include "Interfaces/Client/IClientDepotBuilder.h"
+#include "Interfaces/Client/IClientFriends.h"
+#include "Interfaces/Client/IClientGameCoordinator.h"
+#include "Interfaces/Client/IClientGameServer.h"
+#include "Interfaces/Client/IClientGameServerStats.h"
+#include "Interfaces/Client/IClientGameStats.h"
+#include "Interfaces/Client/IClientInventory.h"
+#include "Interfaces/Client/IClientMasterServerUpdater.h"
+#include "Interfaces/Client/IClientMatchmaking.h"
+#include "Interfaces/Client/IClientMatchmakingServers.h"
+#include "Interfaces/Client/IClientNetworking.h"
+#include "Interfaces/Client/IClientRemoteStorage.h"
+#include "Interfaces/Client/IClientScreenshots.h"
+#include "Interfaces/Client/IClientUser.h"
+#include "Interfaces/Client/IClientUserStats.h"
+#include "Interfaces/Client/IClientUtils.h"
+#include "Interfaces/Client/IClientHTTP.h"
+#include "Interfaces/Client/IClientConfigStore.h"
+#include "Interfaces/Client/IClientUnifiedMessages.h"
+#include "Interfaces/Client/IClientStreamLauncher.h"
+#include "Interfaces/Client/IClientNetworkDeviceManager.h"
+#include "Interfaces/Client/IClientDeviceAuth.h"
+#include "Interfaces/Client/IClientMusic.h"
+#include "Interfaces/Client/IClientProductBuilder.h"
+#include "Interfaces/Client/IClientShortcuts.h"
+#include "Interfaces/Client/IClientStreamClient.h"
+#include "Interfaces/Client/IClientUGC.h"
 #endif // NO_ICLIENT
 
 // callback
-#include "CCallback.h"
+#include "Types/CCallback.h"
 
 // steam_api
 #ifdef VERSION_SAFE_STEAM_API_INTERFACES
-	#include "CSteamAPIContext.h"
+	#include "Types/CSteamAPIContext.h"
 #endif // VERSION_SAFE_STEAM_API_INTERFACES
 
 #if defined(__GNUC__) && defined(_WIN32)
@@ -400,6 +406,17 @@ S_API_UNSAFE ISteamApps008* STEAM_CALL SteamApps();
 S_API_UNSAFE ISteamNetworking005* STEAM_CALL SteamNetworking();
 S_API_UNSAFE ISteamMatchmakingServers002* STEAM_CALL SteamMatchmakingServers();
 S_API_UNSAFE ISteamRemoteStorage013* STEAM_CALL SteamRemoteStorage();
+S_API_UNSAFE ISteamMusic* STEAM_CALL SteamMusic();
+S_API_UNSAFE ISteamAppList001* STEAM_CALL SteamAppList();
+S_API_UNSAFE ISteamController005* SteamController();
+S_API_UNSAFE ISteamHTMLSurface003* SteamHTMLSurface();
+S_API_UNSAFE ISteamHTTP002* SteamHTTP();
+S_API_UNSAFE ISteamInventory002* SteamInventory();
+S_API_UNSAFE ISteamMusicRemote001* SteamMusicRemote();
+S_API_UNSAFE ISteamScreenshots003* SteamScreenshots();
+S_API_UNSAFE ISteamUGC009* SteamUGC();
+S_API_UNSAFE ISteamUnifiedMessages001* SteamUnifiedMessages();
+S_API_UNSAFE ISteamVideo002* SteamVideo();
 
 #endif // VERSION_SAFE_STEAM_API_INTERFACES
 

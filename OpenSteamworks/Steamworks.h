@@ -23,7 +23,7 @@
 // ugly steamclient library loader 
 #include "ClientLoader.h"
 
-#include "SteamTypes.h"
+#include "Types/SteamTypes.h"
 
 #include "SteamclientAPI.h"
 

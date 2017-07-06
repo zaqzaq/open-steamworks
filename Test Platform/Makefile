@@ -1,7 +1,7 @@
 UNAME := $(shell uname)
 CPP = g++
 SUFFIX = Unknown
-CPPFLAGS = -m32 -I"../Open Steamworks"
+CPPFLAGS = -m32 -I"../OpenSteamworks"
 
 ifeq ($(UNAME), Linux)
 	LDFLAGS = -m32 -Wl,--no-as-needed -ldl ../OpenSteamAPI/lib/Linux32/OpenSteamAPI.a
