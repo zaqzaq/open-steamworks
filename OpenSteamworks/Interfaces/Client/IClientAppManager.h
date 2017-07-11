@@ -64,8 +64,11 @@ public:
 	virtual bool BIsDownloadingEnabled() = 0;
 	virtual bool GetDownloadStats( DownloadStats_s *pDownloadStats ) = 0;
 	virtual AppId_t GetDownloadingAppID() = 0;
-	virtual bool SetAutoUpdateTimeRestriction( bool bUnk, int32 iUnk1, int32 iUnk2 ) = 0;
-	virtual bool GetAutoUpdateTimeRestriction( int32 * piUnk1, int32 * piUnk2 ) = 0;
+	virtual bool GetAutoUpdateTimeRestrictionEnabled() = 0;
+	virtual void SetAutoUpdateTimeRestrictionEnabled(bool) = 0;
+	virtual bool GetAutoUpdateTimeRestrictionHours(int32 * piUnk1, int32 * piUnk2) = 0;
+	virtual bool SetAutoUpdateTimeRestrictionStartHour(int32 iUnk) = 0;
+	virtual bool SetAutoUpdateTimeRestrictionEndHour(int32 iUnk) = 0;
 	virtual EAppAutoUpdateBehavior GetAppAutoUpdateBehavior( AppId_t unAppID ) = 0;
 	virtual bool SetAppAutoUpdateBehavior( AppId_t unAppID, EAppAutoUpdateBehavior eAppAutoUpdateBehavior ) = 0;
 	virtual bool SetAppAllowDownloadsWhileRunningBehavior( AppId_t unAppID, EAppAllowDownloadsWhileRunningBehavior eAppAllowDownloadsWhileRunningBehavior ) =0 ;

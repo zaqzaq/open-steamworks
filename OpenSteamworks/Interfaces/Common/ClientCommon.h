@@ -50,6 +50,7 @@ class ISteamMusicRemote;
 class ISteamHTMLSurface;
 class ISteamInventory;
 class ISteamVideo;
+class ISteamParentalSettings;
 
 
 #define CLIENTENGINE_INTERFACE_VERSION "CLIENTENGINE_INTERFACE_VERSION004"

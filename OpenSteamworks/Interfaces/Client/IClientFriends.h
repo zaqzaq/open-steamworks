@@ -63,6 +63,7 @@ public:
 	virtual int32 GetMediumFriendAvatar( CSteamID steamIDFriend ) = 0;
 	virtual int32 GetLargeFriendAvatar( CSteamID steamIDFriend ) = 0;
 	virtual bool BGetFriendAvatarURL(char*, uint32, CSteamID, int32) = 0;
+	virtual bool GetFriendAvatarHash(char*, uint32, CSteamID) = 0;
 
 	// steam registry, accessed by friend
 	virtual void SetFriendRegValue( CSteamID steamIDFriend, const char *pchKey, const char *pchValue ) = 0;

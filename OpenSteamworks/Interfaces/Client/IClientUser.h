@@ -66,7 +66,7 @@ public:
 	virtual void LogOn( CSteamID steamID ) = 0;
 	virtual void LogOnWithPassword( const char * pchLogin, const char * pchPassword ) = 0;
 	virtual void LogOnAndCreateNewSteamAccountIfNeeded() = 0;
-	virtual EResult LogOnConnectionless() = 0;
+	virtual unknown_ret VerifyOfflineLogon() = 0;
 	virtual void LogOff() = 0;
 	virtual bool BLoggedOn() = 0;
 	virtual ELogonState GetLogonState() = 0;
@@ -139,6 +139,7 @@ public:
 	virtual bool GetAccountName( CSteamID userID, char * pchAccountName, uint32 cb ) = 0;
 	virtual bool IsPasswordRemembered() = 0;
 	virtual void CheckoutSiteLicenseSeat( uint32 uUnk ) = 0;
+	virtual unknown_ret GetAvailableSeats( uint32 uUnk ) = 0;
 	virtual unknown_ret GetAssociatedSiteName() = 0;
 	virtual bool RequiresLegacyCDKey( AppId_t nAppID, bool * pbUnk ) = 0;
 	virtual bool GetLegacyCDKey( AppId_t nAppID, char* pchKeyData, int32 cbKeyData ) = 0;
@@ -212,7 +213,7 @@ public:
 	virtual bool BIsSandboxMicroTxn( GID_t gidTransID, bool* pbSandbox ) = 0;
 	virtual bool BMicroTxnRequiresCachedPmtMethod( GID_t gidTransID, bool *pbRequired ) = 0;
 	virtual SteamAPICall_t AuthorizeMicroTxn( GID_t gidTransID, EMicroTxnAuthResponse eMicroTxnAuthResponse ) = 0;
-	virtual bool BGetWalletBalance( bool *pbHasWallet, CAmount *pamtBalance, CAmount* ) = 0;
+	virtual bool BGetWalletBalance( bool *pbHasWallet, CAmount *pamtBalance, CAmount *pamtPending ) = 0;
 	virtual SteamAPICall_t RequestMicroTxnInfo( GID_t gidTransID ) = 0;
 	virtual bool BMicroTxnRefundable( GID_t gidTransID ) = 0;
 	virtual bool BGetAppMinutesPlayed( AppId_t nAppId, int32 *pnForever, int32 *pnLastTwoWeeks ) = 0;

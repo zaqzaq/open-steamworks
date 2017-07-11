@@ -132,6 +132,7 @@ typedef enum EResult
 	k_EResultGameserverLoginTokenExpired = 106,			 	//
 	k_EResultInsufficientFunds = 107,						//
 	k_EResultTooManyPending = 108,							//
+	k_EResultNoSiteLicensesFound = 109,						//
 } EResult;
 
 #endif // ERESULT_H

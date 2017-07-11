@@ -89,6 +89,7 @@ public:
 	virtual uint64 GetBuildID() = 0;
 	virtual void SetCurrentUIMode( EUIMode eUIMode ) = 0;
 	virtual EUIMode GetCurrentUIMode() = 0;
+	virtual void ShutdownLauncher( bool ) = 0;
 	virtual void SetLauncherType( ELauncherType eLauncherType ) = 0;
 	virtual ELauncherType GetLauncherType() = 0;
 	virtual bool ShowGamepadTextInput( EGamepadTextInputMode eInputMode, EGamepadTextInputLineMode eInputLineMode, const char *szText, uint32 uMaxLength, const char * szUnk ) = 0;
