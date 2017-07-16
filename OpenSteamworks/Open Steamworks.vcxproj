@@ -184,6 +184,7 @@
     <ClInclude Include="Interfaces\Steam\ISteamRemoteStorage\ISteamRemoteStorage011.h" />
     <ClInclude Include="Interfaces\Steam\ISteamRemoteStorage\ISteamRemoteStorage012.h" />
     <ClInclude Include="Interfaces\Steam\ISteamRemoteStorage\ISteamRemoteStorage013.h" />
+    <ClInclude Include="Interfaces\Steam\ISteamRemoteStorage\ISteamRemoteStorage014.h" />
     <ClInclude Include="Interfaces\Steam\ISteamScreenshots\ISteamScreenshots001.h" />
     <ClInclude Include="Interfaces\Steam\ISteamScreenshots\ISteamScreenshots002.h" />
     <ClInclude Include="Interfaces\Steam\ISteamScreenshots\ISteamScreenshots003.h" />

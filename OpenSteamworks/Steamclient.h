@@ -184,6 +184,7 @@
 #include "Interfaces/Steam/ISteamRemoteStorage/ISteamRemoteStorage011.h"
 #include "Interfaces/Steam/ISteamRemoteStorage/ISteamRemoteStorage012.h"
 #include "Interfaces/Steam/ISteamRemoteStorage/ISteamRemoteStorage013.h"
+#include "Interfaces/Steam/ISteamRemoteStorage/ISteamRemoteStorage014.h"
 
 // content server
 #include "Interfaces/Steam/ISteamContentServer/ISteamContentServer001.h"
