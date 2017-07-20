@@ -231,6 +231,7 @@
     <ClInclude Include="Interfaces\Steam\ISteamUtils\ISteamUtils006.h" />
     <ClInclude Include="Interfaces\Steam\ISteamUtils\ISteamUtils007.h" />
     <ClInclude Include="Interfaces\Steam\ISteamUtils\ISteamUtils008.h" />
+    <ClInclude Include="Interfaces\Steam\ISteamUtils\ISteamUtils009.h" />
     <ClInclude Include="Interfaces\Steam\ISteamVideo\ISteamVideo001.h" />
     <ClInclude Include="Interfaces\Steam\ISteamVideo\ISteamVideo002.h" />
     <ClInclude Include="Steamclient.h" />

@@ -782,6 +782,9 @@
     <ClInclude Include="Interfaces\Steam\ISteamRemoteStorage\ISteamRemoteStorage014.h">
       <Filter>Interfaces\Steam\ISteamRemoteStorage</Filter>
     </ClInclude>
+    <ClInclude Include="Interfaces\Steam\ISteamUtils\ISteamUtils009.h">
+      <Filter>Interfaces\Steam\ISteamUtils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Types">

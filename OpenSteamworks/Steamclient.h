@@ -123,6 +123,7 @@
 #include "Interfaces/Steam/ISteamUtils/ISteamUtils006.h"
 #include "Interfaces/Steam/ISteamUtils/ISteamUtils007.h"
 #include "Interfaces/Steam/ISteamUtils/ISteamUtils008.h"
+#include "Interfaces/Steam/ISteamUtils/ISteamUtils009.h"
 
 // game server
 #include "Interfaces/Steam/ISteamGameServer/ISteamGameServer002.h"
