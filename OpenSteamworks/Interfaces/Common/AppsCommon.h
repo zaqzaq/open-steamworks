@@ -437,6 +437,22 @@ struct AppConfigChanged_t
 	AppId_t m_nAppID;
 };
 
+struct CheckAppBetaPasswordResponse_t
+{
+	enum { k_iCallback = k_iSteamAppsCallbacks + 20 };
+
+	AppId_t m_nAppID;
+	EResult m_eResult;
+	char m_szBetaName[64];
+};
+
+struct AppUpdateProgress_t
+{
+	enum { k_iCallback = k_iSteamAppsCallbacks + 25 };
+
+	AppId_t m_nAppID;
+};
+
 #pragma pack( pop )
 
 #endif // APPSCOMMON_H
