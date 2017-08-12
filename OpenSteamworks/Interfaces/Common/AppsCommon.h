@@ -453,6 +453,15 @@ struct AppUpdateProgress_t
 	AppId_t m_nAppID;
 };
 
+struct AppLaunchResult_t
+{
+	enum { k_iCallback = k_iSteamAppsCallbacks + 27 };
+
+	CGameID m_GameID;
+	EAppUpdateError m_eAppError;
+	char m_szErrorDetail[512];
+};
+
 #pragma pack( pop )
 
 #endif // APPSCOMMON_H

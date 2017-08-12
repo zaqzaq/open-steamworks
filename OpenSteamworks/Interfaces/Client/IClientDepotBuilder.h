@@ -56,25 +56,11 @@ typedef uint32 HDEPOTBUILD;
 abstract_class IClientDepotBuilder
 {
 public:
-	virtual uint32 RegisterAppBuild( AppId_t nAppID, bool bLocalCSBuild, const char *cszDescription ) = 0;
-	virtual uint32 GetRegisteredBuildID( uint32 ) = 0;
-
-	virtual HDEPOTBUILD StartDepotBuildFromConfigFile( const char *pchConfigFile, const char *, const char *, uint32, uint32, const char * ) = 0;
-
-	virtual bool BGetDepotBuildStatus( HDEPOTBUILD hDepotBuild, EDepotBuildStatus* pStatusOut, uint32* pPercentDone ) = 0;
-	virtual bool CloseDepotBuildHandle( HDEPOTBUILD hDepotBuild ) = 0;
-
-	virtual HDEPOTBUILD ReconstructDepotFromManifestAndChunks( const char *pchLocalManifestPath, const char *pchLocalChunkPath, const char *pchRestorePath, uint32  ) = 0;
-
-	virtual bool BGetChunkCounts( HDEPOTBUILD hDepotBuild, uint32 *unTotalChunksInNewBuild, uint32 *unChunksAlsoInOldBuild ) = 0;
-
-	virtual bool GetManifestGIDs( HDEPOTBUILD hDepotBuild, GID_t* pBaselineGID, GID_t* pNewGID, bool* ) = 0;
-
-	virtual uint32 FinishAppBuild( uint32 uBuildID, uint32 nAppID, const char *cszBetaKey, bool bOnlyFinish, uint32 cNumSkipDepots ) = 0;
-
-	virtual uint32 VerifyChunkStore( uint32, uint32, const char * ) = 0;
-	virtual uint32 StartUploadTest( uint32, uint32 ) = 0;
-	virtual uint32 DownloadDepot( uint32, uint32 ) = 0;
+    virtual bool BGetDepotBuildStatus(uint64, EDepotBuildStatus*, uint64*, uint64*) = 0;
+    virtual unknown_ret VerifyChunkStore(uint32, uint32, const char*) = 0;
+    virtual unknown_ret DownloadDepot(uint32, uint32, uint64, uint64, uint64, uint32) = 0;
+    virtual unknown_ret StartDepotBuild(uint32, uint32, uint32, const char*) = 0;
+    virtual unknown_ret CommitAppBuild(uint32, uint32, const uint32*, const uint64*, const char*, const char*) = 0;
 };
 
 #endif // ICLIENTDEPOTBUILDER_H

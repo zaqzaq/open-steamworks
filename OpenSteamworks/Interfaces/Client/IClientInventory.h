@@ -43,11 +43,16 @@ public:
 	//  k_EResultFail - ERROR: unknown / generic error
 	virtual EResult GetResultStatus(SteamInventoryResult_t resultHandle) = 0;
 
+	// Destroys a result handle and frees all associated memory.
+	virtual void DestroyResult(SteamInventoryResult_t resultHandle) = 0;
+
 	// Copies the contents of a result set into a flat array. The specific
 	// contents of the result set depend on which query which was used.
 	virtual bool GetResultItems(SteamInventoryResult_t resultHandle,
-		SteamItemDetails_t *pOutItemsArray,
-		uint32 *punOutItemsArraySize) = 0;
+		SteamItemDetails_t *pOutItemsArray, uint32 uUnk, uint32 *punOutItemsArraySize) = 0;
+
+	virtual bool GetResultItemProperty(SteamInventoryResult_t resultHandle, uint32 unItemIndex,
+		const char* pchPropertyName, char* pchValueBuffer, uint32* punValueBufferSizeOut) = 0;
 
 	// Returns the server time at which the result was generated. Compare against
 	// the value of IClientUtils::GetServerRealTime() to determine age.
@@ -58,9 +63,40 @@ public:
 	// that a remote player is not pretending to have a different user's inventory.
 	virtual bool CheckResultSteamID(SteamInventoryResult_t resultHandle, CSteamID steamIDExpected) = 0;
 
-	// Destroys a result handle and frees all associated memory.
-	virtual void DestroyResult(SteamInventoryResult_t resultHandle) = 0;
+	// RESULT SERIALIZATION AND AUTHENTICATION
+	//
+	// Serialized result sets contain a short signature which can't be forged
+	// or replayed across different game sessions. A result set can be serialized
+	// on the local client, transmitted to other players via your game networking,
+	// and deserialized by the remote players. This is a secure way of preventing
+	// hackers from lying about posessing rare/high-value items.
 
+	// Serializes a result set with signature bytes to an output buffer. Pass
+	// NULL as an output buffer to get the required size via punOutBufferSize.
+	// The size of a serialized result depends on the number items which are being
+	// serialized. When securely transmitting items to other players, it is
+	// recommended to use "GetItemsByID" first to create a minimal result set.
+	// Results have a built-in timestamp which will be considered "expired" after
+	// an hour has elapsed. See DeserializeResult for expiration handling.
+	virtual bool SerializeResult(SteamInventoryResult_t resultHandle, void *pOutBuffer, uint32 uUnk, uint32 *punOutBufferSize) = 0;
+
+	// Deserializes a result set and verifies the signature bytes. Returns false
+	// if bRequireFullOnlineVerify is set but Steam is running in Offline mode.
+	// Otherwise returns true and then delivers error codes via GetResultStatus.
+	//
+	// The bRESERVED_MUST_BE_FALSE flag is reserved for future use and should not
+	// be set to true by your game at this time.
+	//
+	// DeserializeResult has a potential soft-failure mode where the handle status
+	// is set to k_EResultExpired. GetResultItems() still succeeds in this mode.
+	// The "expired" result could indicate that the data may be out of date - not
+	// just due to timed expiration (one hour), but also because one of the items
+	// in the result set may have been traded or consumed since the result set was
+	// generated. You could compare the timestamp from GetResultTimestamp() to
+	// ISteamUtils::GetServerRealTime() to determine how old the data is. You could
+	// simply ignore the "expired" result code and continue as normal, or you
+	// could challenge the player with expired data to send an updated result set.
+	virtual bool DeserializeResult(SteamInventoryResult_t *pOutResultHandle, const void *pBuffer, uint32 unBufferSize, bool bRESERVED_MUST_BE_FALSE = false) = 0;
 
 	// INVENTORY ASYNC QUERY
 	//
@@ -85,42 +121,6 @@ public:
 	virtual bool GetItemsByID(SteamInventoryResult_t *pResultHandle, const SteamItemInstanceID_t *pInstanceIDs, uint32 unCountInstanceIDs) = 0;
 
 
-	// RESULT SERIALIZATION AND AUTHENTICATION
-	//
-	// Serialized result sets contain a short signature which can't be forged
-	// or replayed across different game sessions. A result set can be serialized
-	// on the local client, transmitted to other players via your game networking,
-	// and deserialized by the remote players. This is a secure way of preventing
-	// hackers from lying about posessing rare/high-value items.
-
-	// Serializes a result set with signature bytes to an output buffer. Pass
-	// NULL as an output buffer to get the required size via punOutBufferSize.
-	// The size of a serialized result depends on the number items which are being
-	// serialized. When securely transmitting items to other players, it is
-	// recommended to use "GetItemsByID" first to create a minimal result set.
-	// Results have a built-in timestamp which will be considered "expired" after
-	// an hour has elapsed. See DeserializeResult for expiration handling.
-	virtual bool SerializeResult(SteamInventoryResult_t resultHandle, void *pOutBuffer, uint32 *punOutBufferSize) = 0;
-
-	// Deserializes a result set and verifies the signature bytes. Returns false
-	// if bRequireFullOnlineVerify is set but Steam is running in Offline mode.
-	// Otherwise returns true and then delivers error codes via GetResultStatus.
-	//
-	// The bRESERVED_MUST_BE_FALSE flag is reserved for future use and should not
-	// be set to true by your game at this time.
-	//
-	// DeserializeResult has a potential soft-failure mode where the handle status
-	// is set to k_EResultExpired. GetResultItems() still succeeds in this mode.
-	// The "expired" result could indicate that the data may be out of date - not
-	// just due to timed expiration (one hour), but also because one of the items
-	// in the result set may have been traded or consumed since the result set was
-	// generated. You could compare the timestamp from GetResultTimestamp() to
-	// ISteamUtils::GetServerRealTime() to determine how old the data is. You could
-	// simply ignore the "expired" result code and continue as normal, or you
-	// could challenge the player with expired data to send an updated result set.
-	virtual bool DeserializeResult(SteamInventoryResult_t *pOutResultHandle, const void *pBuffer, uint32 unBufferSize, bool bRESERVED_MUST_BE_FALSE = false) = 0;
-
-
 	// INVENTORY ASYNC MODIFICATION
 	//
 
@@ -131,19 +131,12 @@ public:
 	// be restricted to certain item definitions or fully blocked via the Steamworks website.
 	// If punArrayQuantity is not NULL, it should be the same length as pArrayItems and should
 	// describe the quantity of each item to generate.
-	virtual bool GenerateItems(SteamInventoryResult_t *pResultHandle, const SteamItemDef_t *pArrayItemDefs, const uint32 *punArrayQuantity, uint32 unArrayLength) = 0;
-
-	// GrantPromoItems() checks the list of promotional items for which the user may be eligible
-	// and grants the items (one time only).  On success, the result set will include items which
-	// were granted, if any. If no items were granted because the user isn't eligible for any
-	// promotions, this is still considered a success.
-	virtual bool GrantPromoItems(SteamInventoryResult_t *pResultHandle) = 0;
+	virtual bool GenerateItems(SteamInventoryResult_t *pResultHandle, const SteamItemDef_t *pArrayItemDefs, uint32 uUnk, const uint32 *punArrayQuantity, uint32 unArrayLength) = 0;
 
 	// AddPromoItem() / AddPromoItems() are restricted versions of GrantPromoItems(). Instead of
 	// scanning for all eligible promotional items, the check is restricted to a single item
 	// definition or set of item definitions. This can be useful if your game has custom UI for
 	// showing a specific promo item to the user.
-	virtual bool AddPromoItem(SteamInventoryResult_t *pResultHandle, SteamItemDef_t itemDef) = 0;
 	virtual bool AddPromoItems(SteamInventoryResult_t *pResultHandle, const SteamItemDef_t *pArrayItemDefs, uint32 unArrayLength) = 0;
 
 	// ConsumeItem() removes items from the inventory, permenantly. They cannot be recovered.
@@ -164,8 +157,8 @@ public:
 	// (Note: although GenerateItems may be hard or impossible to use securely in your game,
 	// ExchangeItems is perfectly reasonable to use once the whitelists are set accordingly.)
 	virtual bool ExchangeItems(SteamInventoryResult_t *pResultHandle,
-		const SteamItemDef_t *pArrayGenerate, const uint32 *punArrayGenerateQuantity, uint32 unArrayGenerateLength,
-		const SteamItemInstanceID_t *pArrayDestroy, const uint32 *punArrayDestroyQuantity, uint32 unArrayDestroyLength) = 0;
+		const SteamItemDef_t *pArrayGenerate, uint32 uUnk1, const uint32 *punArrayGenerateQuantity, uint32 unArrayGenerateLength,
+		const SteamItemInstanceID_t *pArrayDestroy, uint32 uUnk2, const uint32 *punArrayDestroyQuantity, uint32 unArrayDestroyLength) = 0;
 
 
 	// TransferItemQuantity() is intended for use with items which are "stackable" (can have
@@ -217,8 +210,8 @@ public:
 	// item instance id numbers and quantities of the received items.
 	// (Note: new item instance IDs are generated whenever an item changes ownership.)
 	virtual bool TradeItems(SteamInventoryResult_t *pResultHandle, CSteamID steamIDTradePartner,
-		const SteamItemInstanceID_t *pArrayGive, const uint32 *pArrayGiveQuantity, uint32 nArrayGiveLength,
-		const SteamItemInstanceID_t *pArrayGet, const uint32 *pArrayGetQuantity, uint32 nArrayGetLength) = 0;
+		const SteamItemInstanceID_t *pArrayGive, uint32 uUnk1, const uint32 *pArrayGiveQuantity, uint32 nArrayGiveLength,
+		const SteamItemInstanceID_t *pArrayGet, uint32 uUnk2, const uint32 *pArrayGetQuantity, uint32 nArrayGetLength) = 0;
 
 
 	// ITEM DEFINITIONS
@@ -243,7 +236,7 @@ public:
 	// contain the total size necessary for a subsequent call. Otherwise, the call will
 	// return false if and only if there is not enough space in the output array.
 	virtual bool GetItemDefinitionIDs(
-		SteamItemDef_t *pItemDefIDs,
+		SteamItemDef_t *pItemDefIDs, uint32 uUnk,
 		uint32 *punItemDefIDsArraySize) = 0;
 
 	// GetItemDefinitionProperty returns a string property from a given item definition.
@@ -254,6 +247,17 @@ public:
 	// property names. 
 	virtual bool GetItemDefinitionProperty(SteamItemDef_t iDefinition, const char *pchPropertyName,
 		char *pchValueBuffer, uint32 *punValueBufferSize) = 0;
+
+	// Request the list of "eligible" promo items that can be manually granted to the given
+	// user.  These are promo items of type "manual" that won't be granted automatically.
+	// An example usage of this is an item that becomes available every week.
+	virtual SteamAPICall_t RequestEligiblePromoItemDefinitionsIDs(CSteamID steamID) = 0;
+
+	// After handling a SteamInventoryEligiblePromoItemDefIDs_t call result, use this
+	// function to pull out the list of item definition ids that the user can be
+	// manually granted via the AddPromoItems() call.
+	virtual bool GetEligiblePromoItemDefinitionIDs(CSteamID steamID, SteamItemDef_t *pItemDefIDs, uint32 uUnk, uint32 *punItemDefIDsArraySize) = 0;
+
 };
 
 #endif // ICLIENTINVENTORY_H

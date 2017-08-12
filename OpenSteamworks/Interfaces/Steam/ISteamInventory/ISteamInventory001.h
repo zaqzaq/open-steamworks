@@ -254,10 +254,16 @@ public:
 	// property names. 
 	virtual bool GetItemDefinitionProperty(SteamItemDef_t iDefinition, const char *pchPropertyName,
 		char *pchValueBuffer, uint32 *punValueBufferSize) = 0;
-    
-    virtual SteamAPICall_t RequestEligiblePromoItemDefinitionsIDs(CSteamID) = 0;
-    
-    virtual bool GetEligiblePromoItemDefinitionIDs(CSteamID, SteamItemDef_t*, uint32*) = 0;
+
+	// Request the list of "eligible" promo items that can be manually granted to the given
+	// user.  These are promo items of type "manual" that won't be granted automatically.
+	// An example usage of this is an item that becomes available every week.
+	virtual SteamAPICall_t RequestEligiblePromoItemDefinitionsIDs(CSteamID steamID) = 0;
+
+	// After handling a SteamInventoryEligiblePromoItemDefIDs_t call result, use this
+	// function to pull out the list of item definition ids that the user can be
+	// manually granted via the AddPromoItems() call.
+	virtual bool GetEligiblePromoItemDefinitionIDs(CSteamID steamID, SteamItemDef_t *pItemDefIDs, uint32 *punItemDefIDsArraySize) = 0;
 
 };
 
