@@ -52,7 +52,7 @@ public:
 		SteamItemDetails_t *pOutItemsArray, uint32 uUnk, uint32 *punOutItemsArraySize) = 0;
 
 	virtual bool GetResultItemProperty(SteamInventoryResult_t resultHandle, uint32 unItemIndex,
-		const char* pchPropertyName, char* pchValueBuffer, uint32* punValueBufferSizeOut) = 0;
+		const char* pchPropertyName, char* pchValueBuffer, uint32 uUnk, uint32* punValueBufferSizeOut) = 0;
 
 	// Returns the server time at which the result was generated. Compare against
 	// the value of IClientUtils::GetServerRealTime() to determine age.
@@ -246,7 +246,7 @@ public:
 	// Pass a NULL pointer for pchPropertyName to get a comma - separated list of available
 	// property names. 
 	virtual bool GetItemDefinitionProperty(SteamItemDef_t iDefinition, const char *pchPropertyName,
-		char *pchValueBuffer, uint32 *punValueBufferSize) = 0;
+		char *pchValueBuffer, uint32 uUnk, uint32 *punValueBufferSize) = 0;
 
 	// Request the list of "eligible" promo items that can be manually granted to the given
 	// user.  These are promo items of type "manual" that won't be granted automatically.

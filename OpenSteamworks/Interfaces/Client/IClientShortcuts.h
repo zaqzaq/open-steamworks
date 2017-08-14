@@ -53,7 +53,7 @@ public:
 	virtual bool BIsOpenVRShortcutByAppID( AppId_t unAppID ) = 0;
 	virtual bool BAllowDesktopConfigByAppID( AppId_t unAppID ) = 0;
 	virtual uint32 GetShortcutLastPlayedTime( AppId_t unAppID ) = 0;
-	virtual uint32 AddShortcut( const char *, const char *, const char * ) = 0;
+	virtual uint32 AddShortcut( const char *, const char *, const char *, const char * ) = 0;
 	virtual uint32 AddTemporaryShortcut( const char *, const char *, const char * ) = 0;
 	virtual uint32 AddOpenVRShortcut( const char *, const char *, const char * ) = 0;
 	virtual void SetShortcutFromFullpath( uint32, const char * ) = 0;

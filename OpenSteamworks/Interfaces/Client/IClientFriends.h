@@ -171,7 +171,7 @@ public:
 	virtual void ClearChatRoomHistory( CSteamID steamID ) = 0;
 	virtual bool SerializeChatRoomDlg( CSteamID steamIDChat, void const* pvHistory, int32 cubHistory ) = 0;
 	virtual int32 GetSizeOfSerializedChatRoomDlg( CSteamID steamIDChat ) = 0;
-	virtual bool GetSerializedChatRoomDlg( CSteamID steamIDChat, void* pvHistory, int32 cubBuffer, int32* pcubData ) = 0;
+	virtual bool GetSerializedChatRoomDlg( CSteamID steamIDChat, void* pvHistory, int32 cubBuffer, int32* pcubData, EChatRoomType* peRoomType ) = 0;
 	virtual bool ClearSerializedChatRoomDlg( CSteamID steamIDChat ) = 0;
 	virtual bool KickChatMember( CSteamID steamIDChat, CSteamID steamIDUserToActOn ) = 0;
 	virtual bool BanChatMember( CSteamID steamIDChat, CSteamID steamIDUserToActOn ) = 0;
@@ -273,7 +273,7 @@ public:
 
 	// Available keys: TimeCreated, RealName, CityName, StateName, CountryName, Headline, Playtime, Summary
 	virtual const char* GetFriendProfileInfo( CSteamID steamIDFriend, const char* pchKey ) = 0;
-	virtual bool InviteUserToGame( CSteamID steamIDFriend, const char *pchConnectString ) = 0;
+	virtual bool InviteUserToGame( CSteamID steamIDFriend, const char *pchConnectString, uint32 uUnk ) = 0;
 	virtual int32 GetOnlineConsoleFriendCount() = 0;
 	virtual SteamAPICall_t RequestTrade( CSteamID steamIDPartner ) = 0;
 	virtual void TradeResponse( uint32 unTradeRequestID, bool bAccept ) = 0;

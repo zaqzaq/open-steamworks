@@ -58,14 +58,14 @@ public:
 
 	virtual bool GetQuota( AppId_t nAppId, uint64 *pnTotalBytes, uint64 *pnAvailableBytes ) = 0;
 
-	virtual bool IsCloudEnabledForAccount();
-	virtual bool IsCloudEnabledForApp( AppId_t nAppId );
-	virtual void SetCloudEnabledForApp( AppId_t nAppId, bool bEnable );
+	virtual bool IsCloudEnabledForAccount() = 0;
+	virtual bool IsCloudEnabledForApp( AppId_t nAppId ) = 0;
+	virtual void SetCloudEnabledForApp( AppId_t nAppId, bool bEnable ) = 0;
 
 	virtual SteamAPICall_t UGCDownload( UGCHandle_t hContent, bool bUseNewCallback, uint32 uUnk ) = 0; // Old callback id = 1308, new callback id = 1317
 	virtual SteamAPICall_t UGCDownloadToLocation( UGCHandle_t hContent, const char *cszLocation, uint32 uUnk ) = 0;
 
-	virtual bool GetUGCDownloadProgress( UGCHandle_t hContent, uint32 *puDownloadedBytes, uint32 *puTotalBytes );
+	virtual bool GetUGCDownloadProgress( UGCHandle_t hContent, uint32 *puDownloadedBytes, uint32 *puTotalBytes ) = 0;
 	virtual bool GetUGCDetails( UGCHandle_t hContent, AppId_t *pnAppID, char **ppchName, int32 *pnFileSizeInBytes, CSteamID *pSteamIDOwner ) = 0;
 	virtual int32 UGCRead( UGCHandle_t hContent, void *pvData, int32 cubDataToRead, uint32 uOffset, EUGCReadAction eAction ) = 0;
 	virtual int32 GetCachedUGCCount() = 0;
@@ -114,7 +114,7 @@ public:
 
 	virtual EResult FileTouch( AppId_t nAppId, ERemoteStorageFileRoot eRemoteStorageFileRoot, const char *pchFile, bool ) = 0;
 
-	virtual void SetCloudEnabledForAccount( bool bEnabled );
+	virtual void SetCloudEnabledForAccount( bool bEnabled ) = 0;
 
 	virtual void LoadLocalFileInfoCache( AppId_t nAppId ) = 0;
 

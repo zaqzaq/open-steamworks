@@ -33,12 +33,13 @@ public:
 	virtual uint64 DeauthorizeRemoteDevice( uint64 uUnk ) = 0;
 	virtual uint64 RequestAuthorizationInfos() = 0;
 	virtual uint32 GetDeviceAuthorizations( uint64 *, uint32, bool) = 0;
-	virtual bool GetDeviceAuthorizationInfo( uint64, uint32 *, uint32 *, bool *, char *, int32, char *, int32, char *, int32, uint32 *) = 0;
+	virtual bool GetDeviceAuthorizationInfo( uint64, uint32 *, uint32 *, uint32 *, bool *, char *, int32, char *, int32, char *, int32, uint32 *) = 0;
 
-	virtual uint32 GetAuthorizedBorrowsers( uint32 *, uint32 ) = 0;
+
+	virtual uint32 GetAuthorizedBorrowers( uint32 *, uint32 ) = 0;
 	virtual uint32 GetLocalUsers( uint32 *, uint32 ) = 0;
-	virtual bool GetBorrowserInfo( uint32, char *, int32, bool * ) = 0;
-	virtual uint64 UpateAuthorizedBorrowers( const uint32 *, uint32, bool ) = 0;
+	virtual bool GetBorrowerInfo( uint32, char *, int32, bool * ) = 0;
+	virtual uint64 UpdateAuthorizedBorrowers( const uint32 *, uint32, bool ) = 0;
 
 	virtual uint32 GetSharedLibraryLockedBy( uint32 uUnk ) = 0;
 	virtual uint32 GetSharedLibraryOwners( uint32 *, uint32 ) = 0;

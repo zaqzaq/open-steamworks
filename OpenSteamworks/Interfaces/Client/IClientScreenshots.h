@@ -31,7 +31,7 @@ public:
 	virtual void SetShortcutDisplayName( CGameID, const char *cszName ) = 0;
 
 	virtual ScreenshotHandle WriteScreenshot( CGameID gameID, const uint8 *pubRGBData, uint32 uRGBDataSize, int32 iWidth, int32 iHeight ) = 0;
-	virtual ScreenshotHandle AddScreenshotToLibrary( CGameID gameID, const char *cszScreenshotPath, const char *cszThumbnailPath, int32 iWidth, int32 iHeight ) = 0;
+	virtual ScreenshotHandle AddScreenshotToLibrary( CGameID gameID, EVRScreenshotType eVRKind, const char *cszScreenshotPath, const char *cszThumbnailPath, const char *pchUnk,  int32 iWidth, int32 iHeight ) = 0;
 
 	virtual void TriggerScreenshot( CGameID gameID ) = 0;
 	virtual void RequestScreenshotFromGame( AppId_t nAppId ) = 0;

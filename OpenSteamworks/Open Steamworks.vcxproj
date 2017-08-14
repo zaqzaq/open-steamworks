@@ -194,6 +194,7 @@
     <ClInclude Include="Interfaces\Steam\ISteamUGC\ISteamUGC003.h" />
     <ClInclude Include="Interfaces\Steam\ISteamUGC\ISteamUGC008.h" />
     <ClInclude Include="Interfaces\Steam\ISteamUGC\ISteamUGC009.h" />
+    <ClInclude Include="Interfaces\Steam\ISteamUGC\ISteamUGC010.h" />
     <ClInclude Include="Interfaces\Steam\ISteamUnifiedMessages\ISteamUnifiedMessages001.h" />
     <ClInclude Include="Interfaces\Steam\ISteamUserStats\ISteamUserStats001.h" />
     <ClInclude Include="Interfaces\Steam\ISteamUserStats\ISteamUserStats002.h" />

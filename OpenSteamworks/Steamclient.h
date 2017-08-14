@@ -236,6 +236,7 @@
 #include "Interfaces/Steam/ISteamUGC/ISteamUGC003.h"
 #include "Interfaces/Steam/ISteamUGC/ISteamUGC008.h"
 #include "Interfaces/Steam/ISteamUGC/ISteamUGC009.h"
+#include "Interfaces/Steam/ISteamUGC/ISteamUGC010.h"
 
 // html surface
 #include "Interfaces/Steam/ISteamHTMLSurface/ISteamHTMLSurface001.h"

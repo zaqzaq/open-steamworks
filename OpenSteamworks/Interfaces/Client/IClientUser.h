@@ -119,7 +119,7 @@ public:
 	virtual bool BIsPortal2EducationAccount() = 0;
 	virtual bool BIsAlienwareDemoAccount() = 0;
 	virtual void CreateAccount( const char *pchAccountName, const char *pchNewPassword, const char *pchNewEmail, int32 iQuestion, const char *pchNewQuestion, const char *pchNewAnswer ) = 0;
-	virtual SteamAPICall_t ResetPassword( const char *pchAccountName, const char *pchOldPassword, const char *pchNewPassword, const char *pchValidationCode, const char *pchAnswer ) = 0;
+	virtual SteamAPICall_t ResetPassword( const char *pchAccountName, const char *pchOldPassword, const char *pchNewPassword, const char *pchValidationCode, const char *pchAnswer, const char* pchUnk ) = 0;
 	virtual EResult ValidatePasswordResetCodeAndSendSms(const char *, const char *) = 0;
 	virtual void TrackNatTraversalStat( const CNatTraversalStat *pNatStat ) = 0;
 	virtual void TrackSteamUsageEvent( ESteamUsageEvent eSteamUsageEvent, const uint8 *pubKV, uint32 cubKV ) = 0;
@@ -146,7 +146,7 @@ public:
 	virtual bool SetLegacyCDKey( AppId_t nAppID, const char* pchKeyData ) = 0;
 	virtual bool WriteLegacyCDKey( AppId_t nAppID ) = 0;
 	virtual void RemoveLegacyCDKey( AppId_t nAppID ) = 0;
-	virtual void RequestLegacyCDKeyFromApp( AppId_t nMainAppID, AppId_t nDLCAppID ) = 0;
+	virtual void RequestLegacyCDKeyFromApp( AppId_t nMainAppID, AppId_t nDLCAppID, uint32 uUnk ) = 0;
 	virtual bool BIsAnyGameRunning() = 0;
 	virtual void TestAvailablePassword( const uint8 *pubDigestPassword, int32 cubDigestPassword ) = 0;
 	virtual void GetSteamGuardDetails() = 0;
@@ -165,7 +165,7 @@ public:
 	virtual bool RunInstallScript( AppId_t pAppIDs, const char *pchUnk, bool bUninstall ) = 0;
 	virtual AppId_t IsInstallScriptRunning() = 0;
 	virtual bool GetInstallScriptState( char* pchDescription, uint32 cchDescription, uint32* punNumSteps, uint32* punCurrStep ) = 0;
-	virtual bool SpawnProcess( const char *lpApplicationName, const char *lpCommandLine, uint32 dwCreationFlags, const char *lpCurrentDirectory, CGameID gameID, const char *pchGameName, uint32 uUnk ) = 0;
+	virtual bool SpawnProcess( const char *lpApplicationName, const char *lpCommandLine, uint32 dwCreationFlags, const char *lpCurrentDirectory, CGameID gameID, const char *pchGameName, uint32 uUnk, uint32 uUnk2 ) = 0;
 	virtual uint32 GetAppOwnershipTicketLength( uint32 nAppID ) = 0;
 	virtual uint32 GetAppOwnershipTicketData( uint32 nAppID, void *pvBuffer, uint32 cbBufferLength ) = 0;
 	virtual uint32 GetAppOwnershipTicketExtendedData( uint32 nAppID, void *pvBuffer, uint32 cbBufferLength, uint32* piAppId, uint32* piSteamId, uint32* piSignature, uint32* pcbSignature ) = 0;

@@ -61,19 +61,34 @@ abstract_class UNSAFE_INTERFACE IClientNetworkDeviceManager
 public:
 	virtual bool IsInterfaceValid() = 0;
 	virtual void RefreshDevices() = 0;
-	virtual ENetworkDeviceState GetWirelessDeviceState() = 0;
-	virtual int32 GetWiredDeviceCount() = 0;
-	virtual ENetworkDeviceState GetWiredDeviceState( int32 iDevice ) = 0;
-	virtual bool IsWiredDevicePluggedIn( int32 iDevice ) = 0;
-	virtual bool GetActiveWirelessAccessPoint( WirelessAccessPoint_t * pAccessPoint ) = 0;
-	virtual bool EnumerateWirelessAccessPoints( WirelessAccessPoint_t * pAccessPoint, uint32 uUnk, uint32 * puUnk ) = 0;
-	virtual bool GetCachedCredentialsForSSID( const char * pchUnk, WirelessCredentials_t * pCredentials ) = 0;
-	virtual EWirelessSecurityFlags GetPreferredSecurityMethod( uint32 uUnk ) = 0;
-
-	virtual ENetworkDeviceManagerError ActivateWiredConnection( int32 iConnection ) = 0;
-	virtual void DeactivateWiredConnection( int32 iConnection ) = 0;
-	virtual ENetworkDeviceManagerError ConnectToAccessPoint( const char * pchUnk1, bool bUnk, EWirelessSecurityFlags eSecurityFlags, const char * pchUnk2 ) = 0;
-	virtual void DisconnectFromAccessPoint() = 0;
+	virtual unknown_ret EnumerateNetworkDevices(uint32, uint32*) = 0;
+	virtual unknown_ret GetDeviceType(uint32) = 0;
+	virtual bool IsCurrentDevice(uint32) = 0;
+	virtual bool IsCurrentlyConnected(uint32) = 0;
+	virtual unknown_ret GetDeviceIP4(uint32, uint32, uint32*) = 0;
+	virtual unknown_ret GetDeviceBroadcastIP4(uint32, uint32, uint32*) = 0;
+	virtual const char* GetDeviceVendor(uint32) = 0;
+	virtual const char* GetDeviceProduct(uint32) = 0;
+	virtual const char* GetMacAddress(uint32) = 0;
+	virtual unknown_ret GetSubnetMaskBitCount(uint32, uint32, uint32*) = 0;
+	virtual unknown_ret GetRouterAddressIP4(uint32, uint32, uint32*) = 0;
+	virtual unknown_ret GetDNSResolversIP4(uint32, uint32, uint32*) = 0;
+	virtual unknown_ret GetDeviceState(uint32) = 0;
+	virtual bool GetDevicePluggedState(uint32) = 0;
+	virtual unknown_ret EnumerateWirelessEndpoints(uint32, uint32, uint32*) = 0;
+	virtual unknown_ret GetConnectedWirelessEndpointSSID(uint32) = 0;
+	virtual unknown_ret GetWirelessSecurityCapabilities(uint32) = 0;
+	virtual const char* GetWirelessEndpointSSIDUserDisplayString(uint32, uint32) = 0;
+	virtual unknown_ret GetWirelessEndpointStrength(uint32, uint32) = 0;
+	virtual bool IsSecurityRequired(uint32, uint32) = 0;
+	virtual const char* GetCachedWirelessCredentials(uint32, uint32) = 0;
+	virtual bool DisconnectFromDevice(uint32, bool) = 0;
+	virtual void SetCustomIPSettings(uint32, uint32, uint32, uint32, uint32, uint32) = 0;
+	virtual bool ConnectToDevice(uint32, uint32, const char*, const char*, uint32, bool, bool) = 0;
+	virtual bool IsWirelessEndpointForgettable(uint32, uint32) = 0;
+	virtual void ForgetWirelessEndpointAutoconnect(uint32, uint32) = 0;
+	virtual bool IsUsingDHCP(uint32) = 0;
+	virtual bool GetCustomIPSettings(uint32, uint32*, uint32*, uint32*, uint32*, uint32*) = 0;
 };
 
 #endif // ICLIENTNETWORKDEVICEMANAGER_H

@@ -39,7 +39,7 @@ public:
 	virtual EResult CommitOutstandingRows( uint64 ulSessionID ) = 0;
 
 	virtual EResult AddRowAttributeInt( uint64 ulRowID, const char *pstrName, int32 iData ) = 0;
-	virtual EResult AddRowAtributeString( uint64 ulRowID, const char *pstrName, const char *pstrData ) = 0;
+	virtual EResult AddRowAttributeString( uint64 ulRowID, const char *pstrName, const char *pstrData ) = 0;
 	virtual EResult AddRowAttributeFloat( uint64 ulRowID, const char *pstrName, float fData ) = 0;
 
 	virtual EResult AddSessionAttributeInt64( uint64 ulSessionID, const char *pstrName, int64 llData ) = 0;

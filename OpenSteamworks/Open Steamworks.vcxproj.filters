@@ -785,6 +785,9 @@
     <ClInclude Include="Interfaces\Steam\ISteamUtils\ISteamUtils009.h">
       <Filter>Interfaces\Steam\ISteamUtils</Filter>
     </ClInclude>
+    <ClInclude Include="Interfaces\Steam\ISteamUGC\ISteamUGC010.h">
+      <Filter>Interfaces\Steam\ISteamUGC</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Types">

@@ -35,6 +35,21 @@ enum AudioPlayback_Status
 	AudioPlayback_Idle = 3
 };
 
+enum PlayingRepeat_Status 
+{
+	PlayingRepeat_None,
+	PlayingRepeat_Repeat,
+	PlayingRepeat_RepeatOnce,
+};
+
+enum MediaController_Status {
+	// TODO: Reverse this enum
+};
+
+enum ETrackQueueOrigin {
+	// TODO: Reverse this enum
+};
+
 #pragma pack( push, 8 )
 
 // music
