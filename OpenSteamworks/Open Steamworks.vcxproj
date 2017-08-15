@@ -53,6 +53,7 @@
     <ClInclude Include="Interfaces\Client\IClientUser.h" />
     <ClInclude Include="Interfaces\Client\IClientUserStats.h" />
     <ClInclude Include="Interfaces\Client\IClientUtils.h" />
+    <ClInclude Include="Interfaces\Client\IClientVideo.h" />
     <ClInclude Include="Interfaces\Common\AppsCommon.h" />
     <ClInclude Include="Interfaces\Common\AppTicketCommon.h" />
     <ClInclude Include="Interfaces\Common\BillingCommon.h" />

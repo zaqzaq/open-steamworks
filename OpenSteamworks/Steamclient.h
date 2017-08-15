@@ -283,6 +283,7 @@
 #include "Interfaces/Client/IClientShortcuts.h"
 #include "Interfaces/Client/IClientStreamClient.h"
 #include "Interfaces/Client/IClientUGC.h"
+#include "Interfaces/Client/IClientVideo.h"
 #endif // NO_ICLIENT
 
 // callback

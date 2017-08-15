@@ -24,5 +24,121 @@
 
 #define STEAMVIDEO_INTERFACE_VERSION_001 "STEAMVIDEO_INTERFACE_V001"
 
+typedef uint64 BroadcastSessionID_t;
+
+enum EBroadcastUploadResult
+{
+	k_EBroadcastUploadResultNone,
+	k_EBroadcastUploadResultOK,
+	k_EBroadcastUploadResultInitFailed,
+	k_EBroadcastUploadResultFrameFailed,
+	k_EBroadcastUploadResultTimeout,
+	k_EBroadcastUploadResultBandwidthExceeded,
+	k_EBroadcastUploadResultLowFPS,
+	k_EBroadcastUploadResultMissingKeyFrames,
+	k_EBroadcastUploadResultNoConnection,
+	k_EBroadcastUploadResultRelayFailed,
+	k_EBroadcastUploadResultSettingsChanged,
+	k_EBroadcastUploadResultMissingAudio,
+	k_EBroadcastUploadResultTooFarBehind,
+	k_EBroadcastUploadResultTranscodeBehind,
+};
+
+enum EBroadcastPermission 
+{
+	// TODO: Reverse this enum
+};
+
+enum EBroadcastRecorderResult 
+{
+	// TODO: Reverse this enum
+};
+
+enum EBroadcastChatMsg {
+	// TODO: Reverse this enum
+};
+
+
+// k_iClientVideoCallbacks callbacks
+
+struct BeginBroadcastSessionResult_t
+{
+	enum { k_iCallback = k_iClientVideoCallbacks + 1 };
+
+	EResult m_eResult;
+	BroadcastSessionID_t m_ulBroadcastID;
+};
+
+struct EndBroadcastSessionResult_t
+{
+	enum { k_iCallback = k_iClientVideoCallbacks + 2 };
+
+	EResult m_eResult;
+};
+
+struct BroadcastUploadStart_t 
+{
+	enum { k_iCallback = k_iClientVideoCallbacks + 4 };
+};
+
+struct BroadcastUploadStop_t {
+	enum { k_iCallback = k_iClientVideoCallbacks + 5 };
+
+	EBroadcastUploadResult m_eResult;
+};
+
+struct BroadcastViewerState_t 
+{
+	enum { k_iCallback = k_iClientVideoCallbacks + 8 };
+
+	CSteamID m_steamID;
+	bool m_bIsWatching;
+	EBroadcastPermission m_ePermission;
+};
+
+struct BroadcastSettingsLoaded_t 
+{
+	enum { k_iCallback = k_iClientVideoCallbacks + 13 };
+};
+
+struct BroadcastStatus_t
+{
+	enum { k_iCallback = k_iClientVideoCallbacks + 15 };
+
+	BroadcastSessionID_t m_ulBroadcastID;
+	uint32 m_unNumViewers;
+	uint32 m_unNumRequests;
+	bool m_bIsBroadcasting;
+};
+
+struct BroadcastChatMessage_t
+{
+	enum { k_iCallback = k_iClientVideoCallbacks + 16 };
+
+	CSteamID m_steamID;
+	BroadcastSessionID_t m_ulBroadcastID;
+	EBroadcastChatMsg m_eMsgType;
+	char m_szPersona[128];
+	char m_szMessage[140];
+	bool m_bInGame;
+};
+
+struct BroadcastUploadStatus_t
+{
+	enum { k_iCallback = k_iClientVideoCallbacks + 17 };
+
+	uint32 m_unTotalBytesSent;
+	uint32 m_unVideoBytesDrop;
+	uint32 m_unTotalBytesPend;
+	uint32 m_unVideoSendFPS;
+};
+
+struct UnlockH264Result_t 
+{
+	enum { k_iCallback = k_iClientVideoCallbacks + 19 };
+
+	EResult m_eResult;
+};
+
 #endif // VIDEOCOMMON_H
 
