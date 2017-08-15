@@ -46,7 +46,19 @@ enum EBroadcastUploadResult
 
 enum EBroadcastPermission 
 {
-	// TODO: Reverse this enum
+	k_EBroadcastPermissionBroadcastDisabled,
+	k_EBroadcastPermissionByFriendRequest,
+	k_EBroadcastPermissionFriends,
+	k_EBroadcastPermissionAll,
+};
+
+enum EBroadcastChatCorner
+{
+	k_EBroadcastChatCornerrNone,
+	k_EBroadcastChatCornerTopLeft,
+	k_EBroadcastChatCornerTopRight,
+	k_EBroadcastChatCornerBottomRight,
+	k_EBroadcastChatCornerBottomLeft,
 };
 
 enum EBroadcastRecorderResult 

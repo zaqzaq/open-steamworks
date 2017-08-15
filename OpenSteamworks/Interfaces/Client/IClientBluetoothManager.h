@@ -22,7 +22,6 @@
 
 #include "Types/SteamTypes.h"
 
-
 abstract_class UNSAFE_INTERFACE IClientBluetoothManager
 {
 public:

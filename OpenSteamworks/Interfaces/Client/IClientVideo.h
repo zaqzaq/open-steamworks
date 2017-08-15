@@ -41,11 +41,11 @@ public:
 	virtual bool PostBroadcastChat(BroadcastSessionID_t, const char*) = 0;
 	virtual bool MuteBroadcastChatUser(BroadcastSessionID_t, CSteamID) = 0;
 
-	virtual bool InitBroadcastVideo(int32, int32, int32, int32, const uint8*, int32, const uint8*, int32) = 0;
+	virtual bool InitBroadcastVideo(int32, int32, int32 iWidth, int32 iHeight, const uint8*, int32, const uint8*, int32) = 0;
 	virtual bool InitBroadcastAudio(int32, int32, int32, int32, int32, const uint8*, int32) = 0;
 
-	virtual bool UploadBroadcastFrame(bool, bool, uint32, int64, int64, const uint8*, int32) = 0;
-	virtual bool UploadBroadcastScreenshot(int32, int32, const uint8*, int32) = 0;
+	virtual bool UploadBroadcastFrame(bool, bool, uint32, int64, int64, const uint8* pubFrame, int32 iFrameSize) = 0;
+	virtual bool UploadBroadcastScreenshot(int32 iWidth, int32 iHeight, const uint8* pubRGBData, int32 iRGBDataSize) = 0;
 
 	virtual void DroppedVideoFrames(int32) = 0;
 
@@ -63,7 +63,7 @@ public:
 	virtual bool GetBroadcastIncludeDesktop() = 0;
 	virtual bool GetBroadcastRecordSystemAudio() = 0;
 	virtual bool GetBroadcastRecordMic() = 0;
-	virtual int32 GetBroadcastShowChatCorner() = 0;
+	virtual EBroadcastChatCorner GetBroadcastShowChatCorner() = 0;
 	virtual bool GetBroadcastShowDebugInfo() = 0;
 	virtual bool GetBroadcastShowReminderBanner() = 0;
 	virtual int32 GetBroadcastEncoderSetting() = 0;
