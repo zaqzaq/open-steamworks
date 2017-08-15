@@ -284,6 +284,7 @@
 #include "Interfaces/Client/IClientStreamClient.h"
 #include "Interfaces/Client/IClientUGC.h"
 #include "Interfaces/Client/IClientVideo.h"
+#include "Interfaces/Client/IClientBluetoothManager.h"
 #endif // NO_ICLIENT
 
 // callback

@@ -791,6 +791,9 @@
     <ClInclude Include="Interfaces\Client\IClientVideo.h">
       <Filter>Interfaces\Client</Filter>
     </ClInclude>
+    <ClInclude Include="Interfaces\Client\IClientBluetoothManager.h">
+      <Filter>Interfaces\Client</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Types">
