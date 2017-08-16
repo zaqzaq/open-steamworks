@@ -59,7 +59,7 @@ public:
 	virtual EBroadcastPermission GetBroadcastPermissions() = 0;
 	virtual int32 GetBroadcastMaxKbps() = 0;
 	virtual int32 GetBroadcastDelaySeconds() = 0;
-	virtual bool BGetBroadcastDimensions(int32*, int32*) = 0;
+	virtual bool BGetBroadcastDimensions(int32* iWidth, int32* iHeight) = 0;
 	virtual bool GetBroadcastIncludeDesktop() = 0;
 	virtual bool GetBroadcastRecordSystemAudio() = 0;
 	virtual bool GetBroadcastRecordMic() = 0;

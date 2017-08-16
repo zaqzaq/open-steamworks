@@ -14,24 +14,27 @@
 //
 //=============================================================================
 
-#ifndef ICLIENTUNIFIEDMESSAGES_H
-#define ICLIENTUNIFIEDMESSAGES_H
+#ifndef ICLIENTPARENTALSETTINGS_H
+#define ICLIENTPARENTALSETTINGS_H
 #ifdef _WIN32
 #pragma once
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/UnifiedMessagesCommon.h"
+#include "Interfaces/Common/ParentalSettingsCommon.h"
 
-abstract_class UNSAFE_INTERFACE IClientUnifiedMessages
+abstract_class UNSAFE_INTERFACE IClientParentalSettings
 {
 public:
-	virtual ClientUnifiedMessageHandle_t SendMethod(const char * pchServiceMethod, const void * pRequest, uint32 nBuf, uint64 ctx) = 0;
-	virtual bool GetMethodResponseInfo(ClientUnifiedMessageHandle_t hUmsg, uint32 *pnResponse, EResult *eResult) = 0;
-	virtual bool GetMethodResponseData(ClientUnifiedMessageHandle_t hUmsg, void *pResponseBuf, uint32 bufSize, bool autoRelease) = 0;
-	virtual bool ReleaseMethod(ClientUnifiedMessageHandle_t hUmsg) = 0;
-	virtual bool SendNotification(const char * pchNotification, const void * buf, uint32 bufSize) = 0;
+	virtual bool BIsParentalLockEnabled() = 0;
+	virtual bool BIsParentalLockLocked() = 0;
+	virtual bool BIsAppBlocked(AppId_t unAppID) = 0;
+	virtual bool BIsAppInBlockList(AppId_t unAppID) = 0;
+	virtual bool BIsFeatureBlocked(EParentalFeature eParentalFeature) = 0;
+	virtual bool BIsFeatureInBlockList(EParentalFeature eParentalFeature) = 0;
+	virtual bool BGetSerializedParentalSettings(CUtlBuffer*) = 0;
+	virtual bool BGetRecoveryEmail(char* pchEmailAddr, int32 cbEmailAddr) = 0;
 };
 
-#endif // ICLIENTUNIFIEDMESSAGES_H
+#endif // ICLIENTPARENTALSETTINGS_H
  

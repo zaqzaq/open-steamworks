@@ -23,11 +23,6 @@
 #include "Types/SteamTypes.h"
 #include "Interfaces/Common/MusicCommon.h"
 
-
-
-
-#define CLIENTMUSIC_INTERFACE_VERSION "CLIENTMUSIC_INTERFACE_VERSION001"
-
 abstract_class UNSAFE_INTERFACE IClientMusic
 {
 public:

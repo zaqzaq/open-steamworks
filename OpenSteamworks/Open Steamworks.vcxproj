@@ -43,6 +43,7 @@
     <ClInclude Include="Interfaces\Client\IClientMusic.h" />
     <ClInclude Include="Interfaces\Client\IClientNetworkDeviceManager.h" />
     <ClInclude Include="Interfaces\Client\IClientNetworking.h" />
+    <ClInclude Include="Interfaces\Client\IClientParentalSettings.h" />
     <ClInclude Include="Interfaces\Client\IClientProductBuilder.h" />
     <ClInclude Include="Interfaces\Client\IClientRemoteStorage.h" />
     <ClInclude Include="Interfaces\Client\IClientScreenshots.h" />
@@ -76,6 +77,7 @@
     <ClInclude Include="Interfaces\Common\MusicCommon.h" />
     <ClInclude Include="Interfaces\Common\NetworkingCommon.h" />
     <ClInclude Include="Interfaces\Common\OAuthCommon.h" />
+    <ClInclude Include="Interfaces\Common\ParentalSettingsCommon.h" />
     <ClInclude Include="Interfaces\Common\RemoteStorageCommon.h" />
     <ClInclude Include="Interfaces\Common\ScreenshotsCommon.h" />
     <ClInclude Include="Interfaces\Common\StreamLauncherCommon.h" />
@@ -173,6 +175,7 @@
     <ClInclude Include="Interfaces\Steam\ISteamNetworking\ISteamNetworking004.h" />
     <ClInclude Include="Interfaces\Steam\ISteamNetworking\ISteamNetworking005.h" />
     <ClInclude Include="Interfaces\Steam\ISteamOAuth\ISteamOAuth001.h" />
+    <ClInclude Include="Interfaces\Steam\ISteamParentalSettings\ISteamParentalSettings001.h" />
     <ClInclude Include="Interfaces\Steam\ISteamRemoteStorage\ISteamRemoteStorage001.h" />
     <ClInclude Include="Interfaces\Steam\ISteamRemoteStorage\ISteamRemoteStorage002.h" />
     <ClInclude Include="Interfaces\Steam\ISteamRemoteStorage\ISteamRemoteStorage003.h" />

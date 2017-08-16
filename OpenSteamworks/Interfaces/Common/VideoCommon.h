@@ -54,7 +54,7 @@ enum EBroadcastPermission
 
 enum EBroadcastChatCorner
 {
-	k_EBroadcastChatCornerrNone,
+	k_EBroadcastChatCornerNone,
 	k_EBroadcastChatCornerTopLeft,
 	k_EBroadcastChatCornerTopRight,
 	k_EBroadcastChatCornerBottomRight,

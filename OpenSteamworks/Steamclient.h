@@ -247,6 +247,9 @@
 #include "Interfaces/Steam/ISteamVideo/ISteamVideo001.h"
 #include "Interfaces/Steam/ISteamVideo/ISteamVideo002.h"
 
+// parental settings
+#include "Interfaces/Steam/ISteamParentalSettings/ISteamParentalSettings001.h"
+
 #ifndef NO_ICLIENT
 // client interfaces
 #include "Interfaces/Client/IClientEngine.h"
@@ -285,6 +288,7 @@
 #include "Interfaces/Client/IClientUGC.h"
 #include "Interfaces/Client/IClientVideo.h"
 #include "Interfaces/Client/IClientBluetoothManager.h"
+#include "Interfaces/Client/IClientParentalSettings.h"
 #endif // NO_ICLIENT
 
 // callback

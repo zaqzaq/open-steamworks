@@ -794,6 +794,15 @@
     <ClInclude Include="Interfaces\Client\IClientBluetoothManager.h">
       <Filter>Interfaces\Client</Filter>
     </ClInclude>
+    <ClInclude Include="Interfaces\Client\IClientParentalSettings.h">
+      <Filter>Interfaces\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\Common\ParentalSettingsCommon.h">
+      <Filter>Interfaces\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\Steam\ISteamParentalSettings\ISteamParentalSettings001.h">
+      <Filter>Interfaces\Steam\ISteamParentalSettings</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Types">
@@ -906,6 +915,9 @@
     </Filter>
     <Filter Include="Interfaces\Steam\ISteamMusicRemote">
       <UniqueIdentifier>{f6447036-3b3e-4004-afcf-fa0306afa71a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interfaces\Steam\ISteamParentalSettings">
+      <UniqueIdentifier>{e6ada59e-b417-45cc-977b-008c5dfa7dcf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

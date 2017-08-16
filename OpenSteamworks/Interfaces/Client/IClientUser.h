@@ -23,6 +23,7 @@
 #include "Types/SteamTypes.h"
 #include "Interfaces/Common/UserCommon.h"
 #include "Interfaces/Common/ContentServerCommon.h"
+#include "Interfaces/Common/ParentalSettingsCommon.h"
 
 // Protobuf'ed class
 class ClientAppInfo
@@ -32,23 +33,6 @@ class ClientAppInfo
 }
 #endif
 ;
-
-enum EParentalFeature
-{
-	k_EParentalFeatureInvalid = 0,
-	k_EParentalFeatureStore = 1,
-	k_EParentalFeatureCommunity = 2,
-	k_EParentalFeatureProfile = 3,
-	k_EParentalFeatureFriends = 4,
-	k_EParentalFeatureNews = 5,
-	k_EParentalFeatureTrading = 6,
-	k_EParentalFeatureSettings = 7,
-	k_EParentalFeatureConsole = 8,
-	k_EParentalFeatureBrowser = 9,
-	k_EParentalFeatureParentalSetup = 10,
-	k_EParentalFeatureLibrary= 11,
-	k_EParentalFeatureTest = 12,
-};
 
 // Protobuf, see steammessages_offline.steamclient.proto
 class COffline_OfflineLogonTicket
