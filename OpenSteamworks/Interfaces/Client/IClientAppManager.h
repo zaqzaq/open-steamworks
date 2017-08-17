@@ -57,7 +57,7 @@ public:
 	virtual uint32 GetInstalledDepots( AppId_t unAppID, AppId_t puDepots[], uint32 cuDepotsMax ) = 0;
 	virtual unknown_ret GetFileDetails(AppId_t unAppID, const char *pchUnk) = 0;
 	virtual unknown_ret VerifySignedFiles(AppId_t unAppID) = 0;
-	virtual unknown_ret GetAvailableBetas(AppId_t unAppID, int32* iunk1, char*, int32 iunk2) = 0;
+	virtual int32 GetAvailableBetas(AppId_t unAppID, int32* iunk1, char*, int32 iunk2) = 0;
 	virtual bool CheckBetaPassword( AppId_t unAppID, char const*) = 0;
 	virtual bool BHasCachedBetaPassword( AppId_t unAppID, const char *cszBetaKey ) = 0;
 	virtual bool SetDownloadingEnabled( bool ) = 0;
@@ -71,7 +71,7 @@ public:
 	virtual bool SetAutoUpdateTimeRestrictionEndHour(int32 iUnk) = 0;
 	virtual EAppAutoUpdateBehavior GetAppAutoUpdateBehavior( AppId_t unAppID ) = 0;
 	virtual bool SetAppAutoUpdateBehavior( AppId_t unAppID, EAppAutoUpdateBehavior eAppAutoUpdateBehavior ) = 0;
-	virtual bool SetAppAllowDownloadsWhileRunningBehavior( AppId_t unAppID, EAppAllowDownloadsWhileRunningBehavior eAppAllowDownloadsWhileRunningBehavior ) =0 ;
+	virtual bool SetAppAllowDownloadsWhileRunningBehavior( AppId_t unAppID, EAppAllowDownloadsWhileRunningBehavior eAppAllowDownloadsWhileRunningBehavior ) =0;
 	virtual EAppAllowDownloadsWhileRunningBehavior GetAppAllowDownloadsWhileRunningBehavior( AppId_t unAppID ) = 0;
 	virtual void SetAllowDownloadsWhileAnyAppRunning( bool bAllowDownloadsWhileAnyAppRunning ) = 0;
 	virtual bool BAllowDownloadsWhileAnyAppRunning() = 0;
@@ -85,13 +85,13 @@ public:
 	virtual EAppUpdateError RestoreApp( AppId_t unAppID, int32 iBaseFolder, char const *cszBackupPath ) = 0;
 	virtual bool CanMoveApp( AppId_t unAppID ) = 0;
 	virtual unknown_ret MoveApp( AppId_t unAppID, int32 unk ) = 0;
-	virtual unknown_ret GetMoveAppProgress( AppId_t unAppID, uint64* unk_1, uint64* unk_2, uint32* unk_3) = 0;
+	virtual bool GetMoveAppProgress( AppId_t unAppID, uint64* unk_1, uint64* unk_2, uint32* unk_3) = 0;
 	virtual bool CancelMoveApp( AppId_t unAppID ) = 0;
 	virtual bool BNeedsFile( AppId_t unAppID, char const *cszFilePath, uint64 ullFileSize, uint32 uUnk ) = 0;
 	virtual bool BAddFileOnDisk( AppId_t unAppID, char const *cszFilePath, uint64 ullFileSize, uint32 uUnk, SHADigestWrapper_t ubSha1 ) = 0;
 	virtual uint32 FinishAddingFiles( AppId_t unAppID ) = 0;
 	virtual bool GetAppStateInfo( AppId_t unAppID, EAppReleaseState * peReleaseState, EAppOwnershipFlags * peOwnershipFlags, EAppState * peAppState, CSteamID * pSteamID, uint32* uUnk1, uint32* uUnk2 ) = 0;
-	virtual bool BIsAvailableOnPlatform( uint32 uUnk, const char * pUnk );
+	virtual bool BIsAvailableOnPlatform( uint32 uUnk, const char * pUnk ) = 0;
 	virtual int32 GetNumInstallBaseFolders() = 0;
 	virtual int32 GetInstallBaseFolder( int32 iBaseFolder, char *pchPath, int32 cbPath ) = 0;
 	virtual int32 AddInstallBaseFolder( const char *szPath ) = 0;
