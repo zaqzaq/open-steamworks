@@ -547,6 +547,8 @@ struct SteamControllerState_t
 
 };
 
+#pragma pack( push, 1 )
+
 struct ControllerDigitalActionData_t
 {
 	uint8 m_bState;
@@ -576,6 +578,11 @@ struct ControllerMotionData_t
 	float m_fRotVelY;
 	float m_fRotVelZ;
 };
+
+#pragma pack( pop )
+
+
+// clientcontroller callbacks
 
 #pragma pack( push, 8 )
 

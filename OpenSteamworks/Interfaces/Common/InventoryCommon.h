@@ -50,6 +50,8 @@ enum ESteamItemFlags
 	// Do not assume anything about the state of other flags which are not defined here.
 };
 
+#pragma pack( push, 8 )
+
 struct SteamItemDetails_t
 {
 	SteamItemInstanceID_t m_itemId;
@@ -95,5 +97,7 @@ struct SteamInventoryDefinitionUpdate_t
 {
 	enum { k_iCallback = k_iClientInventoryCallbacks + 2 };
 };
+
+#pragma pack( pop )
 
 #endif // UGCCOMMON_H

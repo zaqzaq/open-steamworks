@@ -109,6 +109,8 @@ typedef enum EHTTPStatusCode
 } EHTTPStatusCode;
 
 
+#pragma pack( push, 8 )
+
 struct HTTPRequestCompleted_t
 {
 	enum { k_iCallback = k_iClientHTTPCallbacks + 1 };
@@ -129,5 +131,6 @@ struct HTTPRequestCompleted_t
 	EHTTPStatusCode m_eStatusCode;
 };
 
+#pragma pack( pop )
 
 #endif // HTTPCOMMON_H

@@ -33,7 +33,7 @@ public:
 	virtual void BeginBroadcastSession() = 0;
 	virtual void EndBroadcastSession() = 0;
 
-	virtual bool IsBroadcasting(int32*) = 0;
+	virtual bool IsBroadcasting(int32* pnNumViewers) = 0;
 	virtual bool BIsUploadingThumbnails() = 0;
 	virtual BroadcastSessionID_t GetBroadcastSessionID() = 0;
 
@@ -76,9 +76,9 @@ public:
 	virtual unknown_ret GetWatchBroadcastMPD(CSteamID) = 0;
 	virtual int32 GetApprovalRequestCount() = 0;
 	virtual int32 GetApprovalRequests(CSteamID*, uint32) = 0;
-	virtual void GetVideoURL(uint32) = 0;
-	virtual void GetOPFSettings(uint32) = 0;
-	virtual bool GetOPFStringForApp(uint32, char*, int32, int32*) = 0;
+	virtual void GetVideoURL(AppId_t appId) = 0;
+	virtual void GetOPFSettings(AppId_t appId) = 0;
+	virtual bool GetOPFStringForApp(AppId_t appId, char* pchBuffer, int32 iUnk, int32* pnBufferSize) = 0;
 };
 
 #endif // ICLIENTVIDEO_H

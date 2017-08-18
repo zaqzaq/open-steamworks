@@ -74,6 +74,9 @@ enum EBroadcastChatMsg {
 
 // k_iClientVideoCallbacks callbacks
 
+
+#pragma pack( push, 8 )
+
 struct BeginBroadcastSessionResult_t
 {
 	enum { k_iCallback = k_iClientVideoCallbacks + 1 };
@@ -153,5 +156,6 @@ struct UnlockH264Result_t
 	EResult m_eResult;
 };
 
-#endif // VIDEOCOMMON_H
+#pragma pack( pop )
 
+#endif // VIDEOCOMMON_H
