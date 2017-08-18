@@ -276,6 +276,7 @@
 #include "Interfaces/Client/IClientUserStats.h"
 #include "Interfaces/Client/IClientUtils.h"
 #include "Interfaces/Client/IClientHTTP.h"
+#include "Interfaces/Client/IClientHTMLSurface.h"
 #include "Interfaces/Client/IClientConfigStore.h"
 #include "Interfaces/Client/IClientUnifiedMessages.h"
 #include "Interfaces/Client/IClientStreamLauncher.h"

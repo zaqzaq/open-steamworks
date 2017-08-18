@@ -803,6 +803,9 @@
     <ClInclude Include="Interfaces\Steam\ISteamParentalSettings\ISteamParentalSettings001.h">
       <Filter>Interfaces\Steam\ISteamParentalSettings</Filter>
     </ClInclude>
+    <ClInclude Include="Interfaces\Client\IClientHTMLSurface.h">
+      <Filter>Interfaces\Client</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Types">

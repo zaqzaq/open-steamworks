@@ -35,6 +35,7 @@
     <ClInclude Include="Interfaces\Client\IClientGameServer.h" />
     <ClInclude Include="Interfaces\Client\IClientGameServerStats.h" />
     <ClInclude Include="Interfaces\Client\IClientGameStats.h" />
+    <ClInclude Include="Interfaces\Client\IClientHTMLSurface.h" />
     <ClInclude Include="Interfaces\Client\IClientHTTP.h" />
     <ClInclude Include="Interfaces\Client\IClientInventory.h" />
     <ClInclude Include="Interfaces\Client\IClientMasterServerUpdater.h" />

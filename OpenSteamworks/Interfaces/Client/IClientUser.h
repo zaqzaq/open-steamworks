@@ -123,8 +123,8 @@ public:
 	virtual bool GetAccountName( CSteamID userID, char * pchAccountName, uint32 cb ) = 0;
 	virtual bool IsPasswordRemembered() = 0;
 	virtual void CheckoutSiteLicenseSeat( uint32 uUnk ) = 0;
-	virtual unknown_ret GetAvailableSeats( uint32 uUnk ) = 0;
-	virtual unknown_ret GetAssociatedSiteName() = 0;
+	virtual void GetAvailableSeats( uint32 uUnk ) = 0;
+	virtual const char* GetAssociatedSiteName() = 0;
 	virtual bool RequiresLegacyCDKey( AppId_t nAppID, bool * pbUnk ) = 0;
 	virtual bool GetLegacyCDKey( AppId_t nAppID, char* pchKeyData, int32 cbKeyData ) = 0;
 	virtual bool SetLegacyCDKey( AppId_t nAppID, const char* pchKeyData ) = 0;
@@ -134,7 +134,7 @@ public:
 	virtual bool BIsAnyGameRunning() = 0;
 	virtual void TestAvailablePassword( const uint8 *pubDigestPassword, int32 cubDigestPassword ) = 0;
 	virtual void GetSteamGuardDetails() = 0;
-	virtual unknown_ret GetTwoFactorDetails() = 0;
+	virtual void GetTwoFactorDetails() = 0;
 	virtual bool BHasTwoFactor() = 0;
 	virtual void RecoverAuthenticator( const char *, const char *, const char *, const char *, const char *) = 0;
 	virtual void ChangePassword( const char *pchOldPassword, const char *pchNewPassword ) = 0;
