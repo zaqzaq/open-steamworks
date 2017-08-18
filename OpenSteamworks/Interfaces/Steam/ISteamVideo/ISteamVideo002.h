@@ -28,8 +28,8 @@ abstract_class ISteamVideo002
 public:
 	virtual void GetVideoURL(AppId_t appId) = 0;
 	virtual bool IsBroadcasting(int32* pnNumViewers) = 0;
-	virtual unknown_ret GetOPFSettings(uint32) = 0;
-	virtual unknown_ret GetOPFStringForApp(uint32, char*, int32*) = 0;
+	virtual void GetOPFSettings(AppId_t unVideoAppID) = 0;
+	virtual bool GetOPFStringForApp(AppId_t unVideoAppID, char *pchBuffer, int32 *pnBufferSize) = 0;
 };
 
 
