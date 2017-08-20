@@ -14,6 +14,7 @@
 //
 //=============================================================================
 
+#include <mutex>
 #include <map>
 #include "Steamworks.h"
 
@@ -26,15 +27,21 @@ extern ISteamController005 *__g_p_SteamController;
 // whole thing looks more like an ugly stub atm
 // if you know a better way to do it please let me know...
 
+std::mutex cb_mtx;
+
 static std::multimap<int, CCallbackBase*> g_ManagedCallbacks;
 
 S_API void SteamAPI_RegisterCallback(class CCallbackBase *pCallback, int iCallback)
 {
+	std::lock_guard<std::mutex> lock(cb_mtx);
+
 	g_ManagedCallbacks.insert(std::pair<int, CCallbackBase*>(iCallback, pCallback));
 }
 
 S_API void SteamAPI_UnregisterCallback(class CCallbackBase *pCallback)
 {
+	std::lock_guard<std::mutex> lock(cb_mtx);
+
 	for (auto it = g_ManagedCallbacks.begin();
 		it != g_ManagedCallbacks.end();
 		)
@@ -70,6 +77,8 @@ S_API void Steam_RunCallbacks(HSteamPipe hSteamPipe, bool bGameServerCallbacks)
 	{
 		__g_p_SteamController->RunFrame();
 	}
+
+	std::lock_guard<std::mutex> lock(cb_mtx);
 
 	CallbackMsg_t msg;
 	while (Steam_BGetCallback(hSteamPipe, &msg))
