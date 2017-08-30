@@ -71,6 +71,7 @@ class IClientControllerSerialized;
 class IClientAppDisableUpdate;
 class IClientBluetoothManager;
 class IClientSharedConnection;
+class IClientShader;
 
 abstract_class UNSAFE_INTERFACE IClientEngine
 {
@@ -140,6 +141,7 @@ public:
 	virtual unknown_ret Set_ClientAPI_CPostAPIResultInProcess( void(*)(uint64 ulUnk, void * pUnk, uint32 uUnk, int32 iUnk) ) = 0;
 	virtual IClientBluetoothManager *GetIClientBluetoothManager( HSteamPipe hSteamPipe, char const* pchVersion) = 0;
 	virtual IClientSharedConnection *GetIClientSharedConnection( HSteamUser hSteamUser, HSteamPipe hSteamPipe, char const* pchVersion ) = 0;
+	virtual IClientShader *GetIClientShader( HSteamUser hSteamUser, HSteamPipe hSteamPipe, char const* pchVersion ) = 0;
 };
 
 #endif // ICLIENTENGINE_H

@@ -40,6 +40,7 @@ public:
 	virtual int32 GetDLCCount( AppId_t unAppID ) = 0;
 	virtual bool BGetDLCDataByIndex( AppId_t unAppID, int32 iDLC, AppId_t* pDlcAppID, bool *pbAvailable, char *pchName, int32 cchNameBufferSize ) = 0;
 	virtual int32 GetAppType( AppId_t unAppID ) = 0;
+	virtual unknown_ret GetStoreTagLocalization(ELanguage eUnk, uint32* uUnk, int32 iUnk1, uint8* pchBuf, int32 iUnk2) = 0;
 };
 
 #endif // ICLIENTAPPS_H

@@ -46,54 +46,105 @@ typedef enum ELicenseFlags
 // Payment methods for purchases
 typedef enum EPaymentMethod
 {
-	k_EPaymentMethodNone = 0,
-	k_EPaymentMethodActivationCode = 1,		
-	k_EPaymentMethodCreditCard = 2,
-	k_EPaymentMethodGiropay = 3,
-	k_EPaymentMethodPayPal = 4,
-	k_EPaymentMethodIdeal = 5,
-	k_EPaymentMethodPaySafeCard = 6,
-	k_EPaymentMethodSofort = 7,
-	k_EPaymentMethodGuestPass = 8,
-	k_EPaymentMethodWebMoney = 9,
-	k_EPaymentMethodMoneyBookers = 10,
-	k_EPaymentMethodAliPay = 11,
-	k_EPaymentMethodYandex = 12,
-	k_EPaymentMethodKiosk = 13,
-	k_EPaymentMethodQIWI = 14,
-	k_EPaymentMethodGameStop = 15,
-	k_EPaymentMethodHardwarePromo = 16,
-	k_EPaymentMethodMopay = 17,
-	k_EPaymentMethodBoletoBancario = 18,
-	k_EPaymentMethodBoaCompraGold = 19,
-	k_EPaymentMethodBancoDoBrasilOnline = 20,
-	k_EPaymentMethodItauOnline = 21,
-	k_EPaymentMethodBradescoOnline = 22,
-	k_EPaymentMethodPagseguro = 23,
-	k_EPaymentMethodVisaBrazil = 24,
-	k_EPaymentMethodAmexBrazil = 25,
-	k_EPaymentMethodAura = 26,
-	k_EPaymentMethodHipercard = 27,
-	k_EPaymentMethodMastercardBrazil = 28,
-	k_EPaymentMethodDinerSCardBrazil = 29,
-	k_EPaymentMethodAuthorizedDevice = 30,
-	k_EPaymentMethodMOLPoints = 31,
-	k_EPaymentMethodClickAndBuy = 32,
-	k_EPaymentMethodBeeline = 33,
-	k_EPaymentMethodKonbini = 34,
-	k_EPaymentMethodEClubPoints = 35,
-	k_EPaymentMethodCreditCardJapan = 36,
-	k_EPaymentMethodBankTransferJapan = 37,
-	k_EPaymentMethodPayEasyJapan = 38,
-
-	k_EPaymentMethodSteamPressMaster = 130,
-
-	k_EPaymentMethodAutoGrant = 64,
-	k_EPaymentMethodWallet = 128,
-	k_EPaymentMethodValve = 129,
-	k_EPaymentMethodOEMTicket = 256,
-	k_EPaymentMethodSplit = 512,
-	k_EPaymentMethodComplimentary = 1024,
+	k_EPaymentMethodNone, // None
+	k_EPaymentMethodCDKey, // CD Key
+	k_EPaymentMethodCreditCard, // Credit Card
+	k_EPaymentMethodGiropay, // Giropay
+	k_EPaymentMethodPayPal, // PayPal
+	k_EPaymentMethodIDEAL, // iDEAL
+	k_EPaymentMethodPaySafeCard, // PaySafeCard
+	k_EPaymentMethodSofort, // Sofort
+	k_EPaymentMethodGuestPass, // Guest Pass
+	k_EPaymentMethodWebMoney, // WebMoney
+	k_EPaymentMethodMoneyBookers, // MoneyBookers
+	k_EPaymentMethodAliPay, // AliPay
+	k_EPaymentMethodYandex, // Yandex
+	k_EPaymentMethodKiosk, // Kiosk
+	k_EPaymentMethodQIWI, // QIWI
+	k_EPaymentMethodGameStop, // GameStop
+	k_EPaymentMethodHardwarePromo, // Hardware Promo
+	k_EPaymentMethodMopay, // mopay
+	k_EPaymentMethodBoletoBancario, // Boleto Bancario
+	k_EPaymentMethodBoaCompraGold, // BoaCompra Gold
+	k_EPaymentMethodBancoDoBrasilOnline, // Banco do Brasil Online
+	k_EPaymentMethodItauOnline, // Itau Online
+	k_EPaymentMethodBradescoOnline, // Bradesco Online
+	k_EPaymentMethodPagseguro, // Pagseguro
+	k_EPaymentMethodVisaBoaCompra, // Visa (BoaCompra)
+	k_EPaymentMethodAmexBoaCompra, // Amex (BoaCompra)
+	k_EPaymentMethodAura, // Aura
+	k_EPaymentMethodHipercard, // Hipercard
+	k_EPaymentMethodMastercardBoaCompra, // Mastercard (BoaCompra)
+	k_EPaymentMethodDinersCardBoaCompra, // Diner's Card (BoaCompra)
+	k_EPaymentMethodAuthorizedDevice, // Authorized Device
+	k_EPaymentMethodMOLPoints, // MOL Points
+	k_EPaymentMethodClickBuy, // Click&Buy
+	k_EPaymentMethodBeeline, // Beeline
+	k_EPaymentMethodKonbini, // Konbini
+	k_EPaymentMethodEClubPoints, // EClub Points
+	k_EPaymentMethodCreditCardJapan, // Credit Card (Japan)
+	k_EPaymentMethodBankTransferJapan, // Bank Transfer (Japan)
+	k_EPaymentMethodPayEasyJapan, // Pay Easy (Japan)
+	k_EPaymentMethodZong, // Zong
+	k_EPaymentMethodCultureVoucher, // Culture Voucher
+	k_EPaymentMethodBookVoucher, // Book Voucher
+	k_EPaymentMethodHappymoneyVoucher, // Happymoney Voucher
+	k_EPaymentMethodConvenientStoreVoucher, // Convenient Store Voucher
+	k_EPaymentMethodGameVoucher, // Game Voucher
+	k_EPaymentMethodMultibanco, // Multibanco
+	k_EPaymentMethodPayshop, // Payshop
+	k_EPaymentMethodMaestro, // Maestro
+	k_EPaymentMethodOXXO, // OXXO
+	k_EPaymentMethodToditoCash, // Todito Cash
+	k_EPaymentMethodCarnet, // Carnet
+	k_EPaymentMethodSPEI, // SPEI
+	k_EPaymentMethod3pay, // 3pay
+	k_EPaymentMethodIsBank, // Is Bank
+	k_EPaymentMethodGaranti, // Garanti
+	k_EPaymentMethodAkbank, // Akbank
+	k_EPaymentMethodYapiKredi, // Yapi Kredi
+	k_EPaymentMethodHalkbank, // Halkbank
+	k_EPaymentMethodBankAsya, // Bank Asya
+	k_EPaymentMethodFinansbank, // Finansbank
+	k_EPaymentMethodDenizBank, // DenizBank
+	k_EPaymentMethodPTT, // PTT
+	k_EPaymentMethodCashU, // CashU
+	k_EPaymentMethodAutoGrant = 64, // Auto Grant
+	k_EPaymentMethodWebMoneyJapan, // WebMoney (Japan)
+	k_EPaymentMethodOneCard, // OneCard
+	k_EPaymentMethodPSE, // PSE
+	k_EPaymentMethodExito, // Exito
+	k_EPaymentMethodEfecty, // Efecty
+	k_EPaymentMethodBalota, // Balota
+	k_EPaymentMethodPinValidda, // PinValidda
+	k_EPaymentMethodMangirKart, // MangirKart
+	k_EPaymentMethodBancoCreditoDePeru, // Banco Credito de Peru
+	k_EPaymentMethodBBVAContinental, // BBVA Continental
+	k_EPaymentMethodSafetyPay, // SafetyPay
+	k_EPaymentMethodPagoEfectivo, // PagoEfectivo
+	k_EPaymentMethodTrustly, // Trustly
+	k_EPaymentMethodUnionPay, // UnionPay
+	k_EPaymentMethodBitcoin, // Bitcoin
+	k_EPaymentMethodLicensedSite, // Licensed Site
+	k_EPaymentMethodBitCash, // BitCash
+	k_EPaymentMethodNetCash, // NetCash
+	k_EPaymentMethodNanaco, // Nanaco
+	k_EPaymentMethodTenpay, // Tenpay
+	k_EPaymentMethodWeChat, // WeChat
+	k_EPaymentMethodCashOnDelivery, // Cash on Delivery
+	k_EPaymentMethodCreditCardIndia, // Credit Card (India)
+	k_EPaymentMethodDebitCardIndia, // Debit Card (India)
+	k_EPaymentMethodNetBankingIndia, // Net Banking (India)
+	k_EPaymentMethodCashCardIndia, // Cash Card (India)
+	k_EPaymentMethodWalletIndia, // Wallet (India)
+	k_EPaymentMethodMobileKorea, // Mobile (Korea)
+	k_EPaymentMethodWallet = 128, // Wallet
+	k_EPaymentMethodValve, // Valve
+	k_EPaymentMethodSteamPressMaster, // Steam/Press Master
+	k_EPaymentMethodStorePromotion, // Store Promotion
+	k_EPaymentMethodOEMTicket = 256, // OEM Ticket
+	k_EPaymentMethodSplit = 512, // Split
+	k_EPaymentMethodComplimentary = 1024, // Complimentary
 } EPaymentMethod;
 
 typedef enum EPurchaseResultDetail

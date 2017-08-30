@@ -102,7 +102,7 @@ public:
 	virtual const char *GetSteamUILanguage() = 0;
 	virtual uint64 CheckSteamReachable() = 0;
 	virtual void SetLastGameLaunchMethod( EGameLaunchMethod eGameLaunchMethod ) = 0;
-	virtual void SetVideoAdapterInfo( int32, int32, int32, int32, int32, int32 ) = 0;
+	virtual void SetVideoAdapterInfo( int32, int32, int32, int32, int32, int32, const char * ) = 0;
 	virtual void SetControllerOverrideMode( CGameID gameID, const char * szUnk, uint32 uUnk ) = 0;
 	virtual void SetOverlayWindowFocusForPipe( bool, bool, CGameID gameID ) = 0;
 	virtual CGameID GetGameOverlayUIInstanceFocusGameID( bool * pbUnk ) = 0;

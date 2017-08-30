@@ -125,6 +125,7 @@ public:
 	virtual void CheckoutSiteLicenseSeat( uint32 uUnk ) = 0;
 	virtual void GetAvailableSeats( uint32 uUnk ) = 0;
 	virtual const char* GetAssociatedSiteName() = 0;
+	virtual bool BIsRunningInCafe() = 0;
 	virtual bool RequiresLegacyCDKey( AppId_t nAppID, bool * pbUnk ) = 0;
 	virtual bool GetLegacyCDKey( AppId_t nAppID, char* pchKeyData, int32 cbKeyData ) = 0;
 	virtual bool SetLegacyCDKey( AppId_t nAppID, const char* pchKeyData ) = 0;

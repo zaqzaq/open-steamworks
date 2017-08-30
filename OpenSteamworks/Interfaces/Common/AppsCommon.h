@@ -270,6 +270,11 @@ enum EAppDownloadQueuePlacement
 	k_EAppDownloadQueuePlacementPaused,
 };
 
+enum ELanguage
+{
+	// TODO: Reverse this enum
+};
+
 struct SHADigestWrapper_t
 {
 	uint32 A;
