@@ -3,14 +3,6 @@
 #include "Steamworks.h"
 #include <time.h>
 
-#ifdef _WIN32
-	#ifndef _WIN64
-		#pragma comment( lib, "../OpenSteamAPI/lib/Win32/OpenSteamAPI.lib" )
-	#else
-		#pragma comment( lib, "../OpenSteamAPI/lib/Win64/OpenSteamAPI64.lib" )
-	#endif
-#endif
-
 int main()
 {
 	if ( !OpenAPI_LoadLibrary())
