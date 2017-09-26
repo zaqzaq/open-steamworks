@@ -23,7 +23,13 @@
 #include "Types/SteamTypes.h"
 #include "Interfaces/Common/HTMLSurfaceCommon.h"
 
-class CValidator;
+class CValidator
+#ifdef _S4N_
+{
+	int m_iPadding;
+}
+#endif
+;
 
 abstract_class IClientHTMLSurface
 {
