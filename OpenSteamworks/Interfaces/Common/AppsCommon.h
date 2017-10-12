@@ -46,6 +46,7 @@ enum EAppState
 	k_EAppStateUninstalled = 1,
 	k_EAppStateUpdateRequired = 2,
 	k_EAppStateFullyInstalled = 4,
+	k_EAppStateUpdateQueued = 8,
 	k_EAppStateUpdateOptional = 16,
 	k_EAppStateFilesMissing = 32,
 	k_EAppStateSharedOnly = 64,
@@ -204,6 +205,7 @@ enum EAppUpdateError
 	k_EAppUpdateErrorSiteLicenseLocked,
 	k_EAppUpdateErrorParentalControlBlocked,
 	k_EAppUpdateErrorCreateProcessFailed,
+	k_EAppUpdateErrorSteamClientOutOfDate,
 };
 
 //-----------------------------------------------------------------------------

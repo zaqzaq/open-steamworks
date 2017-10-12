@@ -120,6 +120,7 @@
     <ClInclude Include="Interfaces\Steam\ISteamController\ISteamController003.h" />
     <ClInclude Include="Interfaces\Steam\ISteamController\ISteamController004.h" />
     <ClInclude Include="Interfaces\Steam\ISteamController\ISteamController005.h" />
+    <ClInclude Include="Interfaces\Steam\ISteamController\ISteamController006.h" />
     <ClInclude Include="Interfaces\Steam\ISteamFriends\ISteamFriends001.h" />
     <ClInclude Include="Interfaces\Steam\ISteamFriends\ISteamFriends002.h" />
     <ClInclude Include="Interfaces\Steam\ISteamFriends\ISteamFriends003.h" />

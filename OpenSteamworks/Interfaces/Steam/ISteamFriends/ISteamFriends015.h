@@ -234,6 +234,9 @@ public:
 	virtual SteamAPICall_t GetFollowerCount(CSteamID steamID) = 0;
 	virtual SteamAPICall_t IsFollowing(CSteamID steamID) = 0;
 	virtual SteamAPICall_t EnumerateFollowingList(uint32 unStartIndex) = 0;
+
+	virtual bool IsClanPublic(CSteamID steamID) = 0;
+	virtual bool IsClanOfficialGameGroup(CSteamID steamID) = 0;
 };
 
 

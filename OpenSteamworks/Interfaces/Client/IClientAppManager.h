@@ -97,6 +97,7 @@ public:
 	virtual int32 AddInstallBaseFolder( const char *szPath ) = 0;
 	virtual bool RemoveInstallBaseFolder( int32 iBaseFolder ) = 0;
 	virtual uint64 GetFreeDiskSpace( int32 iBaseFolder ) = 0;
+	virtual bool BGetDiskSpaceStats( int32 iBaseFolder, uint64*, uint64*) = 0;
 	virtual int32 GetAppInstallBaseFolder( int32 iBaseFolder ) = 0;
 	virtual void ForceInstallDirOverride( const char *cszPath ) = 0;
 	virtual bool SetDownloadThrottleRateKbps( int32 iRate, bool ) = 0;

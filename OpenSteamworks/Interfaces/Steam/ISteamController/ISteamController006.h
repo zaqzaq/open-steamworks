@@ -14,8 +14,8 @@
 //
 //=============================================================================
 
-#ifndef ISTEAMCONTROLLER005_H
-#define ISTEAMCONTROLLER005_H
+#ifndef ISTEAMCONTROLLER006_H
+#define ISTEAMCONTROLLER006_H
 #ifdef _WIN32
 #pragma once
 #endif
@@ -23,7 +23,7 @@
 #include "Types/SteamTypes.h"
 #include "Interfaces/Common/ControllerCommon.h"
 
-abstract_class ISteamController005
+abstract_class ISteamController006
 {
 public:
 	//
@@ -44,6 +44,11 @@ public:
 	virtual void ActivateActionSet( ControllerHandle_t hController, ControllerActionSetHandle_t hAction ) = 0;
 	
 	virtual ControllerActionSetHandle_t GetCurrentActionSet( ControllerHandle_t hController) = 0;
+
+	virtual void ActivateActionSetLayer( ControllerHandle_t hController, uint64 ) = 0;
+	virtual void DeactivateActionSetLayer( ControllerHandle_t hController, uint64 ) = 0;
+	virtual void DeactivateAllActionSetLayers( ControllerHandle_t hController ) = 0;
+	virtual int32 GetActiveActionSetLayers( ControllerHandle_t hController, uint64* ) = 0;
 	
 	virtual ControllerDigitalActionHandle_t GetDigitalActionHandle( const char* actionName ) = 0;
 	STEAMWORKS_STRUCT_RETURN_2( ControllerDigitalActionData_t, GetDigitalActionData, ControllerHandle_t, controllerHandle, ControllerDigitalActionHandle_t, actionHandle );	// virtual ControllerDigitalActionData_t GetDigitalActionData( ControllerHandle_t, ControllerDigitalActionHandle_t ) = 0;
@@ -74,4 +79,4 @@ public:
 	
 };
 
-#endif // ISTEAMCONTROLLER005_H
+#endif // ISTEAMCONTROLLER006_H

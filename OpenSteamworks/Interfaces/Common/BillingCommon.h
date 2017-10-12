@@ -46,7 +46,7 @@ typedef enum ELicenseFlags
 // Payment methods for purchases
 typedef enum EPaymentMethod
 {
-	k_EPaymentMethodNone, // None
+	k_EPaymentMethodNone = 0, // None
 	k_EPaymentMethodCDKey, // CD Key
 	k_EPaymentMethodCreditCard, // Credit Card
 	k_EPaymentMethodGiropay, // Giropay
@@ -138,6 +138,34 @@ typedef enum EPaymentMethod
 	k_EPaymentMethodCashCardIndia, // Cash Card (India)
 	k_EPaymentMethodWalletIndia, // Wallet (India)
 	k_EPaymentMethodMobileKorea, // Mobile (Korea)
+	k_EPaymentMethodNaranja, // Naranja
+	k_EPaymentMethodCencosud, // Cencosud
+	k_EPaymentMethodCabal, // Cabal
+	k_EPaymentMethodPagoFacil, // Pago Facil
+	k_EPaymentMethodRapipago, // Rapipago
+	k_EPaymentMethodBancoNacionalDeCostaRica, // Banco Nacional de Costa Rica
+	k_EPaymentMethodBancoPoplar, // Banco Poplar
+	k_EPaymentMethodRedPagos, // Red Pagos
+	k_EPaymentMethodSPE, // SPE
+	k_EPaymentMethodMulticaja, // Multicaja
+	k_EPaymentMethodRedCompra, // RedCompra
+	k_EPaymentMethodZiraatBank, // Ziraat Bank
+	k_EPaymentMethodVakiflarBank, // Vakiflar Bank
+	k_EPaymentMethodKuveytTurkBank, // Kuveyt Turk Bank
+	k_EPaymentMethodEkonomiBank, // Ekonomi Bank
+	k_EPaymentMethodPichincha, // Pichincha
+	k_EPaymentMethodPichinchaCash, // Pichincha Cash
+	k_EPaymentMethodPrzelewy24, // Przelewy24
+	k_EPaymentMethodTrustpay, // Trustpay
+	k_EPaymentMethodPOLi, // POLi
+	k_EPaymentMethodMercadoPago, // MercadoPago
+	k_EPaymentMethodPayU, // PayU
+	k_EPaymentMethodVTCPayWallet, // VTC Pay Wallet
+	k_EPaymentMethodMrCash, // MrCash
+	k_EPaymentMethodEPS, // EPS
+	k_EPaymentMethodInterac, // Interac
+	k_EPaymentMethodVTCPayCards, // VTC Pay Cards
+	k_EPaymentMethodVTCPayOnlineBanking, // VTC Pay Online Banking
 	k_EPaymentMethodWallet = 128, // Wallet
 	k_EPaymentMethodValve, // Valve
 	k_EPaymentMethodSteamPressMaster, // Steam/Press Master

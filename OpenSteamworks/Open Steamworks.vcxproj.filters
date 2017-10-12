@@ -806,6 +806,9 @@
     <ClInclude Include="Interfaces\Client\IClientHTMLSurface.h">
       <Filter>Interfaces\Client</Filter>
     </ClInclude>
+    <ClInclude Include="Interfaces\Steam\ISteamController\ISteamController006.h">
+      <Filter>Interfaces\Steam\ISteamController</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Types">

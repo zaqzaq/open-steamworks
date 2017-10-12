@@ -222,6 +222,7 @@
 #include "Interfaces/Steam/ISteamController/ISteamController003.h"
 #include "Interfaces/Steam/ISteamController/ISteamController004.h"
 #include "Interfaces/Steam/ISteamController/ISteamController005.h"
+#include "Interfaces/Steam/ISteamController/ISteamController006.h"
 
 // music
 #include "Interfaces/Steam/ISteamMusic/ISteamMusic001.h"

@@ -29,6 +29,7 @@
 #define STEAMCONTROLLER_INTERFACE_VERSION_003 "SteamController003"
 #define STEAMCONTROLLER_INTERFACE_VERSION_004 "SteamController004"
 #define STEAMCONTROLLER_INTERFACE_VERSION_005 "SteamController005"
+#define STEAMCONTROLLER_INTERFACE_VERSION_006 "SteamController006"
 
 #define STEAM_RIGHT_TRIGGER_MASK			0x0000000000000001l
 #define STEAM_LEFT_TRIGGER_MASK				0x0000000000000002l
@@ -276,6 +277,8 @@ enum EControllerType
 	k_EControllerTypeController_ps4,
 	k_EControllerTypeController_wii,
 	k_EControllerTypeController_apple,
+	k_EControllerTypeController_keyboard_generic = 400,
+	k_EControllerTypeController_mouse_generic = 800,
 };
 
 enum EControllerActivationType
@@ -470,6 +473,7 @@ enum EControllerSetting
 	k_EControllerSettingGyro_pointer_mode,
 	k_EControllerSettingGyro_button_invert,
 	k_EControllerSettingVirtual_mode,
+	k_EControllerSettingLayer = 72,
 	k_EControllerSettingTouch_menu_button_count,
 	k_EControllerSettingTouch_menu_opacity,
 	k_EControllerSettingTouch_menu_position_x,

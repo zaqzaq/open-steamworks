@@ -52,6 +52,7 @@ public:
 	virtual bool BIsTemporaryShortcutByAppID( AppId_t unAppID ) = 0;
 	virtual bool BIsOpenVRShortcutByAppID( AppId_t unAppID ) = 0;
 	virtual bool BAllowDesktopConfigByAppID( AppId_t unAppID ) = 0;
+	virtual bool BAllowOverlayByAppID( AppId_t unAppID ) = 0;
 	virtual uint32 GetShortcutLastPlayedTime( AppId_t unAppID ) = 0;
 	virtual AppId_t AddShortcut( const char *szShortcutName, const char *szShortcutExe, const char *szUnk1, const char *szUnk2, const char *szhUnk3) = 0;
 	virtual uint32 AddTemporaryShortcut( const char *, const char *, const char * ) = 0;
@@ -67,6 +68,7 @@ public:
 	virtual void RemoveShortcutUserTag( AppId_t unAppID, const char * szTag) = 0;
 	virtual void SetShortcutHidden( AppId_t unAppID, bool ) = 0;
 	virtual void SetAllowDesktopConfig( uint32, bool ) = 0;
+	virtual void SetAllowOverlay( AppId_t unAppID, bool ) = 0;
 	virtual void SetOpenVRShortcut( uint32, bool ) = 0;
 	virtual void RemoveShortcut( AppId_t unAppID ) = 0;
 	virtual void RemoveAllTemporaryShortcuts() = 0;
