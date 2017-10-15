@@ -734,6 +734,8 @@ enum ECallbackType
 	k_iClientVideoCallbacks = 4600,
 	k_iClientInventoryCallbacks = 4700,
 	k_iClientBluetoothManagerCallbacks = 4800,
+	k_iClientSharedConnectionCallbacks = 4900,
+	k_iSteamParentalSettingsCallbacks = 5000,
 };
 
 
