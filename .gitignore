@@ -12,6 +12,13 @@ Backup
 *.sln.docstates
 *.pdb
 *.lib
+*.o
+*.a
+*.exp
+*.ilk
+*.dll
+*.iobj
+*.ipdb
 ssfn*
 [Dd]ebug/
 [Dd]ebugPublic/
