@@ -399,6 +399,7 @@ enum EControllerModeInput
 	k_EControllerModeInputButton_rtrigger_threshold,
 	k_EControllerModeInputButton_joystick,
 	k_EControllerModeInputButton_steam,
+	k_EControllerModeInputAlways_on_action,
 };
 
 enum EControllerSetting

@@ -291,6 +291,9 @@
 #include "Interfaces/Client/IClientVideo.h"
 #include "Interfaces/Client/IClientBluetoothManager.h"
 #include "Interfaces/Client/IClientParentalSettings.h"
+#include "Interfaces/Client/IClientShader.h"
+#include "Interfaces/Client/IClientNetworkingSocketsSerialized.h"
+
 #endif // NO_ICLIENT
 
 // callback

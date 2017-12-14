@@ -78,6 +78,7 @@ public:
 	virtual bool ChangeAppDownloadQueuePlacement( AppId_t unAppID, EAppDownloadQueuePlacement eAppDownloadQueuePlacement ) = 0;
 	virtual int32 GetAppDownloadQueueIndex( AppId_t unAppID ) = 0;
 	virtual int32 GetAppAutoUpdateDelayedUntilTime( AppId_t unAppID ) = 0;
+	virtual int32 GetNumAppsInDownloadQueue() = 0;
 	virtual bool BHasLocalContentServer() = 0;
 	virtual bool BuildBackup( AppId_t unAppID, uint64 ullMaxFileSize, const char *cszBackupPath ) = 0;
 	virtual bool BuildInstaller( const char *cszProjectFile, const char *cszBackupPath, const char *, const char * ) = 0;

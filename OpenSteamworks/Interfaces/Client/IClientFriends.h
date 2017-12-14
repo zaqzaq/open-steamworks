@@ -116,7 +116,7 @@ public:
 	virtual int32 GetChatMessage( CSteamID steamIDFriend, int32 iChatID, void *pvData, int32 cubData, EChatEntryType *peChatEntryType, CSteamID* pSteamIDChatter, RTime32 *puTime ) = 0;
 
 	// generic friend->friend message sending, takes a sized buffer
-	virtual bool SendMsgToFriend( CSteamID steamIDFriend, EChatEntryType eChatEntryType, const void *pvMsgBody, int32 cubMsgBody ) = 0;
+	virtual bool SendMsgToFriend( CSteamID steamIDFriend, EChatEntryType eChatEntryType, const char *pvMsgBody ) = 0;
 
 	// clears the chat history - should be called when a chat dialog closes
 	virtual void ClearChatHistory( CSteamID steamIDFriend ) = 0;
@@ -165,7 +165,7 @@ public:
 	virtual bool JoinChatRoom( CSteamID steamIDChat ) = 0;
 	virtual void LeaveChatRoom( CSteamID steamIDChat ) = 0;
 	virtual bool InviteUserToChatRoom( CSteamID steamIDChat, CSteamID steamIDInvitee ) = 0;
-	virtual bool SendChatMsg( CSteamID steamIDChat, EChatEntryType eChatEntryType, const void *pvMsgBody, int32 cubMsgBody ) = 0;
+	virtual bool SendChatMsg( CSteamID steamIDChat, EChatEntryType eChatEntryType, const char *pvMsgBody ) = 0;
 	virtual int32 GetChatRoomMessagesCount( CSteamID steamIDChat ) = 0;
 	virtual int32 GetChatRoomEntry( CSteamID steamIDChat, int32 iChatID, CSteamID *steamIDuser, void *pvData, int32 cubData, EChatEntryType *peChatEntryType ) = 0;
 	virtual void ClearChatRoomHistory( CSteamID steamID ) = 0;

@@ -85,10 +85,12 @@ public:
 	virtual bool GetGuestPassToRedeemSenderName( uint32 nPassIndex, char* pchSenderName, int32 cSenderNameSize ) = 0;
 	virtual int32 GetNumAppsInGuestPassesToRedeem() = 0;
 	virtual unknown_ret GetAppsInGuestPassesToRedeem(uint32*, uint32) = 0;
+	virtual unknown_ret GetCountUserNotifications() = 0;
+	virtual unknown_ret GetCountUserNotification(EUserNotification) = 0;
 	virtual SteamAPICall_t RequestStoreAuthURL(const char *) = 0;
 	virtual bool SetLanguage( const char *pchLanguage ) = 0;
 	virtual void TrackAppUsageEvent( CGameID gameID, int32 eAppUsageEvent, const char *pchExtraInfo = "" ) = 0;
-	virtual int32 RaiseConnectionPriority( EConnectionPriority eConnectionPriority ) = 0;
+	virtual int32 RaiseConnectionPriority( EConnectionPriority eConnectionPriority, EConnectionPriorityReason eUnk) = 0;
 	virtual void ResetConnectionPriority( int32 hRaiseConnectionPriorityPrev ) = 0;
 	virtual bool BHasCachedCredentials( const char * pchUnk ) = 0;
 	virtual bool SetAccountNameForCachedCredentialLogin( const char *pchAccountName, bool bUnk ) = 0;

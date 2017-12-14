@@ -43,10 +43,9 @@ typedef enum ELicenseFlags
 	k_ELicenseFlagImportedFromSteam2 = 0x80,
 } ELicenseFlags;
 
-// Payment methods for purchases
 typedef enum EPaymentMethod
 {
-	k_EPaymentMethodNone = 0, // None
+	k_EPaymentMethodNone, // None
 	k_EPaymentMethodCDKey, // CD Key
 	k_EPaymentMethodCreditCard, // Credit Card
 	k_EPaymentMethodGiropay, // Giropay
@@ -109,7 +108,8 @@ typedef enum EPaymentMethod
 	k_EPaymentMethodDenizBank, // DenizBank
 	k_EPaymentMethodPTT, // PTT
 	k_EPaymentMethodCashU, // CashU
-	k_EPaymentMethodAutoGrant = 64, // Auto Grant
+	k_EPaymentMethodSantanderRio, // Santander Rio
+	k_EPaymentMethodAutoGrant, // Auto Grant
 	k_EPaymentMethodWebMoneyJapan, // WebMoney (Japan)
 	k_EPaymentMethodOneCard, // OneCard
 	k_EPaymentMethodPSE, // PSE
@@ -174,6 +174,7 @@ typedef enum EPaymentMethod
 	k_EPaymentMethodSplit = 512, // Split
 	k_EPaymentMethodComplimentary = 1024, // Complimentary
 } EPaymentMethod;
+
 
 typedef enum EPurchaseResultDetail
 {

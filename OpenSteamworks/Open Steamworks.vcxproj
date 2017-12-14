@@ -44,10 +44,12 @@
     <ClInclude Include="Interfaces\Client\IClientMusic.h" />
     <ClInclude Include="Interfaces\Client\IClientNetworkDeviceManager.h" />
     <ClInclude Include="Interfaces\Client\IClientNetworking.h" />
+    <ClInclude Include="Interfaces\Client\IClientNetworkingSocketsSerialized.h" />
     <ClInclude Include="Interfaces\Client\IClientParentalSettings.h" />
     <ClInclude Include="Interfaces\Client\IClientProductBuilder.h" />
     <ClInclude Include="Interfaces\Client\IClientRemoteStorage.h" />
     <ClInclude Include="Interfaces\Client\IClientScreenshots.h" />
+    <ClInclude Include="Interfaces\Client\IClientShader.h" />
     <ClInclude Include="Interfaces\Client\IClientShortcuts.h" />
     <ClInclude Include="Interfaces\Client\IClientStreamClient.h" />
     <ClInclude Include="Interfaces\Client\IClientStreamLauncher.h" />

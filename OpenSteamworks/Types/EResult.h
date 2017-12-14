@@ -133,6 +133,9 @@ typedef enum EResult
 	k_EResultInsufficientFunds = 107,						//
 	k_EResultTooManyPending = 108,							//
 	k_EResultNoSiteLicensesFound = 109,						//
+	k_EResultNetworkSendExceeded = 110,						//
+	k_EResultAccountsNotFriends = 111,						//
+	k_EResultLimitedUserAccount = 112,						//
 } EResult;
 
 #endif // ERESULT_H

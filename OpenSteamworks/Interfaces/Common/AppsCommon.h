@@ -59,6 +59,7 @@ enum EAppState
 	k_EAppStateAppRunning = 8192,
 	k_EAppStateComponentInUse = 16384,
 	k_EAppStateMovingFolder = 32768,
+	k_EAppStateUpdateHidden = 65536,
 };
 
 enum EAppUpdateState

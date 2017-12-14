@@ -257,7 +257,6 @@ public:
 	// function to pull out the list of item definition ids that the user can be
 	// manually granted via the AddPromoItems() call.
 	virtual bool GetEligiblePromoItemDefinitionIDs(CSteamID steamID, SteamItemDef_t *pItemDefIDs, uint32 uUnk, uint32 *punItemDefIDsArraySize) = 0;
-
 };
 
 #endif // ICLIENTINVENTORY_H

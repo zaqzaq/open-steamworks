@@ -87,7 +87,7 @@ int main()
 						if(strcmp(pClientFriends->GetFriendPersonaName(friendID), "Didrole") == 0) // Put the persona name of the friend to use as the 'front end' here.
 						{
 							const char* cszMessage = "I'm logged on!";
-							pClientFriends->SendMsgToFriend(friendID, k_EChatEntryTypeChatMsg, cszMessage, strlen(cszMessage));
+							pClientFriends->SendMsgToFriend(friendID, k_EChatEntryTypeChatMsg, cszMessage);
 							adminID = friendID;
 
 							break;
@@ -182,7 +182,7 @@ int main()
 								return 0;
 							}
 
-							pClientFriends->SendMsgToFriend(pFriendMessageInfo->m_ulFriendID, eMsgType, szData, iLength);
+							pClientFriends->SendMsgToFriend(pFriendMessageInfo->m_ulFriendID, eMsgType, szData);
 						}
 					}
 					break;

@@ -809,6 +809,12 @@
     <ClInclude Include="Interfaces\Steam\ISteamController\ISteamController006.h">
       <Filter>Interfaces\Steam\ISteamController</Filter>
     </ClInclude>
+    <ClInclude Include="Interfaces\Client\IClientShader.h">
+      <Filter>Interfaces\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\Client\IClientNetworkingSocketsSerialized.h">
+      <Filter>Interfaces\Client</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Types">

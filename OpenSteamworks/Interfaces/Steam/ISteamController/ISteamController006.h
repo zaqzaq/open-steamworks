@@ -77,6 +77,7 @@ public:
 	virtual const char *GetStringForActionOrigin( EControllerActionOrigin eOrigin ) = 0;
 	virtual const char *GetGlyphForActionOrigin( EControllerActionOrigin eOrigin ) = 0;
 	
+	virtual unknown_ret GetInputTypeForHandle( ControllerHandle_t hController ) = 0;
 };
 
 #endif // ISTEAMCONTROLLER006_H

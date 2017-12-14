@@ -22,6 +22,7 @@
 
 
 #define STEAMINVENTORY_INTERFACE_VERSION_001 "STEAMINVENTORY_INTERFACE_V001"
+#define STEAMINVENTORY_INTERFACE_VERSION_002 "STEAMINVENTORY_INTERFACE_V002"
 
 // Every individual instance of an item has a globally-unique ItemInstanceID.
 // This ID is unique to the combination of (player, specific item instance)

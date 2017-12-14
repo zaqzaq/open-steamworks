@@ -45,7 +45,7 @@ public:
 	virtual bool InitBroadcastAudio(int32, int32, int32, int32, int32, const uint8*, int32) = 0;
 
 	virtual bool UploadBroadcastFrame(bool, bool, uint32, int64, int64, const uint8* pubFrame, int32 iFrameSize) = 0;
-	virtual bool UploadBroadcastScreenshot(int32 iWidth, int32 iHeight, const uint8* pubRGBData, int32 iRGBDataSize) = 0;
+	virtual bool UploadBroadcastThumbnail(int32 iWidth, int32 iHeight, const uint8* pubRGBData, int32 iRGBDataSize) = 0;
 
 	virtual void DroppedVideoFrames(int32) = 0;
 
