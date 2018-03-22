@@ -291,6 +291,7 @@ enum EControllerActivationType
 	k_EControllerActivationTypeLong_press,
 	k_EControllerActivationTypeDouble_press,
 	k_EControllerActivationTypeAnalog,
+	k_EControllerActivationTypeChord,
 };
 
 enum EControllerSource
@@ -516,6 +517,7 @@ enum EControllerSetting
 	k_EControllerSettingInterruptable,
 	k_EControllerSettingSoft_press_sytle,
 	k_EControllerSettingActivator_output_axis,
+	k_EControllerSettingChord_button,
 };
 
 enum EControllerConfigFeature

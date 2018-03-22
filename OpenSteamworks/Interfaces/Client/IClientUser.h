@@ -276,6 +276,7 @@ public:
 	virtual void AddAppTag(CGameID, const char*) = 0;
 	virtual void SetAppHidden(CGameID, bool) = 0;
 	virtual SteamAPICall_t RequestAccountLinkInfo() = 0;
+	virtual void RequestSurveySchedule() = 0;
 };
 
 #endif // ICLIENTUSER_H

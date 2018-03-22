@@ -699,7 +699,7 @@ enum ECallbackType
 	k_iSteamUserStatsCallbacks = 1100,
 	k_iSteamNetworkingCallbacks = 1200,
 	k_iClientRemoteStorageCallbacks = 1300,
-	k_iSteamUserItemsCallbacks = 1400,
+	k_iClientDepotBuilderCallbacks = 1400,
 	k_iSteamGameServerItemsCallbacks = 1500,
 	k_iClientUtilsCallbacks = 1600,
 	k_iSteamGameCoordinatorCallbacks = 1700,
@@ -728,14 +728,15 @@ enum ECallbackType
 	k_iSteamMusicCallbacks = 4000,
 	k_iSteamMusicRemoteCallbacks = 4100,
 	k_iClientVRCallbacks = 4200,
-	k_iClientReservedCallbacks = 4300,
-	k_iSteamReservedCallbacks = 4400,
+	k_iClientGameNotificationCallbacks = 4300,
+	k_iSteamGameNotificationCallbacks = 4400,
 	k_iSteamHTMLSurfaceCallbacks = 4500,
 	k_iClientVideoCallbacks = 4600,
 	k_iClientInventoryCallbacks = 4700,
 	k_iClientBluetoothManagerCallbacks = 4800,
 	k_iClientSharedConnectionCallbacks = 4900,
 	k_iSteamParentalSettingsCallbacks = 5000,
+	k_iClientShaderCallbacks = 5100,
 };
 
 

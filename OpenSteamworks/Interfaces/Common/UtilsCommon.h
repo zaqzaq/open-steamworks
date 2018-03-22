@@ -217,4 +217,9 @@ class CUtlBuffer
 #endif
 ;
 
+struct OverlayChatBrowserInfo_t
+{
+	// TODO: Reverse this struct
+};
+
 #endif // UTILSCOMMON_H

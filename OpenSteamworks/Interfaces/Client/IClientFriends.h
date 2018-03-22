@@ -78,6 +78,7 @@ public:
 	virtual bool IsFriendGameOnConsole( CSteamID steamIDFriend ) = 0;
 	STEAMWORKS_STRUCT_RETURN_1(FriendSessionStateInfo_t, GetFriendSessionStateInfo, CSteamID, steamIDFriend) /*virtual FriendSessionStateInfo_t GetFriendSessionStateInfo( CSteamID steamIDFriend ) = 0;*/
 	virtual EUserRestriction GetFriendRestrictions( CSteamID steamIDFriend ) = 0;
+	virtual uint64 GetFriendBroadcastID( CSteamID steamIDFriend ) = 0;
 
 	// accesses old friends names - returns an empty string when their are no more items in the history
 	virtual const char *GetFriendPersonaNameHistory( CSteamID steamIDFriend, int32 iPersonaName ) = 0;
@@ -263,6 +264,7 @@ public:
 	virtual void RequestFriendsWhoPlayGame( CGameID gameID ) = 0;
 	virtual uint32 GetCountFriendsWhoPlayGame( CGameID gameID ) = 0;
 	STEAMWORKS_STRUCT_RETURN_2(CSteamID, GetFriendWhoPlaysGame, uint32, iIndex, CGameID, gameID) /*virtual CSteamID GetFriendWhoPlaysGame( uint32 iIndex, CGameID gameID ) = 0;*/
+	virtual uint32 GetCountFriendsInGame( CGameID gameID ) = 0;
 	virtual void SetPlayedWith( CSteamID steamIDUserPlayedWith ) = 0;
 	virtual SteamAPICall_t RequestClanOfficerList( CSteamID steamIDClan ) = 0;
 	STEAMWORKS_STRUCT_RETURN_1(CSteamID, GetClanOwner, CSteamID, steamIDClan) /*virtual CSteamID GetClanOwner( CSteamID steamIDClan ) = 0;*/

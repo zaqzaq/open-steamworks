@@ -68,5 +68,6 @@ class ISteamParentalSettings;
 #define STEAMCLIENT_INTERFACE_VERSION_015		"SteamClient015"
 #define STEAMCLIENT_INTERFACE_VERSION_016		"SteamClient016"
 #define STEAMCLIENT_INTERFACE_VERSION_017		"SteamClient017"
+#define STEAMCLIENT_INTERFACE_VERSION_018		"SteamClient018"
 
 #endif

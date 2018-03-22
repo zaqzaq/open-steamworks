@@ -73,6 +73,7 @@ class IClientBluetoothManager;
 class IClientSharedConnection;
 class IClientShader;
 class IClientNetworkingSocketsSerialized;
+class IClientGameSearch;
 
 abstract_class UNSAFE_INTERFACE IClientEngine
 {
@@ -96,6 +97,7 @@ public:
 	virtual IClientMatchmaking *GetIClientMatchmaking( HSteamUser hSteamUser, HSteamPipe hSteamPipe, char const* pchVersion ) = 0;
 	virtual IClientApps *GetIClientApps( HSteamUser hSteamUser, HSteamPipe hSteamPipe, char const* pchVersion ) = 0;
 	virtual IClientMatchmakingServers *GetIClientMatchmakingServers( HSteamUser hSteamUser, HSteamPipe hSteamPipe, char const* pchVersion ) = 0;
+	virtual IClientGameSearch GetIClientGameSearch( HSteamUser hSteamUser, HSteamPipe hSteamPipe, char const* pchVersion ) = 0;
 	virtual void RunFrame() = 0;
 	virtual uint32 GetIPCCallCount() = 0;
 	virtual IClientUserStats *GetIClientUserStats( HSteamUser hSteamUser, HSteamPipe hSteamPipe, char const* pchVersion ) = 0;

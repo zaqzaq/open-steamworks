@@ -100,7 +100,8 @@ enum EAppInfoSection
 	k_EAppInfoSectionPolicies,
 	k_EAppInfoSectionSysreqs,
 	k_EAppInfoSectionCommunity,
-	k_EAppInfoSectionStore
+	k_EAppInfoSectionStore,
+	k_EAppInfoSectionLocalization,
 };
 
 enum EAppType
