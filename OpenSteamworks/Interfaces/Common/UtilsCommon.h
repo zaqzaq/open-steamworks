@@ -220,6 +220,9 @@ class CUtlBuffer
 struct OverlayChatBrowserInfo_t
 {
 	// TODO: Reverse this struct
+#ifdef _S4N_
+	int m_iPadding;
+#endif
 };
 
 #endif // UTILSCOMMON_H
