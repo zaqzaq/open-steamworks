@@ -74,7 +74,7 @@ public:
 	virtual ESteamAPICallFailure GetAPICallFailureReason( SteamAPICall_t hSteamAPICall ) = 0;
 	virtual bool GetAPICallResult( SteamAPICall_t hSteamAPICall, void *pCallback, int32 cubCallback, int32 iCallbackExpected, bool *pbFailed ) = 0;
 
-	virtual void PostInProcAPICallResult(uint64, void const*, int32, int32) = 0;
+	virtual void SetAPICallResultWithoutPostingCallback(uint64, void const*, int32, int32) = 0;
 
 	virtual bool SignalAppsToShutDown() = 0;
 	virtual bool SignalServiceAppsToDisconnect() = 0;
@@ -115,7 +115,7 @@ public:
 	virtual void SetVRHeadsetStreamingEnabled(uint32 unk, bool) = 0;
 	virtual unknown_ret GenerateSupportSystemReport() = 0;
 	virtual bool GetSupportSystemReport(char*, uint32 unk, uint8* unk_2, uint32 unk_3) = 0;
-	virtual AppId_t GetAppIdForPid(uint32 unk) = 0;
+	virtual AppId_t GetAppIdForPid(uint32 unk, bool bUnk) = 0;
 	virtual void SetClientUIProcess() = 0;
 	virtual bool BIsClientUIInForeground() = 0;
 	virtual void SetOverlayChatBrowserInfo(uint32, int32) = 0;

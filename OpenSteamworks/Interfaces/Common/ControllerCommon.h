@@ -277,6 +277,11 @@ enum EControllerType
 	k_EControllerTypeController_ps4,
 	k_EControllerTypeController_wii,
 	k_EControllerTypeController_apple,
+	k_EControllerTypeController_android,
+	k_EControllerTypeController_switch_pro,
+	k_EControllerTypeController_switch_joycon_left,
+	k_EControllerTypeController_switch_joycon_right,
+	k_EControllerTypeController_switch_joycon_pair,
 	k_EControllerTypeController_keyboard_generic = 400,
 	k_EControllerTypeController_mouse_generic = 800,
 };
@@ -401,6 +406,7 @@ enum EControllerModeInput
 	k_EControllerModeInputButton_joystick,
 	k_EControllerModeInputButton_steam,
 	k_EControllerModeInputAlways_on_action,
+	k_EControllerModeInputButton_capture,
 };
 
 enum EControllerSetting

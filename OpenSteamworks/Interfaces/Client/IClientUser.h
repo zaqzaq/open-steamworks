@@ -236,13 +236,12 @@ public:
 	virtual void RequestNotifications() = 0;
 	virtual bool GetAppOwnershipInfo( AppId_t unAppId, RTime32* pRTime32Created, uint32* unk, char* pchCountry ) = 0; // Use a 3 bytes buffer for the country
 	virtual void SendGameWebCallback( AppId_t unAppId, const char *szData ) = 0;
-	virtual void StopStreaming(bool, int32) = 0;
 	virtual bool BIsStreamingUIToRemoteDevice() = 0;
 	virtual bool BIsCurrentlyNVStreaming() = 0;
-	virtual void RequestStopNVStreaming() = 0;
-	virtual void OnBigPictureStreamingResult( bool, void * ) = 0;
-	virtual void OnBigPictureStreamingDone() = 0;
-	virtual void OnBigPictureStreamRestarting() = 0;
+	virtual unknown_ret OnBigPictureForStreamingStartResult(bool, void*) = 0;
+	virtual unknown_ret OnBigPictureForStreamingDone() = 0;
+	virtual unknown_ret OnBigPictureForStreamingRestarting() = 0;
+	virtual unknown_ret StopStreaming() = 0;
 	virtual void LockParentalLock() = 0;
 	virtual bool UnlockParentalLock( const char * pchUnk ) = 0;
 	virtual bool BIsParentalLockEnabled() = 0;
