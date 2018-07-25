@@ -121,6 +121,11 @@ public:
 	virtual void SetOverlayChatBrowserInfo(uint32, int32) = 0;
 	virtual void ClearOverlayChatBrowserInfo(uint32) = 0;
 	virtual bool GetOverlayChatBrowserInfo(OverlayChatBrowserInfo_t*, uint32, uint32*) = 0;
+	virtual unknown_ret DispatchClientUINotification(EClientUINotificationType eUnk, const char* pcUnk, uint32 uUnk) = 0;
+	virtual unknown_ret RespondToClientUINotification(uint32 uUnk, bool bUnk, uint32 uUnk1) = 0;
+	virtual unknown_ret DispatchClientUICommand(const char* pcUnk, uint32 uUnk) = 0;
+	virtual unknown_ret DispatchComputerActiveStateChange() = 0;
+	virtual unknown_ret DispatchOpenURLInClient(const char* pcUnk, uint32 uUnk, bool bUnk) = 0;
 };
 
 #endif // ICLIENTUTILS_H

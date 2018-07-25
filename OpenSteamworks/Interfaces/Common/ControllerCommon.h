@@ -282,6 +282,8 @@ enum EControllerType
 	k_EControllerTypeController_switch_joycon_left,
 	k_EControllerTypeController_switch_joycon_right,
 	k_EControllerTypeController_switch_joycon_pair,
+	k_EControllerTypeController_switch_pro_generic,
+	k_EControllerTypeController_mobile_touch,
 	k_EControllerTypeController_keyboard_generic = 400,
 	k_EControllerTypeController_mouse_generic = 800,
 };
@@ -309,6 +311,8 @@ enum EControllerSource
 	k_EControllerSourceSwitch,
 	k_EControllerSourceLeft_trigger,
 	k_EControllerSourceRight_trigger,
+	k_EControllerSourceLeft_bumper,
+	k_EControllerSourceRight_bumper,
 	k_EControllerSourceGyro,
 	k_EControllerSourceCenter_trackpad,
 	k_EControllerSourceRight_joystick,

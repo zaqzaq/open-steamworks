@@ -104,7 +104,6 @@ public:
 	virtual bool BIsAcademicAccount() = 0;
 	virtual bool BIsPortal2EducationAccount() = 0;
 	virtual bool BIsAlienwareDemoAccount() = 0;
-	virtual void CreateAccount( const char *pchAccountName, const char *pchNewPassword, const char *pchNewEmail, int32 iQuestion, const char *pchNewQuestion, const char *pchNewAnswer ) = 0;
 	virtual SteamAPICall_t ResetPassword( const char *pchAccountName, const char *pchOldPassword, const char *pchNewPassword, const char *pchValidationCode, const char *pchAnswer, const char* pchUnk ) = 0;
 	virtual EResult ValidatePasswordResetCodeAndSendSms(const char *, const char *) = 0;
 	virtual void TrackNatTraversalStat( const CNatTraversalStat *pNatStat ) = 0;
@@ -261,6 +260,8 @@ public:
 	virtual bool BSetParentalSettings( CUtlBuffer * pBuffer ) = 0;
 	virtual bool BDisableParentalSettings() = 0;
 	virtual bool BGetParentalWebToken( CUtlBuffer *, CUtlBuffer * ) = 0;
+	virtual unknown_ret GetCommunityPreference( ECommunityPreference eunk ) = 0;
+	virtual unknown_ret SetCommunityPreference( ECommunityPreference eUnk, bool bUnk ) = 0;
 	virtual bool BCanLogonOfflineMode() = 0;
 	virtual EResult LogOnOfflineMode() = 0;
 	virtual EResult ValidateOfflineLogonTicket( const char * pchUnk ) = 0;
@@ -269,13 +270,14 @@ public:
 	virtual void SetAsyncNotificationEnabled( uint32, bool ) = 0;
 	virtual bool BIsOtherSessionPlaying( uint32 * ) = 0;
 	virtual bool BKickOtherPlayingSession() = 0;
-	virtual void PerformAccountRecoveryUpload() = 0;
 	virtual bool BIsAccountLockedDown() = 0;
 	virtual void RemoveAppTag(CGameID, const char*) = 0;
 	virtual void AddAppTag(CGameID, const char*) = 0;
 	virtual void SetAppHidden(CGameID, bool) = 0;
 	virtual SteamAPICall_t RequestAccountLinkInfo() = 0;
 	virtual void RequestSurveySchedule() = 0;
+	virtual unknown_ret RequestNewSteamAnnouncementState() = 0;
+	virtual unknown_ret UpdateSteamAnnouncementLastRead( uint64 ullUnk, uint32 uUnk) = 0;
 };
 
 #endif // ICLIENTUSER_H

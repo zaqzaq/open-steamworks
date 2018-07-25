@@ -67,6 +67,7 @@ public:
 	virtual bool IsCurrentlyConnected(uint32) = 0;
 	virtual unknown_ret GetDeviceIP4(uint32, uint32, uint32*) = 0;
 	virtual unknown_ret GetDeviceBroadcastIP4(uint32, uint32, uint32*) = 0;
+	virtual unknown_ret GetDeviceIPV6InterfaceIndex(uint32) = 0;
 	virtual const char* GetDeviceVendor(uint32) = 0;
 	virtual const char* GetDeviceProduct(uint32) = 0;
 	virtual const char* GetMacAddress(uint32) = 0;

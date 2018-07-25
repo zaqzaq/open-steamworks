@@ -68,8 +68,8 @@ public:
 	virtual bool GetBroadcastShowReminderBanner() = 0;
 	virtual int32 GetBroadcastEncoderSetting() = 0;
 
-	virtual void InviteToBroadcast(CSteamID, bool) = 0;
-	virtual void IgnoreApprovalRequest(CSteamID) = 0;
+	virtual void InviteToBroadcast(CSteamID steamID, bool bUnk, uint32 uUnk) = 0;
+	virtual void IgnoreApprovalRequest(CSteamID, uint32 uUnk) = 0;
 	virtual void BroadcastFirstTimeComplete() = 0;
 	virtual void SetInHomeStreamState(bool) = 0;
 	virtual void WatchBroadcast(CSteamID) = 0;

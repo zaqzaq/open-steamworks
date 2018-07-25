@@ -28,6 +28,7 @@ public:
     virtual unknown_ret GetShaderDepotsTotalDiskUsage() = 0;
     virtual unknown_ret StartShaderScan( uint32, const char* ) = 0;
     virtual unknown_ret ProcessShaderCache( uint32 ) = 0;
+	virtual unknown_ret SetupShaderCacheEnvironment( char*, uint32 ) = 0;
 };
 
 #endif // ICLIENTSHADER_H

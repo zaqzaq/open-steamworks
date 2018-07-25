@@ -178,6 +178,7 @@ enum EPersonaState
 	k_EPersonaStateSnooze = 4,			// auto-away for a long time
 	k_EPersonaStateLookingToTrade = 5,	// Online, trading
 	k_EPersonaStateLookingToPlay = 6,	// Online, wanting to play
+	k_EPersonaStateInvisible,
 	k_EPersonaStateMax,
 };
 

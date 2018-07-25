@@ -88,8 +88,6 @@ public:
 	virtual int32 GetGMSQueryResults( uint64 ullGMSQuery, GMSQueryResult_t *pGMSQueryResults, int32 nResultBufSizeInBytes ) = 0;
 	virtual void ReleaseGMSQuery( uint64 ullGMSQuery ) = 0;
 	
-	virtual void SendGameServerPingSample( AppId_t unAppID, int32 nSamples, const PingSample_t * pSamples ) = 0;
-
 	virtual uint64 EnsureFavoriteGameAccountsUpdated( bool bUnk ) = 0;
 };
 

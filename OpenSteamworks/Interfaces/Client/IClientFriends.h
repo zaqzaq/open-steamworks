@@ -189,6 +189,8 @@ public:
 	virtual const char *GetChatRoomName( CSteamID steamIDChat ) = 0;
 	virtual bool BGetChatRoomMemberDetails( CSteamID steamIDChat, CSteamID steamIDUser, uint32* prgfChatMemberDetails, uint32* prgfChatMemberDetailsLocal ) = 0;
 	virtual void CreateChatRoom( EChatRoomType eType, uint64 ulGameID, const char *pchName, ELobbyType eLobbyType, CSteamID steamIDClan, CSteamID steamIDFriendChat, CSteamID steamIDInvited, uint32 rgfChatPermissionOfficer, uint32 rgfChatPermissionMember, uint32 rgfChatPermissionAll ) = 0;
+	virtual unknown_ret JoinChatRoomGroup( uint64 ullUnk1, uint64 ullUnk2 ) = 0;
+	virtual unknown_ret ShowChatRoomGroupInvite( const char* cUnk ) = 0;
 	virtual void VoiceCallNew( CSteamID steamIDLocalPeer, CSteamID steamIDRemotePeer ) = 0;
 	virtual void VoiceCall( CSteamID steamIDLocalPeer, CSteamID steamIDRemotePeer ) = 0;
 	virtual void VoiceHangUp( CSteamID steamIDLocalPeer, HVoiceCall hVoiceCall ) = 0;
@@ -202,8 +204,9 @@ public:
 	virtual bool BVoiceIsRemoteOnHold( HVoiceCall hVoiceCall ) = 0;
 	virtual void SetDoNotDisturb( bool bDoNotDisturb ) = 0;
 	virtual void EnableVoiceNotificationSounds( bool bEnable ) = 0;
-	virtual void SetPushToTalkEnabled( bool bEnable ) = 0;
+	virtual void SetPushToTalkEnabled( bool bEnable, bool bUnk ) = 0;
 	virtual bool IsPushToTalkEnabled() = 0;
+	virtual bool IsPushToMuteEnabled() = 0;
 	virtual void SetPushToTalkKey( int32 nVirtualKey ) = 0;
 	virtual int32 GetPushToTalkKey() = 0;
 	virtual bool IsPushToTalkKeyDown() = 0;
@@ -229,6 +232,7 @@ public:
 	virtual float GetPeakSample( HVoiceCall hVoiceCall, bool bIncoming ) = 0;
 	virtual void SendResumeRequest( HVoiceCall hVoiceCall ) = 0;
 	virtual void OpenChatDialog( CSteamID steamID ) = 0;
+	virtual void OpenInviteToTradeDialog( CSteamID steamID ) = 0;
 	virtual void StartChatRoomVoiceSpeaking( CSteamID steamIDChat, CSteamID steamIDMember ) = 0;
 	virtual void EndChatRoomVoiceSpeaking( CSteamID steamIDChat, CSteamID steamIDMember ) = 0;
 	virtual RTime32 GetFriendLastLogonTime( CSteamID steamIDFriend ) = 0;
@@ -294,6 +298,9 @@ public:
 	virtual const char *GetEmoticonName( int32 iEmoticon ) = 0;
 	virtual void ClientLinkFilterInit() = 0;
 	virtual uint32 LinkDisposition( const char * ) = 0;
+	virtual unknown_ret GetFriendPersonaName_Public( CSteamID steamID ) = 0;
+	virtual unknown_ret GetPlayerNickname_Public( CSteamID steamID ) = 0;
+	virtual unknown_ret SetFriendsUIActiveClanChatList( uint32* pUnk, int32 iUnk) = 0;
 };
 
 #endif // ICLIENTFRIENDS_H

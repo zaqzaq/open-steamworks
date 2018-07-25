@@ -43,6 +43,9 @@ enum EBroadcastUploadResult
 	k_EBroadcastUploadResultMissingAudio,
 	k_EBroadcastUploadResultTooFarBehind,
 	k_EBroadcastUploadResultTranscodeBehind,
+	k_EBroadcastUploadResultNotAllowedToPlay,
+	k_EBroadcastUploadResultServerBusy,
+	k_EBroadcastUploadResultBanned,
 };
 
 enum EBroadcastPermission 
