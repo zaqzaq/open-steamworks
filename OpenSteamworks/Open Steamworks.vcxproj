@@ -50,6 +50,7 @@
     <ClInclude Include="Interfaces\Client\IClientRemoteStorage.h" />
     <ClInclude Include="Interfaces\Client\IClientScreenshots.h" />
     <ClInclude Include="Interfaces\Client\IClientShader.h" />
+    <ClInclude Include="Interfaces\Client\IClientSharedConnection.h" />
     <ClInclude Include="Interfaces\Client\IClientShortcuts.h" />
     <ClInclude Include="Interfaces\Client\IClientStreamClient.h" />
     <ClInclude Include="Interfaces\Client\IClientStreamLauncher.h" />
@@ -83,6 +84,7 @@
     <ClInclude Include="Interfaces\Common\ParentalSettingsCommon.h" />
     <ClInclude Include="Interfaces\Common\RemoteStorageCommon.h" />
     <ClInclude Include="Interfaces\Common\ScreenshotsCommon.h" />
+    <ClInclude Include="Interfaces\Common\SharedConnectionCommon.h" />
     <ClInclude Include="Interfaces\Common\StreamLauncherCommon.h" />
     <ClInclude Include="Interfaces\Common\UGCCommon.h" />
     <ClInclude Include="Interfaces\Common\UnifiedMessagesCommon.h" />
