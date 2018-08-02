@@ -118,7 +118,7 @@ public:
 	virtual AppId_t GetAppIdForPid(uint32 unk, bool bUnk) = 0;
 	virtual void SetClientUIProcess() = 0;
 	virtual bool BIsClientUIInForeground() = 0;
-	virtual void SetOverlayChatBrowserInfo(uint32, int32) = 0;
+	virtual void SetOverlayChatBrowserInfo(uint32, int32, int32, int32) = 0;
 	virtual void ClearOverlayChatBrowserInfo(uint32) = 0;
 	virtual bool GetOverlayChatBrowserInfo(OverlayChatBrowserInfo_t*, uint32, uint32*) = 0;
 	virtual unknown_ret DispatchClientUINotification(EClientUINotificationType eUnk, const char* pcUnk, uint32 uUnk) = 0;

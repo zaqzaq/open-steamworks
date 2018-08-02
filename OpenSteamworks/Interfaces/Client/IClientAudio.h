@@ -66,6 +66,8 @@ public:
 	virtual EVoiceResult DecompressVoice( const void *pCompressed, uint32 cbCompressed, void *pDestBuffer, uint32 cbDestBufferSize, uint32 *nBytesWritten, uint32 nDesiredSampleRate ) = 0;
 	// This returns the frequency of the voice data as it's stored internally; calling DecompressVoice() with this size will yield the best results
 	virtual uint32 GetVoiceOptimalSampleRate() = 0;
+
+	virtual bool BAppUsesVoice(uint32 uUnk) = 0;
 };
 
 #endif // ICLIENTAUDIO_H
