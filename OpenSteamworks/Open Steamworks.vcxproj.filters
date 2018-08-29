@@ -821,6 +821,9 @@
     <ClInclude Include="Interfaces\Common\SharedConnectionCommon.h">
       <Filter>Interfaces\Common</Filter>
     </ClInclude>
+    <ClInclude Include="Interfaces\Client\IClientCompat.h">
+      <Filter>Interfaces\Client</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Types">

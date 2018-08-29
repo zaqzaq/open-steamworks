@@ -126,6 +126,7 @@ public:
 	virtual unknown_ret DispatchClientUICommand(const char* pcUnk, uint32 uUnk) = 0;
 	virtual unknown_ret DispatchComputerActiveStateChange() = 0;
 	virtual unknown_ret DispatchOpenURLInClient(const char* pcUnk, uint32 uUnk, bool bUnk) = 0;
+	virtual unknown_ret UpdateWideVineCDM(const char* pcUnk) = 0;
 };
 
 #endif // ICLIENTUTILS_H

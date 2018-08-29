@@ -411,6 +411,14 @@ enum EControllerModeInput
 	k_EControllerModeInputButton_steam,
 	k_EControllerModeInputAlways_on_action,
 	k_EControllerModeInputButton_capture,
+	k_EControllerModeInputButton_macro0,
+	k_EControllerModeInputButton_macro1,
+	k_EControllerModeInputButton_macro2,
+	k_EControllerModeInputButton_macro3,
+	k_EControllerModeInputButton_macro4,
+	k_EControllerModeInputButton_macro5,
+	k_EControllerModeInputButton_macro6,
+	k_EControllerModeInputButton_macro7,
 };
 
 enum EControllerSetting
@@ -528,6 +536,8 @@ enum EControllerSetting
 	k_EControllerSettingSoft_press_sytle,
 	k_EControllerSettingActivator_output_axis,
 	k_EControllerSettingChord_button,
+	k_EControllerSettingTouchmenu_inner_deadzone,
+	k_EControllerSettingTouchmenu_outer_deadzone,
 };
 
 enum EControllerConfigFeature

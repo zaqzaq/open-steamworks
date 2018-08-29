@@ -25,6 +25,7 @@
     <ClInclude Include="Interfaces\Client\IClientAudio.h" />
     <ClInclude Include="Interfaces\Client\IClientBilling.h" />
     <ClInclude Include="Interfaces\Client\IClientBluetoothManager.h" />
+    <ClInclude Include="Interfaces\Client\IClientCompat.h" />
     <ClInclude Include="Interfaces\Client\IClientConfigStore.h" />
     <ClInclude Include="Interfaces\Client\IClientContentServer.h" />
     <ClInclude Include="Interfaces\Client\IClientDepotBuilder.h" />

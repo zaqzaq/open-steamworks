@@ -294,6 +294,7 @@
 #include "Interfaces/Client/IClientShader.h"
 #include "Interfaces/Client/IClientSharedConnection.h"
 #include "Interfaces/Client/IClientNetworkingSocketsSerialized.h"
+#include "Interfaces/Client/IClientCompat.h"
 
 #endif // NO_ICLIENT
 

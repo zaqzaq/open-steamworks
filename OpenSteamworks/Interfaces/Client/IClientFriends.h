@@ -259,6 +259,7 @@ public:
 	virtual bool NotifyLobbyJoinRequested( AppId_t nAppId, CSteamID steamIDLobby, CSteamID steamIDFriend ) = 0;
 	virtual bool NotifyRichPresenceJoinRequested( AppId_t nAppId, CSteamID steamIDFriend, const char *pchConnectString ) = 0;
 	virtual EClanRelationship GetClanRelationship( CSteamID steamIDclan ) = 0;
+	virtual unknown_ret GetClanInviteCount() = 0;
 	virtual EClanRank GetFriendClanRank( CSteamID steamIDUser, CSteamID steamIDClan ) = 0;
 	virtual bool VoiceIsAvailable() = 0;
 	virtual void TestVoiceDisconnect( HVoiceCall hVoiceCall ) = 0;
