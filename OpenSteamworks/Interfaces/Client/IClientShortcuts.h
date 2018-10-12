@@ -39,6 +39,9 @@ public:
 	virtual bool BIsShortcutRemoteByIndex( uint32 uIndex ) = 0;
 	virtual bool BIsTemporaryShortcutByIndex( uint32 uIndex ) = 0;
 	virtual bool BIsOpenVRShortcutByIndex( uint32 uIndex ) = 0;
+	virtual bool BIsDevkitShortcutByIndex( uint32 uIndex ) = 0;
+	virtual unknown_ret GetDevkitGameIDByIndex( uint32 uIndex ) = 0;
+	virtual unknown_ret GetDevkitAppIDByDevkitGameID( const char * pchUnk) = 0;
 	virtual const char * GetShortcutAppNameByAppID( AppId_t unAppID ) = 0;
 	virtual const char * GetShortcutExeByAppID( AppId_t unAppID ) = 0;
 	virtual const char * GetShortcutStartDirByAppID( AppId_t unAppID ) = 0;
@@ -70,6 +73,7 @@ public:
 	virtual void SetAllowDesktopConfig( uint32, bool ) = 0;
 	virtual void SetAllowOverlay( AppId_t unAppID, bool ) = 0;
 	virtual void SetOpenVRShortcut( uint32, bool ) = 0;
+	virtual void SetDevkitShortcut( uint32 uUnk, const char * pchUnk ) = 0;
 	virtual void RemoveShortcut( AppId_t unAppID ) = 0;
 	virtual void RemoveAllTemporaryShortcuts() = 0;
 	virtual bool LaunchShortcut( AppId_t unAppID ) = 0;

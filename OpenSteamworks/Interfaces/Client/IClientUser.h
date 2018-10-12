@@ -240,7 +240,7 @@ public:
 	virtual unknown_ret OnBigPictureForStreamingStartResult(bool, void*) = 0;
 	virtual unknown_ret OnBigPictureForStreamingDone() = 0;
 	virtual unknown_ret OnBigPictureForStreamingRestarting() = 0;
-	virtual unknown_ret StopStreaming() = 0;
+	virtual unknown_ret StopStreaming( uint32 uUnk ) = 0;
 	virtual void LockParentalLock() = 0;
 	virtual bool UnlockParentalLock( const char * pchUnk ) = 0;
 	virtual bool BIsParentalLockEnabled() = 0;

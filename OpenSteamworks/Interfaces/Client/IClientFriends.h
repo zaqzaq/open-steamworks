@@ -257,8 +257,7 @@ public:
 	virtual void NotifyGameOverlayStateChanged( bool bActive ) = 0;
 	virtual void NotifyGameServerChangeRequested( const char *pchServerAddress, const char *pchPassword ) = 0;
 	virtual bool NotifyLobbyJoinRequested( AppId_t nAppId, CSteamID steamIDLobby, CSteamID steamIDFriend ) = 0;
-	virtual bool NotifyRichPresenceJoinRequested( AppId_t nAppId, CSteamID steamIDFriend, const char *pchConnectString,  bool *bUnk ) = 0;
-	virtual unknown_ret GetLaunchRichPresenceJoinRequest( uint32 uUnk ) = 0;
+	virtual bool NotifyRichPresenceJoinRequested( AppId_t nAppId, CSteamID steamIDFriend, const char *pchConnectString ) = 0;
 	virtual EClanRelationship GetClanRelationship( CSteamID steamIDclan ) = 0;
 	virtual unknown_ret GetClanInviteCount() = 0;
 	virtual EClanRank GetFriendClanRank( CSteamID steamIDUser, CSteamID steamIDClan ) = 0;

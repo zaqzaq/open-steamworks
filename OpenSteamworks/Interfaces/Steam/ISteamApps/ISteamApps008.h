@@ -82,6 +82,8 @@ public:
 
 	virtual void RequestAllProofOfPurchaseKeys() = 0;
 	virtual SteamAPICall_t GetFileDetails(const char * pchFileName) = 0;
+
+	virtual unknown_ret GetLaunchCommandLine( char*, int32 iUnk ) = 0;
 };
 
 #endif // ISTEAMAPPS008_H

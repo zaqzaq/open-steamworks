@@ -109,7 +109,8 @@ public:
 	virtual const char * GetLaunchQueryParam( AppId_t unAppID, const char * pchKey ) = 0;
 	virtual void BeginLaunchQueryParams( AppId_t unAppId ) = 0;
 	virtual void SetLaunchQueryParam( AppId_t unAppId, const char * pchKey, const char * pchValue ) = 0;
-	virtual bool CommitLaunchQueryParams( AppId_t unAppId ) = 0;
+	virtual bool CommitLaunchQueryParams( AppId_t unAppId, const char * pchUnk) = 0;
+	virtual unknown_ret GetLaunchCommandLine( AppId_t unAppId, char * pchUnk, int32 iUnk) = 0;
 	virtual void AddContentLogLine( const char* ) = 0;
 	virtual bool GetSystemIconFile( AppId_t unAppId, char*, int32 ) = 0;
 };

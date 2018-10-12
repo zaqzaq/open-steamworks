@@ -29,23 +29,28 @@ typedef uint64 BroadcastSessionID_t;
 
 enum EBroadcastUploadResult
 {
-	k_EBroadcastUploadResultNone,
-	k_EBroadcastUploadResultOK,
-	k_EBroadcastUploadResultInitFailed,
-	k_EBroadcastUploadResultFrameFailed,
-	k_EBroadcastUploadResultTimeout,
-	k_EBroadcastUploadResultBandwidthExceeded,
-	k_EBroadcastUploadResultLowFPS,
-	k_EBroadcastUploadResultMissingKeyFrames,
-	k_EBroadcastUploadResultNoConnection,
-	k_EBroadcastUploadResultRelayFailed,
-	k_EBroadcastUploadResultSettingsChanged,
-	k_EBroadcastUploadResultMissingAudio,
-	k_EBroadcastUploadResultTooFarBehind,
-	k_EBroadcastUploadResultTranscodeBehind,
-	k_EBroadcastUploadResultNotAllowedToPlay,
-	k_EBroadcastUploadResultServerBusy,
-	k_EBroadcastUploadResultBanned,
+	k_EBroadcastUploadResultNone, // None
+	k_EBroadcastUploadResultOK, // OK
+	k_EBroadcastUploadResultInitFailed, // Init Failed
+	k_EBroadcastUploadResultFrameFailed, // Frame Failed
+	k_EBroadcastUploadResultUploadTimeout, // Upload Timeout
+	k_EBroadcastUploadResultBandwidthExceeded, // Bandwidth Exceeded
+	k_EBroadcastUploadResultLowFPS, // Low FPS
+	k_EBroadcastUploadResultMissingKeyFrames, // Missing Key Frames
+	k_EBroadcastUploadResultNoConnection, // No Connection
+	k_EBroadcastUploadResultRelayFailed, // Relay Failed
+	k_EBroadcastUploadResultSettingsChanged, // Settings Changed
+	k_EBroadcastUploadResultMissingAudio, // Missing Audio
+	k_EBroadcastUploadResultTooFarBehind, // Too Far behind
+	k_EBroadcastUploadResultTranscodeBehind, // Transcode Behind
+	k_EBroadcastUploadResultNotAllowedToPlay, // Not allowed to play
+	k_EBroadcastUploadResultServerBusy, // Server Busy
+	k_EBroadcastUploadResultBanned, // Banned
+	k_EBroadcastUploadResultAlreadyActive, // Already Active
+	k_EBroadcastUploadResultForcedOff, // Forced Off
+	k_EBroadcastUploadResultAudioBehind, // Audio Behind
+	k_EBroadcastUploadResultServerShutdown, // Server Shutdown
+	k_EBroadcastUploadResultUploadDisconnected, // Upload Disconnected
 };
 
 enum EBroadcastPermission 

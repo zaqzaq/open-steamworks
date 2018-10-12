@@ -237,8 +237,6 @@ public:
 
 	virtual bool IsClanPublic(CSteamID steamID) = 0;
 	virtual bool IsClanOfficialGameGroup(CSteamID steamID) = 0;
-
-	virtual unknown_ret GetLaunchRichPresenceJoinRequest() = 0;
 };
 
 
