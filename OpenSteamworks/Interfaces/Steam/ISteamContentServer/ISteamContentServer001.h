@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/ContentServerCommon.h"
+#include "Types/ContentServerCommon.h"
 
 abstract_class ISteamContentServer001
 {

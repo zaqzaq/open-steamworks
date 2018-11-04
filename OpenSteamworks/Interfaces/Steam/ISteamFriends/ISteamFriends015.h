@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/FriendsCommon.h"
+#include "Types/FriendsCommon.h"
 
 //-----------------------------------------------------------------------------
 // Purpose: interface to accessing information about individual users,

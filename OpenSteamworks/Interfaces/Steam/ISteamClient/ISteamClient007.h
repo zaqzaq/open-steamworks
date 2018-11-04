@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/ClientCommon.h"
+#include "Types/ClientCommon.h"
 
 
 

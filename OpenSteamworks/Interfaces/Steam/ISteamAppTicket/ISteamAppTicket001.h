@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/AppTicketCommon.h"
+#include "Types/AppTicketCommon.h"
 
 //-----------------------------------------------------------------------------
 // Purpose: hand out a reasonable "future proof" view of an app ownership ticket

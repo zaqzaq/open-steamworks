@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/UGCCommon.h"
+#include "Types/UGCCommon.h"
 
 
 abstract_class ISteamUGC003

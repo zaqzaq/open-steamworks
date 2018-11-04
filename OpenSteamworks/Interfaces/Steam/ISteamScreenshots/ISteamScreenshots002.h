@@ -22,7 +22,7 @@
 
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/ScreenshotsCommon.h"
+#include "Types/ScreenshotsCommon.h"
 
 //-----------------------------------------------------------------------------
 // Purpose: Functions for adding screenshots to the user's screenshot library

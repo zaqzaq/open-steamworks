@@ -20,7 +20,7 @@
 #pragma once
 #endif
 
-#include "Interfaces/Common/SharedConnectionCommon.h"
+#include "Types/SharedConnectionCommon.h"
 
 class IClientSharedConnection
 {

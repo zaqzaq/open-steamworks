@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/UserCommon.h"
+#include "Types/UserCommon.h"
 
 //-----------------------------------------------------------------------------
 // Purpose: Functions for accessing and manipulating a steam account

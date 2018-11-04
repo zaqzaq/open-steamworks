@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/UnifiedMessagesCommon.h"
+#include "Types/UnifiedMessagesCommon.h"
 
 abstract_class UNSAFE_INTERFACE IClientUnifiedMessages
 {

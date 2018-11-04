@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/GameCoordinatorCommon.h"
+#include "Types/GameCoordinatorCommon.h"
 
 
 abstract_class IClientGameCoordinator

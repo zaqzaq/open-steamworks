@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/GameServerStatsCommon.h"
+#include "Types/GameServerStatsCommon.h"
 
 abstract_class UNSAFE_INTERFACE IClientGameServerStats
 {

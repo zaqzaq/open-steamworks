@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/FriendsCommon.h"
+#include "Types/FriendsCommon.h"
 
 
 abstract_class UNSAFE_INTERFACE IClientFriends

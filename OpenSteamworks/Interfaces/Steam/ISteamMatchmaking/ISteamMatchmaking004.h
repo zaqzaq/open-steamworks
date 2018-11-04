@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/MatchmakingCommon.h"
+#include "Types/MatchmakingCommon.h"
 
 
 //-----------------------------------------------------------------------------

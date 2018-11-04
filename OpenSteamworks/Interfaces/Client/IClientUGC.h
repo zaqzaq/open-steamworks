@@ -21,8 +21,8 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/UGCCommon.h"
-#include "Interfaces/Common/RemoteStorageCommon.h"
+#include "Types/UGCCommon.h"
+#include "Types/RemoteStorageCommon.h"
 
 abstract_class UNSAFE_INTERFACE IClientUGC
 {

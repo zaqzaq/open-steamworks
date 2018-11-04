@@ -22,7 +22,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/NetworkingCommon.h"
+#include "Types/NetworkingCommon.h"
 
 //-----------------------------------------------------------------------------
 // Purpose: Functions for making connections and sending data between clients,

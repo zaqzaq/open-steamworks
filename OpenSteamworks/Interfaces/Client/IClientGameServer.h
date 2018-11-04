@@ -21,8 +21,8 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/GameServerCommon.h"
-#include "Interfaces/Common/UserCommon.h"
+#include "Types/GameServerCommon.h"
+#include "Types/UserCommon.h"
 
 
 typedef enum EGameConnectSteamResponse

@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/ControllerCommon.h"
+#include "Types/ControllerCommon.h"
 
 abstract_class ISteamController005
 {

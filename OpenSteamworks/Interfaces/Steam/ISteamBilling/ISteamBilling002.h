@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/BillingCommon.h"
+#include "Types/BillingCommon.h"
 
 //-----------------------------------------------------------------------------
 // Purpose: interface to billing

@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/HTTPCommon.h"
+#include "Types/HTTPCommon.h"
 
 abstract_class ISteamHTTP001
 {

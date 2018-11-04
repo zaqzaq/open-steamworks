@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/OAuthCommon.h"
+#include "Types/OAuthCommon.h"
 
 
 abstract_class OBSOLETE_INTERFACE ISteamOAuth001

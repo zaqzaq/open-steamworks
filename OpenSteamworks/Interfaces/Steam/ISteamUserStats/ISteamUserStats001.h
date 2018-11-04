@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/UserStatsCommon.h"
+#include "Types/UserStatsCommon.h"
 
 abstract_class ISteamUserStats001
 {

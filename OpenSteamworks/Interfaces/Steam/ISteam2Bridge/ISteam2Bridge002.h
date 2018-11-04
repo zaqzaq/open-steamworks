@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/BridgeCommon.h"
+#include "Types/BridgeCommon.h"
 
 abstract_class ISteam2Bridge002
 {

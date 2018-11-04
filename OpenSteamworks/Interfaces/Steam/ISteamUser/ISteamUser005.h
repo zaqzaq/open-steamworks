@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/UserCommon.h"
+#include "Types/UserCommon.h"
 
 abstract_class ISteamUser005
 {

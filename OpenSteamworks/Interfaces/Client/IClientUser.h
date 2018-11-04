@@ -21,9 +21,9 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/UserCommon.h"
-#include "Interfaces/Common/ContentServerCommon.h"
-#include "Interfaces/Common/ParentalSettingsCommon.h"
+#include "Types/UserCommon.h"
+#include "Types/ContentServerCommon.h"
+#include "Types/ParentalSettingsCommon.h"
 
 // Protobuf'ed class
 class ClientAppInfo

@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/StreamLauncherCommon.h"
+#include "Types/StreamLauncherCommon.h"
 
 abstract_class ISteamStreamLauncher001
 {

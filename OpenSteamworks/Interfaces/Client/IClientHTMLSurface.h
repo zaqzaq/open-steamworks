@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/HTMLSurfaceCommon.h"
+#include "Types/HTMLSurfaceCommon.h"
 
 class CValidator
 #ifdef _S4N_

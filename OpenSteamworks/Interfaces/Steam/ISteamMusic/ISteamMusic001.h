@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/MusicCommon.h"
+#include "Types/MusicCommon.h"
 
 abstract_class ISteamMusic001
 {

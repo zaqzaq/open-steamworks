@@ -104,96 +104,6 @@
     <ClInclude Include="Interfaces\Client\IClientUtils.h">
       <Filter>Interfaces\Client</Filter>
     </ClInclude>
-    <ClInclude Include="Interfaces\Common\AppsCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\AppTicketCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\BillingCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\BridgeCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\ClientCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\ContentServerCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\ControllerCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\FriendsCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\GameCoordinatorCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\GameServerCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\GameServerStatsCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\GameStatsCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\HTMLSurfaceCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\HTTPCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\InventoryCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\ScreenshotsCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\RemoteStorageCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\OAuthCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\NetworkingCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\MusicCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\MatchmakingServersCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\MasterServerUpdaterCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\MatchmakingCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\StreamLauncherCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\VideoCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\UtilsCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\UserStatsCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\UserCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\UnifiedMessagesCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Interfaces\Common\UGCCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
     <ClInclude Include="Interfaces\Steam\ISteamApps\ISteamApps001.h">
       <Filter>Interfaces\Steam\ISteamApps</Filter>
     </ClInclude>
@@ -797,9 +707,6 @@
     <ClInclude Include="Interfaces\Client\IClientParentalSettings.h">
       <Filter>Interfaces\Client</Filter>
     </ClInclude>
-    <ClInclude Include="Interfaces\Common\ParentalSettingsCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
     <ClInclude Include="Interfaces\Steam\ISteamParentalSettings\ISteamParentalSettings001.h">
       <Filter>Interfaces\Steam\ISteamParentalSettings</Filter>
     </ClInclude>
@@ -818,11 +725,104 @@
     <ClInclude Include="Interfaces\Client\IClientSharedConnection.h">
       <Filter>Interfaces\Client</Filter>
     </ClInclude>
-    <ClInclude Include="Interfaces\Common\SharedConnectionCommon.h">
-      <Filter>Interfaces\Common</Filter>
-    </ClInclude>
     <ClInclude Include="Interfaces\Client\IClientCompat.h">
       <Filter>Interfaces\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\AppsCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\AppTicketCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\BillingCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\BridgeCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\ClientCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\ContentServerCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\ControllerCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\FriendsCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\GameCoordinatorCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\GameServerCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\GameServerStatsCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\GameStatsCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\HTMLSurfaceCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\HTTPCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\InventoryCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\MasterServerUpdaterCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\MatchmakingCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\MatchmakingServersCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\MusicCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\NetworkingCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\OAuthCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\ParentalSettingsCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\RemoteStorageCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\ScreenshotsCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\SharedConnectionCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\StreamLauncherCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\UGCCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\UnifiedMessagesCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\UserCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\UserStatsCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\UtilsCommon.h">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Types\VideoCommon.h">
+      <Filter>Types</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -831,9 +831,6 @@
     </Filter>
     <Filter Include="Interfaces">
       <UniqueIdentifier>{48649532-db97-4cc9-a5e8-4b1c228528a5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Interfaces\Common">
-      <UniqueIdentifier>{3769c228-03af-4fa9-940b-b45999802ae7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Interfaces\Client">
       <UniqueIdentifier>{549a7f87-5399-4a63-b816-c9e5147d4e6b}</UniqueIdentifier>

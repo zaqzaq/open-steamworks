@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/ScreenshotsCommon.h"
+#include "Types/ScreenshotsCommon.h"
 
 
 abstract_class UNSAFE_INTERFACE IClientScreenshots

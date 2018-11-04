@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/ParentalSettingsCommon.h"
+#include "Types/ParentalSettingsCommon.h"
 
 abstract_class UNSAFE_INTERFACE IClientParentalSettings
 {

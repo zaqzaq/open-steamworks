@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/MatchmakingCommon.h"
+#include "Types/MatchmakingCommon.h"
 
 //-----------------------------------------------------------------------------
 // Purpose: Functions for match making services for clients to get to favorites

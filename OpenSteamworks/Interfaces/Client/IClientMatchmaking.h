@@ -21,8 +21,8 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/MatchmakingCommon.h"
-#include "Interfaces/Common/UserCommon.h"
+#include "Types/MatchmakingCommon.h"
+#include "Types/UserCommon.h"
 
 
 abstract_class UNSAFE_INTERFACE IClientMatchmaking

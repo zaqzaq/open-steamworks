@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/HTMLSurfaceCommon.h"
+#include "Types/HTMLSurfaceCommon.h"
 
 abstract_class ISteamHTMLSurface003
 {

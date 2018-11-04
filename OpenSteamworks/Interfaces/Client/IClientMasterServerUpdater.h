@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/MasterServerUpdaterCommon.h"
+#include "Types/MasterServerUpdaterCommon.h"
 
 //-----------------------------------------------------------------------------
 // Purpose: Game engines use this to tell the Steam master servers

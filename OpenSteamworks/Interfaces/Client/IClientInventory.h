@@ -21,7 +21,7 @@
 #endif
 
 #include "Types/SteamTypes.h"
-#include "Interfaces/Common/InventoryCommon.h"
+#include "Types/InventoryCommon.h"
 
 abstract_class UNSAFE_INTERFACE IClientInventory
 {
