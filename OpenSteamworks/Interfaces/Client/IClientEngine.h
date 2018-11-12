@@ -75,6 +75,7 @@ class IClientShader;
 class IClientNetworkingSocketsSerialized;
 class IClientGameSearch;
 class IClientCompat;
+class IClientParties;
 
 abstract_class UNSAFE_INTERFACE IClientEngine
 {
@@ -148,6 +149,8 @@ public:
 	virtual IClientShader *GetIClientShader( HSteamUser hSteamUser, HSteamPipe hSteamPipe, char const* pchVersion ) = 0;
 	virtual IClientNetworkingSocketsSerialized *GetIClientNetworkingSocketsSerialized( HSteamUser hSteamUser, HSteamPipe hSteamPipe, char const* pchVersion ) = 0;
 	virtual IClientCompat *GetIClientCompat( HSteamUser hSteamUser, HSteamPipe hSteamPipe, char const* pchVersion ) = 0;
+	virtual unknown_ret SetClientCommandLine( int32 argc, char** argv ) = 0; 
+	virtual IClientParties *GetIClientParties( HSteamUser hSteamUser, HSteamPipe hSteamPipe, char const* pchVersion ) = 0;
 };
 
 #endif // ICLIENTENGINE_H

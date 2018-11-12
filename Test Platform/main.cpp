@@ -3,49 +3,145 @@
 #include "Steamworks.h"
 #include <time.h>
 
+class TestClient
+{
+public:
+	TestClient(): m_cbLoggedOn(this, &TestClient::OnLoggedOn),
+		m_cbLogOnfailed(this, &TestClient::OnLogOnFailed)
+	{
+	}
+
+	~TestClient() {}
+
+	bool Init();
+	void Connect();
+	void RunCallbacks();
+	void SetLogOnInfo(const char* username, const char* password, bool save);
+
+private:
+	IClientEngine* m_pClientEngine;
+	IClientUser* m_pClientUser;
+	IClientFriends* m_pClientFriends;
+
+	HSteamPipe m_hPipe;
+	HSteamUser m_hUser;
+
+	std::string m_szUsername;
+	std::string m_szPassword;
+	bool m_bSaveCredentials;
+
+	STEAM_CALLBACK(TestClient, OnLoggedOn, SteamServersConnected_t, m_cbLoggedOn);
+	STEAM_CALLBACK(TestClient, OnLogOnFailed, SteamServerConnectFailure_t, m_cbLogOnfailed);
+
+	STEAM_CALLBACK_MANUAL(TestClient, OnLoggedOn2, SteamServersConnected_t, m_cbLoggedOn2);
+};
+
+bool TestClient::Init()
+{
+	m_pClientEngine = (IClientEngine*)SteamInternal_CreateInterface(CLIENTENGINE_INTERFACE_VERSION);
+	if (!m_pClientEngine)
+	{
+		fprintf(stderr, "Unable to get the client engine.\n");
+		return false;
+	}
+
+	m_hUser = m_pClientEngine->CreateLocalUser(&m_hPipe, k_EAccountTypeIndividual);
+	if (!m_hUser || !m_hPipe)
+	{
+		fprintf(stderr, "Unable to create the global user.\n");
+		return false;
+	}
+
+	m_pClientUser = (IClientUser*)m_pClientEngine->GetIClientUser(m_hUser, m_hPipe, CLIENTUSER_INTERFACE_VERSION);
+	if (!m_pClientUser)
+	{
+		fprintf(stderr, "Unable to get the client user interface.\n");
+		return false;
+	}
+
+    m_pClientFriends = (IClientFriends*)m_pClientEngine->GetIClientFriends(m_hUser, m_hPipe, CLIENTFRIENDS_INTERFACE_VERSION);
+	if (!m_pClientFriends)
+	{
+		fprintf(stderr, "Unable to get the client friends interface.\n");
+		return false;
+	}
+
+	return true;
+}
+
+void TestClient::Connect()
+{
+	m_pClientUser->SetLoginInformation(m_szUsername.c_str(), m_szPassword.c_str(), m_bSaveCredentials);
+	CSteamID steamID = m_pClientUser->GetSteamID();
+	m_pClientUser->LogOn(steamID);
+}
+
+void TestClient::RunCallbacks()
+{
+	Steam_RunCallbacks(m_hPipe, false);
+}
+
+void TestClient::SetLogOnInfo(const char * username, const char * password, bool save)
+{
+	m_szUsername = username;
+	m_szPassword = password;
+	m_bSaveCredentials = save;
+}
+
+void TestClient::OnLoggedOn(SteamServersConnected_t* cbMsg)
+{
+	printf("TestClient::OnLoggedOn Logged in\n");
+	m_cbLoggedOn2.Register(this, &TestClient::OnLoggedOn2);
+}
+
+void TestClient::OnLoggedOn2(SteamServersConnected_t* cbMsg)
+{
+	printf("TestClient::OnLoggedOn2 Logged in\n");
+}
+
+void TestClient::OnLogOnFailed(SteamServerConnectFailure_t* cbMsg)
+{
+	switch (cbMsg->m_eResult)
+	{
+		case k_EResultAccountLogonDenied:
+			{
+				printf("Steam guard code required: ");
+				char szAuthCode[8] = "";
+				if (fgets(szAuthCode, sizeof(szAuthCode), stdin))
+				{
+					szAuthCode[strlen(szAuthCode) - 1] = 0;
+				}
+
+				m_pClientUser->Set2ndFactorAuthCode(szAuthCode, true);
+				Connect();
+			}
+			break;
+		case k_EResultAccountLoginDeniedNeedTwoFactor:
+			{
+				printf("Steam 2FA code required: ");
+				char sz2FACode[8] = "";
+				if (fgets(sz2FACode, sizeof(sz2FACode), stdin))
+				{
+					sz2FACode[strlen(sz2FACode) - 1] = 0;
+				}
+
+				m_pClientUser->SetTwoFactorCode(sz2FACode);
+				Connect();
+			}
+			break;
+		default:
+			printf("Log on failed with EResult %d\n", cbMsg->m_eResult);
+	}
+}
+
 int main()
 {
 	if ( !OpenAPI_LoadLibrary())
 	{
-		fprintf(stderr, "Unable to load steamclient factory.\n");
+		fprintf(stderr, "Unable to load steamclient library.\n");
 		return 1;
 	}
 
-	IClientEngine *pClientEngine = (IClientEngine *)OpenAPI_CreateInterface( CLIENTENGINE_INTERFACE_VERSION, NULL );
-	if ( !pClientEngine )
-	{
-		fprintf(stderr, "Unable to get the client engine.\n");
-		return 1;
-	}
-	
-	HSteamPipe hPipe;
-	HSteamUser hUser = pClientEngine->CreateLocalUser(&hPipe, k_EAccountTypeIndividual);
-	if ( !hUser || !hPipe )
-	{
-		fprintf(stderr, "Unable to create the global user.\n");
-		return 1;
-	}
-
-	IClientUser *pClientUser = (IClientUser *)pClientEngine->GetIClientUser( hUser, hPipe, CLIENTUSER_INTERFACE_VERSION );
-	if ( !pClientUser )
-	{
-		fprintf(stderr, "Unable to get the client user interface.\n");
-		pClientEngine->ReleaseUser(hPipe, hUser);
-		pClientEngine->BReleaseSteamPipe(hPipe);
-		pClientEngine->BShutdownIfAllPipesClosed();
-		return 1;
-	}
-	
-	IClientFriends *pClientFriends = (IClientFriends *)pClientEngine->GetIClientFriends( hUser, hPipe, CLIENTFRIENDS_INTERFACE_VERSION );
-	if ( !pClientFriends )
-	{
-		fprintf(stderr, "Unable to get the client friends interface.\n");
-		pClientEngine->ReleaseUser(hPipe, hUser);
-		pClientEngine->BReleaseSteamPipe(hPipe);
-		pClientEngine->BShutdownIfAllPipesClosed();
-		return 1;
-	}
-	
 	char szUsername[128] = "";
 	char szPassword[128] = "";
 
@@ -61,136 +157,19 @@ int main()
 		szPassword[strlen(szPassword) - 1] = 0;
 	}
 
-	pClientUser->LogOnWithPassword(szUsername, szPassword);
+	TestClient testClient;
+	if(!testClient.Init()) 
+	{
+		fprintf(stderr, "Could not initialize steamclient\n");
+		return 1;
+	}
 
-	CallbackMsg_t callBack;
-	CSteamID adminID;
+	testClient.SetLogOnInfo(szUsername, szPassword, false);
+	testClient.Connect();
 
 	while ( true )
 	{
-		while ( Steam_BGetCallback( hPipe, &callBack ) )
-		{
-			switch (callBack.m_iCallback)
-			{
-			case SteamServersConnected_t::k_iCallback:
-				{
-					printf("Successfully logged on!\n");
-
-					pClientUser->SetSelfAsPrimaryChatDestination();
-					pClientFriends->SetPersonaState( k_EPersonaStateOnline );
-
-					CSteamID friendID;
-					for (int i = 0; i < pClientFriends->GetFriendCount(k_EFriendFlagImmediate); i++)
-					{
-						friendID = pClientFriends->GetFriendByIndex(i, k_EFriendFlagImmediate);
-
-						if(strcmp(pClientFriends->GetFriendPersonaName(friendID), "Didrole") == 0) // Put the persona name of the friend to use as the 'front end' here.
-						{
-							const char* cszMessage = "I'm logged on!";
-							pClientFriends->SendMsgToFriend(friendID, k_EChatEntryTypeChatMsg, cszMessage);
-							adminID = friendID;
-
-							break;
-						}
-					}
-					break;
-				}
-
-			case SteamServerConnectFailure_t::k_iCallback:
-				{
-					SteamServerConnectFailure_t *pConnectFailureInfo = (SteamServerConnectFailure_t *)callBack.m_pubParam;
-
-					if(pConnectFailureInfo->m_eResult == k_EResultAccountLogonDenied)
-					{
-						printf("Steam guard code required: ");
-						char szAuthCode[8] = "";
-
-						if(fgets(szAuthCode, sizeof(szAuthCode), stdin))
-						{
-							szAuthCode[strlen(szAuthCode) - 1] = 0;
-						}
-
-						pClientUser->Set2ndFactorAuthCode(szAuthCode, true);
-						pClientUser->LogOnWithPassword(szUsername, szPassword);
-					}
-					else if (pConnectFailureInfo->m_eResult == k_EResultAccountLoginDeniedNeedTwoFactor)
-					{
-						printf("Steam 2FA code required: ");
-						char sz2FACode[8] = "";
-
-						if (fgets(sz2FACode, sizeof(sz2FACode), stdin))
-						{
-							sz2FACode[strlen(sz2FACode) - 1] = 0;
-						}
-
-						pClientUser->SetTwoFactorCode(sz2FACode);
-						pClientUser->LogOnWithPassword(szUsername, szPassword);
-					}
-					else
-					{
-						fprintf(stderr, "Logon failed with eResult %u !\n", pConnectFailureInfo->m_eResult);
-
-						pClientEngine->ReleaseUser(hPipe, hUser);
-						pClientEngine->BReleaseSteamPipe(hPipe);
-						pClientEngine->BShutdownIfAllPipesClosed();
-
-						return 1;
-					}
-				}
-
-			case FriendChatMsg_t::k_iCallback:
-				{
-					FriendChatMsg_t *pFriendMessageInfo = (FriendChatMsg_t *)callBack.m_pubParam;
-
-					if(pFriendMessageInfo->m_ulSenderID != pClientUser->GetSteamID())
-					{
-						EChatEntryType eMsgType;
-						CSteamID chatter;
-						RTime32 uMsgTime;
-						char szData[k_cchFriendChatMsgMax];  
-						memset(szData, 0, k_cchFriendChatMsgMax);  
-
-						int iLength = pClientFriends->GetChatMessage(pFriendMessageInfo->m_ulFriendID, pFriendMessageInfo->m_iChatID, szData, sizeof(szData), &eMsgType, &chatter, &uMsgTime);  
-
-						if (eMsgType == k_EChatEntryTypeChatMsg || eMsgType == k_EChatEntryTypeEmote)  
-						{
-							time_t uTime = uMsgTime;
-							tm *pTM = localtime(&uTime);
-							char szTime[20];
-							strftime(szTime, sizeof(szTime), "%X", pTM);
-
-							printf("[%s] %s: %s\n", szTime, pFriendMessageInfo->m_ulSenderID.Render(), szData);
-							
-							if (strcmp(szData, "quit") == 0 && pFriendMessageInfo->m_ulSenderID == adminID)
-							{
-								pClientFriends->SetPersonaState( k_EPersonaStateOffline );
-								pClientUser->LogOff();
-
-								while(pClientUser->GetLogonState() == k_ELogonStateLoggingOff)
-								{
-									#ifdef _WIN32
-											Sleep(100);
-									#else
-											usleep(100000);
-									#endif
-								}
-
-								pClientEngine->ReleaseUser(hPipe, hUser);
-								pClientEngine->BReleaseSteamPipe(hPipe);
-								pClientEngine->BShutdownIfAllPipesClosed();
-
-								return 0;
-							}
-
-							pClientFriends->SendMsgToFriend(pFriendMessageInfo->m_ulFriendID, eMsgType, szData);
-						}
-					}
-					break;
-				}
-			}
-
-			Steam_FreeLastCallback( hPipe );
-		}
+		testClient.RunCallbacks();
 
 #ifdef _WIN32
 		Sleep(100);

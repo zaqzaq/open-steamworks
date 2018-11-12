@@ -17,14 +17,11 @@
 #ifndef CLIENTLOADER_H
 #define CLIENTLOADER_H
 #ifdef _WIN32
-	#pragma once
+#pragma once
 #endif
-
-#define STEAM_API_NODLL
 
 #include "Types/SteamTypes.h"
 
 S_API bool STEAM_CALL OpenAPI_LoadLibrary();
-S_API void* STEAM_CALL OpenAPI_CreateInterface(const char *pName, int *pReturnCode);
 
 #endif // !CLIENTLOADER_H

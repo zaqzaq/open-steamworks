@@ -455,6 +455,9 @@ S_API void SteamAPI_UnregisterCallResult( class CCallbackBase *pCallback, SteamA
 S_API void STEAM_CALL Steam_RunCallbacks( HSteamPipe hSteamPipe, bool bGameServerCallbacks );
 S_API void STEAM_CALL Steam_RegisterInterfaceFuncs( void *hModule );
 
+S_API void * STEAM_CALL SteamInternal_ContextInit(void *pContextInitData);
+S_API void * STEAM_CALL SteamInternal_CreateInterface(const char *ver);
+
 S_API HSteamUser STEAM_CALL Steam_GetHSteamUserCurrent();
 
 S_API const char* STEAM_CALL SteamAPI_GetSteamInstallPath();

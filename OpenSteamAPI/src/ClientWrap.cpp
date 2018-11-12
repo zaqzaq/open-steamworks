@@ -16,38 +16,33 @@
 
 #include "Steamworks.h"
 #include "Interface_OSW.h"
+#include "CCallbackMgr.h"
 
-static CSteamAPILoader ClientLoader;
-static CreateInterfaceFn pClientCreateInterface = NULL;
-static SteamBGetCallbackFn pSteamBGetCallback = NULL;
-static SteamFreeLastCallbackFn pSteamFreeLastCallback = NULL;
-static SteamGetAPICallResultFn pSteamGetAPICallResult = NULL;
+CSteamAPILoader g_ClientLoader;
 
-HSteamPipe __g_hPipe = NULL;
-HSteamUser __g_hUser = NULL;
+CreateInterfaceFn g_pClientCreateInterface = NULL;
+SteamBGetCallbackFn g_pSteamBGetCallback = NULL;
+SteamFreeLastCallbackFn g_pSteamFreeLastCallback = NULL;
+SteamGetAPICallResultFn g_pSteamGetAPICallResult = NULL;
 
-ISteamClient017 *__g_pSteamClient = NULL;
-ISteamUtils008 *__g_pSteamUtils = NULL;
-ISteamController005 *__g_p_SteamController = NULL;
-
-S_API bool STEAM_CALL OpenAPI_LoadLibrary()
+bool LoadClientLibrary()
 {
-	if (ClientLoader.Load())
+	if (g_ClientLoader.Load())
 	{
-		pClientCreateInterface = (CreateInterfaceFn)ClientLoader.GetSteamClientModule()->GetSymbol("CreateInterface");
-		if (!pClientCreateInterface)
+		g_pClientCreateInterface = (CreateInterfaceFn)g_ClientLoader.GetSteamClientModule()->GetSymbol("CreateInterface");
+		if (!g_pClientCreateInterface)
 			return false;
 
-		pSteamBGetCallback = (SteamBGetCallbackFn)ClientLoader.GetSteamClientModule()->GetSymbol("Steam_BGetCallback");
-		if (!pSteamBGetCallback)
+		g_pSteamBGetCallback = (SteamBGetCallbackFn)g_ClientLoader.GetSteamClientModule()->GetSymbol("Steam_BGetCallback");
+		if (!g_pSteamBGetCallback)
 			return false;
 
-		pSteamFreeLastCallback = (SteamFreeLastCallbackFn)ClientLoader.GetSteamClientModule()->GetSymbol("Steam_FreeLastCallback");
-		if (!pSteamFreeLastCallback)
+		g_pSteamFreeLastCallback = (SteamFreeLastCallbackFn)g_ClientLoader.GetSteamClientModule()->GetSymbol("Steam_FreeLastCallback");
+		if (!g_pSteamFreeLastCallback)
 			return false;
 
-		pSteamGetAPICallResult = (SteamGetAPICallResultFn)ClientLoader.GetSteamClientModule()->GetSymbol("Steam_GetAPICallResult");
-		if (!pSteamGetAPICallResult)
+		g_pSteamGetAPICallResult = (SteamGetAPICallResultFn)g_ClientLoader.GetSteamClientModule()->GetSymbol("Steam_GetAPICallResult");
+		if (!g_pSteamGetAPICallResult)
 			return false;
 
 		return true;
@@ -56,79 +51,58 @@ S_API bool STEAM_CALL OpenAPI_LoadLibrary()
 	return false;
 }
 
-S_API void* STEAM_CALL OpenAPI_CreateInterface(const char *pName, int *pReturnCode)
+S_API bool STEAM_CALL OpenAPI_LoadLibrary()
 {
-	return pClientCreateInterface(pName, pReturnCode);
+	if (LoadClientLibrary())
+	{
+		GCallbackMgr().Init();
+		return true;
+	}
+
+	return false;
+}
+
+S_API void SteamAPI_RegisterCallback(CCallbackBase *pCallback, int iCallback)
+{
+	GCallbackMgr().RegisterCallback(pCallback, iCallback);
+}
+
+S_API void SteamAPI_UnregisterCallback(CCallbackBase *pCallback)
+{
+	GCallbackMgr().UnregisterCallback(pCallback);
+}
+
+S_API void STEAM_CALL SteamAPI_RegisterCallResult(CCallbackBase *pCallback, SteamAPICall_t hAPICall)
+{
+	GCallbackMgr().RegisterCallResult(pCallback, hAPICall);
+}
+
+S_API void STEAM_CALL SteamAPI_UnregisterCallResult(CCallbackBase *pCallback, SteamAPICall_t hAPICall)
+{
+	GCallbackMgr().UnregisterCallResult(pCallback, hAPICall);
+}
+
+S_API void* STEAM_CALL SteamInternal_CreateInterface(const char *pName)
+{
+	return g_pClientCreateInterface(pName, NULL);
 }
 
 S_API bool STEAM_CALL Steam_BGetCallback(HSteamPipe hSteamPipe, CallbackMsg_t *pCallbackMsg)
 {
-	return pSteamBGetCallback(hSteamPipe, pCallbackMsg);
+	return g_pSteamBGetCallback(hSteamPipe, pCallbackMsg);
 }
 
 S_API void STEAM_CALL Steam_FreeLastCallback(HSteamPipe hSteamPipe)
 {
-	pSteamFreeLastCallback(hSteamPipe);
+	g_pSteamFreeLastCallback(hSteamPipe);
 }
 
 S_API bool STEAM_CALL Steam_GetAPICallResult(HSteamPipe hSteamPipe, SteamAPICall_t hSteamAPICall, void* pCallback, int cubCallback, int iCallbackExpected, bool* pbFailed)
 {
-	return pSteamGetAPICallResult(hSteamPipe, hSteamAPICall, pCallback, cubCallback, iCallbackExpected, pbFailed);
+	return g_pSteamGetAPICallResult(hSteamPipe, hSteamAPICall, pCallback, cubCallback, iCallbackExpected, pbFailed);
 }
 
-S_API bool STEAM_CALL SteamAPI_Init()
+S_API void STEAM_CALL Steam_RunCallbacks(HSteamPipe hPipe, bool bGameServer)
 {
-	if (!OpenAPI_LoadLibrary())
-	{
-		return false;
-	}
-
-	__g_pSteamClient = (ISteamClient017*)OpenAPI_CreateInterface(STEAMCLIENT_INTERFACE_VERSION_017, NULL);
-	if (!__g_pSteamClient)
-	{
-		return false;
-	}
-
-	__g_hPipe = __g_pSteamClient->CreateSteamPipe();
-	if (!__g_hPipe)
-	{
-		return false;
-	}
-
-	__g_hUser = __g_pSteamClient->ConnectToGlobalUser(__g_hPipe);
-	if (!__g_hUser)
-	{
-		return false;
-	}
-
-	__g_pSteamUtils = (ISteamUtils008*)__g_pSteamClient->GetISteamUtils(__g_hPipe, STEAMUTILS_INTERFACE_VERSION_008);
-	if (!__g_pSteamUtils)
-	{
-		return false;
-	}
-
-	__g_p_SteamController = (ISteamController005*)__g_pSteamClient->GetISteamController(__g_hUser, __g_hPipe, STEAMCONTROLLER_INTERFACE_VERSION_005);
-	if (!__g_p_SteamController)
-	{
-		return false;
-	}
-
-	return true;
+	GCallbackMgr().RunCallbacks(hPipe, bGameServer);
 }
-
-S_API HSteamPipe STEAM_CALL SteamAPI_GetHSteamPipe()
-{
-	return __g_hPipe;
-}
-
-S_API HSteamUser STEAM_CALL SteamAPI_GetHSteamUser()
-{
-	return __g_hUser;
-}
-
-S_API_UNSAFE ISteamClient017* STEAM_CALL SteamClient()
-{
-	return __g_pSteamClient;
-}
-
-

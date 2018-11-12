@@ -231,6 +231,7 @@ public:
 	virtual float GetEstimatedBitsPerSecond( HVoiceCall hVoiceCall, bool bIncoming ) = 0;
 	virtual float GetPeakSample( HVoiceCall hVoiceCall, bool bIncoming ) = 0;
 	virtual void SendResumeRequest( HVoiceCall hVoiceCall ) = 0;
+	virtual void OpenFriendsDialog() = 0;
 	virtual void OpenChatDialog( CSteamID steamID ) = 0;
 	virtual void OpenInviteToTradeDialog( CSteamID steamID ) = 0;
 	virtual void StartChatRoomVoiceSpeaking( CSteamID steamIDChat, CSteamID steamIDMember ) = 0;
@@ -254,6 +255,7 @@ public:
 	virtual void ActivateGameOverlayToWebPage( const char *pchURL ) = 0;
 	virtual void ActivateGameOverlayToStore( AppId_t nAppId, EOverlayToStoreFlag eFlag ) = 0;
 	virtual void ActivateGameOverlayInviteDialog( CSteamID steamIDLobby ) = 0;
+	virtual bool ProcessActivateGameOverlayInMainUI( const char* pchUnk, CSteamID steamId, uint32 uUnk, bool bUnk, int32 iUnk ) = 0;
 	virtual void NotifyGameOverlayStateChanged( bool bActive ) = 0;
 	virtual void NotifyGameServerChangeRequested( const char *pchServerAddress, const char *pchPassword ) = 0;
 	virtual bool NotifyLobbyJoinRequested( AppId_t nAppId, CSteamID steamIDLobby, CSteamID steamIDFriend ) = 0;
@@ -302,6 +304,8 @@ public:
 	virtual unknown_ret GetFriendPersonaName_Public( CSteamID steamID ) = 0;
 	virtual unknown_ret GetPlayerNickname_Public( CSteamID steamID ) = 0;
 	virtual unknown_ret SetFriendsUIActiveClanChatList( uint32* pUnk, int32 iUnk) = 0;
+	virtual int32 GetNumChatsWithUnreadPriorityMessages() = 0;
+	virtual void SetNumChatsWithUnreadPriorityMessages(int32 num) = 0;
 };
 
 #endif // ICLIENTFRIENDS_H

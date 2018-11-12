@@ -30,7 +30,7 @@ abstract_class UNSAFE_INTERFACE IClientAppManager
 public:
 	virtual EAppUpdateError InstallApp( AppId_t unAppID, int32 iBaseFolder, bool bLegacy ) = 0;
 	virtual EAppUpdateError UninstallApp( AppId_t unAppID, bool bComplete ) = 0;
-	virtual EAppUpdateError LaunchApp( CGameID gameID, uint32 uLaunchOption, const char *pszUserArgs ) = 0;
+	virtual EAppUpdateError LaunchApp( CGameID gameID, uint32 uLaunchOption, uint32 uUnk, const char *pszUserArgs ) = 0;
 	virtual bool ShutdownApp( AppId_t unAppID, bool bForce ) = 0;
 	virtual EAppState GetAppInstallState( AppId_t unAppID ) = 0;
 	virtual uint32 GetAppBuildID( AppId_t unAppID ) = 0;

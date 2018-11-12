@@ -16,7 +16,7 @@
     <ClCompile Include="ClientWrap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CallbackManager.cpp">
+    <ClCompile Include="CCallbackMgr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -33,6 +33,12 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="POSIXLibrary.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32Library.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CCallbackMgr.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

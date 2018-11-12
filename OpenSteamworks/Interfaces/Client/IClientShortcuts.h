@@ -76,7 +76,7 @@ public:
 	virtual void SetDevkitShortcut( uint32 uUnk, const char * pchUnk ) = 0;
 	virtual void RemoveShortcut( AppId_t unAppID ) = 0;
 	virtual void RemoveAllTemporaryShortcuts() = 0;
-	virtual bool LaunchShortcut( AppId_t unAppID ) = 0;
+	virtual bool LaunchShortcut( AppId_t unAppID, uint32 uUnk ) = 0;
 };
 
 #endif // ICLIENTSHORTCUTS_H

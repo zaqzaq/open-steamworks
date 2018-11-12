@@ -71,7 +71,7 @@ public:
 	virtual int32 InitiateGameConnectionOld( void *pOutputBlob, int32 cbBlobMax, CSteamID steamIDGS, CGameID gameID, uint32 unIPServer, uint16 usPortServer, bool bSecure, void *pvSteam2GetEncryptionKey, int32 cbSteam2GetEncryptionKey ) = 0;
 	virtual void TerminateGameConnection( uint32 unIPServer, uint16 usPortServer ) = 0;
 	virtual bool TerminateAppMultiStep( uint32, uint32 ) = 0;
-	virtual void SetSelfAsPrimaryChatDestination() = 0;
+	virtual void SetSelfAsChatDestination( bool bUnk ) = 0;
 	virtual bool IsPrimaryChatDestination() = 0;
 	virtual void RequestLegacyCDKey( AppId_t iAppID ) = 0;
 	virtual bool AckGuestPass( const char *pchGuestPassCode ) = 0;
@@ -139,7 +139,6 @@ public:
 	virtual void GetTwoFactorDetails() = 0;
 	virtual bool BHasTwoFactor() = 0;
 	virtual void RecoverAuthenticator( const char *, const char *, const char *, const char *, const char *) = 0;
-	virtual void ChangePassword( const char *pchOldPassword, const char *pchNewPassword ) = 0;
 	virtual bool GetEmail( char* pchEmail, int32 cchEmail, bool* pbValidated ) = 0;
 	virtual void RequestForgottenPasswordEmail( const char *pchAccountName, const char *pchTriedPassword ) = 0;
 	virtual void RequestAccountResetDetails( const char *, const char * ) = 0;
@@ -151,7 +150,7 @@ public:
 	virtual bool RunInstallScript( AppId_t pAppIDs, const char *pchUnk, bool bUninstall ) = 0;
 	virtual AppId_t IsInstallScriptRunning() = 0;
 	virtual bool GetInstallScriptState( char* pchDescription, uint32 cchDescription, uint32* punNumSteps, uint32* punCurrStep ) = 0;
-	virtual bool SpawnProcess( const char *lpApplicationName, const char *lpCommandLine, uint32 dwCreationFlags, const char *lpCurrentDirectory, CGameID gameID, const char *pchGameName, uint32 uUnk, uint32 uUnk2 ) = 0;
+	virtual bool SpawnProcess( const char *lpApplicationName, const char *lpCommandLine, uint32 dwCreationFlags, const char *lpCurrentDirectory, CGameID gameID, const char *pchGameName, uint32 uUnk, uint32 uUnk2, uint32 uUnk3 ) = 0;
 	virtual uint32 GetAppOwnershipTicketLength( uint32 nAppID ) = 0;
 	virtual uint32 GetAppOwnershipTicketData( uint32 nAppID, void *pvBuffer, uint32 cbBufferLength ) = 0;
 	virtual uint32 GetAppOwnershipTicketExtendedData( uint32 nAppID, void *pvBuffer, uint32 cbBufferLength, uint32* piAppId, uint32* piSteamId, uint32* piSignature, uint32* pcbSignature ) = 0;
@@ -179,10 +178,6 @@ public:
 	STEAMWORKS_STRUCT_RETURN_1(CGameID, GetRunningGameID, int32, iGame) /*virtual CGameID GetRunningGameID( int32 iGame ) = 0;*/
 	virtual int32 GetRunningGamePID(int32) = 0;
 	virtual uint32 GetAccountSecurityPolicyFlags() = 0;
-	virtual void RequestPasswordChangeEmail(const char *, int32) = 0;
-	virtual void ChangePasswordWithCode( const char *pchOldPassword, const char *pchCode, const char *pchNewPassword ) = 0;
-	virtual void RequestEmailChange( const char *, const char * ) = 0;
-	virtual void ChangeEmailWithCode( const char *, const char *, const char *, const char *, const char * ) = 0;
 	virtual void SetClientStat( EClientStat eStat, int64 llValue, AppId_t nAppID, DepotId_t nDepotID, CellID_t nCellID ) = 0;
 	virtual void VerifyPassword( const char *pchPassword ) = 0;
 	virtual bool BSupportUser() = 0;
@@ -276,8 +271,9 @@ public:
 	virtual void SetAppHidden(CGameID, bool) = 0;
 	virtual SteamAPICall_t RequestAccountLinkInfo() = 0;
 	virtual void RequestSurveySchedule() = 0;
-	virtual unknown_ret RequestNewSteamAnnouncementState() = 0;
-	virtual unknown_ret UpdateSteamAnnouncementLastRead( uint64 ullUnk, uint32 uUnk) = 0;
+	virtual void RequestNewSteamAnnouncementState() = 0;
+	virtual void UpdateSteamAnnouncementLastRead( uint64 ullUnk, uint32 uUnk) = 0;
+	virtual unknown_ret GetMarketEligibility() = 0;
 };
 
 #endif // ICLIENTUSER_H

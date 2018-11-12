@@ -538,6 +538,9 @@ enum EControllerSetting
 	k_EControllerSettingChord_button,
 	k_EControllerSettingTouchmenu_inner_deadzone,
 	k_EControllerSettingTouchmenu_outer_deadzone,
+	k_EControllerSettingPressurejoystick_min_pressure,
+	k_EControllerSettingPressurejoystick_max_pressure,
+	k_EControllerSettingPressurejoystick_enable_pressure,
 };
 
 enum EControllerConfigFeature

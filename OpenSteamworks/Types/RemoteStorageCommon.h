@@ -57,25 +57,25 @@ const uint32 k_cchPublishedFileURLMax = 256;
 
 enum ERemoteStorageFileRoot
 {
-	k_ERemoteStorageFileRootInvalid = -1,
-	k_ERemoteStorageFileRootDefault,
-	k_ERemoteStorageFileRootGameInstall,
-	k_ERemoteStorageFileRootWinMyDocuments,
-	k_ERemoteStorageFileRootWinAppDataLocal,
-	k_ERemoteStorageFileRootWinAppDataRoaming,
-	k_ERemoteStorageFileRootSteamUserBaseStorage,
-	k_ERemoteStorageFileRootMacHome,
-	k_ERemoteStorageFileRootMacAppSupport,
-	k_ERemoteStorageFileRootMacDocuments,
-	k_ERemoteStorageFileRootWinSavedGames,
-	k_ERemoteStorageFileRootWinProgramData,
-	k_ERemoteStorageFileRootSteamCloudDocuments,
-	k_ERemoteStorageFileRootWinAppDataLocalLow,
-	k_ERemoteStorageFileRootMacCaches,
-	k_ERemoteStorageFileRootLinuxHome,
-	k_ERemoteStorageFileRootLinuxXdgDataHome,
-	k_ERemoteStorageFileRootLinuxXdgConfigHome,
-	k_ERemoteStorageFileRootMax
+    k_ERemoteStorageFileRootInvalid = -1, // Invalid
+    k_ERemoteStorageFileRootDefault, // Default
+    k_ERemoteStorageFileRootGameInstall, // GameInstall
+    k_ERemoteStorageFileRootWinMyDocuments, // WinMyDocuments
+    k_ERemoteStorageFileRootWinAppDataLocal, // WinAppDataLocal
+    k_ERemoteStorageFileRootWinAppDataRoaming, // WinAppDataRoaming
+    k_ERemoteStorageFileRootSteamUserBaseStorage, // SteamUserBaseStorage
+    k_ERemoteStorageFileRootMacHome, // MacHome
+    k_ERemoteStorageFileRootMacAppSupport, // MacAppSupport
+    k_ERemoteStorageFileRootMacDocuments, // MacDocuments
+    k_ERemoteStorageFileRootWinSavedGames, // WinSavedGames
+    k_ERemoteStorageFileRootWinProgramData, // WinProgramData
+    k_ERemoteStorageFileRootSteamCloudDocuments, // SteamCloudDocuments
+    k_ERemoteStorageFileRootWinAppDataLocalLow, // WinAppDataLocalLow
+    k_ERemoteStorageFileRootMacCaches, // MacCaches
+    k_ERemoteStorageFileRootLinuxHome, // LinuxHome
+    k_ERemoteStorageFileRootLinuxXdgDataHome, // LinuxXdgDataHome
+    k_ERemoteStorageFileRootLinuxXdgConfigHome, // LinuxXdgConfigHome
+    k_ERemoteStorageFileRootAndroidSteamPackageRoot, // AndroidSteamPackageRoot
 };
 
 enum ERemoteStorageSyncState
@@ -115,8 +115,7 @@ enum ERemoteStoragePlatform
 	k_ERemoteStoragePlatformOSX			= (1 << 1),
 	k_ERemoteStoragePlatformPS3			= (1 << 2),
 	k_ERemoteStoragePlatformLinux		= (1 << 3),
-	k_ERemoteStoragePlatformReserved2	= (1 << 4),
-
+	k_ERemoteStoragePlatformAndroid		= (1 << 4),
 	k_ERemoteStoragePlatformAll = 0xffffffff
 };
 

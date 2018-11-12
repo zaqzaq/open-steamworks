@@ -34,6 +34,8 @@ public:
 	// Query for all matching UGC. Creator app id or consumer app id must be valid and be set to the current running app. unPage should start at 1.
 	virtual UGCQueryHandle_t CreateQueryAllUGCRequest(EUGCQuery eQueryType, EUGCMatchingUGCType eMatchingeMatchingUGCTypeFileType, AppId_t nCreatorAppID, AppId_t nConsumerAppID, uint32 unPage) = 0;
 
+	virtual UGCQueryHandle_t CreateQueryAllUGCRequest(EUGCQuery eQueryType, EUGCMatchingUGCType eMatchingeMatchingUGCTypeFileType, AppId_t nCreatorAppID, AppId_t nConsumerAppID, const char* pchUnk) = 0;
+
 	// Query for the details of the given published file ids (the RequestUGCDetails call is deprecated and replaced with this)
 	virtual UGCQueryHandle_t  CreateQueryUGCDetailsRequest(PublishedFileId_t *, uint32) = 0;
 

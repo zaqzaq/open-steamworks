@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ClientLoader.h" />
     <ClInclude Include="Interfaces\Client\IClientAppManager.h" />
     <ClInclude Include="Interfaces\Client\IClientApps.h" />
     <ClInclude Include="Interfaces\Client\IClientAudio.h" />
@@ -215,8 +214,8 @@
     <ClInclude Include="Interfaces\Steam\ISteamUtils\ISteamUtils009.h" />
     <ClInclude Include="Interfaces\Steam\ISteamVideo\ISteamVideo001.h" />
     <ClInclude Include="Interfaces\Steam\ISteamVideo\ISteamVideo002.h" />
+    <ClInclude Include="OpenAPI.h" />
     <ClInclude Include="Steamclient.h" />
-    <ClInclude Include="SteamclientAPI.h" />
     <ClInclude Include="Steamworks.h" />
     <ClInclude Include="Types\AppsCommon.h" />
     <ClInclude Include="Types\AppTicketCommon.h" />

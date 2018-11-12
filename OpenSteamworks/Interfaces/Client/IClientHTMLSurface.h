@@ -58,7 +58,7 @@ public:
 	virtual void MouseDoubleClick(HHTMLBrowser hBrowser, EHTMLMouseButton eMButton) = 0;
 	virtual void MouseMove(HHTMLBrowser hBrowser, int32 x, int32 y) = 0;
 	virtual void MouseWheel(HHTMLBrowser hBrowser, int32 delta) = 0;
-	virtual void KeyDown(HHTMLBrowser hBrowser, uint32 key, EHTMLKeyModifiers eKeyMod) = 0;
+	virtual void KeyDown(HHTMLBrowser hBrowser, uint32 key, EHTMLKeyModifiers eKeyMod, bool bUnk) = 0;
 	virtual void KeyUp(HHTMLBrowser hBrowser, uint32 key, EHTMLKeyModifiers eKeyMod) = 0;
 	virtual void KeyChar(HHTMLBrowser hBrowser, uint32 key, EHTMLKeyModifiers eKeyMod) = 0;
 
@@ -81,6 +81,7 @@ public:
 	virtual void SetBackgroundMode(HHTMLBrowser hBrowser, bool backgroundMode) = 0;
 	virtual void SetDPIScalingFactor(HHTMLBrowser hBrowser, float) = 0;
 
+	virtual void OpenDeveloperTools(HHTMLBrowser hBrowser) = 0;
 	virtual void Validate(CValidator&, const char*) = 0;
 };
 
