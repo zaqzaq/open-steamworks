@@ -62,12 +62,12 @@ S_API bool STEAM_CALL OpenAPI_LoadLibrary()
 	return false;
 }
 
-S_API void SteamAPI_RegisterCallback(CCallbackBase *pCallback, int iCallback)
+S_API void STEAM_CALL SteamAPI_RegisterCallback(CCallbackBase *pCallback, int iCallback)
 {
 	GCallbackMgr().RegisterCallback(pCallback, iCallback);
 }
 
-S_API void SteamAPI_UnregisterCallback(CCallbackBase *pCallback)
+S_API void STEAM_CALL SteamAPI_UnregisterCallback(CCallbackBase *pCallback)
 {
 	GCallbackMgr().UnregisterCallback(pCallback);
 }

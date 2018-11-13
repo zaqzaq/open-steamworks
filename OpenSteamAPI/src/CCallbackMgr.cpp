@@ -48,7 +48,7 @@ void CCallbackMgr::RunCallbacks(HSteamPipe hPipe, bool bServer)
 		return;
 	}
 
-    m_bRunning = true;
+	m_bRunning = true;
 	m_hCurrentPipe = hPipe;
 
 	CallbackMsg_t msg;
