@@ -301,6 +301,10 @@ enum EOverlayToStoreFlag
 	k_EOverlayToStoreFlagAddToCart	= 1,
 };
 
+enum EActivateGameOverlayToWebPageMode
+{
+	// TODO: reverse me
+};
 
 // size limits on Rich Presence data
 enum { k_cchMaxRichPresenceKeys = 20 };

@@ -252,7 +252,7 @@ public:
 	virtual bool IsInGameVoiceSpeaking() = 0;
 	virtual void ActivateGameOverlay( const char *pchDialog ) = 0;
 	virtual void ActivateGameOverlayToUser( const char *pchDialog, CSteamID steamID ) = 0;
-	virtual void ActivateGameOverlayToWebPage( const char *pchURL ) = 0;
+	virtual void ActivateGameOverlayToWebPage( const char *pchURL, EActivateGameOverlayToWebPageMode eMode) = 0;
 	virtual void ActivateGameOverlayToStore( AppId_t nAppId, EOverlayToStoreFlag eFlag ) = 0;
 	virtual void ActivateGameOverlayInviteDialog( CSteamID steamIDLobby ) = 0;
 	virtual bool ProcessActivateGameOverlayInMainUI( const char* pchUnk, CSteamID steamId, uint32 uUnk, bool bUnk, int32 iUnk ) = 0;
