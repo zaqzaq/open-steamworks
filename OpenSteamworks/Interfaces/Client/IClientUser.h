@@ -94,6 +94,7 @@ public:
 	virtual void ResetConnectionPriority( int32 hRaiseConnectionPriorityPrev ) = 0;
 	virtual bool BHasCachedCredentials( const char * pchUnk ) = 0;
 	virtual bool SetAccountNameForCachedCredentialLogin( const char *pchAccountName, bool bUnk ) = 0;
+	virtual unknown_ret DestroyCachedCredentials( const char *pchAccountName ) = 0;
 	virtual bool GetCurrentWebAuthToken( char *pchBuffer, int32 cubBuffer, char *pchBuffer2, int32 cubBuffer2 ) = 0;
 	virtual SteamAPICall_t RequestWebAuthToken() = 0;
 	virtual void SetLoginInformation( const char *pchAccountName, const char *pchPassword, bool bRememberPassword ) = 0;
