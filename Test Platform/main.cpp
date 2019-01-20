@@ -14,9 +14,10 @@ public:
 	~TestClient() {}
 
 	bool Init();
-	void Connect();
-	void RunCallbacks();
 	void SetLogOnInfo(const char* username, const char* password, bool save);
+	void Connect();
+	
+	void RunCallbacks();
 
 private:
 	IClientEngine* m_pClientEngine;
@@ -26,14 +27,10 @@ private:
 	HSteamPipe m_hPipe;
 	HSteamUser m_hUser;
 
-	std::string m_szUsername;
-	std::string m_szPassword;
-	bool m_bSaveCredentials;
-
 	STEAM_CALLBACK(TestClient, OnLoggedOn, SteamServersConnected_t, m_cbLoggedOn);
 	STEAM_CALLBACK(TestClient, OnLogOnFailed, SteamServerConnectFailure_t, m_cbLogOnfailed);
 
-	STEAM_CALLBACK_MANUAL(TestClient, OnLoggedOn2, SteamServersConnected_t, m_cbLoggedOn2);
+	STEAM_CALLBACK_MANUAL(TestClient, OnLoggedOnManual, SteamServersConnected_t, m_cbLoggedOn2);
 };
 
 bool TestClient::Init()
@@ -71,7 +68,6 @@ bool TestClient::Init()
 
 void TestClient::Connect()
 {
-	m_pClientUser->SetLoginInformation(m_szUsername.c_str(), m_szPassword.c_str(), m_bSaveCredentials);
 	CSteamID steamID = m_pClientUser->GetSteamID();
 	m_pClientUser->LogOn(steamID);
 }
@@ -83,20 +79,18 @@ void TestClient::RunCallbacks()
 
 void TestClient::SetLogOnInfo(const char * username, const char * password, bool save)
 {
-	m_szUsername = username;
-	m_szPassword = password;
-	m_bSaveCredentials = save;
+	m_pClientUser->SetLoginInformation(username, password, save);
 }
 
 void TestClient::OnLoggedOn(SteamServersConnected_t* cbMsg)
 {
 	printf("TestClient::OnLoggedOn Logged in\n");
-	m_cbLoggedOn2.Register(this, &TestClient::OnLoggedOn2);
+	m_cbLoggedOn2.Register(this, &TestClient::OnLoggedOnManual);
 }
 
-void TestClient::OnLoggedOn2(SteamServersConnected_t* cbMsg)
+void TestClient::OnLoggedOnManual(SteamServersConnected_t* cbMsg)
 {
-	printf("TestClient::OnLoggedOn2 Logged in\n");
+	printf("TestClient::OnLoggedOnManual Logged in\n");
 }
 
 void TestClient::OnLogOnFailed(SteamServerConnectFailure_t* cbMsg)
@@ -166,7 +160,7 @@ int main()
 
 	testClient.SetLogOnInfo(szUsername, szPassword, false);
 	testClient.Connect();
-
+		
 	while ( true )
 	{
 		testClient.RunCallbacks();
