@@ -23,6 +23,8 @@
 #include "Types/SteamTypes.h"
 #include "Types/VideoCommon.h"
 
+class CUtlString;
+
 abstract_class UNSAFE_INTERFACE IClientVideo
 {
 public:
@@ -79,6 +81,11 @@ public:
 	virtual void GetVideoURL(AppId_t appId) = 0;
 	virtual void GetOPFSettings(AppId_t appId) = 0;
 	virtual bool GetOPFStringForApp(AppId_t appId, char* pchBuffer, int32 iUnk, int32* pnBufferSize) = 0;
+
+	virtual unknown_ret WebRTCGetTURNAddress(CUtlString*) = 0;
+	virtual unknown_ret WebRTCStartResult(uint64, bool, const char*) = 0;
+	virtual unknown_ret WebRTCAddCandidate(uint64, const char*, int, const char*) = 0;
+	virtual unknown_ret WebRTCGetAnswer(uint64, CUtlString*) = 0;
 };
 
 #endif // ICLIENTVIDEO_H

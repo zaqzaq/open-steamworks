@@ -49,14 +49,14 @@ bool TestClient::Init()
 		return false;
 	}
 
-	m_pClientUser = (IClientUser*)m_pClientEngine->GetIClientUser(m_hUser, m_hPipe, CLIENTUSER_INTERFACE_VERSION);
+	m_pClientUser = (IClientUser*)m_pClientEngine->GetIClientUser(m_hUser, m_hPipe);
 	if (!m_pClientUser)
 	{
 		fprintf(stderr, "Unable to get the client user interface.\n");
 		return false;
 	}
 
-    m_pClientFriends = (IClientFriends*)m_pClientEngine->GetIClientFriends(m_hUser, m_hPipe, CLIENTFRIENDS_INTERFACE_VERSION);
+    m_pClientFriends = (IClientFriends*)m_pClientEngine->GetIClientFriends(m_hUser, m_hPipe);
 	if (!m_pClientFriends)
 	{
 		fprintf(stderr, "Unable to get the client friends interface.\n");

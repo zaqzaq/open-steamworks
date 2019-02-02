@@ -231,7 +231,7 @@ public:
 	virtual float GetEstimatedBitsPerSecond( HVoiceCall hVoiceCall, bool bIncoming ) = 0;
 	virtual float GetPeakSample( HVoiceCall hVoiceCall, bool bIncoming ) = 0;
 	virtual void SendResumeRequest( HVoiceCall hVoiceCall ) = 0;
-	virtual void OpenFriendsDialog() = 0;
+	virtual void OpenFriendsDialog(bool bUnk1, bool bUnk2) = 0;
 	virtual void OpenChatDialog( CSteamID steamID ) = 0;
 	virtual void OpenInviteToTradeDialog( CSteamID steamID ) = 0;
 	virtual void StartChatRoomVoiceSpeaking( CSteamID steamIDChat, CSteamID steamIDMember ) = 0;

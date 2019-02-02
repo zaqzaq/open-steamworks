@@ -29,11 +29,12 @@ class IClientCompat
 public:
 	virtual unknown_ret BIsCompatLayerEnabled() = 0;
 	virtual unknown_ret EnableCompat(bool) = 0;
-	virtual unknown_ret GetAvailableCompatTools(CUtlString*, bool*, CUtlVector<CUtlString, CUtlMemory<CUtlString> >*) = 0;
+	virtual unknown_ret GetAvailableCompatTools(CUtlVector<CUtlString, CUtlMemory<CUtlString> >*) = 0;
 	virtual unknown_ret SpecifyCompatTool(uint32, const char*, const char*, int32) = 0;
 	virtual unknown_ret BIsCompatibilityToolEnabled(uint32) = 0;
-	virtual unknown_ret BGetCompatToolName(uint32, CUtlString*) = 0;
-	virtual unknown_ret BGetCompatToolDisplayName(const char*, CUtlString*) = 0;
+	virtual unknown_ret GetCompatToolName(uint32) = 0;
+	virtual unknown_ret GetCompatToolMappingPriority(uint32) = 0;
+	virtual unknown_ret GetCompatToolDisplayName(const char*) = 0;
 };
 
 #endif // ICLIENTCOMPAT_H
