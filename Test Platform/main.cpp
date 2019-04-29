@@ -91,6 +91,7 @@ void TestClient::OnLoggedOn(SteamServersConnected_t* cbMsg)
 void TestClient::OnLoggedOnManual(SteamServersConnected_t* cbMsg)
 {
 	printf("TestClient::OnLoggedOnManual Logged in\n");
+	m_pClientFriends->SetPersonaState(k_EPersonaStateOnline);
 }
 
 void TestClient::OnLogOnFailed(SteamServerConnectFailure_t* cbMsg)

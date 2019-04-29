@@ -124,6 +124,7 @@ enum EAppType
 	k_EAppTypeMusic = 8192,
 	k_EAppTypeSeries = 16384,
 	k_EAppTypeComic = 32768,
+	k_EAppTypeBeta = 65536,
 	k_EAppTypeShortcut = 1073741824,
 };
 

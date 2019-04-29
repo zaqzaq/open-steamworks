@@ -80,6 +80,7 @@ class IClientNetworkingMessages;
 class IClientNetworkingSockets;
 class IClientNetworkingUtils;
 class IClientNetworkingUtilsSerialized;
+class IClientSTARInternal;
 
 abstract_class UNSAFE_INTERFACE IClientEngine
 {
@@ -159,6 +160,7 @@ public:
 	virtual IClientNetworkingSockets *GetIClientNetworkingSockets( HSteamUser hSteamUser, HSteamPipe hSteamPipe ) = 0;
 	virtual IClientNetworkingUtils *GetIClientNetworkingUtils( HSteamPipe hSteamPipe ) = 0;
 	virtual IClientNetworkingUtilsSerialized *GetIClientNetworkingUtilsSerialized( HSteamPipe hSteamPipe ) = 0;
+	virtual IClientSTARInternal *GetIClientSTARInternal(HSteamUser hSteamUser, HSteamPipe hSteamPipe) = 0; // virtual IClientSTARInternal *GetIClientSTARInternal(int32, int32) = 0;
 };
 
 #endif // ICLIENTENGINE_H

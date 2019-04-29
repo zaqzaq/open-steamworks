@@ -42,6 +42,7 @@ public:
 	virtual uint32 GetNumInstalledApps() = 0;
 	virtual uint32 GetInstalledApps( uint32 *punAppIDs, uint32 cAppIDsMax ) = 0;
 	virtual uint32 GetAppDependency( AppId_t unAppID ) = 0;
+	virtual unknown_ret GetAppDependencies( AppId_t unAppID, AppId_t* unAppIDs, uint32 uUnk) = 0;
 	virtual uint32 GetDependentApps( AppId_t unAppID, AppId_t *punAppIDs, int32 cAppIDsMax ) = 0;
 	virtual uint32 GetUpdateInfo( AppId_t unAppID, AppUpdateInfo_s *pUpdateInfo ) = 0;
 	virtual int32 GetAppConfigValue( AppId_t unAppID, const char *pchKey, char *pchValue, int32 cchValueMax ) = 0;

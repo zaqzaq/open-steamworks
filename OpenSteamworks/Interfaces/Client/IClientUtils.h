@@ -128,6 +128,8 @@ public:
 	virtual unknown_ret DispatchOpenURLInClient(const char* pcUnk, uint32 uUnk, bool bUnk) = 0;
 	virtual unknown_ret UpdateWideVineCDM(const char* pcUnk) = 0;
 	virtual unknown_ret DispatchClearAllBrowsingData() = 0;
+	virtual unknown_ret DispatchClientSettingsChanged() = 0;
+	virtual unknown_ret DispatchClientPostMessage(const char*, const char*, const char*) = 0;
 };
 
 #endif // ICLIENTUTILS_H
