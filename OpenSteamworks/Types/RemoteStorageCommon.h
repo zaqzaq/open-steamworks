@@ -115,7 +115,8 @@ enum ERemoteStoragePlatform
 	k_ERemoteStoragePlatformOSX			= (1 << 1),
 	k_ERemoteStoragePlatformPS3			= (1 << 2),
 	k_ERemoteStoragePlatformLinux		= (1 << 3),
-	k_ERemoteStoragePlatformAndroid		= (1 << 4),
+	k_ERemoteStoragePlatformAndroid		= (1 << 5),
+	k_ERemoteStoragePlatformIPhoneOS	= (1 << 6),
 	k_ERemoteStoragePlatformAll = 0xffffffff
 };
 

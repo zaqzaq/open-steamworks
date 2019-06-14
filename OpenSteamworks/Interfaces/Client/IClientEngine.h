@@ -129,6 +129,7 @@ public:
 	virtual bool BOverlayNeedsPresent() = 0;
 	virtual IClientGameStats *GetIClientGameStats( HSteamUser hSteamUser, HSteamPipe hSteamPipe ) = 0;
 	virtual IClientHTTP *GetIClientHTTP( HSteamUser hSteamUser, HSteamPipe hSteamPipe ) = 0;
+	virtual void FlushBeforeValidate() = 0;
 	virtual bool BShutdownIfAllPipesClosed() = 0;
 	virtual IClientAudio *GetIClientAudio( HSteamUser hSteamUser, HSteamPipe hSteamPipe ) = 0;
 	virtual IClientMusic *GetIClientMusic( HSteamUser hSteamUser, HSteamPipe hSteamPipe ) = 0;

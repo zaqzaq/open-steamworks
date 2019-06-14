@@ -53,6 +53,7 @@ public:
 	virtual bool GetQueryUGCAdditionalPreview(UGCQueryHandle_t handle, uint32, uint32, char*, uint32, char*, uint32, EItemPreviewType*) = 0;
 	virtual uint32 GetQueryUGCNumKeyValueTags(UGCQueryHandle_t handle, uint32) = 0;
 	virtual bool GetQueryUGCKeyValueTag(UGCQueryHandle_t handle, uint32, uint32, char*, uint32, char*, uint32) = 0;
+	virtual bool GetQueryUGCKeyValueTag(UGCQueryHandle_t handle, uint32, const char*, char*, uint32) = 0;
 	virtual bool GetQueryUGCIsDepotBuild(UGCQueryHandle_t, uint32, bool*) = 0;
 
 	// Release the request to free up memory, after retrieving results
@@ -97,7 +98,8 @@ public:
 	virtual bool SetItemTags(UGCUpdateHandle_t updateHandle, const SteamParamStringArray_t *pTags) = 0; // change the tags of an UGC item
 	virtual bool SetItemContent(UGCUpdateHandle_t handle, const char *pszContentFolder) = 0; // update item content from this local folder
 	virtual bool SetItemPreview(UGCUpdateHandle_t handle, const char *pszPreviewFile) = 0; //  change preview image file for this item. pszPreviewFile points to local image file, which must be under 1MB in size
-	virtual unknown_ret SetAllowLegacyUpload(unsigned long long, bool) = 0;
+	virtual bool SetAllowLegacyUpload(UGCUpdateHandle_t handle, bool) = 0;
+	virtual bool RemoveAllItemKeyValueTags(UGCUpdateHandle_t handle) = 0;
 	virtual bool RemoveItemKeyValueTags(UGCUpdateHandle_t handle, const char*) = 0;
 	virtual bool AddItemKeyValueTag(UGCUpdateHandle_t handle, const char*, const char*) = 0;
 	virtual bool AddItemPreviewFile(UGCUpdateHandle_t handle, const char*, EItemPreviewType) = 0;

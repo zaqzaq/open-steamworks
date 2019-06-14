@@ -102,6 +102,7 @@ enum EAppInfoSection
 	k_EAppInfoSectionCommunity,
 	k_EAppInfoSectionStore,
 	k_EAppInfoSectionLocalization,
+	k_EAppInfoSectionBroadcastgamedata,
 };
 
 enum EAppType

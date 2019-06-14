@@ -100,6 +100,7 @@ public:
 	virtual void SetLoginInformation( const char *pchAccountName, const char *pchPassword, bool bRememberPassword ) = 0;
 	virtual void SetTwoFactorCode(const char *) = 0;
 	virtual void ClearAllLoginInformation() = 0;
+	virtual void SetEmbeddedClientInfo(uint32, const char*, const char*) = 0;
 	virtual bool GetLanguage( char* pchLanguage, int32 cbLanguage ) = 0;
 	virtual bool BIsCyberCafe() = 0;
 	virtual bool BIsAcademicAccount() = 0;
@@ -126,6 +127,7 @@ public:
 	virtual void GetAvailableSeats( uint32 uUnk ) = 0;
 	virtual const char* GetAssociatedSiteName() = 0;
 	virtual bool BIsRunningInCafe() = 0;
+	virtual bool BAllowCachedCredentialsInCafe() = 0;
 	virtual bool RequiresLegacyCDKey( AppId_t nAppID, bool * pbUnk ) = 0;
 	virtual bool GetLegacyCDKey( AppId_t nAppID, char* pchKeyData, int32 cbKeyData ) = 0;
 	virtual bool SetLegacyCDKey( AppId_t nAppID, const char* pchKeyData ) = 0;
@@ -213,6 +215,7 @@ public:
 	virtual void SetUserMachineName( const char * pchMachineName ) = 0;
 	virtual bool GetUserMachineName( char * pchMachineName, int32 cbMachineName ) = 0;
 	virtual bool GetEmailDomainFromLogonFailure( char * pchEmailDomain, int32 cbEmailDomain ) = 0;
+	virtual int64 GetDurationControl(uint32) = 0;
 	virtual bool BIsSubscribedApp( AppId_t nAppId ) = 0;
 	virtual uint32 GetSubscribedApps(AppId_t *, uint32, bool) = 0;
 	virtual SteamAPICall_t RegisterActivationCode( const char * pchActivationCode ) = 0;
