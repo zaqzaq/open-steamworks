@@ -61,6 +61,7 @@ public:
 	virtual int32 GetAvailableBetas(AppId_t unAppID, int32* iunk1, char*, int32 iunk2) = 0;
 	virtual bool CheckBetaPassword( AppId_t unAppID, char const*) = 0;
 	virtual bool BHasCachedBetaPassword( AppId_t unAppID, const char *cszBetaKey ) = 0;
+	virtual unknown_ret GetActiveBeta( AppId_t unAppID, char*, int32) = 0;
 	virtual bool SetDownloadingEnabled( bool ) = 0;
 	virtual bool BIsDownloadingEnabled() = 0;
 	virtual bool GetDownloadStats( DownloadStats_s *pDownloadStats ) = 0;
@@ -92,7 +93,7 @@ public:
 	virtual bool BNeedsFile( AppId_t unAppID, char const *cszFilePath, uint64 ullFileSize, uint32 uUnk ) = 0;
 	virtual bool BAddFileOnDisk( AppId_t unAppID, char const *cszFilePath, uint64 ullFileSize, uint32 uUnk, SHADigestWrapper_t ubSha1 ) = 0;
 	virtual uint32 FinishAddingFiles( AppId_t unAppID ) = 0;
-	virtual bool GetAppStateInfo( AppId_t unAppID, EAppReleaseState * peReleaseState, EAppOwnershipFlags * peOwnershipFlags, EAppState * peAppState, CSteamID * pSteamID, uint32* uUnk1, uint32* uUnk2 ) = 0;
+	virtual bool GetAppStateInfo( AppId_t unAppID, AppStateInfo_s* ) = 0;
 	virtual bool BIsAvailableOnPlatform( uint32 uUnk, const char * pUnk ) = 0;
 	virtual int32 GetNumInstallBaseFolders() = 0;
 	virtual int32 GetInstallBaseFolder( int32 iBaseFolder, char *pchPath, int32 cbPath ) = 0;

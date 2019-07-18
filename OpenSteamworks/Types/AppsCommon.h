@@ -477,6 +477,11 @@ struct AppLaunchResult_t
 	char m_szErrorDetail[512];
 };
 
+struct AppStateInfo_s
+{
+	// reverse me
+};
+
 #pragma pack( pop )
 
 #endif // APPSCOMMON_H

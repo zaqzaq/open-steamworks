@@ -68,6 +68,9 @@ public:
 	virtual uint32 GetVoiceOptimalSampleRate() = 0;
 
 	virtual bool BAppUsesVoice(uint32 uUnk) = 0;
+
+	virtual unknown_ret GetGameSystemVolume() = 0;
+	virtual unknown_ret SetGameSystemVolume( float ) = 0;
 };
 
 #endif // ICLIENTAUDIO_H

@@ -100,7 +100,11 @@ public:
 	virtual void SetLoginInformation( const char *pchAccountName, const char *pchPassword, bool bRememberPassword ) = 0;
 	virtual void SetTwoFactorCode(const char *) = 0;
 	virtual void ClearAllLoginInformation() = 0;
-	virtual void SetEmbeddedClientInfo(uint32, const char*, const char*) = 0;
+	virtual bool BEnableEmbeddedClient(uint32) = 0;
+	virtual unknown_ret ResetEmbeddedClient(uint32) = 0;
+	virtual bool BHasEmbeddedClientToken(uint32) = 0;
+	virtual unknown_ret RequestEmbeddedClientToken(uint32) = 0;
+	virtual unknown_ret AuthorizeNewDevice(uint32, uint32, const char*) = 0;
 	virtual bool GetLanguage( char* pchLanguage, int32 cbLanguage ) = 0;
 	virtual bool BIsCyberCafe() = 0;
 	virtual bool BIsAcademicAccount() = 0;
@@ -215,7 +219,8 @@ public:
 	virtual void SetUserMachineName( const char * pchMachineName ) = 0;
 	virtual bool GetUserMachineName( char * pchMachineName, int32 cbMachineName ) = 0;
 	virtual bool GetEmailDomainFromLogonFailure( char * pchEmailDomain, int32 cbEmailDomain ) = 0;
-	virtual int64 GetDurationControl(uint32) = 0;
+	virtual int64 GetDurationControl() = 0;
+	virtual unknown_ret GetDurationControlForApp( AppId_t nAppId ) = 0;
 	virtual bool BIsSubscribedApp( AppId_t nAppId ) = 0;
 	virtual uint32 GetSubscribedApps(AppId_t *, uint32, bool) = 0;
 	virtual SteamAPICall_t RegisterActivationCode( const char * pchActivationCode ) = 0;
@@ -269,6 +274,7 @@ public:
 	virtual void RequestNewSteamAnnouncementState() = 0;
 	virtual void UpdateSteamAnnouncementLastRead( uint64 ullUnk, uint32 uUnk) = 0;
 	virtual unknown_ret GetMarketEligibility() = 0;
+	virtual unknown_ret UpdateGameVrDllState(CGameID, bool, bool) = 0;
 };
 
 #endif // ICLIENTUSER_H

@@ -28,7 +28,7 @@ struct SharedConnectionMessageReady_t
 {
 	enum { k_iCallback = k_iClientSharedConnectionCallbacks + 1 };
 
-	int32 m_hResult;
+	uint32 m_hResult;
 };
 
 #endif //SHAREDCONNECTIONCOMMON_H
