@@ -70,7 +70,7 @@ public:
 	virtual int32 InitiateGameConnection( void *pOutputBlob, int32 cbBlobMax, CSteamID steamIDGS, CGameID gameID, uint32 unIPServer, uint16 usPortServer, bool bSecure ) = 0;
 	virtual int32 InitiateGameConnectionOld( void *pOutputBlob, int32 cbBlobMax, CSteamID steamIDGS, CGameID gameID, uint32 unIPServer, uint16 usPortServer, bool bSecure, void *pvSteam2GetEncryptionKey, int32 cbSteam2GetEncryptionKey ) = 0;
 	virtual void TerminateGameConnection( uint32 unIPServer, uint16 usPortServer ) = 0;
-	virtual bool TerminateAppMultiStep( uint32, uint32 ) = 0;
+	virtual bool TerminateAppMultiStep( CGameID, uint32 ) = 0;
 	virtual void SetSelfAsChatDestination( bool bUnk ) = 0;
 	virtual bool IsPrimaryChatDestination() = 0;
 	virtual void RequestLegacyCDKey( AppId_t iAppID ) = 0;
