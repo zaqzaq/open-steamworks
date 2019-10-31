@@ -94,7 +94,9 @@ public:
 	virtual bool BAddFileOnDisk( AppId_t unAppID, char const *cszFilePath, uint64 ullFileSize, uint32 uUnk, SHADigestWrapper_t ubSha1 ) = 0;
 	virtual uint32 FinishAddingFiles( AppId_t unAppID ) = 0;
 	virtual bool GetAppStateInfo( AppId_t unAppID, AppStateInfo_s* ) = 0;
-	virtual bool BIsAvailableOnPlatform( uint32 uUnk, const char * pUnk ) = 0;
+	virtual bool BIsAvailableOnPlatform( AppId_t unAppID, const char * pUnk ) = 0;
+	virtual bool BCanRemotePlayTogether( AppId_t unAppID ) = 0;
+	virtual bool BIsLocalMultiplayerApp( AppId_t unAppID ) = 0;
 	virtual int32 GetNumInstallBaseFolders() = 0;
 	virtual int32 GetInstallBaseFolder( int32 iBaseFolder, char *pchPath, int32 cbPath ) = 0;
 	virtual int32 AddInstallBaseFolder( const char *szPath ) = 0;
