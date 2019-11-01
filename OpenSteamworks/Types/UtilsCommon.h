@@ -138,6 +138,18 @@ enum EClientUINotificationType
 	// TODO: Reverse this enum
 };
 
+enum EBrowserType
+{
+	// TODO: Reverse this enum
+};
+
+enum ESteamIPv6ConnectivityProtocol
+{
+	k_ESteamIPv6ConnectivityProtocolInvalid, // invalid
+	k_ESteamIPv6ConnectivityProtocolHttp, // http
+	k_ESteamIPv6ConnectivityProtocolUdp, // udp
+};
+
 #pragma pack( push, 8 )
 //-----------------------------------------------------------------------------
 // Purpose: The country of the user changed

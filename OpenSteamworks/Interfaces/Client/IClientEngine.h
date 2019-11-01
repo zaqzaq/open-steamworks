@@ -83,6 +83,8 @@ class IClientNetworkingUtilsSerialized;
 class IClientSTARInternal;
 class IClientRemotePlay;
 
+struct SteamIPAddress_t;
+
 abstract_class UNSAFE_INTERFACE IClientEngine
 {
 
@@ -97,7 +99,7 @@ public:
 	virtual bool IsValidHSteamUserPipe( HSteamPipe hSteamPipe, HSteamUser hUser ) = 0;
 	virtual IClientUser *GetIClientUser( HSteamUser hSteamUser, HSteamPipe hSteamPipe ) = 0;
 	virtual IClientGameServer *GetIClientGameServer( HSteamUser hSteamUser, HSteamPipe hSteamPipe ) = 0;
-	virtual void SetLocalIPBinding( uint32 unIP, uint16 usPort ) = 0;
+	virtual void SetLocalIPBinding( const SteamIPAddress_t& ipAddr, uint16 usPort ) = 0;
 	virtual char const *GetUniverseName( EUniverse eUniverse ) = 0;
 	virtual IClientFriends *GetIClientFriends( HSteamUser hSteamUser, HSteamPipe hSteamPipe ) = 0;
 	virtual IClientUtils *GetIClientUtils( HSteamPipe hSteamPipe ) = 0;
@@ -135,7 +137,7 @@ public:
 	virtual IClientAudio *GetIClientAudio( HSteamUser hSteamUser, HSteamPipe hSteamPipe ) = 0;
 	virtual IClientMusic *GetIClientMusic( HSteamUser hSteamUser, HSteamPipe hSteamPipe ) = 0;
 	virtual IClientUnifiedMessages *GetIClientUnifiedMessages( HSteamUser hSteamUser, HSteamPipe hSteamPipe ) = 0;
-	virtual IClientController *GetIClientController( HSteamUser hSteamUser, HSteamPipe hSteamPipe ) = 0;
+	virtual IClientController *GetIClientController( HSteamPipe hSteamPipe ) = 0;
 	virtual IClientParentalSettings *GetIClientParentalSettings( HSteamUser hSteamUser, HSteamPipe hSteamPipe ) = 0;
 	virtual IClientStreamLauncher *GetIClientStreamLauncher( HSteamUser hSteamUser, HSteamPipe hSteamPipe ) = 0;
 	virtual IClientDeviceAuth *GetIClientDeviceAuth( HSteamUser hSteamUser, HSteamPipe hSteamPipe ) = 0;

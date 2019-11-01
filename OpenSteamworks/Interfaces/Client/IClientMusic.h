@@ -191,6 +191,7 @@ public:
 	virtual void ForgetCurrentUserSpotify() = 0;
 	virtual void LogoutSpotify() = 0;
 	virtual void DumpStatusToConsole() = 0;
+	virtual unknown_ret ReplacePlaylistWithSoundtrackAlbum(uint32 uUnk) = 0;
 };
 
 #endif // ICLIENTMUSIC_H

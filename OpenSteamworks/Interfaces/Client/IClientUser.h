@@ -70,6 +70,7 @@ public:
 	virtual int32 InitiateGameConnection( void *pOutputBlob, int32 cbBlobMax, CSteamID steamIDGS, CGameID gameID, uint32 unIPServer, uint16 usPortServer, bool bSecure ) = 0;
 	virtual int32 InitiateGameConnectionOld( void *pOutputBlob, int32 cbBlobMax, CSteamID steamIDGS, CGameID gameID, uint32 unIPServer, uint16 usPortServer, bool bSecure, void *pvSteam2GetEncryptionKey, int32 cbSteam2GetEncryptionKey ) = 0;
 	virtual void TerminateGameConnection( uint32 unIPServer, uint16 usPortServer ) = 0;
+	virtual bool SignalAppsToShutDown( CGameID ) = 0;
 	virtual bool TerminateAppMultiStep( CGameID, uint32 ) = 0;
 	virtual void SetSelfAsChatDestination( bool bUnk ) = 0;
 	virtual bool IsPrimaryChatDestination() = 0;
@@ -251,6 +252,7 @@ public:
 	virtual uint32 GetParentalUnlockTime() = 0;
 	virtual bool BGetRecoveryEmail(char*, int) = 0;
 	virtual void RequestParentalRecoveryEmail() = 0;
+	virtual bool BIsLockFromSiteLicense() = 0;
 	virtual bool BGetSerializedParentalSettings( CUtlBuffer * pBuffer ) = 0;
 	virtual bool BSetParentalSettings( CUtlBuffer * pBuffer ) = 0;
 	virtual bool BDisableParentalSettings() = 0;
@@ -266,8 +268,10 @@ public:
 	virtual bool BIsOtherSessionPlaying( uint32 * ) = 0;
 	virtual bool BKickOtherPlayingSession() = 0;
 	virtual bool BIsAccountLockedDown() = 0;
+	virtual void ClearAndSetAppTags( CGameID, const SteamParamStringArray_t* ) = 0;
 	virtual void RemoveAppTag(CGameID, const char*) = 0;
 	virtual void AddAppTag(CGameID, const char*) = 0;
+	virtual void ClearAppTags( CGameID ) = 0;
 	virtual void SetAppHidden(CGameID, bool) = 0;
 	virtual SteamAPICall_t RequestAccountLinkInfo() = 0;
 	virtual void RequestSurveySchedule() = 0;
@@ -275,6 +279,9 @@ public:
 	virtual void UpdateSteamAnnouncementLastRead( uint64 ullUnk, uint32 uUnk) = 0;
 	virtual unknown_ret GetMarketEligibility() = 0;
 	virtual unknown_ret UpdateGameVrDllState(CGameID, bool, bool) = 0;
+	virtual bool BIsAnyGameOrServiceAppRunning() = 0;
+	virtual bool BGetAppArrayMinutesPlayed( uint32*, int32, int32*, int32*) = 0;
+	virtual bool BGetAppsLastPlayedTime( uint32*, int32, uint32*) = 0;
 };
 
 #endif // ICLIENTUSER_H

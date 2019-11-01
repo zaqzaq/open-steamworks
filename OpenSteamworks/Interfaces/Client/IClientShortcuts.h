@@ -69,6 +69,7 @@ public:
 	virtual void ClearShortcutUserTags( AppId_t unAppID ) = 0;
 	virtual void AddShortcutUserTag( AppId_t unAppID, const char * szTag) = 0;
 	virtual void RemoveShortcutUserTag( AppId_t unAppID, const char * szTag) = 0;
+	virtual void ClearAndSetShortcutUserTags( AppId_t unAppID, const SteamParamStringArray_t *) = 0;
 	virtual void SetShortcutHidden( AppId_t unAppID, bool ) = 0;
 	virtual void SetAllowDesktopConfig( uint32, bool ) = 0;
 	virtual void SetAllowOverlay( AppId_t unAppID, bool ) = 0;

@@ -48,7 +48,6 @@ public:
 	virtual int32 GetAppConfigValue( AppId_t unAppID, const char *pchKey, char *pchValue, int32 cchValueMax ) = 0;
 	virtual bool SetAppConfigValue( AppId_t unAppID, const char *pchKey, const char *pchValue ) = 0;
 	virtual bool BIsAppUpToDate( AppId_t unAppID ) = 0;
-	virtual uint32 GetAvailableLaunchOptions( AppId_t unAppID, uint32 puOptions[], uint32 cuOptionsMax ) = 0;
 	virtual uint32 GetAvailableLanguages( AppId_t unAppID, bool, char *pchLanguages, uint32 cchLanguagesMax ) = 0;
 	virtual bool BIsDlcEnabled( AppId_t unAppID, uint32, bool* ) = 0;
 	virtual void SetDlcEnabled( AppId_t unAppID, uint32, bool ) = 0;
@@ -62,6 +61,7 @@ public:
 	virtual bool CheckBetaPassword( AppId_t unAppID, char const*) = 0;
 	virtual bool BHasCachedBetaPassword( AppId_t unAppID, const char *cszBetaKey ) = 0;
 	virtual unknown_ret GetActiveBeta( AppId_t unAppID, char*, int32) = 0;
+	virtual bool BGetActiveBetaForApps( uint32* puUnk, int32 iUnk, char* pcUnk, int32 iUnk2) = 0;
 	virtual bool SetDownloadingEnabled( bool ) = 0;
 	virtual bool BIsDownloadingEnabled() = 0;
 	virtual bool GetDownloadStats( DownloadStats_s *pDownloadStats ) = 0;
