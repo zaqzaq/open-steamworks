@@ -136,6 +136,7 @@ public:
 	virtual unknown_ret GetIPv6ConnectivityState( ESteamIPv6ConnectivityProtocol ) = 0;
 	virtual unknown_ret RecordSteamInterfaceCreation( const char*, const char* ) = 0;
 	virtual unknown_ret GetRuntimeInformation() = 0;
+	virtual unknown_ret GetCloudGamingPlatform() = 0;
 };
 
 #endif // ICLIENTUTILS_H
