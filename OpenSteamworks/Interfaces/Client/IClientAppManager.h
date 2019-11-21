@@ -49,6 +49,9 @@ public:
 	virtual bool SetAppConfigValue( AppId_t unAppID, const char *pchKey, const char *pchValue ) = 0;
 	virtual bool BIsAppUpToDate( AppId_t unAppID ) = 0;
 	virtual uint32 GetAvailableLanguages( AppId_t unAppID, bool, char *pchLanguages, uint32 cchLanguagesMax ) = 0;
+	virtual unknown_ret GetCurrentLanguage( AppId_t unAppID, char*, uint32 ) = 0;
+	virtual unknown_ret GetCurrentLanguage( AppId_t unAppID ) = 0;
+	virtual unknown_ret GetFallbackLanguage( AppId_t unAppID, ELanguage) = 0;
 	virtual bool BIsDlcEnabled( AppId_t unAppID, uint32, bool* ) = 0;
 	virtual void SetDlcEnabled( AppId_t unAppID, uint32, bool ) = 0;
 	virtual bool StartValidatingApp( AppId_t unAppID ) = 0;
