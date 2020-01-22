@@ -135,6 +135,7 @@ public:
 	virtual unknown_ret FilterText(uint32, char*, uint32, const char*, bool) = 0;
 	virtual unknown_ret GetIPv6ConnectivityState( ESteamIPv6ConnectivityProtocol ) = 0;
 	virtual unknown_ret RecordSteamInterfaceCreation( const char*, const char* ) = 0;
+	virtual unknown_ret StartRuntimeInformationGathering() = 0;
 	virtual unknown_ret GetRuntimeInformation() = 0;
 	virtual unknown_ret GetCloudGamingPlatform() = 0;
 };
