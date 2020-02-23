@@ -41,6 +41,7 @@ enum EParentalFeature
 	k_EParentalFeatureParentalSetup,
 	k_EParentalFeatureLibrary,
 	k_EParentalFeatureTest,
+	k_EParentalFeatureSiteLicense,
 };
 
 

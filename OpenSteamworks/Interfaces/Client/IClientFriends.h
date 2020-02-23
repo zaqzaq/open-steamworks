@@ -255,6 +255,7 @@ public:
 	virtual void ActivateGameOverlayToWebPage( const char *pchURL, EActivateGameOverlayToWebPageMode eMode) = 0;
 	virtual void ActivateGameOverlayToStore( AppId_t nAppId, EOverlayToStoreFlag eFlag ) = 0;
 	virtual void ActivateGameOverlayInviteDialog( CSteamID steamIDLobby ) = 0;
+	virtual void ActivateGameOverlayRemotePlayTogetherInviteDialog(CSteamID) = 0;
 	virtual bool ProcessActivateGameOverlayInMainUI( const char* pchUnk, CSteamID steamId, uint32 uUnk, bool bUnk, int32 iUnk ) = 0;
 	virtual void NotifyGameOverlayStateChanged( bool bActive ) = 0;
 	virtual void NotifyGameServerChangeRequested( const char *pchServerAddress, const char *pchPassword ) = 0;

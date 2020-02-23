@@ -60,6 +60,7 @@ public:
 
 	// return the amount of battery power left in the current system in % [0..100], 255 for being on AC power
 	virtual uint8 GetCurrentBatteryPower() = 0;
+	virtual unknown_ret GetBatteryInformation(int32*, bool*) = 0;
 
 	virtual void SetOfflineMode( bool bOffline ) = 0;
 	virtual bool GetOfflineMode() = 0;
@@ -138,6 +139,9 @@ public:
 	virtual unknown_ret StartRuntimeInformationGathering() = 0;
 	virtual unknown_ret GetRuntimeInformation() = 0;
 	virtual unknown_ret GetCloudGamingPlatform() = 0;
+	virtual unknown_ret BGetMacAddresses(uint64*, uint32, uint32*) = 0;
+	virtual unknown_ret BGetDiskSerialNumber(char*, int32) = 0;
+	virtual unknown_ret TestHTTP(const char*) = 0;
 };
 
 #endif // ICLIENTUTILS_H
