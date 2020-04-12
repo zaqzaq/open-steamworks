@@ -188,6 +188,8 @@ public:
 	virtual AppId_t GetMicroTxnAppID( GID_t gidTransID ) = 0;
 	virtual uint64 GetMicroTxnOrderID( GID_t gidTransID ) = 0;
 	virtual bool BGetMicroTxnPrice( GID_t gidTransID, CAmount *pamtTotal, CAmount *pamtTax, bool *pbVat, CAmount * pUnk ) = 0;
+	virtual bool BGetMicroTxnBillingAddressValue(GID_t gidTransID, const char*, char*, uint32) = 0;
+	virtual bool BGetMicroTxnBillingAddressRequirements(GID_t gidTransID, bool*, bool*) = 0;
 	virtual int32 GetMicroTxnLineItemCount( GID_t gidTransID ) = 0;
 	virtual bool BGetMicroTxnLineItem( GID_t gidTransID, uint32 unLineItem, CAmount *pamt, uint32 *punQuantity, char *pchDescription, uint32 cubDescriptionLength, int32 *pRecurringTimeUnit, uint8 *pRecurringFrequency, CAmount *pRecurringAmount, bool * pbUnk ) = 0;
 	virtual bool BIsSandboxMicroTxn( GID_t gidTransID, bool* pbSandbox ) = 0;
@@ -282,6 +284,7 @@ public:
 	virtual bool BIsAnyGameOrServiceAppRunning() = 0;
 	virtual bool BGetAppArrayMinutesPlayed( uint32*, int32, int32*, int32*) = 0;
 	virtual bool BGetAppsLastPlayedTime( uint32*, int32, uint32*) = 0;
+	virtual unknown_ret SendSteamServiceStatusUpdate(EResult eResult, ESteamServiceStatusUpdate eUnk) = 0;
 };
 
 #endif // ICLIENTUSER_H

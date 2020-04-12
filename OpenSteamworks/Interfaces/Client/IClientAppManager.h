@@ -125,6 +125,7 @@ public:
 	virtual bool GetSystemIconFile( AppId_t unAppId, char*, int32, uint32 uUnk ) = 0;
 	virtual unknown_ret SetUseHTTPSForDownloads(bool) = 0;
 	virtual unknown_ret GetUseHTTPSForDownloads() = 0;
+	virtual unknown_ret SetAppPlatformOverride(AppId_t unAppId, const char*, const char*) = 0;
 };
 
 #endif // ICLIENTAPPMANAGER_H

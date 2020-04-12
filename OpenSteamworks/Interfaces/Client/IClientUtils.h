@@ -99,7 +99,7 @@ public:
 	virtual void GamepadTextInputClosed( HSteamPipe hSteamPipe, bool, const char * ) = 0;
 	virtual void SetSpew( ESpewGroup eSpewGroup, int32 iSpewLevel, int32 iLogLevel ) = 0;
 	virtual bool BDownloadsDisabled() = 0;
-	virtual void SetFocusedWindow( EWindowType eWindowType, CGameID gameID, uint64 ulUnk ) = 0;
+	virtual void SetFocusedWindow( CGameID gameID, bool bUnk ) = 0;
 	virtual const char *GetSteamUILanguage() = 0;
 	virtual uint64 CheckSteamReachable() = 0;
 	virtual void SetLastGameLaunchMethod( EGameLaunchMethod eGameLaunchMethod ) = 0;

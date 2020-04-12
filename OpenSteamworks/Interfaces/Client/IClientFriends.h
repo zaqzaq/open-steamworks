@@ -32,7 +32,6 @@ public:
 
 	// sets the player name, stores it on the server and publishes the changes to all friends who are online
 	virtual void SetPersonaName( const char *pchPersonaName ) = 0;
-	virtual SteamAPICall_t SetPersonaNameEx( const char *pchPersonaName, bool bSendCallback ) = 0;
 	virtual bool IsPersonaNameSet() = 0;
 
 	// gets the friend status of the current user
