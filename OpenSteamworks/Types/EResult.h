@@ -133,11 +133,15 @@ typedef enum EResult
 	k_EResultInsufficientFunds = 107,						// user doesn't have enough wallet funds to complete the action
 	k_EResultTooManyPending = 108,							// There are too many of this thing pending already
 
-
+	// Not yet documented EResults
 	k_EResultNoSiteLicensesFound = 109,						//
 	k_EResultNetworkSendExceeded = 110,						//
 	k_EResultAccountsNotFriends = 111,						//
 	k_EResultLimitedUserAccount = 112,						//
+	k_EResultCantRemoveItem = 113,							// Cant remove item
+	k_EResultAccountHasBeenDeleted = 114,					// Account has been deleted
+	k_EResultAccountHasAnExistingUserCancelledLicense = 115,// Account has an existing user cancelled license
+	k_EResultDeniedDueToCommunityCooldown = 116,			// Denied due to community cooldown
 } EResult;
 
 #endif // ERESULT_H

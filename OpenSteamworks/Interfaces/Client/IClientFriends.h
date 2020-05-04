@@ -74,7 +74,6 @@ public:
 	virtual const char *GetFriendGamePlayedExtraInfo( CSteamID steamIDFriend ) = 0;
 	STEAMWORKS_STRUCT_RETURN_1(CSteamID, GetFriendGameServer, CSteamID, steamIDFriend) /*virtual CSteamID GetFriendGameServer( CSteamID steamIDFriend ) = 0;*/
 	virtual EPersonaStateFlag GetFriendPersonaStateFlags( CSteamID steamIDFriend ) = 0;
-	virtual bool IsFriendGameOnConsole( CSteamID steamIDFriend ) = 0;
 	STEAMWORKS_STRUCT_RETURN_1(FriendSessionStateInfo_t, GetFriendSessionStateInfo, CSteamID, steamIDFriend) /*virtual FriendSessionStateInfo_t GetFriendSessionStateInfo( CSteamID steamIDFriend ) = 0;*/
 	virtual EUserRestriction GetFriendRestrictions( CSteamID steamIDFriend ) = 0;
 	virtual uint64 GetFriendBroadcastID( CSteamID steamIDFriend ) = 0;

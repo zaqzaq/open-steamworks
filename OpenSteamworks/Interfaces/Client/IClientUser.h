@@ -176,6 +176,7 @@ public:
 	virtual int32 NumGamesRunning() = 0;
 	STEAMWORKS_STRUCT_RETURN_1(CGameID, GetRunningGameID, int32, iGame) /*virtual CGameID GetRunningGameID( int32 iGame ) = 0;*/
 	virtual int32 GetRunningGamePID(int32) = 0;
+	virtual unknown_ret RaiseWindowForGame(CGameID gameID) = 0;
 	virtual uint32 GetAccountSecurityPolicyFlags() = 0;
 	virtual void SetClientStat( EClientStat eStat, int64 llValue, AppId_t nAppID, DepotId_t nDepotID, CellID_t nCellID ) = 0;
 	virtual void VerifyPassword( const char *pchPassword ) = 0;
@@ -188,8 +189,6 @@ public:
 	virtual AppId_t GetMicroTxnAppID( GID_t gidTransID ) = 0;
 	virtual uint64 GetMicroTxnOrderID( GID_t gidTransID ) = 0;
 	virtual bool BGetMicroTxnPrice( GID_t gidTransID, CAmount *pamtTotal, CAmount *pamtTax, bool *pbVat, CAmount * pUnk ) = 0;
-	virtual bool BGetMicroTxnBillingAddressValue(GID_t gidTransID, const char*, char*, uint32) = 0;
-	virtual bool BGetMicroTxnBillingAddressRequirements(GID_t gidTransID, bool*, bool*) = 0;
 	virtual int32 GetMicroTxnLineItemCount( GID_t gidTransID ) = 0;
 	virtual bool BGetMicroTxnLineItem( GID_t gidTransID, uint32 unLineItem, CAmount *pamt, uint32 *punQuantity, char *pchDescription, uint32 cubDescriptionLength, int32 *pRecurringTimeUnit, uint8 *pRecurringFrequency, CAmount *pRecurringAmount, bool * pbUnk ) = 0;
 	virtual bool BIsSandboxMicroTxn( GID_t gidTransID, bool* pbSandbox ) = 0;
@@ -224,6 +223,8 @@ public:
 	virtual bool GetEmailDomainFromLogonFailure( char * pchEmailDomain, int32 cbEmailDomain ) = 0;
 	virtual int64 GetDurationControl() = 0;
 	virtual unknown_ret GetDurationControlForApp( AppId_t nAppId ) = 0;
+	virtual bool BSetDurationControlOnlineState(EDurationControlOnlineState) = 0;
+	virtual bool BSetDurationControlOnlineStateForApp(EDurationControlOnlineState, AppId_t appID) = 0;
 	virtual bool BIsSubscribedApp( AppId_t nAppId ) = 0;
 	virtual uint32 GetSubscribedApps(AppId_t *, uint32, bool) = 0;
 	virtual SteamAPICall_t RegisterActivationCode( const char * pchActivationCode ) = 0;
@@ -285,6 +286,11 @@ public:
 	virtual bool BGetAppArrayMinutesPlayed( uint32*, int32, int32*, int32*) = 0;
 	virtual bool BGetAppsLastPlayedTime( uint32*, int32, uint32*) = 0;
 	virtual unknown_ret SendSteamServiceStatusUpdate(EResult eResult, ESteamServiceStatusUpdate eUnk) = 0;
+	virtual unknown_ret RequestSteamGroupChatMessageNotifications(uint64, uint64, EChatNotificationFormat) = 0;
+	virtual unknown_ret RequestSteamGroupChatMessageHistory(uint64, uint64, uint32) = 0;
+	virtual unknown_ret RequestSendSteamGroupChatMessage(uint64, uint64, uint32, char const*) = 0;
+	virtual unknown_ret OnNewGroupChatMsgAdded(uint64, uint64, uint32, uint32, uint32, char const*) = 0;
+	virtual unknown_ret OnReceivedGroupChatSubscriptionResponse(uint64, uint64, bool) = 0;
 };
 
 #endif // ICLIENTUSER_H

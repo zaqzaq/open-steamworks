@@ -267,6 +267,16 @@ enum ESteamServiceStatusUpdate
 	// TODO: Reverse this enum
 };
 
+enum EDurationControlOnlineState
+{
+	// TODO: Reverse this enum
+};
+
+enum EChatNotificationFormat
+{
+	// TODO: Reverse this enum
+};
+
 #pragma pack( push, 8 )
 //-----------------------------------------------------------------------------
 // Purpose: called when a connections to the Steam back-end has been established

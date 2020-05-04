@@ -214,6 +214,7 @@ enum EAppUpdateError
 	k_EAppUpdateErrorSteamClientOutOfDate, // Steam client out of date
 	k_EAppUpdateErrorAllowedPlaytimeExceeded, // Allowed playtime exceeded
 	k_EAppUpdateErrorSteamClientFilesCorrupt, // Steam client files corrupt
+	k_EAppUpdateErrorMissingGameFiles, // Missing game files
 };
 
 //-----------------------------------------------------------------------------
