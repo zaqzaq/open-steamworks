@@ -251,6 +251,7 @@ typedef enum EGCMessages
 	
 } EGCMessages;
 
+
 typedef enum ETFInitTradeResult
 {
 	k_ETFInitTradeResultOk,
@@ -300,6 +301,7 @@ struct GCMsgHeader_t
 	uint64 targetJobID;
 	uint64 sourceJobID;
 };
+
 
 struct SOMsgCacheSubscribed_t
 {
@@ -365,11 +367,10 @@ struct SOMsgCreate_t
 	SOMsgCacheSubscribed_Item_t item;
 };
 
-/*
-0100 ffffffffffffffffffffffffffffffff 86cf4e0001001001 01000000 76f0da0200000000 0105 0f000080
-0100 ffffffffffffffffffffffffffffffff 86cf4e0001001001 01000000 21ccd90200000000 0105 10000080
-0100 ffffffffffffffffffffffffffffffff 86cf4e0001001001 01000000 d069ea0200000000 0105 20000080
-*/
+
+// 0100 ffffffffffffffffffffffffffffffff 86cf4e0001001001 01000000 76f0da0200000000 0105 0f000080
+// 0100 ffffffffffffffffffffffffffffffff 86cf4e0001001001 01000000 21ccd90200000000 0105 10000080
+// 0100 ffffffffffffffffffffffffffffffff 86cf4e0001001001 01000000 d069ea0200000000 0105 20000080
 struct SOMsgUpdate_t
 {
 	enum { k_iMessage = k_ESOMsg_Update };
@@ -382,13 +383,12 @@ struct SOMsgUpdate_t
 	uint32 position;
 };
 
-/*
-0100 ffffffffffffffffffffffffffffffff 86cf4e0001001001 01000000 7f7e1b0200000000
-0100 ffffffffffffffffffffffffffffffff 86cf4e0001001001 01000000 5a77020200000000
-0100 ffffffffffffffffffffffffffffffff 86cf4e0001001001 01000000 bdbc1c0200000000
-0100 ffffffffffffffffffffffffffffffff 86cf4e0001001001 01000000 8885210200000000
-0100 ffffffffffffffffffffffffffffffff 86cf4e0001001001 01000000 e582e30100000000
-*/
+
+// 0100 ffffffffffffffffffffffffffffffff 86cf4e0001001001 01000000 7f7e1b0200000000
+// 0100 ffffffffffffffffffffffffffffffff 86cf4e0001001001 01000000 5a77020200000000
+// 0100 ffffffffffffffffffffffffffffffff 86cf4e0001001001 01000000 bdbc1c0200000000
+// 0100 ffffffffffffffffffffffffffffffff 86cf4e0001001001 01000000 8885210200000000
+// 0100 ffffffffffffffffffffffffffffffff 86cf4e0001001001 01000000 e582e30100000000
 struct SOMsgDeleted_t
 {
 	enum { k_iMessage = k_ESOMsg_Destroy };
@@ -399,12 +399,11 @@ struct SOMsgDeleted_t
 	uint64 itemid;
 };
 
-/*
-0100 ffffffffffffffffffffffffffffffff 76f0da0200000000 0f000080 00000000
-0100 ffffffffffffffffffffffffffffffff 21ccd90200000000 10000080 00000000
-0100 ffffffffffffffffffffffffffffffff cff9ea0200000000 42000080 00000000
-0100 ffffffffffffffffffffffffffffffff d069ea0200000000 20000080 00000000
-*/
+
+// 0100 ffffffffffffffffffffffffffffffff 76f0da0200000000 0f000080 00000000
+// 0100 ffffffffffffffffffffffffffffffff 21ccd90200000000 10000080 00000000
+// 0100 ffffffffffffffffffffffffffffffff cff9ea0200000000 42000080 00000000
+// 0100 ffffffffffffffffffffffffffffffff d069ea0200000000 20000080 00000000
 struct GCSetItemPosition_t
 {
 	enum { k_iMessage = k_EMsgGCSetItemPosition };
@@ -416,10 +415,8 @@ struct GCSetItemPosition_t
 };
 
 
-/*
-This one is 4 natasha
-0100 ffffffffffffffffffffffffffffffff 0700 0400 5a77020200000000 bdbc1c0200000000 8885210200000000 e582e30100000000
-*/
+// This one is 4 natasha
+// 0100 ffffffffffffffffffffffffffffffff 0700 0400 5a77020200000000 bdbc1c0200000000 8885210200000000 e582e30100000000
 struct GCCraft_t
 {
 	enum { k_iMessage = k_EMsgGCCraft };
@@ -432,9 +429,7 @@ struct GCCraft_t
 };
 
 
-/*
-0100 ffffffffffffffffffffffffffffffff 0700 0000000000000100 d069ea0200000000
-*/
+// 0100 ffffffffffffffffffffffffffffffff 0700 0000000000000100 d069ea0200000000
 struct GCCraftResponse_t
 {
 	enum { k_iMessage = k_EMsgGCCraftResponse };
@@ -446,9 +441,8 @@ struct GCCraftResponse_t
 };
 
 
-/*
-0100 ffffffffffffffffffffffffffffffff 7f7e1b0200000000
-*/
+
+// 0100 ffffffffffffffffffffffffffffffff 7f7e1b0200000000
 struct GCDelete_t
 {
 	enum { k_iMessage = k_EMsgGCDelete };
@@ -458,9 +452,7 @@ struct GCDelete_t
 };
 
 
-/*
-0100 ffffffffffffffffffffffffffffffff 86cf4e0001001001
-*/
+// 0100 ffffffffffffffffffffffffffffffff 86cf4e0001001001
 struct GCVerifyCacheSubscription_t
 {
 	enum { k_iMessage = k_EMsgGCVerifyCacheSubscription };
@@ -470,16 +462,14 @@ struct GCVerifyCacheSubscription_t
 };
 
 
-/*
-0100 ffffffffffffffffffffffffffffffff 28000000 4d61783637202846522900
-0100 ffffffffffffffffffffffffffffffff 29000000 54726962697400
-0100 ffffffffffffffffffffffffffffffff 2a000000 776973686d617374657200
-0100 ffffffffffffffffffffffffffffffff 2b000000 416d616e6f6f00
-0100 ffffffffffffffffffffffffffffffff 2c000000 7c4b47437c2047617920526f62696e00
-0100 ffffffffffffffffffffffffffffffff 2d000000 416e6164757200
-0100 ffffffffffffffffffffffffffffffff 2e000000 54686520436f726e62616c6c657200
-0100 ffffffffffffffffffffffffffffffff 2f000000 69736c6100
-*/
+// 0100 ffffffffffffffffffffffffffffffff 28000000 4d61783637202846522900
+// 0100 ffffffffffffffffffffffffffffffff 29000000 54726962697400
+// 0100 ffffffffffffffffffffffffffffffff 2a000000 776973686d617374657200
+// 0100 ffffffffffffffffffffffffffffffff 2b000000 416d616e6f6f00
+// 0100 ffffffffffffffffffffffffffffffff 2c000000 7c4b47437c2047617920526f62696e00
+// 0100 ffffffffffffffffffffffffffffffff 2d000000 416e6164757200
+// 0100 ffffffffffffffffffffffffffffffff 2e000000 54686520436f726e62616c6c657200
+// 0100 ffffffffffffffffffffffffffffffff 2f000000 69736c6100
 struct GCGoldenWrenchBroadcast_t
 {
 	enum { k_iMessage = k_EMsgGCGoldenWrenchBroadcast };
@@ -491,11 +481,10 @@ struct GCGoldenWrenchBroadcast_t
 	// char OwnerName[];
 };
 
-/*
-0100 ffffffffffffffffffffffffffffffff 00000000 02000000 
-0100 ffffffffffffffffffffffffffffffff 329d2d4c 02000000 
-0100 ffffffffffffffffffffffffffffffff e6c74e4c 02000000 
-*/
+
+// 0100 ffffffffffffffffffffffffffffffff 00000000 02000000 
+// 0100 ffffffffffffffffffffffffffffffff 329d2d4c 02000000 
+// 0100 ffffffffffffffffffffffffffffffff e6c74e4c 02000000 
 struct GCMOTDRequest_t
 {
 	enum { k_iMessage = k_EMsgGCMOTDRequest };
@@ -505,10 +494,9 @@ struct GCMOTDRequest_t
 	uint32 unk1;
 };
 
-/*
-0100 ffffffffffffffffffffffffffffffff 0000
-0100 ffffffffffffffffffffffffffffffff 0200 3100 30930e4c 436865636b6564206f75742074686520626c6f673f00 496620796f7520686176656e2774207265616420746865206f6666696369616c2054463220626c6f672c20697427732066756c6c206f6620696e73696768747320696e746f206f757220646576656c6f706d656e742070726f636573732c206c696e6b7320746f206e6f7461626c6520636f6d6d756e6974792070726f64756374696f6e732c20616e642072616e646f6d2073746f726965732061626f7574206f7572206c6f7665206f6620686174732e204869742074686520627574746f6e2062656c6f7720746f2074616b652061206c6f6f6b2100 687474703a5c5c7777772e7465616d666f7274726573732e636f6d5c00 3200 b0e52c4c 4f6666696369616c2057696b69206f70656e732100 576527766520726563656e746c79206f70656e65642074686520646f6f7273206f6e20746865204f6666696369616c205446322077696b692e20546865726520796f752063616e2066696e64206f75742065766572797468696e67205446322072656c617465642c2066726f6d20746865206e756d65726963616c206e75747320616e6420626f6c7473206f6620657665727920776561706f6e20746f2074686520656173746572206567677320696e7369646520746865204d65657420746865205465616d206d6f766965732e205468657927726520616c77617973206c6f6f6b696e6720666f72206d6f726520636f6e7472696275746f72732c20736f20776879206e6f742068656164206f76657220616e642068656c70207468656d3f00 687474703a5c5c77696b692e7465616d666f7274726573732e636f6d5c00
-*/
+
+// 0100 ffffffffffffffffffffffffffffffff 0000
+// 0100 ffffffffffffffffffffffffffffffff 0200 3100 30930e4c 436865636b6564206f75742074686520626c6f673f00 496620796f7520686176656e2774207265616420746865206f6666696369616c2054463220626c6f672c20697427732066756c6c206f6620696e73696768747320696e746f206f757220646576656c6f706d656e742070726f636573732c206c696e6b7320746f206e6f7461626c6520636f6d6d756e6974792070726f64756374696f6e732c20616e642072616e646f6d2073746f726965732061626f7574206f7572206c6f7665206f6620686174732e204869742074686520627574746f6e2062656c6f7720746f2074616b652061206c6f6f6b2100 687474703a5c5c7777772e7465616d666f7274726573732e636f6d5c00 3200 b0e52c4c 4f6666696369616c2057696b69206f70656e732100 576527766520726563656e746c79206f70656e65642074686520646f6f7273206f6e20746865204f6666696369616c205446322077696b692e20546865726520796f752063616e2066696e64206f75742065766572797468696e67205446322072656c617465642c2066726f6d20746865206e756d65726963616c206e75747320616e6420626f6c7473206f6620657665727920776561706f6e20746f2074686520656173746572206567677320696e7369646520746865204d65657420746865205465616d206d6f766965732e205468657927726520616c77617973206c6f6f6b696e6720666f72206d6f726520636f6e7472696275746f72732c20736f20776879206e6f742068656164206f76657220616e642068656c70207468656d3f00 687474703a5c5c77696b692e7465616d666f7274726573732e636f6d5c00
 struct GCMOTDRequestResponse_t
 {
 	enum { k_iMessage = k_EMsgGCMOTDRequestResponse };
@@ -529,14 +517,13 @@ struct GCMOTDRequestResponse_News_t
 	// char URL[];
 };
 
-/*
-These two messages were recently added to TF2 along with two convars (tf_server_identity_token and tf_server_identity_account_id)
-Every TF2 server is sent a GC_GameServer_AuthChallenge message on start up, by default the two convars are blank and the server does not respond to the challenge.
-If however the convars are set, it responds in the following manner:
-accountID is set to the value of the tf_server_identity_account_id convar.
-hash is set to the result of the md5 hash of the value of the tf_server_identity_token convar prepended to the salt recieved in the challenge.
-For example, if tf_server_identity_token was set to "Derp" and 4203408982 was the salt from the challenge, hash would be the md5 hash of "Derp4203408982"
-*/
+
+// These two messages were recently added to TF2 along with two convars (tf_server_identity_token and tf_server_identity_account_id)
+// Every TF2 server is sent a GC_GameServer_AuthChallenge message on start up, by default the two convars are blank and the server does not respond to the challenge.
+// If however the convars are set, it responds in the following manner:
+// accountID is set to the value of the tf_server_identity_account_id convar.
+// hash is set to the result of the md5 hash of the value of the tf_server_identity_token convar prepended to the salt recieved in the challenge.
+// For example, if tf_server_identity_token was set to "Derp" and 4203408982 was the salt from the challenge, hash would be the md5 hash of "Derp4203408982"
 struct GC_GameServer_AuthChallenge_t
 {
 	enum { k_iMessage = k_EMsgGC_GameServer_AuthChallenge };
@@ -584,7 +571,7 @@ struct GCTrading_InitiateTradeResponse_t
 	enum { k_iMessage = k_EMsgGCTrading_InitiateTradeResponse };
 	GCMsgHeader_t header;
 	
-	/*ETFInitTradeResult*/ uint32 result;
+	uint32 result; // ETFInitTradeResult
 	uint32 challenge; // When sending this message as a response, make sure to set this as the same value from the request.
 };
 
@@ -699,7 +686,8 @@ struct GCTrading_SessionClosed_t
 	enum { k_iMessage = k_EMsgGCTrading_SessionClosed };
 	GCMsgHeader_t header;
 	
-	/*ETFTradeResult*/ uint32 result;
+	//ETFTradeResult
+	uint32 result;
 };
 
 struct GCRespawnPostLoadoutChange_t
@@ -709,6 +697,7 @@ struct GCRespawnPostLoadoutChange_t
 	
 	CSteamID steamID;
 };
+
 
 #pragma pack(pop)
 

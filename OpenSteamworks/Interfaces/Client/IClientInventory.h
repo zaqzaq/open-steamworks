@@ -257,6 +257,21 @@ public:
 	// function to pull out the list of item definition ids that the user can be
 	// manually granted via the AddPromoItems() call.
 	virtual bool GetEligiblePromoItemDefinitionIDs(CSteamID steamID, SteamItemDef_t *pItemDefIDs, uint32 uUnk, uint32 *punItemDefIDsArraySize) = 0;
+
+
+	virtual SteamAPICall_t StartPurchase(const int32*, uint32, const uint32*, uint32) = 0;
+	virtual SteamAPICall_t RequestPrices() = 0;
+	virtual uint32 GetNumItemsWithPrices() = 0;
+	virtual bool GetItemsWithPrices(int32*, uint64*, uint64*, uint32) = 0;
+	virtual bool GetItemPrice(int32, uint64*, uint64*) = 0;
+	SteamInventoryUpdateHandle_t StartUpdateProperties();
+	bool RemoveProperty(SteamInventoryUpdateHandle_t handle, SteamItemInstanceID_t nItemID, const char* pchPropertyName);
+	bool SetProperty(SteamInventoryUpdateHandle_t handle, SteamItemInstanceID_t nItemID, const char *pchPropertyName, const char *pchPropertyValue);
+	bool SetProperty(SteamInventoryUpdateHandle_t handle, SteamItemInstanceID_t nItemID, const char *pchPropertyName, bool bValue);
+	bool SetProperty(SteamInventoryUpdateHandle_t handle, SteamItemInstanceID_t nItemID, const char *pchPropertyName, int64 nValue);
+	bool SetProperty(SteamInventoryUpdateHandle_t handle, SteamItemInstanceID_t nItemID, const char *pchPropertyName, float flValue);
+	bool SubmitUpdateProperties(SteamInventoryUpdateHandle_t handle, SteamInventoryResult_t* pResultHandle);
+	virtual unknown_ret InspectItem(int32*, const char*) = 0;
 };
 
 #endif // ICLIENTINVENTORY_H

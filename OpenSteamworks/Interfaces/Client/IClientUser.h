@@ -290,6 +290,7 @@ public:
 	virtual unknown_ret RequestSteamGroupChatMessageHistory(uint64, uint64, uint32) = 0;
 	virtual unknown_ret RequestSendSteamGroupChatMessage(uint64, uint64, uint32, char const*) = 0;
 	virtual unknown_ret OnNewGroupChatMsgAdded(uint64, uint64, uint32, uint32, uint32, char const*) = 0;
+	virtual unknown_ret OnGroupChatUserStateChange(uint64, uint32, int32) = 0;
 	virtual unknown_ret OnReceivedGroupChatSubscriptionResponse(uint64, uint64, bool) = 0;
 };
 

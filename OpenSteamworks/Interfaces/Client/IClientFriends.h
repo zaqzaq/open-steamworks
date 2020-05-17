@@ -305,6 +305,8 @@ public:
 	virtual unknown_ret SetFriendsUIActiveClanChatList( uint32* pUnk, int32 iUnk) = 0;
 	virtual int32 GetNumChatsWithUnreadPriorityMessages() = 0;
 	virtual void SetNumChatsWithUnreadPriorityMessages(int32 num) = 0;
+	virtual unknown_ret RegisterProtocolInOverlayBrowser(const char*) = 0;
+	virtual unknown_ret HandleProtocolForOverlayBrowser(uint32 uUnk, const char* pchUnk) = 0;
 };
 
 #endif // ICLIENTFRIENDS_H
