@@ -31,7 +31,8 @@ public:
 	virtual void FocusGained( CGameID gameID, bool ) = 0;
 	virtual void FocusLost( CGameID gameID ) = 0;
 	virtual void Finished( CGameID gameID, EResult eResult ) = 0;
-	virtual void SaveStreamingClientConfig( const char * ) = 0;
+	virtual bool BGetStreamingClientConfig(CUtlBuffer*) = 0;
+	virtual bool BSaveStreamingClientConfig(CUtlBuffer*) = 0;
 	virtual const char * GetSystemInfo() = 0;
 	virtual void StartStreamingSession( CGameID gameID ) = 0;
 	virtual void ReportStreamingSessionEvent( CGameID gameID, const char * ) = 0;

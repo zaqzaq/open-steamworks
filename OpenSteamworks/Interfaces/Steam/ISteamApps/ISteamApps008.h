@@ -85,6 +85,7 @@ public:
 
 	virtual unknown_ret GetLaunchCommandLine( char*, int32 iUnk ) = 0;
 	virtual bool BIsSubscribedFromFamilySharing() = 0;
+	virtual bool BIsTimedTrial(uint32*, uint32*) = 0;
 };
 
 #endif // ISTEAMAPPS008_H

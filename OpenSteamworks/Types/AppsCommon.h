@@ -253,6 +253,7 @@ enum EAppOwnershipFlags
 	k_EAppOwnershipFlagsSiteLicense			= 1 << 18,
 	k_EAppOwnershipFlagsLegacyFreeSub		= 1 << 19,
 	k_EAppOwnershipFlagsInvalidOSType		= 1 << 20,
+	k_EAppOwnershipFlagsTimedTrial			= 1 << 21
 };
 
 enum EAppReleaseState

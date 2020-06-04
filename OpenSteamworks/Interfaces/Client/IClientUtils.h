@@ -142,6 +142,7 @@ public:
 	virtual unknown_ret BGetMacAddresses(uint64*, uint32, uint32*) = 0;
 	virtual unknown_ret BGetDiskSerialNumber(char*, int32) = 0;
 	virtual unknown_ret TestHTTP(const char*) = 0;
+	virtual unknown_ret DumpJobs(const char*) = 0;
 };
 
 #endif // ICLIENTUTILS_H
