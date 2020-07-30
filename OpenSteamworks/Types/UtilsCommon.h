@@ -143,6 +143,11 @@ enum EBrowserType
 	// TODO: Reverse this enum
 };
 
+enum ETextFilteringContext
+{
+	// TODO: Reverse this enum
+};
+
 enum ESteamIPv6ConnectivityProtocol
 {
 	k_ESteamIPv6ConnectivityProtocolInvalid, // invalid

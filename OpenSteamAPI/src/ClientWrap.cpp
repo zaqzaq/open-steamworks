@@ -24,6 +24,8 @@ CreateInterfaceFn g_pClientCreateInterface = NULL;
 SteamBGetCallbackFn g_pSteamBGetCallback = NULL;
 SteamFreeLastCallbackFn g_pSteamFreeLastCallback = NULL;
 SteamGetAPICallResultFn g_pSteamGetAPICallResult = NULL;
+SteamReleaseThreadLocalMemoryFn g_pSteamReleaseThreadLocalMemory = NULL;
+
 
 bool LoadClientLibrary()
 {
@@ -44,6 +46,8 @@ bool LoadClientLibrary()
 		g_pSteamGetAPICallResult = (SteamGetAPICallResultFn)g_ClientLoader.GetSteamClientModule()->GetSymbol("Steam_GetAPICallResult");
 		if (!g_pSteamGetAPICallResult)
 			return false;
+
+		g_pSteamReleaseThreadLocalMemory = (SteamReleaseThreadLocalMemoryFn)g_ClientLoader.GetSteamClientModule()->GetSymbol("Steam_ReleaseThreadLocalMemory");
 
 		return true;
 	}
@@ -105,4 +109,12 @@ S_API bool STEAM_CALL Steam_GetAPICallResult(HSteamPipe hSteamPipe, SteamAPICall
 S_API void STEAM_CALL Steam_RunCallbacks(HSteamPipe hPipe, bool bGameServer)
 {
 	GCallbackMgr().RunCallbacks(hPipe, bGameServer);
+}
+
+S_API void STEAM_CALL Steam_ReleaseThreadLocalMemory(bool smth)
+{
+	if (g_pSteamReleaseThreadLocalMemory != NULL)
+	{
+		g_pSteamReleaseThreadLocalMemory(smth);
+	}
 }

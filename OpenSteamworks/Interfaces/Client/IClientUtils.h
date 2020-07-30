@@ -133,8 +133,8 @@ public:
 	virtual unknown_ret DispatchClientPostMessage(const char*, const char*, const char*) = 0;
 	virtual unknown_ret IsSteamChinaLauncher() = 0;
 	virtual unknown_ret NeedsSteamChinaWorkshop() = 0;
-	virtual unknown_ret InitFilterText(uint32) = 0;
-	virtual unknown_ret FilterText(uint32, char*, uint32, const char*, bool) = 0;
+	virtual unknown_ret InitFilterText(uint32, uint32) = 0;
+	virtual unknown_ret FilterText(uint32, ETextFilteringContext, CSteamID, const char*, char*, uint32) = 0;
 	virtual unknown_ret GetIPv6ConnectivityState( ESteamIPv6ConnectivityProtocol ) = 0;
 	virtual unknown_ret RecordSteamInterfaceCreation( const char*, const char* ) = 0;
 	virtual unknown_ret StartRuntimeInformationGathering() = 0;

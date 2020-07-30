@@ -341,6 +341,7 @@ typedef void (*SteamNotificationCallback_t)(ESteamNotify eEvent, unsigned int nD
 typedef bool (STEAM_CALL *SteamBGetCallbackFn)( int hpipe, void *pCallbackMsg );
 typedef void (STEAM_CALL *SteamFreeLastCallbackFn)( int hpipe );
 typedef bool (STEAM_CALL *SteamGetAPICallResultFn)( int hpipe, uint64 hSteamAPICall, void* pCallback, int cubCallback, int iCallbackExpected, bool* pbFailed );
+typedef void (STEAM_CALL *SteamReleaseThreadLocalMemoryFn)( bool );
 
 //-----------------------------------------------------------------------------
 // Purpose: Passed as argument to SteamAPI_UseBreakpadCrashHandler to enable optional callback
