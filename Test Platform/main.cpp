@@ -2,6 +2,8 @@
 
 #include "Steamworks.h"
 #include <time.h>
+#include <strsafe.h>
+//#include <shellapi.h>
 
 class TestClient
 {
@@ -23,6 +25,7 @@ private:
 	IClientEngine* m_pClientEngine;
 	IClientUser* m_pClientUser;
 	IClientFriends* m_pClientFriends;
+	IClientAppManager* m_pClientAppManager;
 
 	HSteamPipe m_hPipe;
 	HSteamUser m_hUser;
@@ -35,6 +38,10 @@ private:
 
 bool TestClient::Init()
 {
+
+	//SetEnvironmentVariableA("SteamAppId", "1097150");
+	//SetEnvironmentVariableA("SteamGameId", "1097150");
+
 	m_pClientEngine = (IClientEngine*)SteamInternal_CreateInterface(CLIENTENGINE_INTERFACE_VERSION);
 	if (!m_pClientEngine)
 	{
@@ -42,12 +49,13 @@ bool TestClient::Init()
 		return false;
 	}
 
-	m_hUser = m_pClientEngine->CreateLocalUser(&m_hPipe, k_EAccountTypeIndividual);
+	m_hUser = m_pClientEngine->CreateGlobalUser(&m_hPipe);
 	if (!m_hUser || !m_hPipe)
 	{
 		fprintf(stderr, "Unable to create the global user.\n");
 		return false;
 	}
+	//m_pClientEngine->CreatePipeToLocalUser(m_hUser, &m_hPipe);
 
 	m_pClientUser = (IClientUser*)m_pClientEngine->GetIClientUser(m_hUser, m_hPipe);
 	if (!m_pClientUser)
@@ -62,7 +70,12 @@ bool TestClient::Init()
 		fprintf(stderr, "Unable to get the client friends interface.\n");
 		return false;
 	}
-
+	m_pClientAppManager = (IClientAppManager*)m_pClientEngine->GetIClientAppManager(m_hUser, m_hPipe);
+	if (!m_pClientAppManager)
+	{
+		fprintf(stderr, "Unable to get the client appManager interface.\n");
+		return false;
+	}
 	return true;
 }
 
@@ -86,12 +99,27 @@ void TestClient::OnLoggedOn(SteamServersConnected_t* cbMsg)
 {
 	printf("TestClient::OnLoggedOn Logged in\n");
 	m_cbLoggedOn2.Register(this, &TestClient::OnLoggedOnManual);
+
+	//CHAR szBuf[MAX_PATH];
+	//StringCchPrintfA(szBuf, MAX_PATH, "steam://rungameid/%s", "1097150");
+	//ShellExecuteA(NULL, "open", szBuf, NULL, NULL, SW_SHOW);
+
+	//printf("TestClient::start Fall Guys\n");
+
 }
 
 void TestClient::OnLoggedOnManual(SteamServersConnected_t* cbMsg)
 {
 	printf("TestClient::OnLoggedOnManual Logged in\n");
 	m_pClientFriends->SetPersonaState(k_EPersonaStateOnline);
+	int32 appId = 1097150;
+	CGameID* gameID=new CGameID(appId);
+
+	DWORD ProcessID = GetCurrentProcessId();
+	EAppUpdateError appUpdateError = m_pClientAppManager->LaunchApp(*gameID,1, ProcessID,"");
+	delete(gameID);
+	printf("TestClient::start Fall Guys\n");
+	printf("%d",appUpdateError);
 }
 
 void TestClient::OnLogOnFailed(SteamServerConnectFailure_t* cbMsg)
@@ -137,6 +165,10 @@ int main()
 		return 1;
 	}
 
+	char szUsername[128] = "parmlf3017";
+	char szPassword[128] = "gf2A3L8Ye2Jl";
+
+	/*
 	char szUsername[128] = "";
 	char szPassword[128] = "";
 
@@ -151,7 +183,7 @@ int main()
 	{
 		szPassword[strlen(szPassword) - 1] = 0;
 	}
-
+*/
 	TestClient testClient;
 	if(!testClient.Init()) 
 	{
