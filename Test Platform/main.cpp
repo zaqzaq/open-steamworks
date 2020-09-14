@@ -9,9 +9,11 @@ class TestClient
 {
 public:
 	TestClient(): m_cbLoggedOn(this, &TestClient::OnLoggedOn),
-		m_cbLogOnfailed(this, &TestClient::OnLogOnFailed)
-	{
-	}
+		m_cbLogOnfailed(this, &TestClient::OnLogOnFailed),
+		m_cbAppInstallProgress(this, &TestClient::OnAppInstallProgress),
+		m_cbAppBackupStatus(this, &TestClient::OnAppBackupStatus)
+
+	{}
 
 	~TestClient() {}
 
@@ -34,6 +36,10 @@ private:
 	STEAM_CALLBACK(TestClient, OnLogOnFailed, SteamServerConnectFailure_t, m_cbLogOnfailed);
 
 	STEAM_CALLBACK_MANUAL(TestClient, OnLoggedOnManual, SteamServersConnected_t, m_cbLoggedOn2);
+
+	STEAM_CALLBACK(TestClient, OnAppInstallProgress, AppInfoUpdateProgress_t, m_cbAppInstallProgress);
+	STEAM_CALLBACK(TestClient, OnAppBackupStatus, AppBackupStatus_t, m_cbAppBackupStatus);
+
 };
 
 bool TestClient::Init()
@@ -49,7 +55,9 @@ bool TestClient::Init()
 		return false;
 	}
 
+	//m_hUser = m_pClientEngine->CreateLocalUser(&m_hPipe, k_EAccountTypeIndividual);
 	m_hUser = m_pClientEngine->CreateGlobalUser(&m_hPipe);
+
 	if (!m_hUser || !m_hPipe)
 	{
 		fprintf(stderr, "Unable to create the global user.\n");
@@ -76,6 +84,10 @@ bool TestClient::Init()
 		fprintf(stderr, "Unable to get the client appManager interface.\n");
 		return false;
 	}
+
+	//m_pClientEngine->RunFrame();
+	//m_pClientEngine->GetIClientApps(m_hUser, m_hPipe);
+
 	return true;
 }
 
@@ -99,12 +111,22 @@ void TestClient::OnLoggedOn(SteamServersConnected_t* cbMsg)
 {
 	printf("TestClient::OnLoggedOn Logged in\n");
 	m_cbLoggedOn2.Register(this, &TestClient::OnLoggedOnManual);
-
 	//CHAR szBuf[MAX_PATH];
 	//StringCchPrintfA(szBuf, MAX_PATH, "steam://rungameid/%s", "1097150");
 	//ShellExecuteA(NULL, "open", szBuf, NULL, NULL, SW_SHOW);
-
 	//printf("TestClient::start Fall Guys\n");
+
+}
+
+void TestClient::OnAppBackupStatus(AppBackupStatus_t* cbMsg) {
+
+	printf("APP:%d retult:%d,Install Progress :%d %d %d %d  \n",cbMsg->m_nAppID, cbMsg->m_eResult, cbMsg->m_unBytesFailed, cbMsg->m_unBytesProcessed, cbMsg->m_unBytesToProcess, cbMsg->m_unTotalBytesWritten);
+
+}
+
+void TestClient::OnAppInstallProgress(AppInfoUpdateProgress_t* cbMsg) {
+
+	printf("Install Progress :%d %d %d %d  \n", cbMsg->m_cAppsRequested, cbMsg->m_cPackagesRequested, cbMsg->m_cAppsUpdated, cbMsg->m_cPackagesUpdated);
 
 }
 
@@ -112,14 +134,62 @@ void TestClient::OnLoggedOnManual(SteamServersConnected_t* cbMsg)
 {
 	printf("TestClient::OnLoggedOnManual Logged in\n");
 	m_pClientFriends->SetPersonaState(k_EPersonaStateOnline);
-	int32 appId = 1097150;
-	CGameID* gameID=new CGameID(appId);
+	
+	printf("start call install APP:%d  \n", 730);
+	EAppUpdateError appUpdateError = m_pClientAppManager->InstallApp(730,1,true);
+	printf("end call install APP:%d res:%d \n", 730, appUpdateError);
 
-	DWORD ProcessID = GetCurrentProcessId();
-	EAppUpdateError appUpdateError = m_pClientAppManager->LaunchApp(*gameID,1, ProcessID,"");
+	//uint32  downloadingAppID=m_pClientAppManager->GetDownloadingAppID();
+	//printf("downloading App ID:%d \n", downloadingAppID);
+
+	/*
+	AppUpdateInfo_s pAppUpdateInfo_s;
+	while (true) {
+		m_pClientAppManager->GetUpdateInfo(730, &pAppUpdateInfo_s);
+
+		printf("TestClient::GetUpdateInfo %I64d  %I64d   %I64d  %I64d %I64d   %lld \n", pAppUpdateInfo_s.m_unBytesDownloaded, pAppUpdateInfo_s.m_unBytesToDownload,  pAppUpdateInfo_s.m_unBytesProcessed,  pAppUpdateInfo_s.m_unBytesToProcess,  pAppUpdateInfo_s.m_timeUpdateStart,pAppUpdateInfo_s.m_unEstimatedSecondsRemaining);
+		Sleep(5000);
+
+	}
+
+	DownloadStats_s pDownloadStats;
+	m_pClientAppManager->GetDownloadStats(&pDownloadStats);
+	while (true) {
+		int downKbps = m_pClientAppManager->GetDownloadThrottleRateKbps(true);
+		m_pClientAppManager->GetDownloadStats(&pDownloadStats);
+		printf("TestClient::GetDownloadStats %I64d  %I64d   %I64d  %I64d kbps\n", pDownloadStats.m_unTotalBytesDownload, pDownloadStats.m_unBandwidthUsage, pDownloadStats.m_unCurrentConnections,downKbps);
+
+		Sleep(1000);
+	}
+	
+
+	//DWORD ProcessID = GetCurrentProcessId();
+	/*
+	int32 appId = 730;
+	CGameID* gameID = new CGameID(appId);
+	appUpdateError = m_pClientAppManager->LaunchApp(*gameID, 1, 0, "");
 	delete(gameID);
+
+	if (appUpdateError == k_EAppUpdateErrorNoError) {
+		printf("start APP:%d Success \n", appId);
+	}
+	else {
+		printf("appUpdateError:%d \n", appUpdateError);
+	}*/
+
+
+	/*int32 appId = 1097150;
+	CGameID* gameID = new CGameID(appId);
+	appUpdateError = m_pClientAppManager->LaunchApp(*gameID,1, 0,"");
+	delete(gameID);
+
 	printf("TestClient::start Fall Guys\n");
-	printf("%d",appUpdateError);
+	if (appUpdateError== k_EAppUpdateErrorNoError) {
+		printf("start APP:%d Success \n", appId);
+	}
+	else {
+		printf("appUpdateError:%d \n", appUpdateError);
+	}*/
 }
 
 void TestClient::OnLogOnFailed(SteamServerConnectFailure_t* cbMsg)
