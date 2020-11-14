@@ -135,9 +135,11 @@ void TestClient::OnLoggedOnManual(SteamServersConnected_t* cbMsg)
 	printf("TestClient::OnLoggedOnManual Logged in\n");
 	m_pClientFriends->SetPersonaState(k_EPersonaStateOnline);
 	
+	/*
 	printf("start call install APP:%d  \n", 730);
 	EAppUpdateError appUpdateError = m_pClientAppManager->InstallApp(730,1,true);
 	printf("end call install APP:%d res:%d \n", 730, appUpdateError);
+	*/
 
 	//uint32  downloadingAppID=m_pClientAppManager->GetDownloadingAppID();
 	//printf("downloading App ID:%d \n", downloadingAppID);
@@ -178,9 +180,9 @@ void TestClient::OnLoggedOnManual(SteamServersConnected_t* cbMsg)
 	}*/
 
 
-	/*int32 appId = 1097150;
+	int32 appId = 1097150;
 	CGameID* gameID = new CGameID(appId);
-	appUpdateError = m_pClientAppManager->LaunchApp(*gameID,1, 0,"");
+	EAppUpdateError appUpdateError = m_pClientAppManager->LaunchApp(*gameID,1, 0,"");
 	delete(gameID);
 
 	printf("TestClient::start Fall Guys\n");
@@ -189,7 +191,7 @@ void TestClient::OnLoggedOnManual(SteamServersConnected_t* cbMsg)
 	}
 	else {
 		printf("appUpdateError:%d \n", appUpdateError);
-	}*/
+	}
 }
 
 void TestClient::OnLogOnFailed(SteamServerConnectFailure_t* cbMsg)
